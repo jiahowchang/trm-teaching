@@ -2058,7 +2058,14 @@ function shareLine() {
 }
 
 function shareEmail() {
-  window.location.href = 'mailto:?subject=TRM%20團隊資源管理%20教學網站&body=' + encodeURIComponent('新竹台大分院急診醫學部 TRM 教學網站：\n' + SITE_URL);
+  const subject = encodeURIComponent('TRM 團隊資源管理 教學網站');
+  const body = encodeURIComponent('新竹台大分院急診醫學部 TRM 教學網站：\n' + SITE_URL);
+  const a = document.createElement('a');
+  a.href = 'mailto:?subject=' + subject + '&body=' + body;
+  a.style.display = 'none';
+  document.body.appendChild(a);
+  a.click();
+  setTimeout(() => document.body.removeChild(a), 300);
 }
 
 function copyLink() {
