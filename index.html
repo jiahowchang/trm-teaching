@@ -735,7 +735,7 @@
     </div>
     <div class="share-actions">
       <button class="share-action-btn line" onclick="shareLine()">LINE</button>
-      <a class="share-action-btn email" id="emailBtn" href="#">Email</a>
+      <a class="share-action-btn email" id="emailBtn" href="#" target="_blank" rel="noopener">Email</a>
       <button class="share-action-btn copy" id="copyBtn" onclick="copyLink()">Copy Link</button>
     </div>
   </div>
@@ -2044,10 +2044,11 @@ function openShare() {
   // Generate QR via free API
   const qr = document.getElementById('qrImg');
   qr.src = 'https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=' + encodeURIComponent(SITE_URL);
-  // Set mailto href directly on the anchor so browser handles it natively
+  // Set Gmail compose URL — works on any device without a native mail app
   const subject = encodeURIComponent('TRM 團隊資源管理 教學網站');
   const body = encodeURIComponent('新竹台大分院急診醫學部 TRM 教學網站：\n' + SITE_URL);
-  document.getElementById('emailBtn').href = 'mailto:?subject=' + subject + '&body=' + body;
+  const gmailUrl = 'https://mail.google.com/mail/?view=cm&su=' + subject + '&body=' + body;
+  document.getElementById('emailBtn').href = gmailUrl;
 }
 
 function closeShare() {
