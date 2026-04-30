@@ -514,11 +514,25 @@
   table.styled-table tr:last-child td { border-bottom: none; }
   table.styled-table tr:nth-child(even) td { background: #f8fafc; }
 
+  /* ── Header right area ── */
+  .header-right {
+    position: fixed;
+    top: 10px;
+    right: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+    z-index: 200;
+  }
+  .author-label {
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.55);
+    white-space: nowrap;
+  }
+
   /* ── Share button ── */
   .share-btn {
-    position: fixed;
-    top: 14px;
-    right: 14px;
     background: rgba(255,255,255,0.15);
     color: white;
     border: 1px solid rgba(255,255,255,0.3);
@@ -526,7 +540,6 @@
     padding: 6px 12px;
     font-size: 0.8rem;
     cursor: pointer;
-    z-index: 200;
   }
   .share-btn:hover { background: rgba(255,255,255,0.25); }
 
@@ -610,15 +623,16 @@
 </head>
 <body>
 
-<button class="share-btn" onclick="alert('分享功能開發中')">📤 分享</button>
+<div class="header-right">
+  <button class="share-btn" onclick="alert('分享功能開發中')">📤 分享</button>
+  <div class="author-label">網站作者：急診醫學部 張家豪醫師</div>
+</div>
 
 <!-- Header -->
 <header class="site-header">
   <div class="header-inst">國立臺灣大學醫學院附設醫院新竹臺大分院 急診醫學部</div>
   <div class="header-title">TRM 團隊資源管理</div>
   <div class="header-sub">Team Resource Management</div>
-  <div class="header-audience">適用對象：急診醫師、住院醫師、護理師、醫學生及 PGY 實習醫師</div>
-  <div style="font-size:0.72rem;opacity:0.55;margin-top:4px">網站作者：急診醫學部 張家豪醫師</div>
 </header>
 
 <!-- Tab Navigation -->
