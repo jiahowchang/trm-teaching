@@ -1,0 +1,1912 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TRM 團隊資源管理 | 新竹台大分院急診醫學部</title>
+<style>
+  :root {
+    --primary: #1a3a5c;
+    --secondary: #0077b6;
+    --accent: #00b4d8;
+    --teal: #0096c7;
+    --light-blue: #caf0f8;
+    --purple: #6d28d9;
+    --red: #dc2626;
+    --green: #059669;
+    --yellow: #d97706;
+    --gray-bg: #f8fafc;
+    --card-bg: #ffffff;
+    --border: #e2e8f0;
+    --text: #1e293b;
+    --text-muted: #64748b;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
+    background: var(--gray-bg);
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* ── Header ── */
+  .site-header {
+    background: linear-gradient(135deg, var(--primary) 0%, #0c2340 100%);
+    color: white;
+    padding: 20px 24px 16px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+  }
+  .header-inst {
+    font-size: 12px;
+    opacity: 0.75;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+  }
+  .header-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  .header-sub {
+    font-size: 0.85rem;
+    opacity: 0.8;
+    margin-top: 2px;
+  }
+  .header-audience {
+    font-size: 0.78rem;
+    opacity: 0.65;
+    margin-top: 6px;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    padding-top: 6px;
+  }
+
+  /* ── Tab Nav ── */
+  .tab-nav {
+    display: flex;
+    background: var(--primary);
+    border-top: 1px solid rgba(255,255,255,0.1);
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .tab-nav::-webkit-scrollbar { display: none; }
+  .tab-btn {
+    flex: 1;
+    min-width: 80px;
+    padding: 10px 8px;
+    border: none;
+    background: transparent;
+    color: rgba(255,255,255,0.65);
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    border-bottom: 3px solid transparent;
+    white-space: nowrap;
+  }
+  .tab-btn:hover { color: white; background: rgba(255,255,255,0.08); }
+  .tab-btn.active {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+    background: rgba(0,180,216,0.1);
+  }
+
+  /* ── Content ── */
+  .tab-content { display: none; padding: 20px 16px 80px; max-width: 900px; margin: 0 auto; }
+  .tab-content.active { display: block; }
+
+  /* ── Section heading ── */
+  .section-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin: 24px 0 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--accent);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* ── Cards ── */
+  .card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 18px;
+    margin-bottom: 14px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    border-left: 4px solid var(--secondary);
+  }
+  .card.green { border-left-color: var(--green); }
+  .card.purple { border-left-color: var(--purple); }
+  .card.yellow { border-left-color: var(--yellow); }
+  .card.red { border-left-color: var(--red); }
+  .card.teal { border-left-color: var(--teal); }
+
+  .card-title {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--primary);
+  }
+  .card-sub {
+    font-size: 0.8rem;
+    color: var(--secondary);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+  }
+
+  /* ── Alert box ── */
+  .alert {
+    background: #fef2f2;
+    border: 1px solid #fca5a5;
+    border-left: 4px solid var(--red);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 16px;
+    font-size: 0.88rem;
+    color: #7f1d1d;
+  }
+  .alert-blue {
+    background: #eff6ff;
+    border: 1px solid #93c5fd;
+    border-left: 4px solid var(--secondary);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 16px;
+    font-size: 0.88rem;
+    color: #1e3a5f;
+  }
+  .alert-green {
+    background: #f0fdf4;
+    border: 1px solid #86efac;
+    border-left: 4px solid var(--green);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 16px;
+    font-size: 0.88rem;
+    color: #14532d;
+  }
+
+  /* ── Grid ── */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+  @media(max-width: 640px) {
+    .grid-2, .grid-3 { grid-template-columns: 1fr; }
+  }
+
+  /* ── Metric cards ── */
+  .metric-card {
+    background: white;
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  }
+  .metric-label { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 4px; }
+  .metric-value { font-size: 1.8rem; font-weight: 800; color: var(--secondary); }
+  .metric-unit { font-size: 0.7rem; color: var(--text-muted); }
+
+  /* ── Pill badge ── */
+  .badge {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 20px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    margin: 2px;
+  }
+  .badge-blue { background: #dbeafe; color: #1e40af; }
+  .badge-green { background: #dcfce7; color: #166534; }
+  .badge-purple { background: #ede9fe; color: #5b21b6; }
+  .badge-yellow { background: #fef3c7; color: #92400e; }
+  .badge-red { background: #fee2e2; color: #991b1b; }
+
+  /* ── List ── */
+  ul.styled { padding-left: 0; list-style: none; }
+  ul.styled li {
+    padding: 6px 0 6px 22px;
+    position: relative;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.9rem;
+  }
+  ul.styled li:last-child { border-bottom: none; }
+  ul.styled li::before {
+    content: '▸';
+    position: absolute;
+    left: 4px;
+    color: var(--accent);
+    font-size: 0.8rem;
+  }
+
+  /* ── Checklist ── */
+  .checklist-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+    user-select: none;
+  }
+  .checklist-item:last-child { border-bottom: none; }
+  .checklist-item input[type="checkbox"] { margin-top: 3px; width: 16px; height: 16px; cursor: pointer; accent-color: var(--secondary); flex-shrink: 0; }
+  .checklist-item label { cursor: pointer; font-size: 0.9rem; }
+  .checklist-item.checked label { text-decoration: line-through; color: var(--text-muted); }
+
+  /* ── Accordion ── */
+  .accordion { margin-bottom: 10px; border-radius: 10px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
+  .accordion-header {
+    background: white;
+    padding: 14px 18px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+    color: var(--primary);
+    border-left: 4px solid var(--secondary);
+    transition: background 0.2s;
+  }
+  .accordion-header:hover { background: #f1f5f9; }
+  .accordion-header.active { background: #eff6ff; border-left-color: var(--accent); }
+  .accordion-body {
+    display: none;
+    background: #f8fafc;
+    padding: 14px 18px;
+    font-size: 0.9rem;
+    border-left: 4px solid var(--border);
+  }
+  .accordion-body.open { display: block; }
+  .accordion-arrow { font-size: 0.8rem; transition: transform 0.2s; }
+  .accordion-header.active .accordion-arrow { transform: rotate(180deg); }
+
+  /* ── Acronym card ── */
+  .acronym-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .acronym-row:last-child { border-bottom: none; }
+  .acronym-letter {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: var(--secondary);
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .acronym-letter.green { background: var(--green); }
+  .acronym-letter.purple { background: var(--purple); }
+  .acronym-letter.yellow { background: var(--yellow); }
+  .acronym-letter.red { background: var(--red); }
+  .acronym-letter.teal { background: var(--teal); }
+  .acronym-content .acronym-word { font-weight: 700; font-size: 0.95rem; color: var(--primary); }
+  .acronym-content .acronym-desc { font-size: 0.85rem; color: var(--text-muted); margin-top: 2px; }
+
+  /* ── Step flow ── */
+  .step-flow { display: flex; flex-direction: column; gap: 0; }
+  .step-item {
+    display: flex;
+    gap: 14px;
+    position: relative;
+  }
+  .step-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 18px;
+    top: 36px;
+    bottom: 0;
+    width: 2px;
+    background: var(--border);
+  }
+  .step-num {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--secondary);
+    color: white;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    z-index: 1;
+    font-size: 0.9rem;
+  }
+  .step-body { padding-bottom: 20px; }
+  .step-title { font-weight: 700; color: var(--primary); margin-bottom: 4px; }
+  .step-desc { font-size: 0.88rem; color: var(--text-muted); }
+
+  /* ── Case scenario ── */
+  .scenario-box {
+    background: #f0f9ff;
+    border: 1px solid #bae6fd;
+    border-radius: 10px;
+    padding: 16px;
+    margin-bottom: 14px;
+  }
+  .scenario-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--secondary);
+    margin-bottom: 6px;
+  }
+  .scenario-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 8px;
+  }
+  .dialog-box {
+    background: white;
+    border-radius: 8px;
+    padding: 12px;
+    margin: 8px 0;
+    border-left: 3px solid var(--accent);
+    font-size: 0.88rem;
+    font-style: italic;
+    color: #374151;
+  }
+
+  /* ── Framework diagram ── */
+  .framework-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+  }
+  .framework-circle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    font-weight: 700;
+    font-size: 0.75rem;
+    line-height: 1.3;
+    box-shadow: 0 4px 20px rgba(245,158,11,0.4);
+    padding: 10px;
+  }
+  .framework-pieces {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    width: 100%;
+    margin: 16px 0;
+  }
+  .framework-piece {
+    background: white;
+    border-radius: 10px;
+    padding: 14px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    border-top: 3px solid var(--secondary);
+  }
+  .framework-piece.c1 { border-top-color: #0077b6; }
+  .framework-piece.c2 { border-top-color: #6d28d9; }
+  .framework-piece.c3 { border-top-color: #059669; }
+  .framework-piece.c4 { border-top-color: #d97706; }
+  .framework-piece-title { font-weight: 700; font-size: 0.9rem; color: var(--primary); margin-bottom: 4px; }
+  .framework-piece-sub { font-size: 0.75rem; color: var(--text-muted); }
+
+  /* ── Reset button ── */
+  .btn-reset {
+    background: transparent;
+    border: 1px solid var(--border);
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+  }
+  .btn-reset:hover { background: var(--border); }
+
+  /* ── Intro banner ── */
+  .intro-banner {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  .intro-banner h2 { font-size: 1.1rem; margin-bottom: 6px; }
+  .intro-banner p { font-size: 0.88rem; opacity: 0.9; line-height: 1.6; }
+
+  /* ── Timeline (三部曲) ── */
+  .trio {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+  }
+  @media(max-width: 640px) { .trio { grid-template-columns: 1fr; } }
+  .trio-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+  .trio-header {
+    padding: 12px 16px;
+    color: white;
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+  .trio-header.b1 { background: var(--secondary); }
+  .trio-header.b2 { background: var(--teal); }
+  .trio-header.b3 { background: var(--purple); }
+  .trio-body { padding: 14px 16px; font-size: 0.85rem; }
+  .trio-body ul { padding-left: 16px; }
+  .trio-body li { margin-bottom: 4px; }
+
+  /* ── Simulation timeline ── */
+  .sim-phase {
+    background: white;
+    border-radius: 10px;
+    padding: 16px;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .sim-phase-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+  .sim-phase-icon.blue { background: #dbeafe; }
+  .sim-phase-icon.green { background: #dcfce7; }
+  .sim-phase-icon.purple { background: #ede9fe; }
+  .sim-phase-icon.yellow { background: #fef3c7; }
+  .sim-phase-title { font-weight: 700; font-size: 0.95rem; color: var(--primary); margin-bottom: 4px; }
+  .sim-phase-desc { font-size: 0.85rem; color: var(--text-muted); }
+
+  /* ── Table ── */
+  table.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    margin-bottom: 14px;
+  }
+  table.styled-table th {
+    background: var(--primary);
+    color: white;
+    padding: 10px 14px;
+    text-align: left;
+    font-size: 0.8rem;
+  }
+  table.styled-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  table.styled-table tr:last-child td { border-bottom: none; }
+  table.styled-table tr:nth-child(even) td { background: #f8fafc; }
+
+  /* ── Share button ── */
+  .share-btn {
+    position: fixed;
+    top: 14px;
+    right: 14px;
+    background: rgba(255,255,255,0.15);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    z-index: 200;
+  }
+  .share-btn:hover { background: rgba(255,255,255,0.25); }
+
+  /* ── Bottom nav bar ── */
+  .bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--primary);
+    display: flex;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    z-index: 100;
+  }
+  .bottom-nav-btn {
+    flex: 1;
+    padding: 10px 6px;
+    border: none;
+    background: transparent;
+    color: rgba(255,255,255,0.6);
+    font-size: 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+  }
+  .bottom-nav-btn .icon { font-size: 1.2rem; }
+  .bottom-nav-btn:hover { color: white; background: rgba(255,255,255,0.08); }
+  .bottom-nav-btn.active { color: var(--accent); }
+
+  /* ── Tag pills for ACLS ── */
+  .tag-group { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+  .tag {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.2s;
+  }
+  .tag-awareness { background: #dbeafe; color: #1e40af; border-color: #bfdbfe; }
+  .tag-communication { background: #dcfce7; color: #166534; border-color: #bbf7d0; }
+  .tag-leadership { background: #ede9fe; color: #5b21b6; border-color: #ddd6fe; }
+  .tag-support { background: #fef3c7; color: #92400e; border-color: #fde68a; }
+
+  /* ── ACLS sub-tabs ── */
+  .sub-tab-nav {
+    display: flex;
+    gap: 8px;
+    margin: 16px 0 12px;
+    flex-wrap: wrap;
+  }
+  .sub-tab-btn {
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 2px solid var(--border);
+    background: white;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: var(--text-muted);
+  }
+  .sub-tab-btn.active { border-color: var(--secondary); background: var(--secondary); color: white; }
+  .sub-tab-btn.a1.active { border-color: #1d4ed8; background: #1d4ed8; }
+  .sub-tab-btn.a2.active { border-color: #059669; background: #059669; }
+  .sub-tab-btn.a3.active { border-color: #7c3aed; background: #7c3aed; }
+  .sub-tab-btn.a4.active { border-color: #d97706; background: #d97706; }
+  .sub-panel { display: none; }
+  .sub-panel.active { display: block; }
+
+  /* print */
+  @media print {
+    .share-btn, .bottom-nav, .tab-nav { display: none; }
+    .tab-content { display: block !important; }
+  }
+</style>
+</head>
+<body>
+
+<button class="share-btn" onclick="alert('分享功能開發中')">📤 分享</button>
+
+<!-- Header -->
+<header class="site-header">
+  <div class="header-inst">國立臺灣大學醫學院附設醫院新竹臺大分院 急診醫學部</div>
+  <div class="header-title">TRM 團隊資源管理</div>
+  <div class="header-sub">Team Resource Management</div>
+  <div class="header-audience">適用對象：急診醫師、住院醫師、護理師、醫學生及 PGY 實習醫師</div>
+</header>
+
+<!-- Tab Navigation -->
+<nav class="tab-nav">
+  <button class="tab-btn active" onclick="switchTab('tab1', this)">🏛 TRM概論</button>
+  <button class="tab-btn" onclick="switchTab('tab2', this)">⚡ 急救三部曲</button>
+  <button class="tab-btn" onclick="switchTab('tab3', this)">🔑 ACLS核心</button>
+  <button class="tab-btn" onclick="switchTab('tab4', this)">🎭 場景應用</button>
+  <button class="tab-btn" onclick="switchTab('tab5', this)">🏥 原位模擬</button>
+</nav>
+
+<!-- ════════════════ TAB 1: TRM概論 ════════════════ -->
+<div id="tab1" class="tab-content active">
+
+  <div class="intro-banner">
+    <h2>🚨 為什麼需要 TRM？</h2>
+    <p>醫療失誤往往導致嚴重後果，分析顯示<strong>人為失誤是造成醫療事故的主要原因</strong>，其中<strong>團隊成員間的溝通不良佔極大比例</strong>。TRM 的導入對於提升醫療品質和病人安全具有舉足輕重的作用。</p>
+  </div>
+
+  <div class="section-title">🌐 TRM 的定義與起源</div>
+
+  <div class="card">
+    <div class="card-sub">定義</div>
+    <div class="card-title">團隊資源管理 (Team Resource Management, TRM)</div>
+    <p style="font-size:0.9rem">一種有效運用所有可用資源（包括人員、設備、資訊等）以達成最高水準安全與效率的管理方法。</p>
+  </div>
+
+  <div class="step-flow" style="margin-bottom:20px">
+    <div class="step-item">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-title">✈️ 起源於航空業 CRM</div>
+        <div class="step-desc">組員資源管理 (Crew Resource Management)，旨在透過提升機組人員間溝通與協作、減少人為失誤、提高飛行安全。</div>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-title">🏥 引入醫療界（2000年代初）</div>
+        <div class="step-desc">由美國醫療品質與研究機構 (AHRQ) 發展為 TeamSTEPPS，演變為醫療團隊資源管理 (HTRM / TRM)。</div>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="step-title">🇹🇼 台灣推廣（2006年起）</div>
+        <div class="step-desc">由衛福部邀請 AHRQ 專家來台培訓本土種子師資，逐步將 TRM 理念與實踐推廣至台灣醫療界。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title">📊 TeamSTEPPS 框架</div>
+
+  <div class="alert-blue">
+    <strong>💡 核心理念：</strong>TeamSTEPPS 是一套以實證為基礎的框架，藉由四大可學習技能，優化跨專業醫療團隊的表現與病人安全。
+  </div>
+
+  <div class="framework-pieces">
+    <div class="framework-piece c1">
+      <div style="font-size:1.6rem;margin-bottom:6px">📡</div>
+      <div class="framework-piece-title">溝通<br>Communication</div>
+      <div class="framework-piece-sub">訊息清楚、準確地在團隊成員間交換</div>
+    </div>
+    <div class="framework-piece c2">
+      <div style="font-size:1.6rem;margin-bottom:6px">👑</div>
+      <div class="framework-piece-title">領導<br>Team Leadership</div>
+      <div class="framework-piece-sub">確保行動被理解、資訊被共享、資源被分配</div>
+    </div>
+    <div class="framework-piece c3">
+      <div style="font-size:1.6rem;margin-bottom:6px">👁</div>
+      <div class="framework-piece-title">警覺<br>Situation Monitoring</div>
+      <div class="framework-piece-sub">主動掃描評估情境，維持對當前狀況的準確理解</div>
+    </div>
+    <div class="framework-piece c4">
+      <div style="font-size:1.6rem;margin-bottom:6px">🤝</div>
+      <div class="framework-piece-title">互助<br>Mutual Support</div>
+      <div class="framework-piece-sub">預測並支援隊員需求，分擔工作負荷</div>
+    </div>
+  </div>
+
+  <div class="section-title">🎯 TRM 在醫療領域的重要性</div>
+
+  <div class="card">
+    <div class="card-title">🚫 減少醫療錯誤</div>
+    <p style="font-size:0.88rem">透過標準化溝通模式、情境意識的建立及有效的決策過程，減少因人為因素和團隊協作問題導致的錯誤。</p>
+    <div class="tag-group" style="margin-top:8px">
+      <span class="badge badge-blue">SBAR</span>
+      <span class="badge badge-blue">Two-Challenge Rule</span>
+      <span class="badge badge-blue">Check-Back</span>
+    </div>
+  </div>
+
+  <div class="card green">
+    <div class="card-title">🛡️ 提升病人安全</div>
+    <p style="font-size:0.88rem">TRM 訓練能有效提升醫療團隊的整體執行力與應變能力，使團隊成員在緊急情況下保持冷靜、協同合作，迅速做出正確判斷。</p>
+  </div>
+
+  <div class="card purple">
+    <div class="card-title">⚡ 改善醫療品質與效率</div>
+    <p style="font-size:0.88rem">TRM 鼓勵團隊成員充分利用所有可用資源，透過優化團隊協作流程，提高工作效率、縮短病人等待時間，並提供更連貫、高品質的醫療服務。</p>
+  </div>
+
+  <div class="card yellow">
+    <div class="card-title">🌟 建立共同價值觀與團隊文化</div>
+    <p style="font-size:0.88rem">TRM 訓練不僅傳授實用技巧，更重要的是培養團隊成員的共同目標感和相互信任的文化。當團隊成員對任務有共同的理解 (Shared Mental Model) 並願意相互支持 (Mutual Support) 時，團隊的凝聚力與應變能力將大幅提升。</p>
+  </div>
+
+  <div class="section-title">📋 四大核心能力成果</div>
+  <table class="styled-table">
+    <tr><th>層面</th><th>目標成果</th></tr>
+    <tr><td><span class="badge badge-blue">Knowledge 知識</span></td><td>Shared Mental Model（心智共享模式）</td></tr>
+    <tr><td><span class="badge badge-green">Attitudes 態度</span></td><td>Mutual Trust（相互信任）、Team Orientation（團隊導向）</td></tr>
+    <tr><td><span class="badge badge-purple">Performance 表現</span></td><td>適應性、準確性、生產力、效率、安全性、高可靠性</td></tr>
+    <tr><td><span class="badge badge-yellow">Sustainability 永續</span></td><td>建立持久的安全文化（Enduring Culture of Safety）</td></tr>
+  </table>
+
+</div>
+
+<!-- ════════════════ TAB 2: 急救三部曲 ════════════════ -->
+<div id="tab2" class="tab-content">
+
+  <div class="intro-banner">
+    <h2>⚡ 急救三部曲：ACLS 的三個層次</h2>
+    <p>ACLS 不只是知識，更是<strong>團隊協作</strong>的展現。從知識（Knowledge）→ 角色（Team）→ 團隊合作（Teamwork），三步驟整合出高效急救能力。</p>
+  </div>
+
+  <!-- ACLS 三步驟大圖 -->
+  <div class="section-title">🔤 ACLS 的三層意義</div>
+
+  <div style="background:white;border-radius:14px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,0.08);margin-bottom:18px;overflow-x:auto">
+    <table style="width:100%;border-collapse:collapse;min-width:520px">
+      <thead>
+        <tr>
+          <th style="width:8%;padding:10px 8px;text-align:center;background:#1a3a5c;color:white;border-radius:8px 0 0 0;font-size:0.85rem">字母</th>
+          <th style="padding:10px 12px;text-align:center;background:#1d4ed8;color:white;font-size:0.82rem">
+            <div style="font-size:1rem;font-weight:800;margin-bottom:2px">ACLS-step 1</div>
+            Knowledge<br><small style="opacity:0.85">知識</small>
+          </th>
+          <th style="padding:10px 12px;text-align:center;background:#ea7b2a;color:white;font-size:0.82rem">
+            <div style="font-size:1rem;font-weight:800;margin-bottom:2px">ACLS-step 2</div>
+            Team<br><small style="opacity:0.85">角色分工</small>
+          </th>
+          <th style="padding:10px 12px;text-align:center;background:#ca8a04;color:white;border-radius:0 8px 0 0;font-size:0.82rem">
+            <div style="font-size:1rem;font-weight:800;margin-bottom:2px">ACLS-step 3</div>
+            Teamwork<br><small style="opacity:0.85">團隊合作</small>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="padding:14px 8px;text-align:center;background:#1a3a5c;color:white">
+            <div style="width:32px;height:32px;border-radius:50%;background:#374151;color:white;display:flex;align-items:center;justify-content:center;font-weight:800;margin:0 auto">A</div>
+          </td>
+          <td style="padding:14px 12px;text-align:center;border-bottom:1px solid #e2e8f0;background:#eff6ff">
+            <div style="font-size:1.1rem;font-weight:800;color:#1d4ed8">Advanced</div>
+            <div style="font-size:0.75rem;color:#64748b">進階心臟救命術</div>
+          </td>
+          <td style="padding:14px 12px;text-align:center;border-bottom:1px solid #e2e8f0;background:#fff7ed">
+            <div style="font-size:1.1rem;font-weight:800;color:#ea580c">Airway</div>
+            <div style="font-size:0.75rem;color:#64748b">氣道管理（A1 BVM / A2 插管）</div>
+          </td>
+          <td style="padding:14px 12px;text-align:center;border-bottom:1px solid #e2e8f0;background:#fefce8">
+            <div style="font-size:1.1rem;font-weight:800;color:#ca8a04">Awareness</div>
+            <div style="font-size:0.75rem;color:#64748b">情境警覺</div>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding:14px 8px;text-align:center;background:#1a3a5c;color:white">
+            <div style="width:32px;height:32px;border-radius:50%;background:#374151;color:white;display:flex;align-items:center;justify-content:center;font-weight:800;margin:0 auto">C</div>
+          </td>
+          <td style="padding:14px 12px;text-align:center;border-bottom:1px solid #e2e8f0;background:#eff6ff">
+            <div style="font-size:1.1rem;font-weight:800;color:#1d4ed8">Cardiac</div>
+            <div style="font-size:0.75rem;color:#64748b">心臟急症</div>
+          </td>
+          <td style="padding:14px 12px;text-align:center;border-bottom:1px solid #e2e8f0;background:#fff7ed">
+            <div style="font-size:1.1rem;font-weight:800;color:#ea580c">Circulation</div>
+            <div style="font-size:0.75rem;color:#64748b">循環管理（C1 CPR / C2 Defibrillation）</div>
+          </td>
+          <td style="padding:14px 12px;text-align:center;border-bottom:1px solid #e2e8f0;background:#fefce8">
+            <div style="font-size:1.1rem;font-weight:800;color:#ca8a04">Communication</div>
+            <div style="font-size:0.75rem;color:#64748b">有效溝通</div>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding:14px 8px;text-align:center;background:#1a3a5c;color:white">
+            <div style="width:32px;height:32px;border-radius:50%;background:#374151;color:white;display:flex;align-items:center;justify-content:center;font-weight:800;margin:0 auto">L</div>
+          </td>
+          <td style="padding:14px 12px;text-align:center;border-bottom:1px solid #e2e8f0;background:#eff6ff">
+            <div style="font-size:1.1rem;font-weight:800;color:#1d4ed8">Life</div>
+            <div style="font-size:0.75rem;color:#64748b">維持生命</div>
+          </td>
+          <td style="padding:14px 12px;text-align:center;border-bottom:1px solid #e2e8f0;background:#fff7ed">
+            <div style="font-size:1.1rem;font-weight:800;color:#ea580c">Leader</div>
+            <div style="font-size:0.75rem;color:#64748b">團隊領導者（L）</div>
+          </td>
+          <td style="padding:14px 12px;text-align:center;border-bottom:1px solid #e2e8f0;background:#fefce8">
+            <div style="font-size:1.1rem;font-weight:800;color:#ca8a04">Leadership</div>
+            <div style="font-size:0.75rem;color:#64748b">領導能力</div>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding:14px 8px;text-align:center;background:#1a3a5c;color:white;border-radius:0 0 0 8px">
+            <div style="width:32px;height:32px;border-radius:50%;background:#374151;color:white;display:flex;align-items:center;justify-content:center;font-weight:800;margin:0 auto">S</div>
+          </td>
+          <td style="padding:14px 12px;text-align:center;background:#eff6ff">
+            <div style="font-size:1.1rem;font-weight:800;color:#1d4ed8">Support</div>
+            <div style="font-size:0.75rem;color:#64748b">輔助支援</div>
+          </td>
+          <td style="padding:14px 12px;text-align:center;background:#fff7ed">
+            <div style="font-size:1.1rem;font-weight:800;color:#ea580c">Support</div>
+            <div style="font-size:0.75rem;color:#64748b">支援人員（S1 藥物 / S2 紀錄）</div>
+          </td>
+          <td style="padding:14px 12px;text-align:center;background:#fefce8;border-radius:0 0 8px 0">
+            <div style="font-size:1.1rem;font-weight:800;color:#ca8a04">Support</div>
+            <div style="font-size:0.75rem;color:#64748b">相互支援</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Step 1 -->
+  <div class="section-title" style="color:#1d4ed8;border-bottom-color:#3b82f6">📘 ACLS-Step 1：Knowledge 知識</div>
+  <div class="alert-blue">
+    <strong>🎯 目標：</strong>具備 ACLS 核心知識，包含心律辨識、急救流程、藥物使用等，是有效急救的基礎。
+  </div>
+
+  <div class="grid-2">
+    <div class="card" style="border-left-color:#1d4ed8">
+      <div class="card-title">🫀 心律辨識</div>
+      <ul class="styled">
+        <li>Shockable：VF / pVT → 電擊</li>
+        <li>Non-shockable：Asystole / PEA → CPR + Epi</li>
+        <li>ROSC 後的處置</li>
+      </ul>
+    </div>
+    <div class="card" style="border-left-color:#1d4ed8">
+      <div class="card-title">💊 關鍵藥物</div>
+      <ul class="styled">
+        <li>Epinephrine 1mg IV q3-5min</li>
+        <li>Amiodarone 300mg（首劑）</li>
+        <li>Atropine 1mg（Bradycardia）</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" style="border-left-color:#1d4ed8">
+    <div class="card-title">🔄 ACLS 急救流程核心原則</div>
+    <div class="step-flow">
+      <div class="step-item">
+        <div class="step-num" style="background:#1d4ed8">1</div>
+        <div class="step-body">
+          <div class="step-title">確認無反應 → 啟動急救系統</div>
+          <div class="step-desc">呼叫幫助、取得 AED/除顫器、開始計時</div>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num" style="background:#1d4ed8">2</div>
+        <div class="step-body">
+          <div class="step-title">高品質 CPR</div>
+          <div class="step-desc">速率 100-120/min、深度 5-6cm、完全回彈、最小中斷</div>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num" style="background:#1d4ed8">3</div>
+        <div class="step-body">
+          <div class="step-title">辨識心律 → 決定是否電擊</div>
+          <div class="step-desc">每 2 分鐘評估一次，Shockable → 立即電擊（單相 360J / 雙相 200J）</div>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num" style="background:#1d4ed8">4</div>
+        <div class="step-body">
+          <div class="step-title">給藥 + 找病因（H's & T's）</div>
+          <div class="step-desc">Epinephrine q3-5min；排除低血容、低血鉀、張力性氣胸、心包填塞等可逆原因</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 2 -->
+  <div class="section-title" style="color:#ea580c;border-bottom-color:#fb923c">🧩 ACLS-Step 2：Team 角色分工</div>
+  <div class="alert" style="background:#fff7ed;border-color:#fed7aa;border-left-color:#ea580c;color:#7c2d12">
+    <strong>🎯 目標：</strong>急救現場每位成員都有明確角色，各司其職、不重疊不遺漏，是高效急救的關鍵。
+  </div>
+
+  <div class="grid-2">
+    <div class="card" style="border-left-color:#ea580c">
+      <div class="card-sub" style="color:#ea580c">氣道管理</div>
+      <div class="card-title">✈️ Airway Team</div>
+      <div style="display:flex;gap:10px;margin-top:8px">
+        <div style="flex:1;background:#fff7ed;border-radius:8px;padding:10px;text-align:center">
+          <div style="font-size:1.3rem;font-weight:800;color:#ea580c">A1</div>
+          <div style="font-size:0.8rem;font-weight:600">BVM 通氣</div>
+          <div style="font-size:0.75rem;color:#64748b;margin-top:4px">面罩給氧<br>輔助呼吸</div>
+        </div>
+        <div style="flex:1;background:#fff7ed;border-radius:8px;padding:10px;text-align:center">
+          <div style="font-size:1.3rem;font-weight:800;color:#ea580c">A2</div>
+          <div style="font-size:0.8rem;font-weight:600">進階氣道</div>
+          <div style="font-size:0.75rem;color:#64748b;margin-top:4px">準備插管<br>確認位置</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="border-left-color:#ea580c">
+      <div class="card-sub" style="color:#ea580c">循環管理</div>
+      <div class="card-title">💓 Circulation Team</div>
+      <div style="display:flex;gap:10px;margin-top:8px">
+        <div style="flex:1;background:#fff7ed;border-radius:8px;padding:10px;text-align:center">
+          <div style="font-size:1.3rem;font-weight:800;color:#ea580c">C1</div>
+          <div style="font-size:0.8rem;font-weight:600">CPR</div>
+          <div style="font-size:0.75rem;color:#64748b;margin-top:4px">高品質胸壓<br>2分鐘輪換</div>
+        </div>
+        <div style="flex:1;background:#fff7ed;border-radius:8px;padding:10px;text-align:center">
+          <div style="font-size:1.3rem;font-weight:800;color:#ea580c">C2</div>
+          <div style="font-size:0.8rem;font-weight:600">除顫器</div>
+          <div style="font-size:0.75rem;color:#64748b;margin-top:4px">貼貼片<br>操作 AED</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card" style="border-left-color:#7c3aed">
+      <div class="card-sub" style="color:#7c3aed">指揮協調</div>
+      <div class="card-title">👑 Leader（L）</div>
+      <ul class="styled">
+        <li>站在床尾，綜觀全局</li>
+        <li>主持 Brief 分配角色</li>
+        <li>宣告心律，決定是否電擊</li>
+        <li>指示給藥、換手 CPR</li>
+        <li>2分鐘節奏控制</li>
+        <li>主持 Debrief</li>
+      </ul>
+    </div>
+
+    <div class="card" style="border-left-color:#0077b6">
+      <div class="card-sub" style="color:#0077b6">後勤支援</div>
+      <div class="card-title">🤝 Support Team</div>
+      <div style="display:flex;gap:10px;margin-top:8px">
+        <div style="flex:1;background:#f0f9ff;border-radius:8px;padding:10px;text-align:center">
+          <div style="font-size:1.3rem;font-weight:800;color:#0077b6">S1</div>
+          <div style="font-size:0.8rem;font-weight:600">藥物護理師</div>
+          <div style="font-size:0.75rem;color:#64748b;margin-top:4px">建立靜脈針<br>準備給藥</div>
+        </div>
+        <div style="flex:1;background:#f0f9ff;border-radius:8px;padding:10px;text-align:center">
+          <div style="font-size:1.3rem;font-weight:800;color:#0077b6">S2</div>
+          <div style="font-size:0.8rem;font-weight:600">紀錄護理師</div>
+          <div style="font-size:0.75rem;color:#64748b;margin-top:4px">記錄時間<br>計算用藥</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Brief Checklist for Step 2 -->
+  <div class="section-title" style="color:#ea580c;border-bottom-color:#fb923c">📋 急救 Brief — 角色分配查核清單</div>
+  <button class="btn-reset" onclick="resetChecklist('brief-list')">🔄 重置清單</button>
+  <div class="card" id="brief-list">
+    <div class="checklist-item" onclick="toggleCheck(this)">
+      <input type="checkbox"> <label>📢 <strong>Leader（L）</strong>確認——站位床尾，宣布開始急救</label>
+    </div>
+    <div class="checklist-item" onclick="toggleCheck(this)">
+      <input type="checkbox"> <label>✈️ <strong>A1</strong>確認——準備 BVM，負責面罩給氧</label>
+    </div>
+    <div class="checklist-item" onclick="toggleCheck(this)">
+      <input type="checkbox"> <label>✈️ <strong>A2</strong>確認——準備插管設備，協助氣道</label>
+    </div>
+    <div class="checklist-item" onclick="toggleCheck(this)">
+      <input type="checkbox"> <label>💓 <strong>C1</strong>確認——開始高品質 CPR，2分鐘換手</label>
+    </div>
+    <div class="checklist-item" onclick="toggleCheck(this)">
+      <input type="checkbox"> <label>💓 <strong>C2</strong>確認——貼除顫貼片，準備充電</label>
+    </div>
+    <div class="checklist-item" onclick="toggleCheck(this)">
+      <input type="checkbox"> <label>💊 <strong>S1</strong>確認——建立靜脈針，備好 Epi 1mg</label>
+    </div>
+    <div class="checklist-item" onclick="toggleCheck(this)">
+      <input type="checkbox"> <label>📝 <strong>S2</strong>確認——開始計時，準備記錄單</label>
+    </div>
+    <div class="checklist-item" onclick="toggleCheck(this)">
+      <input type="checkbox"> <label>🗣️ 所有成員都清楚了解自己的角色與責任嗎？</label>
+    </div>
+  </div>
+
+  <!-- Step 3 -->
+  <div class="section-title" style="color:#ca8a04;border-bottom-color:#eab308">🌟 ACLS-Step 3：Teamwork 團隊合作（TRM）</div>
+  <div class="alert" style="background:#fefce8;border-color:#fde68a;border-left-color:#ca8a04;color:#713f12">
+    <strong>🎯 目標：</strong>將 TRM 四大技能——警覺、溝通、領導、互助——整合到急救實踐中，讓 ACLS 從知識和分工提升為真正的高效團隊救治。
+  </div>
+
+  <div class="trio">
+    <div class="trio-card">
+      <div class="trio-header" style="background:#ca8a04">👁 Awareness<br><small>警覺</small></div>
+      <div class="trio-body">
+        <ul>
+          <li>持續 STEP 監測病人、團隊、環境</li>
+          <li>每 2 分鐘評估心律</li>
+          <li>注意 CPR 品質</li>
+          <li>監測成員疲勞狀況</li>
+          <li>察覺設備異常</li>
+        </ul>
+      </div>
+    </div>
+    <div class="trio-card">
+      <div class="trio-header" style="background:#059669">📡 Communication<br><small>溝通</small></div>
+      <div class="trio-body">
+        <ul>
+          <li>Call-Out 指名通報</li>
+          <li>Check-Back 確認指令</li>
+          <li>CUS 提出安全疑慮</li>
+          <li>Closed-Loop 閉環溝通</li>
+          <li>清晰宣告每次電擊</li>
+        </ul>
+      </div>
+    </div>
+    <div class="trio-card">
+      <div class="trio-header" style="background:#7c3aed">👑 Leadership<br><small>領導</small></div>
+      <div class="trio-body">
+        <ul>
+          <li>Brief 分配角色</li>
+          <li>維持 2 分鐘急救節奏</li>
+          <li>Huddle 應對突發</li>
+          <li>Debrief 後事反思</li>
+          <li>綜觀全局，不親自操作</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="border-left-color:#ca8a04">
+    <div class="card-title">🤝 Support 互助</div>
+    <ul class="styled">
+      <li>主動提出換手 CPR（「我可以換了！」）</li>
+      <li>發現夥伴操作疑慮時，使用 Two-Challenge Rule</li>
+      <li>成員過勞時主動任務支援</li>
+      <li>急救後給予建設性回饋</li>
+    </ul>
+  </div>
+
+  <!-- Debrief Checklist -->
+  <div class="section-title" style="color:#7c3aed;border-bottom-color:#a78bfa">🔍 急救 Debrief — 事後檢視清單</div>
+  <button class="btn-reset" onclick="resetChecklist('debrief-list')">🔄 重置清單</button>
+  <div class="card" id="debrief-list">
+    <div class="checklist-item" onclick="toggleCheck(this)">
+      <input type="checkbox"> <label>溝通是否清晰？Call-Out / Check-Back 有被使用嗎？</label>
+    </div>
+    <div class="checklist-item" onclick="toggleCheck(this)">
+      <input type="checkbox"> <label>角色是否明確？每位成員都清楚自己的任務嗎？</label>
+    </div>
+    <div class="checklist-item" onclick="toggleCheck(this)">
+      <input type="checkbox"> <label>情境覺察是否維持？Leader 是否掌握全局？</label>
+    </div>
+    <div class="checklist-item" onclick="toggleCheck(this)">
+      <input type="checkbox"> <label>CPR 品質是否達標？換手是否流暢？</label>
+    </div>
+    <div class="checklist-item" onclick="toggleCheck(this)">
+      <input type="checkbox"> <label>用藥確認是否執行 Check-Back？</label>
+    </div>
+    <div class="checklist-item" onclick="toggleCheck(this)">
+      <input type="checkbox"> <label>有沒有安全疑慮被提出？CUS / Two-Challenge 有使用嗎？</label>
+    </div>
+    <div class="checklist-item" onclick="toggleCheck(this)">
+      <input type="checkbox"> <label>設備是否準備充足？有什麼需要改善？</label>
+    </div>
+    <div class="checklist-item" onclick="toggleCheck(this)">
+      <input type="checkbox"> <label>這次急救做得好的是什麼？（What went well?）</label>
+    </div>
+    <div class="checklist-item" onclick="toggleCheck(this)">
+      <input type="checkbox"> <label>下次可以做什麼不一樣？（What could be done differently?）</label>
+    </div>
+  </div>
+
+  <!-- Quick scenario -->
+  <div class="section-title">🏥 急診急救場景示範</div>
+
+  <div class="scenario-box">
+    <div class="scenario-label">📌 Brief 示範（30秒完成角色分配）</div>
+    <div class="dialog-box">
+      Leader：「OHCA到達，大家聽好！<br>
+      <strong>A1 陳護理師</strong>——BVM 準備！<br>
+      <strong>A2 林醫師</strong>——準備插管！<br>
+      <strong>C1 王護理師</strong>——開始 CPR！<br>
+      <strong>C2 張技術員</strong>——貼貼片，除顫器 ON！<br>
+      <strong>S1 李護理師</strong>——建立靜脈針，備 Epi！<br>
+      <strong>S2 黃護理師</strong>——開始計時，記錄！<br>
+      我（Leader）在床尾。<strong>有問題嗎？開始！</strong>」
+    </div>
+  </div>
+
+  <div class="scenario-box">
+    <div class="scenario-label">📌 電擊前 Call-Out / Check-Back</div>
+    <div class="dialog-box">
+      Leader：「分析心律——VF！準備電擊！所有人離床！」（<em>Call-Out</em>）<br>
+      C2：「充電完成，所有人離床確認！」（<em>Check-Back</em>）<br>
+      Leader：「確認！電擊！」<br>
+      Leader：「立即繼續 CPR！」（<em>Call-Out</em>）<br>
+      C1：「CPR繼續，確認！」（<em>Check-Back</em>）
+    </div>
+  </div>
+
+  <div class="scenario-box">
+    <div class="scenario-label">📌 Huddle 示範（突發情境調整）</div>
+    <div class="dialog-box">
+      Leader：「Huddle！大家注意——已電擊3次，維持 VF，考慮 Amiodarone 300mg，同時確認是否有可逆原因，繼續CPR。S1，備 Amio！」<br>
+      S1：「Amiodarone 300mg 備好，確認！」
+    </div>
+  </div>
+
+</div>
+
+<!-- ════════════════ TAB 3: ACLS核心 ════════════════ -->
+<div id="tab3" class="tab-content">
+
+  <div class="intro-banner">
+    <h2>🔑 ACLS 四大核心技能</h2>
+    <p>警覺 Awareness・溝通 Communication・領導 Leadership・互助 Support</p>
+  </div>
+
+  <div class="sub-tab-nav">
+    <button class="sub-tab-btn a1 active" onclick="switchSubTab('awareness', this)">👁 警覺</button>
+    <button class="sub-tab-btn a2" onclick="switchSubTab('communication', this)">📡 溝通</button>
+    <button class="sub-tab-btn a3" onclick="switchSubTab('leadership', this)">👑 領導</button>
+    <button class="sub-tab-btn a4" onclick="switchSubTab('support', this)">🤝 互助</button>
+  </div>
+
+  <!-- 警覺 Awareness = Situation Monitoring -->
+  <div id="panel-awareness" class="sub-panel active">
+    <div class="alert-blue">
+      <strong>👁 警覺 (Awareness / Situation Monitoring)</strong><br>
+      情境監測是團隊成員持續掃描和評估周圍環境、病人狀況以及團隊內部動態的能力，有助於團隊保持對當前情境的準確理解，並及早發現潛在問題。
+    </div>
+
+    <div class="section-title">🔍 三層次監測過程</div>
+    <div class="grid-3">
+      <div class="metric-card">
+        <div class="metric-label">個人技能</div>
+        <div class="metric-value" style="font-size:1rem;margin:8px 0">情境監測</div>
+        <div class="metric-unit">Situation Monitoring</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">個人成果</div>
+        <div class="metric-value" style="font-size:1rem;margin:8px 0">情境覺察</div>
+        <div class="metric-unit">Situation Awareness</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">團隊成果</div>
+        <div class="metric-value" style="font-size:1rem;margin:8px 0">共享心智</div>
+        <div class="metric-unit">Shared Mental Model</div>
+      </div>
+    </div>
+
+    <div class="section-title">🛠️ STEP 工具</div>
+    <div class="card">
+      <p style="font-size:0.88rem;margin-bottom:12px">STEP 是一個用於監測情境的工具，提醒團隊成員關注以下四個關鍵元素：</p>
+      <div class="acronym-row">
+        <div class="acronym-letter red">S</div>
+        <div class="acronym-content">
+          <div class="acronym-word">Status of Patient（病人狀態）</div>
+          <div class="acronym-desc">病人的生理指標、意識狀態、病情變化、用藥情形、照護計畫、心理社會議題</div>
+        </div>
+      </div>
+      <div class="acronym-row">
+        <div class="acronym-letter purple">T</div>
+        <div class="acronym-content">
+          <div class="acronym-word">Team Members（團隊成員）</div>
+          <div class="acronym-desc">團隊成員的工作負荷、疲勞程度、情緒狀態、技能水平、壓力程度</div>
+        </div>
+      </div>
+      <div class="acronym-row">
+        <div class="acronym-letter teal">E</div>
+        <div class="acronym-content">
+          <div class="acronym-word">Environment（周遭環境）</div>
+          <div class="acronym-desc">工作環境的安全性、設備的可用性、資源的充足性、分診嚴重程度</div>
+        </div>
+      </div>
+      <div class="acronym-row">
+        <div class="acronym-letter green">P</div>
+        <div class="acronym-content">
+          <div class="acronym-word">Progress Toward Goal（朝目標前進）</div>
+          <div class="acronym-desc">任務的進度、是否達到預期目標、是否存在阻礙、計畫是否仍然適當</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-title">✅ I'M SAFE 自我查核表</div>
+    <div class="card">
+      <p style="font-size:0.88rem;margin-bottom:12px">I'M SAFE 是一個簡單的每日查核表，用於評估自己和同事是否具備足夠的安全執行能力：</p>
+      <div class="acronym-row">
+        <div class="acronym-letter red">I</div>
+        <div class="acronym-content"><div class="acronym-word">Illness（疾病）</div><div class="acronym-desc">我是否患有可能影響工作表現的疾病？</div></div>
+      </div>
+      <div class="acronym-row">
+        <div class="acronym-letter purple">M</div>
+        <div class="acronym-content"><div class="acronym-word">Medication（藥物）</div><div class="acronym-desc">我服用的藥物是否影響判斷力或反應？</div></div>
+      </div>
+      <div class="acronym-row">
+        <div class="acronym-letter teal">S</div>
+        <div class="acronym-content"><div class="acronym-word">Stress（壓力）</div><div class="acronym-desc">我目前的壓力程度是否影響工作專注力？</div></div>
+      </div>
+      <div class="acronym-row">
+        <div class="acronym-letter yellow">A</div>
+        <div class="acronym-content"><div class="acronym-word">Alcohol and Drugs（酒精和藥物）</div><div class="acronym-desc">是否有酒精或藥物的影響？</div></div>
+      </div>
+      <div class="acronym-row">
+        <div class="acronym-letter green">F</div>
+        <div class="acronym-content"><div class="acronym-word">Fatigue（疲勞）</div><div class="acronym-desc">我是否因疲勞而影響反應速度和決策能力？</div></div>
+      </div>
+      <div class="acronym-row">
+        <div class="acronym-letter red">E</div>
+        <div class="acronym-content"><div class="acronym-word">Eating and Elimination（飲食和排泄）</div><div class="acronym-desc">基本生理需求是否被照顧？是否影響工作狀態？</div></div>
+      </div>
+    </div>
+
+    <div class="section-title">⭐ STAR — 防止技能性錯誤</div>
+    <div class="card">
+      <p style="font-size:0.88rem;margin-bottom:12px">STAR 是每位團隊成員在執行關鍵操作前必須自我查核的工具：</p>
+      <div class="acronym-row">
+        <div class="acronym-letter red">S</div>
+        <div class="acronym-content"><div class="acronym-word">Stop（停止）</div><div class="acronym-desc">暫停，專注於當前的任務</div></div>
+      </div>
+      <div class="acronym-row">
+        <div class="acronym-letter teal">T</div>
+        <div class="acronym-content"><div class="acronym-word">Think（思考）</div><div class="acronym-desc">有條理地思考，確認正確的行動</div></div>
+      </div>
+      <div class="acronym-row">
+        <div class="acronym-letter green">A</div>
+        <div class="acronym-content"><div class="acronym-word">Act（行動）</div><div class="acronym-desc">執行操作</div></div>
+      </div>
+      <div class="acronym-row">
+        <div class="acronym-letter purple">R</div>
+        <div class="acronym-content"><div class="acronym-word">Review（回顧）</div><div class="acronym-desc">確認預期結果已達到，或應用備案</div></div>
+      </div>
+    </div>
+
+    <div class="section-title">🔄 相互監測 Cross-Monitoring</div>
+    <div class="card green">
+      <p style="font-size:0.9rem">團隊成員之間應相互觀察和監測彼此的行為和操作，以確保符合標準作業流程，並及早發現潛在的錯誤。</p>
+      <ul style="padding-left:18px;margin-top:10px;font-size:0.88rem">
+        <li>監測其他團隊成員的行動和壓力程度</li>
+        <li>在團隊內提供安全網</li>
+        <li>確保錯誤或疏忽被快速且輕鬆地發現</li>
+        <li>「互相照應」(Watching each other's back)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 溝通 Communication -->
+  <div id="panel-communication" class="sub-panel">
+    <div class="alert-green">
+      <strong>📡 溝通 (Communication)</strong><br>
+      溝通是訊息被清楚且準確地在團隊成員之間交換的過程。有效的溝通能確保資訊的準確傳遞，減少誤解，並促進團隊成員之間的協同合作。
+    </div>
+
+    <div class="section-title">📋 SBAR 溝通框架</div>
+    <div class="card">
+      <p style="font-size:0.88rem;margin-bottom:12px">SBAR 是一個結構化的溝通框架，用於在團隊成員之間傳遞病人資訊，使其更具條理和效率：</p>
+      <div class="acronym-row">
+        <div class="acronym-letter red">S</div>
+        <div class="acronym-content">
+          <div class="acronym-word">Situation（病人情況）</div>
+          <div class="acronym-desc">簡要說明當前病人的情況</div>
+        </div>
+      </div>
+      <div class="acronym-row">
+        <div class="acronym-letter purple">B</div>
+        <div class="acronym-content">
+          <div class="acronym-word">Background（病人臨床相關資料）</div>
+          <div class="acronym-desc">提供與病人情況相關的背景資訊</div>
+        </div>
+      </div>
+      <div class="acronym-row">
+        <div class="acronym-letter teal">A</div>
+        <div class="acronym-content">
+          <div class="acronym-word">Assessment（評估）</div>
+          <div class="acronym-desc">說明自己對病人情況的評估和判斷</div>
+        </div>
+      </div>
+      <div class="acronym-row">
+        <div class="acronym-letter green">R</div>
+        <div class="acronym-content">
+          <div class="acronym-word">Recommendation（建議）</div>
+          <div class="acronym-desc">提出自己的建議或請求</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scenario-box">
+      <div class="scenario-label">📌 SBAR 急診範例</div>
+      <div class="scenario-title">護理師向值班醫師報告</div>
+      <div class="dialog-box">
+        <strong>S：</strong>「林醫師，10床李先生，65歲，目前胸痛加劇，我很擔心他。」<br><br>
+        <strong>B：</strong>「他兩小時前因胸悶入院，有高血壓和糖尿病史，目前在觀察中。」<br><br>
+        <strong>A：</strong>「現在 BP 180/100，HR 95，SpO2 95%，胸痛從 NRS 4 升到 8。我擔心 ACS 可能惡化。」<br><br>
+        <strong>R：</strong>「建議立即重做 ECG 和重複測心肌酵素，是否需要緊急會診心臟科？」
+      </div>
+    </div>
+
+    <div class="section-title">🔄 閉環溝通工具</div>
+
+    <div class="accordion">
+      <div class="accordion-header" onclick="toggleAccordion(this)">
+        📢 Call-Out（主動呼叫）<span class="accordion-arrow">▼</span>
+      </div>
+      <div class="accordion-body">
+        <p style="margin-bottom:8px">在緊急情況下，團隊成員應大聲、清晰地「主動呼叫」關鍵資訊，確保所有相關人員都能聽到並理解。</p>
+        <ul style="padding-left:18px;font-size:0.88rem">
+          <li>同時告知所有團隊成員重要情況</li>
+          <li>幫助成員預期下一步驟</li>
+          <li>直接將責任指定給特定人員</li>
+        </ul>
+        <div class="dialog-box">「<strong>Call-Out！</strong> 病人血壓下降，BP 70/40！王護理師，加快輸液速度！陳護理師，準備升壓藥！」</div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="accordion-header" onclick="toggleAccordion(this)">
+        ✅ Check-Back（收到確認）<span class="accordion-arrow">▼</span>
+      </div>
+      <div class="accordion-body">
+        <p style="margin-bottom:8px">發出資訊者在傳達訊息後，接受者必須複頌訊息，發出資訊者再確認複頌的訊息與原始訊息是否一致。</p>
+        <div class="dialog-box">
+          醫師：「Epinephrine 1mg IV push，現在！」<br>
+          護理師：「Epinephrine 1mg IV push，確認！」<br>
+          醫師：「正確！」
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="accordion-header" onclick="toggleAccordion(this)">
+        🆘 CUS（強烈關切聲明）<span class="accordion-arrow">▼</span>
+      </div>
+      <div class="accordion-body">
+        <p style="margin-bottom:8px">CUS 是一個用於明確表達關切和問題重要性的溝通工具。當任何團隊成員說出這三句話時，<strong>所有人都必須立即停下並正視問題</strong>：</p>
+        <div style="background:#fee2e2;border-radius:8px;padding:16px;text-align:center;margin:8px 0">
+          <div style="font-size:1.1rem;font-weight:800;color:#dc2626;margin-bottom:4px">I am <span style="font-size:1.3rem">C</span>ONCERNED！</div>
+          <div style="font-size:1.1rem;font-weight:800;color:#dc2626;margin-bottom:4px">I am <span style="font-size:1.3rem">U</span>NCOMFORTABLE！</div>
+          <div style="font-size:1.1rem;font-weight:800;color:#dc2626">This is a <span style="font-size:1.3rem">S</span>AFETY ISSUE！</div>
+          <div style="margin-top:8px;font-size:0.8rem;color:#991b1b;font-style:italic">"Stop the Line"</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="accordion-header" onclick="toggleAccordion(this)">
+        🔄 Handoff / SBAR 交班<span class="accordion-arrow">▼</span>
+      </div>
+      <div class="accordion-body">
+        <p style="margin-bottom:8px">交班是因職務與責任關係，在團隊成員之間傳送相關訊息與知識的過程，以確保在所有任務轉換時達到訊息的連續性。</p>
+        <ul style="padding-left:18px;font-size:0.88rem">
+          <li>轉移責任和義務</li>
+          <li>確保資訊清晰</li>
+          <li>口頭確認溝通</li>
+          <li>接收者予以確認</li>
+          <li>給予提問和回顧的機會</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="accordion-header" onclick="toggleAccordion(this)">
+        📝 I-PASS 交班工具<span class="accordion-arrow">▼</span>
+      </div>
+      <div class="accordion-body">
+        <p style="margin-bottom:10px">I-PASS 是病人照護轉換時首選的交班工具：</p>
+        <div class="acronym-row">
+          <div class="acronym-letter red">I</div>
+          <div class="acronym-content"><div class="acronym-word">Illness Severity（疾病嚴重程度）</div><div class="acronym-desc">穩定、需觀察、不穩定</div></div>
+        </div>
+        <div class="acronym-row">
+          <div class="acronym-letter purple">P</div>
+          <div class="acronym-content"><div class="acronym-word">Patient Summary（病人摘要）</div><div class="acronym-desc">摘要說明、入院事件、治療計畫、持續評估、應變計畫</div></div>
+        </div>
+        <div class="acronym-row">
+          <div class="acronym-letter teal">A</div>
+          <div class="acronym-content"><div class="acronym-word">Action List（待辦清單）</div><div class="acronym-desc">待辦事項、時間表與負責人</div></div>
+        </div>
+        <div class="acronym-row">
+          <div class="acronym-letter green">S</div>
+          <div class="acronym-content"><div class="acronym-word">Situation Awareness（情境覺察和應變計畫）</div><div class="acronym-desc">了解當前狀況、為可能發生的事做計畫</div></div>
+        </div>
+        <div class="acronym-row">
+          <div class="acronym-letter yellow">S</div>
+          <div class="acronym-content"><div class="acronym-word">Synthesis by Receiver（接收者的整合）</div><div class="acronym-desc">接收者摘要所聽到的、提問、重述關鍵行動</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 領導 Leadership -->
+  <div id="panel-leadership" class="sub-panel">
+    <div class="alert-blue" style="border-left-color:#7c3aed;background:#f5f3ff;">
+      <strong>👑 領導 (Team Leadership)</strong><br>
+      領導力在醫療團隊中扮演至關重要的角色，不僅僅是職位的象徵，更是引導團隊達成目標、協調資源、提供支持的關鍵能力。
+    </div>
+
+    <div class="section-title">🎯 有效團隊領導者的責任</div>
+    <div class="card purple">
+      <ul class="styled">
+        <li>組織團隊（Organize the team）</li>
+        <li>確定並闡明清晰目標</li>
+        <li>分配任務和責任</li>
+        <li>監控並修改計畫、傳達變更</li>
+        <li>檢視團隊表現、提供建設性回饋</li>
+        <li>管理和分配資源</li>
+        <li>促進資訊共享</li>
+        <li>鼓勵團隊成員相互協助</li>
+        <li>培養學習和心理安全環境</li>
+        <li>透過 DESC 等工具保持健康的衝突</li>
+        <li>強化所有團隊成員和行動以病人為中心</li>
+        <li>以身作則，展現有效的團隊合作</li>
+      </ul>
+    </div>
+
+    <div class="section-title">🏗️ 多團隊系統 (Multi-Team System)</div>
+    <div class="card">
+      <p style="font-size:0.88rem;margin-bottom:10px">安全有效的照護涉及多個協同作業的團隊系統（MTS）。醫院中的 MTS 由以下層次組成：</p>
+      <table class="styled-table">
+        <tr><th>層級</th><th>說明</th></tr>
+        <tr><td>核心團隊（Core Team）</td><td>直接照護病人的醫護人員，包含病人本身</td></tr>
+        <tr><td>協調團隊（Coordinating Teams）</td><td>協調多個核心團隊的工作</td></tr>
+        <tr><td>輔助與支援服務</td><td>輔助診療、行政、後勤等支援</td></tr>
+        <tr><td>行政管理（Administration）</td><td>組織層面的領導與政策支援</td></tr>
+      </table>
+    </div>
+
+    <div class="section-title">📊 領導工具：Brief / Huddle / Debrief</div>
+    <div class="alert-blue">💡 詳見「⚡ 急救三部曲」頁籤，有完整說明和互動查核清單。</div>
+  </div>
+
+  <!-- 互助 Mutual Support -->
+  <div id="panel-support" class="sub-panel">
+    <div class="alert" style="background:#fef3c7;border-color:#fde68a;border-left-color:#d97706;color:#78350f;">
+      <strong>🤝 互助 (Mutual Support)</strong><br>
+      互助是團隊成員之間相互支持、分擔工作負荷、並在需要時提供協助的能力。這有助於減輕個體壓力，防止工作超載，並確保團隊在面對挑戰時能夠保持高效運作。
+    </div>
+
+    <div class="section-title">⚔️ Two-Challenge Rule（重申關切）</div>
+    <div class="card yellow">
+      <p style="font-size:0.88rem;margin-bottom:10px">當團隊成員發現潛在的病人安全問題或對某項操作有疑慮時，應至少表達兩次關切，以確保其聲音被聽見並得到重視。</p>
+      <div class="step-flow">
+        <div class="step-item">
+          <div class="step-num" style="background:#d97706">1</div>
+          <div class="step-body">
+            <div class="step-title">第一次提出關切</div>
+            <div class="step-desc">清晰表達你的擔憂，等待回應</div>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num" style="background:#d97706">2</div>
+          <div class="step-body">
+            <div class="step-title">若沒有得到回應，再次提出</div>
+            <div class="step-desc">改變措辭，重新表達，直到問題被理解並得到處理</div>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num" style="background:#d97706">3</div>
+          <div class="step-body">
+            <div class="step-title">若安全問題仍未解決</div>
+            <div class="step-desc">採取更強力的行動、尋求其他團隊成員、使用主管或指揮鏈</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-title">🗣️ DESC 口訣（衝突處理）</div>
+    <div class="card">
+      <p style="font-size:0.88rem;margin-bottom:12px">DESC 是一個處理與解決衝突的技巧，旨在以建設性的方式表達不滿或提出建議：</p>
+      <div class="acronym-row">
+        <div class="acronym-letter red">D</div>
+        <div class="acronym-content">
+          <div class="acronym-word">Describe（說明情況）</div>
+          <div class="acronym-desc">客觀描述引起問題的情境或行為，提供具體事實</div>
+        </div>
+      </div>
+      <div class="acronym-row">
+        <div class="acronym-letter teal">E</div>
+        <div class="acronym-content">
+          <div class="acronym-word">Express（解釋為何困惑）</div>
+          <div class="acronym-desc">表達自己的感受或對該情境的擔憂</div>
+        </div>
+      </div>
+      <div class="acronym-row">
+        <div class="acronym-letter green">S</div>
+        <div class="acronym-content">
+          <div class="acronym-word">Suggest（尋求建議或替代方法）</div>
+          <div class="acronym-desc">提出解決方案或替代方案，尋求共識</div>
+        </div>
+      </div>
+      <div class="acronym-row">
+        <div class="acronym-letter purple">C</div>
+        <div class="acronym-content">
+          <div class="acronym-word">Consequences（選擇解決方式可確實達成目標）</div>
+          <div class="acronym-desc">說明如果問題得到解決或未解決可能帶來的後果，以病人安全為核心</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-title">🙋 任務支援 Task Assistance</div>
+    <div class="card green">
+      <p style="font-size:0.88rem">當團隊成員發現其他成員工作負荷過重或遇到困難時，應主動提供協助。團隊韌性可以透過簡單一句話來強化：</p>
+      <div class="dialog-box" style="text-align:center;font-size:1rem;font-weight:600;color:#065f46;margin-top:10px">
+        「我有 10 分鐘的空檔，我可以幫什麼忙？」<br>
+        <small style="font-weight:normal;color:#374151">"I have 10 minutes. How can I help?"</small>
+      </div>
+    </div>
+
+    <div class="section-title">💬 形成性回饋 Formative Feedback</div>
+    <div class="card">
+      <p style="font-size:0.88rem;margin-bottom:10px">良好的回饋應具備以下特質：</p>
+      <div class="grid-2">
+        <div><span class="badge badge-green">🙏 感謝性</span><p style="font-size:0.82rem;margin-top:4px">表達感謝，並指出做得好的行為</p></div>
+        <div><span class="badge badge-blue">⏰ 及時性</span><p style="font-size:0.82rem;margin-top:4px">在目標行為發生後盡快給予</p></div>
+        <div><span class="badge badge-purple">🎯 針對行為</span><p style="font-size:0.82rem;margin-top:4px">針對行為而非個人特質</p></div>
+        <div><span class="badge badge-yellow">📌 具體明確</span><p style="font-size:0.82rem;margin-top:4px">與需要改正或改善的具體行為相關</p></div>
+        <div><span class="badge badge-green">🚀 指向改善</span><p style="font-size:0.82rem;margin-top:4px">提供未來改善的方向</p></div>
+        <div><span class="badge badge-red">❤️ 以病人為中心</span><p style="font-size:0.82rem;margin-top:4px">闡述行為對病人福祉的影響</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════ TAB 4: 場景應用 ════════════════ -->
+<div id="tab4" class="tab-content">
+
+  <div class="intro-banner">
+    <h2>🎭 場景應用</h2>
+    <p>透過真實的臨床案例，練習運用所學的 TRM 模組和技巧進行分析與討論。</p>
+  </div>
+
+  <div class="alert-blue">
+    💡 在每個案例中，找出使用了哪些 TRM 工具？哪些可以改善？
+  </div>
+
+  <!-- 案例一 -->
+  <div class="section-title">🏥 案例一：急診室的交班問題</div>
+  <div class="scenario-box">
+    <div class="scenario-label">📋 臨床情境</div>
+    <div class="scenario-title">夜班交班 → 早班醫師未能即時發現病情惡化</div>
+    <p style="font-size:0.88rem;margin:8px 0">某急診室在夜班交班時，因資訊傳遞不清導致新接班醫師未能及時發現病人病情惡化。病人為 78 歲男性，糖尿病史，以腹痛入院。夜班未提及其血壓逐漸下降的趨勢，導致早班醫師未優先處置，造成病情延誤。</p>
+    <div class="tag-group">
+      <span class="badge badge-red">❌ 交班失誤</span>
+      <span class="badge badge-red">❌ 溝通不完整</span>
+      <span class="badge badge-red">❌ 未使用結構化工具</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">🔍 分析：問題出在哪裡？</div>
+    <ul class="styled">
+      <li>交班未使用結構化溝通工具（如 SBAR / I-PASS）</li>
+      <li>未傳遞病人生命跡象趨勢（S→BP 逐漸下降）</li>
+      <li>未建立共同心智模式（Shared Mental Model）</li>
+      <li>早班醫師未主動詢問或確認（Check-Back 缺失）</li>
+    </ul>
+  </div>
+
+  <div class="card green">
+    <div class="card-title">✅ 改善方案：應用 TRM 工具</div>
+    <div class="dialog-box">
+      <strong>使用 SBAR 交班：</strong><br>
+      <strong>S：</strong>「7床陳老先生，78歲，目前腹痛持續，<span style="color:#dc2626">⚠️ 我很擔心他的血壓趨勢下降</span>」<br>
+      <strong>B：</strong>「糖尿病史，今晚 22:00 以急性腹痛入院，已做腹部 CT」<br>
+      <strong>A：</strong>「過去 2 小時 BP 從 130/80 降到 100/65，可能是腹腔內出血」<br>
+      <strong>R：</strong>「建議接班後立即覆看 CT 結果並考慮外科會診」
+    </div>
+    <div class="tag-group" style="margin-top:8px">
+      <span class="badge badge-green">✅ SBAR</span>
+      <span class="badge badge-green">✅ I-PASS</span>
+      <span class="badge badge-green">✅ Check-Back</span>
+      <span class="badge badge-green">✅ Shared Mental Model</span>
+    </div>
+  </div>
+
+  <!-- 案例二 -->
+  <div class="section-title">⚡ 案例二：急救中的突發狀況</div>
+  <div class="scenario-box">
+    <div class="scenario-label">📋 臨床情境</div>
+    <div class="scenario-title">急救過程中病人突發心律不整，團隊溝通不暢</div>
+    <p style="font-size:0.88rem;margin:8px 0">急救進行中，病人突發 VF（心室纖維顫動）。醫師正在進行氣管插管，護理師各自為政：A 護理師以為 B 護理師已準備除顫器，B 護理師以為 A 護理師已備好 Amiodarone。導致 30 秒的關鍵延誤。</p>
+    <div class="tag-group">
+      <span class="badge badge-red">❌ 假設責任</span>
+      <span class="badge badge-red">❌ 缺乏 Call-Out</span>
+      <span class="badge badge-red">❌ 無明確角色分配</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">🔍 分析：問題出在哪裡？</div>
+    <ul class="styled">
+      <li>未在 Brief 階段明確分配各人角色</li>
+      <li>緊急情況下未使用 Call-Out 指名通報</li>
+      <li>缺少 Check-Back 確認</li>
+      <li>發生 Huddle 需求時未即時召集</li>
+    </ul>
+  </div>
+
+  <div class="card green">
+    <div class="card-title">✅ 改善方案：應用 TRM 工具</div>
+    <div class="dialog-box">
+      <strong>Call-Out（指名）：</strong>「VF！王護理師，立即拿除顫器！陳護理師，準備 Amiodarone 300mg！林護理師，繼續 CPR！我負責除顫！」<br><br>
+      <strong>Check-Back：</strong><br>
+      王護理師：「除顫器就位，充電完成，確認！」<br>
+      陳護理師：「Amiodarone 300mg 準備好，確認！」<br>
+      醫師：「確認！大家離開，準備電擊！」
+    </div>
+    <div class="tag-group" style="margin-top:8px">
+      <span class="badge badge-green">✅ Brief 角色分配</span>
+      <span class="badge badge-green">✅ Call-Out 指名</span>
+      <span class="badge badge-green">✅ Check-Back</span>
+      <span class="badge badge-green">✅ Huddle</span>
+    </div>
+  </div>
+
+  <!-- 案例三 -->
+  <div class="section-title">⚔️ 案例三：護理中的衝突處理</div>
+  <div class="scenario-box">
+    <div class="scenario-label">📋 臨床情境</div>
+    <div class="scenario-title">PGY 發現資深護理師操作存在潛在風險，不敢提出</div>
+    <p style="font-size:0.88rem;margin:8px 0">PGY 在護理站注意到資深護理師將正確劑量的 Morphine（10mg）而非醫囑的 Morphine（2mg）準備給術後病人。PGY 因擔心被批評或造成尷尬，猶豫是否開口。</p>
+    <div class="tag-group">
+      <span class="badge badge-red">❌ 層級壓力</span>
+      <span class="badge badge-red">❌ 心理不安全感</span>
+      <span class="badge badge-red">❌ 缺乏發言勇氣</span>
+    </div>
+  </div>
+
+  <div class="card green">
+    <div class="card-title">✅ 改善方案：應用 Two-Challenge Rule + DESC</div>
+    <div class="dialog-box">
+      <strong>第一次提出（CUS + Two-Challenge）：</strong><br>
+      「陳護理師，我注意到注射器裡是 10mg Morphine，但我看到醫囑是 2mg——我有點不確定，能確認一下嗎？」<br><br>
+      <strong>若對方未注意，用 DESC 第二次提出：</strong><br>
+      <strong>D：</strong>「我看到你準備的是 10mg Morphine，但醫囑上是 2mg。」<br>
+      <strong>E：</strong>「我很擔心，因為劑量差了 5 倍，可能造成嚴重副作用。」<br>
+      <strong>S：</strong>「我們可以再一起核對醫囑嗎？」<br>
+      <strong>C：</strong>「這關係到病人的安全，我必須確認。」
+    </div>
+    <div class="tag-group" style="margin-top:8px">
+      <span class="badge badge-yellow">✅ Two-Challenge Rule</span>
+      <span class="badge badge-yellow">✅ DESC</span>
+      <span class="badge badge-yellow">✅ CUS</span>
+      <span class="badge badge-yellow">✅ 心理安全</span>
+    </div>
+  </div>
+
+  <div class="section-title">🧩 TRM 工具對照總表</div>
+  <table class="styled-table">
+    <tr><th>臨床情境</th><th>建議工具</th><th>核心模組</th></tr>
+    <tr><td>交班、轉診、轉科</td><td>SBAR, I-PASS, Handoff</td><td>溝通</td></tr>
+    <tr><td>急救前準備</td><td>Brief, 角色分配</td><td>領導</td></tr>
+    <tr><td>急救過程中</td><td>Call-Out, Check-Back, Huddle</td><td>溝通 + 領導</td></tr>
+    <tr><td>緊急情況評估</td><td>STEP, Cross-Monitoring</td><td>警覺</td></tr>
+    <tr><td>用藥安全確認</td><td>STAR, Check-Back</td><td>警覺 + 溝通</td></tr>
+    <tr><td>衝突/提出異議</td><td>CUS, Two-Challenge Rule, DESC</td><td>互助</td></tr>
+    <tr><td>急救後學習</td><td>Debrief, Formative Feedback</td><td>領導 + 互助</td></tr>
+    <tr><td>自我狀態評估</td><td>I'M SAFE</td><td>警覺</td></tr>
+  </table>
+
+</div>
+
+<!-- ════════════════ TAB 5: 原位模擬 ════════════════ -->
+<div id="tab5" class="tab-content">
+
+  <div class="intro-banner">
+    <h2>🏥 原位模擬 (In-Situ Simulation)</h2>
+    <p>將模擬教學帶到真實臨床工作環境中執行，讓醫護人員在自己熟悉的場域學習和練習 TRM 技能，並發現系統性的潛在風險。</p>
+  </div>
+
+  <div class="section-title">🎯 原位模擬的定義與特色</div>
+
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">📍 什麼是原位模擬？</div>
+      <p style="font-size:0.88rem">在真實臨床環境（急診室、病房、手術室）中執行的模擬訓練，使用真實的設備、人員和空間，不在模擬中心進行。</p>
+    </div>
+    <div class="card green">
+      <div class="card-title">🌟 原位模擬的優勢</div>
+      <ul style="padding-left:18px;font-size:0.85rem">
+        <li>發現系統性潛在問題</li>
+        <li>減少訓練和真實情境的落差</li>
+        <li>提升團隊情境覺察</li>
+        <li>不需離開工作環境</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-title">📋 學習目標</div>
+  <div class="card purple">
+    <ul class="styled">
+      <li>能在急救情境中正確應用 Brief / Huddle / Debrief 三部曲</li>
+      <li>能使用 Call-Out 指名通報，確保資訊傳達給正確的人</li>
+      <li>能執行 Check-Back 閉環溝通，確認指令被正確接收</li>
+      <li>能在感受到安全疑慮時使用 CUS 或 Two-Challenge Rule</li>
+      <li>能透過 STEP 工具維持情境覺察</li>
+      <li>能在急救結束後主導有效的 Debrief</li>
+    </ul>
+  </div>
+
+  <div class="section-title">⏱️ 原位模擬流程</div>
+
+  <div class="sim-phase">
+    <div class="sim-phase-icon blue">📢</div>
+    <div>
+      <div class="sim-phase-title">Phase 1：Pre-Brief 模擬前說明（5 分鐘）</div>
+      <div class="sim-phase-desc">說明學習目標、模擬規則、保密原則（不評分、安全空間）。確認每位學員的角色分配。</div>
+    </div>
+  </div>
+
+  <div class="sim-phase">
+    <div class="sim-phase-icon green">🎭</div>
+    <div>
+      <div class="sim-phase-title">Phase 2：Brief — 任務啟動（3 分鐘）</div>
+      <div class="sim-phase-desc">團隊領導者主持 Brief，確認成員、目標、資源、潛在風險，建立共同心智模式。</div>
+    </div>
+  </div>
+
+  <div class="sim-phase">
+    <div class="sim-phase-icon yellow">⚡</div>
+    <div>
+      <div class="sim-phase-title">Phase 3：情境演練（10–15 分鐘）</div>
+      <div class="sim-phase-desc">依設計的臨床情境演練，觀察員記錄 TRM 行為指標（Call-Out 使用、角色清晰度、溝通閉環等）。</div>
+    </div>
+  </div>
+
+  <div class="sim-phase">
+    <div class="sim-phase-icon purple">🔍</div>
+    <div>
+      <div class="sim-phase-title">Phase 4：Debrief 深度反思（15–20 分鐘）</div>
+      <div class="sim-phase-desc">結構化 Debrief，以「做得好的 → 可改善的 → 下次怎麼做」為主軸，引導學員自我反思。</div>
+    </div>
+  </div>
+
+  <div class="section-title">🎬 建議模擬情境（急診）</div>
+
+  <div class="accordion">
+    <div class="accordion-header" onclick="toggleAccordion(this)">
+      🫀 情境 A：心跳停止 OHCA 到院（Cardiac Arrest Team）<span class="accordion-arrow">▼</span>
+    </div>
+    <div class="accordion-body">
+      <p style="margin-bottom:8px"><strong>情境設定：</strong>OHCA 病人送達急診，無初始心律，需立即 CPR 並評估 H's & T's。</p>
+      <p style="margin-bottom:8px"><strong>TRM 重點觀察：</strong></p>
+      <ul style="padding-left:18px;font-size:0.88rem">
+        <li>領導者是否主持 Brief 分配角色？</li>
+        <li>CPR 輪換時是否有清楚的 Call-Out？</li>
+        <li>用藥時是否執行 Check-Back？</li>
+        <li>情境突變時是否啟動 Huddle？</li>
+        <li>急救結束後是否有 Debrief？</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <div class="accordion-header" onclick="toggleAccordion(this)">
+      😮‍💨 情境 B：急性呼吸衰竭插管（RSI）<span class="accordion-arrow">▼</span>
+    </div>
+    <div class="accordion-body">
+      <p style="margin-bottom:8px"><strong>情境設定：</strong>SpO2 持續下降的病人需緊急 RSI（快速序列插管），過程中出現設備問題。</p>
+      <p style="margin-bottom:8px"><strong>TRM 重點觀察：</strong></p>
+      <ul style="padding-left:18px;font-size:0.88rem">
+        <li>藥物劑量確認是否使用 Check-Back？</li>
+        <li>設備出問題時是否使用 CUS/Two-Challenge？</li>
+        <li>備用計畫（Plan B）是否在 Brief 時提出？</li>
+        <li>成員壓力大時有無互助行為？</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <div class="accordion-header" onclick="toggleAccordion(this)">
+      🩸 情境 C：多重外傷（Mass Casualty 分流）<span class="accordion-arrow">▼</span>
+    </div>
+    <div class="accordion-body">
+      <p style="margin-bottom:8px"><strong>情境設定：</strong>多位外傷病人同時到達，資源有限，需要同時分流與急救。</p>
+      <p style="margin-bottom:8px"><strong>TRM 重點觀察：</strong></p>
+      <ul style="padding-left:18px;font-size:0.88rem">
+        <li>資源分配決策是否公開透明？</li>
+        <li>跨團隊溝通是否使用 STEP 工具？</li>
+        <li>成員工作超載時是否有人主動互助？</li>
+        <li>Shared Mental Model 是否維持？</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-title">📊 觀察評核指標</div>
+  <table class="styled-table">
+    <tr><th>TRM 模組</th><th>觀察行為指標</th></tr>
+    <tr><td>🏛 領導</td><td>明確角色分配、主持 Brief/Debrief、資源管理、目標設定</td></tr>
+    <tr><td>📡 溝通</td><td>Call-Out 指名使用、Check-Back 執行、SBAR 交班完整度</td></tr>
+    <tr><td>👁 警覺</td><td>STEP 要素監測、相互監測、Huddle 適時啟動</td></tr>
+    <tr><td>🤝 互助</td><td>工作超載時的主動支援、CUS/Two-Challenge 應用、建設性回饋</td></tr>
+  </table>
+
+  <div class="section-title">🔧 原位模擬注意事項</div>
+  <div class="alert-green">
+    <strong>✅ 執行提示：</strong>
+    <ul style="padding-left:18px;margin-top:6px;font-size:0.88rem">
+      <li>確保真實病人照護不受影響（選擇適當時段）</li>
+      <li>提前告知所有可能涉及的醫護人員</li>
+      <li>準備足夠的模擬道具（Mannequin、藥物貼紙、模擬設備）</li>
+      <li>指定至少 1–2 位觀察員專責記錄 TRM 行為</li>
+      <li>Debrief 採用「心理安全」原則，非評分、非懲罰</li>
+    </ul>
+  </div>
+
+</div>
+
+<!-- Bottom Navigation -->
+<nav class="bottom-nav">
+  <button class="bottom-nav-btn active" onclick="switchTab('tab1', null, this)">
+    <span class="icon">🏛</span>TRM概論
+  </button>
+  <button class="bottom-nav-btn" onclick="switchTab('tab2', null, this)">
+    <span class="icon">⚡</span>急救三部曲
+  </button>
+  <button class="bottom-nav-btn" onclick="switchTab('tab3', null, this)">
+    <span class="icon">🔑</span>ACLS核心
+  </button>
+  <button class="bottom-nav-btn" onclick="switchTab('tab4', null, this)">
+    <span class="icon">🎭</span>場景應用
+  </button>
+  <button class="bottom-nav-btn" onclick="switchTab('tab5', null, this)">
+    <span class="icon">🏥</span>原位模擬
+  </button>
+</nav>
+
+<script>
+function switchTab(tabId, topBtn, bottomBtn) {
+  // Hide all tabs
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.bottom-nav-btn').forEach(b => b.classList.remove('active'));
+
+  // Show selected
+  document.getElementById(tabId).classList.add('active');
+
+  // Sync top nav
+  const topBtns = document.querySelectorAll('.tab-btn');
+  const tabIndex = ['tab1','tab2','tab3','tab4','tab5'].indexOf(tabId);
+  if (topBtns[tabIndex]) topBtns[tabIndex].classList.add('active');
+
+  // Sync bottom nav
+  const botBtns = document.querySelectorAll('.bottom-nav-btn');
+  if (botBtns[tabIndex]) botBtns[tabIndex].classList.add('active');
+
+  // Active button highlight
+  if (topBtn) topBtn.classList.add('active');
+  if (bottomBtn) bottomBtn.classList.add('active');
+
+  window.scrollTo(0, 0);
+}
+
+function switchSubTab(panelId, btn) {
+  document.querySelectorAll('.sub-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.sub-tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('panel-' + panelId).classList.add('active');
+  btn.classList.add('active');
+}
+
+function toggleAccordion(header) {
+  const body = header.nextElementSibling;
+  const isOpen = body.classList.contains('open');
+  // Close all
+  document.querySelectorAll('.accordion-body').forEach(b => b.classList.remove('open'));
+  document.querySelectorAll('.accordion-header').forEach(h => h.classList.remove('active'));
+  if (!isOpen) {
+    body.classList.add('open');
+    header.classList.add('active');
+  }
+}
+
+function toggleCheck(item) {
+  const cb = item.querySelector('input[type="checkbox"]');
+  cb.checked = !cb.checked;
+  if (cb.checked) {
+    item.classList.add('checked');
+  } else {
+    item.classList.remove('checked');
+  }
+}
+
+function resetChecklist(listId) {
+  const list = document.getElementById(listId);
+  list.querySelectorAll('.checklist-item').forEach(item => {
+    item.classList.remove('checked');
+    item.querySelector('input[type="checkbox"]').checked = false;
+  });
+}
+</script>
+
+</body>
+</html>
