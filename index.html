@@ -672,6 +672,7 @@
   }
   .share-actions { display: flex; flex-direction: column; gap: 10px; }
   .share-action-btn {
+    display: block;
     width: 100%;
     padding: 13px;
     border: none;
@@ -682,6 +683,7 @@
     transition: opacity 0.15s;
     color: white;
     text-align: center;
+    text-decoration: none;
   }
   .share-action-btn:hover { opacity: 0.88; }
   .share-action-btn.line  { background: #06C755; }
@@ -733,7 +735,7 @@
     </div>
     <div class="share-actions">
       <button class="share-action-btn line" onclick="shareLine()">LINE</button>
-      <button class="share-action-btn email" onclick="shareEmail()">Email</button>
+      <a class="share-action-btn email" id="emailBtn" href="#">Email</a>
       <button class="share-action-btn copy" id="copyBtn" onclick="copyLink()">Copy Link</button>
     </div>
   </div>
@@ -2042,6 +2044,10 @@ function openShare() {
   // Generate QR via free API
   const qr = document.getElementById('qrImg');
   qr.src = 'https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=' + encodeURIComponent(SITE_URL);
+  // Set mailto href directly on the anchor so browser handles it natively
+  const subject = encodeURIComponent('TRM 團隊資源管理 教學網站');
+  const body = encodeURIComponent('新竹台大分院急診醫學部 TRM 教學網站：\n' + SITE_URL);
+  document.getElementById('emailBtn').href = 'mailto:?subject=' + subject + '&body=' + body;
 }
 
 function closeShare() {
@@ -2057,16 +2063,6 @@ function shareLine() {
   window.open('https://social-plugins.line.me/lineit/share?url=' + encodeURIComponent(SITE_URL), '_blank');
 }
 
-function shareEmail() {
-  const subject = encodeURIComponent('TRM 團隊資源管理 教學網站');
-  const body = encodeURIComponent('新竹台大分院急診醫學部 TRM 教學網站：\n' + SITE_URL);
-  const a = document.createElement('a');
-  a.href = 'mailto:?subject=' + subject + '&body=' + body;
-  a.style.display = 'none';
-  document.body.appendChild(a);
-  a.click();
-  setTimeout(() => document.body.removeChild(a), 300);
-}
 
 function copyLink() {
   navigator.clipboard.writeText(SITE_URL).then(() => {
