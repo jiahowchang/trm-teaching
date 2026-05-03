@@ -45,12 +45,24 @@
     align-items: center;
     gap: 16px;
   }
-  .header-logo {
-    height: 64px;
+  .header-logo-hospital {
+    height: 60px;
     width: auto;
     flex-shrink: 0;
     filter: brightness(0) invert(1);
     opacity: 0.92;
+  }
+  .header-logo-trm {
+    height: 58px;
+    width: auto;
+    flex-shrink: 0;
+    opacity: 0.95;
+  }
+  .header-divider {
+    width: 1px;
+    height: 48px;
+    background: rgba(255,255,255,0.25);
+    flex-shrink: 0;
   }
   .header-text { flex: 1; }
   .header-inst {
@@ -191,7 +203,9 @@
   .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 14px; }
   @media(max-width: 640px) {
     .grid-2, .grid-3 { grid-template-columns: 1fr; }
-    .header-logo { height: 44px; }
+    .header-logo-hospital { height: 38px; }
+    .header-logo-trm { height: 36px; }
+    .header-divider { height: 32px; }
   }
 
   /* ── Metric cards ── */
@@ -755,7 +769,10 @@
 
 <!-- Header -->
 <header class="site-header">
-  <img class="header-logo" src="logo.png" alt="新竹台大分院">
+  <img class="header-logo-hospital" src="logo-hsinchu.png" alt="新竹台大分院">
+  <div class="header-divider"></div>
+  <img class="header-logo-trm" src="logo-ntuh.png" alt="TRM">
+  <div class="header-divider"></div>
   <div class="header-text">
     <div class="header-inst">國立臺灣大學醫學院附設醫院新竹臺大分院 急診醫學部</div>
     <div class="header-title">TRM 團隊資源管理</div>
