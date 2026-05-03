@@ -819,7 +819,6 @@
   .clear-scores-btn { background:none; border:1px solid #fca5a5; color:#ef4444; padding:6px 16px; border-radius:8px; font-size:0.78rem; cursor:pointer; }
   .clear-scores-btn:hover { background:#fee2e2; }
 </style>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 </head>
 <body>
 
@@ -2518,7 +2517,12 @@ const GAME_DATA = [
 // ── Supabase 排行榜設定 ──
 const SUPA_URL = 'https://fgufsfvrfkvixqpirtol.supabase.co';
 const SUPA_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZndWZzZnZyZmt2aXhxcGlydG9sIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYzMjMxNzMsImV4cCI6MjA5MTg5OTE3M30.2gLvN-UzKyNsB_RqbR2bauOzLU4LNzI4s9JZym5gcp4';
-const supabase = window.supabase.createClient(SUPA_URL, SUPA_KEY);
+let supabase = null;
+try {
+  supabase = window.supabase.createClient(SUPA_URL, SUPA_KEY);
+} catch(e) {
+  console.warn('Supabase 初始化失敗，排行榜功能停用', e);
+}
 
 const MODULE_COLOR = { A:'#0369a1', C:'#166534', L:'#5b21b6', S:'#c2410c' };
 const MODULE_BG    = { A:'#e0f2fe', C:'#dcfce7', L:'#ede9fe', S:'#fff7ed' };
@@ -2647,6 +2651,10 @@ async function showResult() {
 
   // 上傳分數到 Supabase
   const status = document.getElementById('resultSaveStatus');
+  if (!supabase) {
+    status.textContent = `⏱ 答題時間：${mm}:${ss}（離線模式，排行榜不可用）`;
+    return;
+  }
   status.textContent = '⏳ 上傳分數中...';
   try {
     const { error } = await supabase.from('trm_scores').insert({
@@ -2660,7 +2668,7 @@ async function showResult() {
       ? '⚠️ 上傳失敗，請確認網路連線'
       : `✅ 分數已上傳！答題時間：${mm}:${ss}`;
   } catch(e) {
-    status.textContent = '⚠️ 上傳失敗';
+    status.textContent = `⏱ 答題時間：${mm}:${ss}（上傳失敗，請確認網路）`;
   }
 }
 
@@ -2670,6 +2678,10 @@ async function showLeaderboard() {
   const list = document.getElementById('leaderboardList');
   list.innerHTML = '<div style="text-align:center;padding:24px;color:#94a3b8">🔄 載入排行榜...</div>';
 
+  if (!supabase) {
+    list.innerHTML = '<div style="text-align:center;padding:24px;color:#94a3b8">排行榜需要網路連線</div>';
+    return;
+  }
   try {
     const { data, error } = await supabase
       .from('trm_scores')
@@ -2734,5 +2746,6 @@ function restartGame() {
 }
 </script>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 </body>
 </html>
