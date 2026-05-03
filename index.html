@@ -2524,6 +2524,7 @@ const MODULE_COLOR = { A:'#0369a1', C:'#166534', L:'#5b21b6', S:'#c2410c' };
 const MODULE_BG    = { A:'#e0f2fe', C:'#dcfce7', L:'#ede9fe', S:'#fff7ed' };
 
 let gameQuestions = [], currentQ = 0, score = 0, answers = [], playerName = '';
+let gameStartTime = null;
 
 function shuffle(arr) { return [...arr].sort(() => Math.random() - 0.5); }
 
@@ -2554,6 +2555,7 @@ function startGame() {
   playerName = nick;
   gameQuestions = pickBalancedQuestions();
   currentQ = 0; score = 0; answers = [];
+  gameStartTime = Date.now();
   hideAllScreens();
   document.getElementById('gameQuestion').style.display = 'block';
   showQuestion();
@@ -2638,6 +2640,11 @@ async function showResult() {
       </div>
     </div>`).join('');
 
+  // 計算答題時間（秒）
+  const durationSec = Math.round((Date.now() - gameStartTime) / 1000);
+  const mm = Math.floor(durationSec / 60).toString().padStart(2,'0');
+  const ss = (durationSec % 60).toString().padStart(2,'0');
+
   // 上傳分數到 Supabase
   const status = document.getElementById('resultSaveStatus');
   status.textContent = '⏳ 上傳分數中...';
@@ -2646,9 +2653,12 @@ async function showResult() {
       nickname: playerName,
       score: score,
       total: total,
-      percentage: pct
+      percentage: pct,
+      duration_seconds: durationSec
     });
-    status.textContent = error ? '⚠️ 上傳失敗，請確認網路連線' : '✅ 分數已上傳至排行榜！';
+    status.textContent = error
+      ? '⚠️ 上傳失敗，請確認網路連線'
+      : `✅ 分數已上傳！答題時間：${mm}:${ss}`;
   } catch(e) {
     status.textContent = '⚠️ 上傳失敗';
   }
@@ -2663,9 +2673,9 @@ async function showLeaderboard() {
   try {
     const { data, error } = await supabase
       .from('trm_scores')
-      .select('nickname, score, total, percentage, created_at')
-      .order('percentage', { ascending: false })
-      .order('created_at', { ascending: true });
+      .select('nickname, score, total, duration_seconds')
+      .order('score', { ascending: false })
+      .order('duration_seconds', { ascending: true });
 
     if (error || !data || data.length === 0) {
       list.innerHTML = '<div style="text-align:center;padding:24px;color:#94a3b8">目前還沒有人完成遊戲 🎮</div>';
@@ -2674,19 +2684,33 @@ async function showLeaderboard() {
 
     const medals = ['🥇','🥈','🥉'];
     const rowClass = ['gold','silver','bronze'];
-    list.innerHTML = data.map((row, i) => {
-      const rank = i < 3 ? medals[i] : `${i+1}`;
+
+    // 標頭
+    const header = `<div class="lb-row" style="background:#f1f5f9;font-size:0.75rem;color:#64748b;font-weight:600">
+      <span class="lb-rank">名次</span>
+      <span class="lb-name">暱稱</span>
+      <span class="lb-score" style="color:#64748b">答對</span>
+      <span class="lb-pct" style="color:#64748b">完成時間</span>
+    </div>`;
+
+    const rows = data.map((row, i) => {
+      const rank = i < 3 ? medals[i] : `${i + 1}`;
       const cls  = i < 3 ? rowClass[i] : '';
-      const t = new Date(row.created_at);
-      const timeStr = `${t.getHours().toString().padStart(2,'0')}:${t.getMinutes().toString().padStart(2,'0')}`;
+      const sec  = row.duration_seconds ?? 9999;
+      const mm   = Math.floor(sec / 60).toString().padStart(2, '0');
+      const ss   = (sec % 60).toString().padStart(2, '0');
+      const pct  = Math.round((row.score / row.total) * 100);
       return `<div class="lb-row ${cls}">
         <span class="lb-rank">${rank}</span>
         <span class="lb-name">${row.nickname}</span>
-        <span class="lb-score">${row.score}/${row.total}</span>
-        <span class="lb-pct">${row.percentage}%</span>
-        <span class="lb-time">${timeStr}</span>
+        <span class="lb-score">${row.score}/${row.total}
+          <span class="lb-pct">${pct}%</span>
+        </span>
+        <span class="lb-time" style="font-size:0.88rem;color:#475569;font-weight:600">${mm}:${ss}</span>
       </div>`;
     }).join('');
+
+    list.innerHTML = header + rows;
   } catch(e) {
     list.innerHTML = '<div style="text-align:center;padding:24px;color:#ef4444">載入失敗，請檢查網路</div>';
   }
