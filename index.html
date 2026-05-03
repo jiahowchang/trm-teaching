@@ -49,20 +49,21 @@
     height: 60px;
     width: auto;
     flex-shrink: 0;
-    filter: brightness(0) invert(1);
-    opacity: 0.92;
-  }
-  .header-logo-trm {
-    height: 58px;
-    width: auto;
-    flex-shrink: 0;
-    opacity: 0.95;
   }
   .header-divider {
     width: 1px;
     height: 48px;
     background: rgba(255,255,255,0.25);
     flex-shrink: 0;
+  }
+  .trm-logo-section {
+    text-align: center;
+    padding: 28px 0 8px;
+  }
+  .trm-logo-section img {
+    max-width: 320px;
+    width: 70%;
+    height: auto;
   }
   .header-text { flex: 1; }
   .header-inst {
@@ -204,8 +205,8 @@
   @media(max-width: 640px) {
     .grid-2, .grid-3 { grid-template-columns: 1fr; }
     .header-logo-hospital { height: 38px; }
-    .header-logo-trm { height: 36px; }
     .header-divider { height: 32px; }
+    .trm-logo-section img { width: 55%; }
   }
 
   /* ── Metric cards ── */
@@ -771,8 +772,6 @@
 <header class="site-header">
   <img class="header-logo-hospital" src="logo-hsinchu.png" alt="新竹台大分院">
   <div class="header-divider"></div>
-  <img class="header-logo-trm" src="logo-ntuh.png" alt="TRM">
-  <div class="header-divider"></div>
   <div class="header-text">
     <div class="header-inst">國立臺灣大學醫學院附設醫院新竹臺大分院 急診醫學部</div>
     <div class="header-title">TRM 團隊資源管理</div>
@@ -791,6 +790,10 @@
 
 <!-- ════════════════ TAB 1: TRM概論 ════════════════ -->
 <div id="tab1" class="tab-content active">
+
+  <div class="trm-logo-section">
+    <img src="logo-ntuh.png" alt="TRM 團隊資源管理">
+  </div>
 
   <div class="intro-banner">
     <h2>🚨 為什麼需要 TRM？</h2>
