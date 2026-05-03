@@ -2211,7 +2211,6 @@
   </button>
 </nav>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 <script>
 function switchTab(tabId, topBtn, bottomBtn) {
   // Hide all tabs
@@ -2515,14 +2514,40 @@ const GAME_DATA = [
   }
 ];
 
-// ── Supabase 排行榜設定 ──
+// ── Supabase REST API（不依賴 SDK，用原生 fetch）──
 const SUPA_URL = 'https://fgufsfvrfkvixqpirtol.supabase.co';
 const SUPA_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZndWZzZnZyZmt2aXhxcGlydG9sIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYzMjMxNzMsImV4cCI6MjA5MTg5OTE3M30.2gLvN-UzKyNsB_RqbR2bauOzLU4LNzI4s9JZym5gcp4';
-let supabase = null;
-try {
-  supabase = window.supabase.createClient(SUPA_URL, SUPA_KEY);
-} catch(e) {
-  console.warn('Supabase 初始化失敗，排行榜功能停用', e);
+const SUPA_HEADERS = {
+  'Content-Type': 'application/json',
+  'apikey': SUPA_KEY,
+  'Authorization': 'Bearer ' + SUPA_KEY
+};
+
+async function dbInsert(row) {
+  const res = await fetch(`${SUPA_URL}/rest/v1/trm_scores`, {
+    method: 'POST',
+    headers: { ...SUPA_HEADERS, 'Prefer': 'return=minimal' },
+    body: JSON.stringify(row)
+  });
+  if (!res.ok) throw new Error(await res.text());
+}
+
+async function dbSelect() {
+  const res = await fetch(
+    `${SUPA_URL}/rest/v1/trm_scores?select=nickname,score,total,duration_seconds&order=score.desc,duration_seconds.asc`,
+    { headers: SUPA_HEADERS }
+  );
+  if (!res.ok) throw new Error(await res.text());
+  return res.json();
+}
+
+async function dbDeleteAll() {
+  // 刪除所有列（用 id 不等於一個不存在的值來匹配全部）
+  const res = await fetch(
+    `${SUPA_URL}/rest/v1/trm_scores?duration_seconds=gte.0`,
+    { method: 'DELETE', headers: { ...SUPA_HEADERS, 'Prefer': 'return=minimal' } }
+  );
+  if (!res.ok) throw new Error(await res.text());
 }
 
 const MODULE_COLOR = { A:'#0369a1', C:'#166534', L:'#5b21b6', S:'#c2410c' };
@@ -2652,22 +2677,10 @@ async function showResult() {
 
   // 上傳分數到 Supabase
   const status = document.getElementById('resultSaveStatus');
-  if (!supabase) {
-    status.textContent = `⏱ 答題時間：${mm}:${ss}（離線模式，排行榜不可用）`;
-    return;
-  }
   status.textContent = '⏳ 上傳分數中...';
   try {
-    const { error } = await supabase.from('trm_scores').insert({
-      nickname: playerName,
-      score: score,
-      total: total,
-      percentage: pct,
-      duration_seconds: durationSec
-    });
-    status.textContent = error
-      ? '⚠️ 上傳失敗，請確認網路連線'
-      : `✅ 分數已上傳！答題時間：${mm}:${ss}`;
+    await dbInsert({ nickname: playerName, score, total, percentage: pct, duration_seconds: durationSec });
+    status.textContent = `✅ 分數已上傳！答題時間：${mm}:${ss}`;
   } catch(e) {
     status.textContent = `⏱ 答題時間：${mm}:${ss}（上傳失敗，請確認網路）`;
   }
@@ -2679,18 +2692,10 @@ async function showLeaderboard() {
   const list = document.getElementById('leaderboardList');
   list.innerHTML = '<div style="text-align:center;padding:24px;color:#94a3b8">🔄 載入排行榜...</div>';
 
-  if (!supabase) {
-    list.innerHTML = '<div style="text-align:center;padding:24px;color:#94a3b8">排行榜需要網路連線</div>';
-    return;
-  }
   try {
-    const { data, error } = await supabase
-      .from('trm_scores')
-      .select('nickname, score, total, duration_seconds')
-      .order('score', { ascending: false })
-      .order('duration_seconds', { ascending: true });
+    const data = await dbSelect();
 
-    if (error || !data || data.length === 0) {
+    if (!data || data.length === 0) {
       list.innerHTML = '<div style="text-align:center;padding:24px;color:#94a3b8">目前還沒有人完成遊戲 🎮</div>';
       return;
     }
@@ -2731,7 +2736,9 @@ async function showLeaderboard() {
 
 async function clearScores() {
   if (!confirm('確定要清空所有排行榜資料嗎？此操作無法復原。')) return;
-  await supabase.from('trm_scores').delete().neq('id', '00000000-0000-0000-0000-000000000000');
+  try {
+    await dbDeleteAll();
+  } catch(e) { alert('清空失敗：' + e.message); return; }
   showLeaderboard();
 }
 
