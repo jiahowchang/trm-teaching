@@ -792,7 +792,34 @@
   @media(max-width:640px) {
     .game-options { grid-template-columns:1fr; }
   }
+
+  /* Nickname */
+  .nickname-section { margin: 0 auto 20px; max-width: 320px; text-align: left; }
+  .nickname-label { display:block; font-size:0.85rem; font-weight:600; color:var(--primary); margin-bottom:6px; }
+  .nickname-input { width:100%; padding:12px 14px; border:2px solid var(--border); border-radius:10px; font-size:1rem; font-family:inherit; outline:none; transition:border 0.2s; }
+  .nickname-input:focus { border-color:var(--secondary); }
+  .nickname-hint { font-size:0.75rem; color:var(--text-muted); margin-top:5px; }
+  .leaderboard-peek-btn { display:block; margin:10px auto 0; background:none; border:none; color:var(--secondary); font-size:0.85rem; cursor:pointer; text-decoration:underline; }
+
+  /* Save status */
+  .result-save-status { text-align:center; font-size:0.82rem; color:var(--text-muted); margin-bottom:10px; min-height:20px; }
+
+  /* Leaderboard */
+  .leaderboard-list { background:white; border-radius:12px; overflow:hidden; border:1px solid var(--border); }
+  .lb-row { display:flex; align-items:center; padding:12px 16px; gap:12px; border-bottom:1px solid var(--border); }
+  .lb-row:last-child { border-bottom:none; }
+  .lb-row.gold   { background:#fffbeb; }
+  .lb-row.silver { background:#f8fafc; }
+  .lb-row.bronze { background:#fff7ed; }
+  .lb-rank { font-size:1.3rem; width:32px; text-align:center; flex-shrink:0; }
+  .lb-name { flex:1; font-weight:600; font-size:0.95rem; color:var(--text); }
+  .lb-score { font-size:1rem; font-weight:800; color:var(--secondary); }
+  .lb-pct { font-size:0.78rem; color:var(--text-muted); margin-left:4px; }
+  .lb-time { font-size:0.72rem; color:#cbd5e1; margin-left:6px; }
+  .clear-scores-btn { background:none; border:1px solid #fca5a5; color:#ef4444; padding:6px 16px; border-radius:8px; font-size:0.78rem; cursor:pointer; }
+  .clear-scores-btn:hover { background:#fee2e2; }
 </style>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 </head>
 <body>
 
@@ -2099,7 +2126,11 @@
   <div id="gameStart" class="game-screen">
     <div class="game-start-icon">🎯</div>
     <h3 class="game-start-title">準備好了嗎？</h3>
-    <p class="game-start-desc">每局從 28 題題庫中抽取 12 題（四大模組各 3 題）<br>每次遊戲題目不同，完成後查看解析與得分</p>
+    <div class="nickname-section">
+      <label class="nickname-label">請輸入你的暱稱</label>
+      <input type="text" id="nicknameInput" class="nickname-input" placeholder="例：急診小飛俠" maxlength="15" onkeydown="if(event.key==='Enter')startGame()">
+      <div class="nickname-hint">暱稱將顯示於班級排行榜上</div>
+    </div>
     <div class="module-legend">
       <span class="mod-badge mod-A">🔵 A 警覺</span>
       <span class="mod-badge mod-C">🟢 C 溝通</span>
@@ -2107,6 +2138,7 @@
       <span class="mod-badge mod-S">🟠 S 互助</span>
     </div>
     <button class="game-start-btn" onclick="startGame()">開始遊戲 ▶</button>
+    <button class="leaderboard-peek-btn" onclick="showLeaderboard()">🏆 查看目前排行榜</button>
   </div>
 
   <!-- Question Screen -->
@@ -2133,8 +2165,27 @@
     <div class="result-icon" id="resultIcon"></div>
     <div class="result-score" id="resultScore"></div>
     <div class="result-msg" id="resultMsg"></div>
+    <div class="result-save-status" id="resultSaveStatus"></div>
     <div class="result-review" id="resultReview"></div>
-    <button class="game-start-btn" onclick="restartGame()">🔄 再玩一次</button>
+    <div style="display:flex;gap:10px;flex-wrap:wrap">
+      <button class="game-start-btn" style="flex:1;min-width:130px" onclick="showLeaderboard()">🏆 查看排行榜</button>
+      <button class="game-start-btn" style="flex:1;min-width:130px;background:#64748b" onclick="restartGame()">🔄 再玩一次</button>
+    </div>
+  </div>
+
+  <!-- Leaderboard Screen -->
+  <div id="gameLeaderboard" class="game-screen" style="display:none">
+    <h3 class="game-start-title">🏆 班級排行榜</h3>
+    <div id="leaderboardList" class="leaderboard-list">
+      <div style="text-align:center;padding:20px;color:#94a3b8">載入中...</div>
+    </div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:16px">
+      <button class="game-start-btn" style="flex:1;min-width:130px" onclick="showLeaderboard()">🔄 重新整理</button>
+      <button class="game-start-btn" style="flex:1;min-width:130px;background:#64748b" onclick="backToStart()">← 返回</button>
+    </div>
+    <div style="text-align:center;margin-top:16px">
+      <button class="clear-scores-btn" onclick="clearScores()">🗑 清空本日排行榜（老師用）</button>
+    </div>
   </div>
 
 </div>
@@ -2464,15 +2515,19 @@ const GAME_DATA = [
   }
 ];
 
+// ── Supabase 排行榜設定 ──
+const SUPA_URL = 'https://fgufsfvrfkvixqpirtol.supabase.co';
+const SUPA_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZndWZzZnZyZmt2aXhxcGlydG9sIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYzMjMxNzMsImV4cCI6MjA5MTg5OTE3M30.2gLvN-UzKyNsB_RqbR2bauOzLU4LNzI4s9JZym5gcp4';
+const supabase = window.supabase.createClient(SUPA_URL, SUPA_KEY);
+
 const MODULE_COLOR = { A:'#0369a1', C:'#166534', L:'#5b21b6', S:'#c2410c' };
 const MODULE_BG    = { A:'#e0f2fe', C:'#dcfce7', L:'#ede9fe', S:'#fff7ed' };
 
-let gameQuestions = [], currentQ = 0, score = 0, answers = [];
+let gameQuestions = [], currentQ = 0, score = 0, answers = [], playerName = '';
 
 function shuffle(arr) { return [...arr].sort(() => Math.random() - 0.5); }
 
 function pickBalancedQuestions() {
-  // 從每個模組各隨機抽 3 題，組成 12 題（每局不同）
   const byModule = { L:[], C:[], A:[], S:[] };
   GAME_DATA.forEach(q => byModule[q.module].push(q));
   const picked = [];
@@ -2482,11 +2537,24 @@ function pickBalancedQuestions() {
   return shuffle(picked);
 }
 
+function hideAllScreens() {
+  ['gameStart','gameQuestion','gameResult','gameLeaderboard'].forEach(id => {
+    document.getElementById(id).style.display = 'none';
+  });
+}
+
 function startGame() {
+  const nick = document.getElementById('nicknameInput').value.trim();
+  if (!nick) {
+    document.getElementById('nicknameInput').focus();
+    document.getElementById('nicknameInput').style.borderColor = '#ef4444';
+    setTimeout(() => document.getElementById('nicknameInput').style.borderColor = '', 1500);
+    return;
+  }
+  playerName = nick;
   gameQuestions = pickBalancedQuestions();
   currentQ = 0; score = 0; answers = [];
-  document.getElementById('gameStart').style.display = 'none';
-  document.getElementById('gameResult').style.display = 'none';
+  hideAllScreens();
   document.getElementById('gameQuestion').style.display = 'block';
   showQuestion();
 }
@@ -2516,14 +2584,12 @@ function selectAnswer(chosen, btn) {
   if (isCorrect) score++;
   answers.push({ q, chosen, isCorrect });
 
-  // Disable all buttons and highlight
   document.querySelectorAll('.game-opt-btn').forEach(b => {
     b.disabled = true;
     if (b.textContent === q.answer) b.classList.add('correct');
   });
   if (!isCorrect) btn.classList.add('wrong');
 
-  // Show feedback
   const fb = document.getElementById('gameFeedback');
   fb.style.display = 'block';
   const res = document.getElementById('feedbackResult');
@@ -2545,8 +2611,8 @@ function nextQuestion() {
   showQuestion();
 }
 
-function showResult() {
-  document.getElementById('gameQuestion').style.display = 'none';
+async function showResult() {
+  hideAllScreens();
   document.getElementById('gameResult').style.display = 'block';
   document.getElementById('progressFill').style.width = '100%';
 
@@ -2560,7 +2626,7 @@ function showResult() {
 
   document.getElementById('resultIcon').textContent = icon;
   document.getElementById('resultScore').textContent = `${score} / ${total}　${pct}%`;
-  document.getElementById('resultMsg').textContent = msg;
+  document.getElementById('resultMsg').textContent = `${playerName}，${msg}`;
 
   const review = document.getElementById('resultReview');
   review.innerHTML = '<h4>📋 答題回顧</h4>' + answers.map((a, i) => `
@@ -2571,11 +2637,76 @@ function showResult() {
         ${!a.isCorrect ? `<br><span style="color:#94a3b8;font-size:0.8rem">你選了：${a.chosen}</span>` : ''}
       </div>
     </div>`).join('');
+
+  // 上傳分數到 Supabase
+  const status = document.getElementById('resultSaveStatus');
+  status.textContent = '⏳ 上傳分數中...';
+  try {
+    const { error } = await supabase.from('trm_scores').insert({
+      nickname: playerName,
+      score: score,
+      total: total,
+      percentage: pct
+    });
+    status.textContent = error ? '⚠️ 上傳失敗，請確認網路連線' : '✅ 分數已上傳至排行榜！';
+  } catch(e) {
+    status.textContent = '⚠️ 上傳失敗';
+  }
+}
+
+async function showLeaderboard() {
+  hideAllScreens();
+  document.getElementById('gameLeaderboard').style.display = 'block';
+  const list = document.getElementById('leaderboardList');
+  list.innerHTML = '<div style="text-align:center;padding:24px;color:#94a3b8">🔄 載入排行榜...</div>';
+
+  try {
+    const { data, error } = await supabase
+      .from('trm_scores')
+      .select('nickname, score, total, percentage, created_at')
+      .order('percentage', { ascending: false })
+      .order('created_at', { ascending: true });
+
+    if (error || !data || data.length === 0) {
+      list.innerHTML = '<div style="text-align:center;padding:24px;color:#94a3b8">目前還沒有人完成遊戲 🎮</div>';
+      return;
+    }
+
+    const medals = ['🥇','🥈','🥉'];
+    const rowClass = ['gold','silver','bronze'];
+    list.innerHTML = data.map((row, i) => {
+      const rank = i < 3 ? medals[i] : `${i+1}`;
+      const cls  = i < 3 ? rowClass[i] : '';
+      const t = new Date(row.created_at);
+      const timeStr = `${t.getHours().toString().padStart(2,'0')}:${t.getMinutes().toString().padStart(2,'0')}`;
+      return `<div class="lb-row ${cls}">
+        <span class="lb-rank">${rank}</span>
+        <span class="lb-name">${row.nickname}</span>
+        <span class="lb-score">${row.score}/${row.total}</span>
+        <span class="lb-pct">${row.percentage}%</span>
+        <span class="lb-time">${timeStr}</span>
+      </div>`;
+    }).join('');
+  } catch(e) {
+    list.innerHTML = '<div style="text-align:center;padding:24px;color:#ef4444">載入失敗，請檢查網路</div>';
+  }
+}
+
+async function clearScores() {
+  if (!confirm('確定要清空所有排行榜資料嗎？此操作無法復原。')) return;
+  await supabase.from('trm_scores').delete().neq('id', '00000000-0000-0000-0000-000000000000');
+  showLeaderboard();
+}
+
+function backToStart() {
+  hideAllScreens();
+  document.getElementById('gameStart').style.display = 'block';
 }
 
 function restartGame() {
-  document.getElementById('gameResult').style.display = 'none';
+  hideAllScreens();
   document.getElementById('gameStart').style.display = 'block';
+  document.getElementById('nicknameInput').value = '';
 }
 </script>
 
