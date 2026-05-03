@@ -742,6 +742,56 @@
     .header-right, .bottom-nav, .tab-nav { display: none; }
     .tab-content { display: block !important; }
   }
+
+  /* ── Game Tab ── */
+  .game-screen { padding: 8px 0 20px; }
+  .game-start-icon { font-size: 3.5rem; text-align:center; margin-bottom:8px; }
+  .game-start-title { text-align:center; font-size:1.3rem; font-weight:700; color:var(--primary); margin-bottom:8px; }
+  .game-start-desc { text-align:center; color:var(--text-muted); font-size:0.9rem; line-height:1.7; margin-bottom:18px; }
+  .module-legend { display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-bottom:24px; }
+  .mod-badge { padding:6px 14px; border-radius:20px; font-size:0.82rem; font-weight:600; }
+  .mod-A { background:#e0f2fe; color:#0369a1; }
+  .mod-C { background:#dcfce7; color:#166534; }
+  .mod-L { background:#ede9fe; color:#5b21b6; }
+  .mod-S { background:#fff7ed; color:#c2410c; }
+  .game-start-btn { display:block; margin:0 auto; padding:14px 40px; background:var(--secondary); color:white; border:none; border-radius:12px; font-size:1rem; font-weight:700; cursor:pointer; transition:background 0.2s; }
+  .game-start-btn:hover { background:var(--primary); }
+
+  .game-progress-bar { height:8px; background:#e2e8f0; border-radius:4px; margin-bottom:12px; overflow:hidden; }
+  .game-progress-fill { height:100%; background:linear-gradient(90deg, var(--accent), var(--secondary)); border-radius:4px; transition:width 0.4s; }
+  .game-qnum { font-size:0.82rem; color:var(--text-muted); margin-bottom:10px; text-align:right; }
+
+  .game-scenario-card { background:linear-gradient(135deg,#1a3a5c,#0c2340); color:white; border-radius:14px; padding:20px; margin-bottom:16px; }
+  .game-scenario-label { font-size:0.75rem; opacity:0.7; letter-spacing:1px; margin-bottom:8px; text-transform:uppercase; }
+  .game-scenario-text { font-size:0.95rem; line-height:1.8; }
+
+  .game-options { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:12px; }
+  .game-opt-btn { padding:12px 10px; border:2px solid var(--border); border-radius:12px; background:white; font-size:0.85rem; font-weight:600; color:var(--text); cursor:pointer; transition:all 0.18s; line-height:1.4; text-align:center; }
+  .game-opt-btn:hover:not(:disabled) { border-color:var(--secondary); background:#f0f9ff; }
+  .game-opt-btn.correct { background:#dcfce7; border-color:#22c55e; color:#166534; }
+  .game-opt-btn.wrong   { background:#fee2e2; border-color:#ef4444; color:#991b1b; }
+  .game-opt-btn:disabled { cursor:default; }
+
+  .game-feedback { background:#f8fafc; border-radius:12px; padding:16px; margin-top:4px; }
+  .feedback-result { font-size:1.1rem; font-weight:700; margin-bottom:6px; }
+  .feedback-result.ok { color:#16a34a; }
+  .feedback-result.ng { color:#dc2626; }
+  .feedback-skill { font-size:0.88rem; font-weight:600; color:var(--secondary); margin-bottom:6px; }
+  .feedback-explain { font-size:0.85rem; color:var(--text-muted); line-height:1.7; margin-bottom:14px; }
+  .game-next-btn { display:block; width:100%; padding:12px; background:var(--secondary); color:white; border:none; border-radius:10px; font-size:0.95rem; font-weight:700; cursor:pointer; }
+  .game-next-btn:hover { background:var(--primary); }
+
+  .result-icon { font-size:4rem; text-align:center; margin-bottom:12px; }
+  .result-score { font-size:2.2rem; font-weight:800; text-align:center; color:var(--primary); margin-bottom:8px; }
+  .result-msg { text-align:center; font-size:1rem; color:var(--text-muted); margin-bottom:20px; }
+  .result-review { background:white; border-radius:12px; padding:16px; margin-bottom:20px; }
+  .result-review h4 { font-size:0.9rem; color:var(--primary); margin-bottom:12px; }
+  .review-item { display:flex; align-items:flex-start; gap:8px; margin-bottom:10px; font-size:0.83rem; line-height:1.5; }
+  .review-dot { font-size:1rem; flex-shrink:0; margin-top:1px; }
+
+  @media(max-width:640px) {
+    .game-options { grid-template-columns:1fr; }
+  }
 </style>
 </head>
 <body>
@@ -788,6 +838,7 @@
   <button class="tab-btn" onclick="switchTab('tab3', this)">🔑 ACLS核心</button>
   <button class="tab-btn" onclick="switchTab('tab4', this)">🎭 場景應用</button>
   <button class="tab-btn" onclick="switchTab('tab5', this)">🏥 原位模擬</button>
+  <button class="tab-btn" onclick="switchTab('tab6', this)">🎮 技能遊戲</button>
 </nav>
 
 <!-- ════════════════ TAB 1: TRM概論 ════════════════ -->
@@ -2036,6 +2087,58 @@
 
 </div>
 
+<!-- ════════════════ TAB 6: 技能配對遊戲 ════════════════ -->
+<div id="tab6" class="tab-content">
+
+  <div class="intro-banner">
+    <h2>🎮 TRM 技能配對遊戲</h2>
+    <p>閱讀臨床情境，選出最符合的 TRM 技能，測試你對警覺、溝通、領導、互助四大模組的掌握程度！</p>
+  </div>
+
+  <!-- Start Screen -->
+  <div id="gameStart" class="game-screen">
+    <div class="game-start-icon">🎯</div>
+    <h3 class="game-start-title">準備好了嗎？</h3>
+    <p class="game-start-desc">共 10 題臨床情境，每題選出對應的 TRM 技能<br>完成後查看解析與得分</p>
+    <div class="module-legend">
+      <span class="mod-badge mod-A">🔵 A 警覺</span>
+      <span class="mod-badge mod-C">🟢 C 溝通</span>
+      <span class="mod-badge mod-L">🟣 L 領導</span>
+      <span class="mod-badge mod-S">🟠 S 互助</span>
+    </div>
+    <button class="game-start-btn" onclick="startGame()">開始遊戲 ▶</button>
+  </div>
+
+  <!-- Question Screen -->
+  <div id="gameQuestion" class="game-screen" style="display:none">
+    <div class="game-progress-bar">
+      <div class="game-progress-fill" id="progressFill"></div>
+    </div>
+    <div class="game-qnum" id="gameQNum"></div>
+    <div class="game-scenario-card">
+      <div class="game-scenario-label">📋 臨床情境</div>
+      <div class="game-scenario-text" id="scenarioText"></div>
+    </div>
+    <div class="game-options" id="gameOptions"></div>
+    <div class="game-feedback" id="gameFeedback" style="display:none">
+      <div class="feedback-result" id="feedbackResult"></div>
+      <div class="feedback-skill" id="feedbackSkill"></div>
+      <div class="feedback-explain" id="feedbackExplain"></div>
+      <button class="game-next-btn" id="nextBtn" onclick="nextQuestion()">下一題 →</button>
+    </div>
+  </div>
+
+  <!-- Result Screen -->
+  <div id="gameResult" class="game-screen" style="display:none">
+    <div class="result-icon" id="resultIcon"></div>
+    <div class="result-score" id="resultScore"></div>
+    <div class="result-msg" id="resultMsg"></div>
+    <div class="result-review" id="resultReview"></div>
+    <button class="game-start-btn" onclick="restartGame()">🔄 再玩一次</button>
+  </div>
+
+</div>
+
 <!-- Bottom Navigation -->
 <nav class="bottom-nav">
   <button class="bottom-nav-btn active" onclick="switchTab('tab1', null, this)">
@@ -2053,6 +2156,9 @@
   <button class="bottom-nav-btn" onclick="switchTab('tab5', null, this)">
     <span class="icon">🏥</span>原位模擬
   </button>
+  <button class="bottom-nav-btn" onclick="switchTab('tab6', null, this)">
+    <span class="icon">🎮</span>技能遊戲
+  </button>
 </nav>
 
 <script>
@@ -2067,7 +2173,7 @@ function switchTab(tabId, topBtn, bottomBtn) {
 
   // Sync top nav
   const topBtns = document.querySelectorAll('.tab-btn');
-  const tabIndex = ['tab1','tab2','tab3','tab4','tab5'].indexOf(tabId);
+  const tabIndex = ['tab1','tab2','tab3','tab4','tab5','tab6'].indexOf(tabId);
   if (topBtns[tabIndex]) topBtns[tabIndex].classList.add('active');
 
   // Sync bottom nav
@@ -2164,6 +2270,185 @@ function copyLink() {
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') closeShare();
 });
+
+/* ══════════════════════════════════════════
+   TRM 技能配對遊戲
+   ══════════════════════════════════════════ */
+const GAME_DATA = [
+  {
+    scenario: "急救結束後，急診 team leader 說：「我們花五分鐘，回顧一下剛才的急救流程——哪些做得好、哪裡可以改進？」全體成員一起討論。",
+    answer: "Debrief（任務後檢討）",
+    module: "L", moduleName: "領導 Leadership",
+    explain: "Debrief 是領導核心技能，在任務結束後進行結構化反思，幫助團隊從每次急救中學習。",
+    options: ["Debrief（任務後檢討）","Closed-loop communication（回饋式溝通）","CUS","Situation Monitoring（情境監測）"]
+  },
+  {
+    scenario: "醫師下令：「打 Epinephrine 1mg IV！」護理師立即回應：「好，我現在執行 Epinephrine 1mg IV push！」醫師確認：「對，執行。」",
+    answer: "Closed-loop communication（回饋式溝通）",
+    module: "C", moduleName: "溝通 Communication",
+    explain: "Closed-loop communication 指下達指令→接收者複誦確認→發令者再確認，確保訊息無誤傳遞。",
+    options: ["Closed-loop communication（回饋式溝通）","Call-out（呼叫式溝通）","DESC","Brief（任務前簡報）"]
+  },
+  {
+    scenario: "CPR 進行中，team leader 大聲說：「所有人注意！節律轉為 VF，準備電擊 200J，請暫停 CPR！」",
+    answer: "Call-out（呼叫式溝通）",
+    module: "C", moduleName: "溝通 Communication",
+    explain: "Call-out 是主動大聲宣告重要資訊，讓所有團隊成員同步掌握當前狀況與下一步行動。",
+    options: ["Call-out（呼叫式溝通）","Huddle（動態討論）","Two-challenge rule（二次挑戰）","SBAR"]
+  },
+  {
+    scenario: "急救開始前，team leader 說：「我是今天指揮，A 負責 CPR，B 給藥，C 記錄時間。目標是 ROSC，如有疑問請立即提出。」",
+    answer: "Brief（任務前簡報）",
+    module: "L", moduleName: "領導 Leadership",
+    explain: "Brief 在任務開始前明確角色分工、目標與溝通規則，建立團隊共同心智模型。",
+    options: ["Brief（任務前簡報）","Debrief（任務後檢討）","Huddle（動態討論）","Situation Monitoring（情境監測）"]
+  },
+  {
+    scenario: "急救進行 8 分鐘，team leader 說：「暫停 10 秒，目前三輪 CPR 無 ROSC，我們要考慮換策略——有人有意見嗎？」",
+    answer: "Huddle（動態討論）",
+    module: "L", moduleName: "領導 Leadership",
+    explain: "Huddle 是在任務進行中的即時短暫集結討論，用於調整計畫、處理突發狀況。",
+    options: ["Huddle（動態討論）","Brief（任務前簡報）","Call-out（呼叫式溝通）","CUS"]
+  },
+  {
+    scenario: "護理師對醫師說：「我很擔心（Concerned）這個劑量，這讓我不舒服（Uncomfortable），我認為這是安全問題（Safety issue），請再確認一次。」",
+    answer: "CUS",
+    module: "S", moduleName: "互助 Support",
+    explain: "CUS 是互助技能中的安全暗號：C=Concerned、U=Uncomfortable、S=Safety issue，任何成員皆可使用，要求暫停確認。",
+    options: ["CUS","DESC","Two-challenge rule（二次挑戰）","Closed-loop communication（回饋式溝通）"]
+  },
+  {
+    scenario: "住院醫師第一次提醒主治醫師「這個藥物劑量似乎過高」，主治醫師未理會；住院醫師再次提出，若仍無回應，則向上級主任反映。",
+    answer: "Two-challenge rule（二次挑戰）",
+    module: "S", moduleName: "互助 Support",
+    explain: "Two-challenge rule：對安全疑慮至少提出兩次質疑，若仍未被處理，有責任升級至更高層級。",
+    options: ["Two-challenge rule（二次挑戰）","CUS","DESC","Huddle（動態討論）"]
+  },
+  {
+    scenario: "護理師說：「我發現病人血壓持續偏低（描述 D）。這讓我非常擔心（感受 E）。我建議先給 500cc 生理食鹽水補液（建議 S）。若不處理，病人可能進入休克（後果 C）。」",
+    answer: "DESC",
+    module: "S", moduleName: "互助 Support",
+    explain: "DESC 提供結構化溝通框架：Describe 描述事實→Express 表達感受→Suggest 提出建議→Consequences 說明後果。",
+    options: ["DESC","CUS","SBAR","Call-out（呼叫式溝通）"]
+  },
+  {
+    scenario: "急救進行中，護理師同時觀察病人生命徵象、注意隊友疲勞程度、確認點滴是否順暢，並留意急救時間是否需要換手 CPR。",
+    answer: "Situation Monitoring（情境監測）",
+    module: "A", moduleName: "警覺 Awareness",
+    explain: "Situation Monitoring 是警覺模組的核心：持續掃描病人（S）、隊友（T）、環境（E）、進度（P）四個面向，即 STEP 原則。",
+    options: ["Situation Monitoring（情境監測）","Brief（任務前簡報）","Closed-loop communication（回饋式溝通）","DESC"]
+  },
+  {
+    scenario: "護理師向值班醫師電話報告：「303床，62歲男性（情況 S），血壓 80/50 心跳加速（背景 B），我評估可能是低血容量休克（評估 A），請立即評估並考慮補液（建議 R）。」",
+    answer: "SBAR",
+    module: "C", moduleName: "溝通 Communication",
+    explain: "SBAR 是結構化溝通工具：Situation→Background→Assessment→Recommendation，特別適用於交班、電話報告等場景。",
+    options: ["SBAR","Closed-loop communication（回饋式溝通）","Call-out（呼叫式溝通）","CUS"]
+  }
+];
+
+const MODULE_COLOR = { A:'#0369a1', C:'#166534', L:'#5b21b6', S:'#c2410c' };
+const MODULE_BG    = { A:'#e0f2fe', C:'#dcfce7', L:'#ede9fe', S:'#fff7ed' };
+
+let gameQuestions = [], currentQ = 0, score = 0, answers = [];
+
+function shuffle(arr) { return [...arr].sort(() => Math.random() - 0.5); }
+
+function startGame() {
+  gameQuestions = shuffle(GAME_DATA);
+  currentQ = 0; score = 0; answers = [];
+  document.getElementById('gameStart').style.display = 'none';
+  document.getElementById('gameResult').style.display = 'none';
+  document.getElementById('gameQuestion').style.display = 'block';
+  showQuestion();
+}
+
+function showQuestion() {
+  const q = gameQuestions[currentQ];
+  const total = gameQuestions.length;
+  document.getElementById('progressFill').style.width = ((currentQ / total) * 100) + '%';
+  document.getElementById('gameQNum').textContent = `第 ${currentQ + 1} 題 / 共 ${total} 題`;
+  document.getElementById('scenarioText').textContent = q.scenario;
+  document.getElementById('gameFeedback').style.display = 'none';
+
+  const opts = document.getElementById('gameOptions');
+  opts.innerHTML = '';
+  shuffle(q.options).forEach(opt => {
+    const btn = document.createElement('button');
+    btn.className = 'game-opt-btn';
+    btn.textContent = opt;
+    btn.onclick = () => selectAnswer(opt, btn);
+    opts.appendChild(btn);
+  });
+}
+
+function selectAnswer(chosen, btn) {
+  const q = gameQuestions[currentQ];
+  const isCorrect = chosen === q.answer;
+  if (isCorrect) score++;
+  answers.push({ q, chosen, isCorrect });
+
+  // Disable all buttons and highlight
+  document.querySelectorAll('.game-opt-btn').forEach(b => {
+    b.disabled = true;
+    if (b.textContent === q.answer) b.classList.add('correct');
+  });
+  if (!isCorrect) btn.classList.add('wrong');
+
+  // Show feedback
+  const fb = document.getElementById('gameFeedback');
+  fb.style.display = 'block';
+  const res = document.getElementById('feedbackResult');
+  res.className = 'feedback-result ' + (isCorrect ? 'ok' : 'ng');
+  res.textContent = isCorrect ? '✅ 答對了！' : '❌ 答錯了';
+
+  const mod = q.module;
+  document.getElementById('feedbackSkill').innerHTML =
+    `<span style="background:${MODULE_BG[mod]};color:${MODULE_COLOR[mod]};padding:2px 10px;border-radius:12px;font-size:0.8rem">${q.moduleName}</span>　<strong>${q.answer}</strong>`;
+  document.getElementById('feedbackExplain').textContent = q.explain;
+
+  const nextBtn = document.getElementById('nextBtn');
+  nextBtn.textContent = currentQ === gameQuestions.length - 1 ? '查看結果 🏁' : '下一題 →';
+}
+
+function nextQuestion() {
+  currentQ++;
+  if (currentQ >= gameQuestions.length) { showResult(); return; }
+  showQuestion();
+}
+
+function showResult() {
+  document.getElementById('gameQuestion').style.display = 'none';
+  document.getElementById('gameResult').style.display = 'block';
+  document.getElementById('progressFill').style.width = '100%';
+
+  const total = gameQuestions.length;
+  const pct = Math.round((score / total) * 100);
+  const icon = pct === 100 ? '🏆' : pct >= 70 ? '🎉' : pct >= 50 ? '💪' : '📚';
+  const msg  = pct === 100 ? '完美！TRM 技能全部掌握！'
+             : pct >= 70  ? '很好！對 TRM 已有扎實認識！'
+             : pct >= 50  ? '還不錯，繼續加油！'
+             : '多複習幾遍，你會更棒！';
+
+  document.getElementById('resultIcon').textContent = icon;
+  document.getElementById('resultScore').textContent = `${score} / ${total}　${pct}%`;
+  document.getElementById('resultMsg').textContent = msg;
+
+  const review = document.getElementById('resultReview');
+  review.innerHTML = '<h4>📋 答題回顧</h4>' + answers.map((a, i) => `
+    <div class="review-item">
+      <span class="review-dot">${a.isCorrect ? '✅' : '❌'}</span>
+      <div>
+        <strong>Q${i+1}</strong>　正確答案：<span style="color:${MODULE_COLOR[a.q.module]};font-weight:600">${a.q.answer}</span>
+        ${!a.isCorrect ? `<br><span style="color:#94a3b8;font-size:0.8rem">你選了：${a.chosen}</span>` : ''}
+      </div>
+    </div>`).join('');
+}
+
+function restartGame() {
+  document.getElementById('gameResult').style.display = 'none';
+  document.getElementById('gameStart').style.display = 'block';
+}
 </script>
 
 </body>
