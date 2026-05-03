@@ -416,6 +416,22 @@
   .step-desc { font-size: 0.88rem; color: var(--text-muted); }
 
   /* ── Case scenario ── */
+  .video-wrap {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 */
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    margin-bottom: 24px;
+    background: #000;
+  }
+  .video-wrap iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border: none;
+  }
   .scenario-box {
     background: #f0f9ff;
     border: 1px solid #bae6fd;
@@ -1897,6 +1913,18 @@
 
   <div class="alert-blue">
     💡 在每個案例中，找出使用了哪些 TRM 工具？哪些可以改善？
+  </div>
+
+  <!-- 教學影片 -->
+  <div class="section-title">🎬 教學影片</div>
+  <div class="video-wrap">
+    <iframe
+      src="https://www.youtube.com/embed/Zy4t1TU9xNI?start=576"
+      title="TRM 場景應用教學影片"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen>
+    </iframe>
   </div>
 
   <!-- 案例一 -->
