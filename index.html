@@ -2099,7 +2099,7 @@
   <div id="gameStart" class="game-screen">
     <div class="game-start-icon">🎯</div>
     <h3 class="game-start-title">準備好了嗎？</h3>
-    <p class="game-start-desc">共 10 題臨床情境，每題選出對應的 TRM 技能<br>完成後查看解析與得分</p>
+    <p class="game-start-desc">每局從 28 題題庫中抽取 12 題（四大模組各 3 題）<br>每次遊戲題目不同，完成後查看解析與得分</p>
     <div class="module-legend">
       <span class="mod-badge mod-A">🔵 A 警覺</span>
       <span class="mod-badge mod-C">🟢 C 溝通</span>
@@ -2274,76 +2274,193 @@ document.addEventListener('keydown', e => {
 /* ══════════════════════════════════════════
    TRM 技能配對遊戲
    ══════════════════════════════════════════ */
+// ── 完整題庫（28 題，涵蓋四大模組所有技能）──
+// 每局從各模組各抽題，組成 12 題不重複的遊戲
 const GAME_DATA = [
+
+  // ════ 領導 Leadership ════
   {
-    scenario: "急救結束後，急診 team leader 說：「我們花五分鐘，回顧一下剛才的急救流程——哪些做得好、哪裡可以改進？」全體成員一起討論。",
-    answer: "Debrief（任務後檢討）",
+    scenario: "急救開始前，team leader 對全體成員說：「我是今天的指揮。A 負責 CPR，B 負責給藥，C 負責記錄時間。我們的目標是 ROSC。若有任何疑問，請立刻說出來。」",
+    answer: "Brief（任務前說明）",
     module: "L", moduleName: "領導 Leadership",
-    explain: "Debrief 是領導核心技能，在任務結束後進行結構化反思，幫助團隊從每次急救中學習。",
-    options: ["Debrief（任務後檢討）","Closed-loop communication（回饋式溝通）","CUS","Situation Monitoring（情境監測）"]
+    explain: "Brief 在任務開始前明確角色分工、目標與溝通規範，幫助所有人建立一致的行動計畫（Shared Mental Model）。",
+    options: ["Brief（任務前說明）","Huddle（動態討論）","Debrief（任務後檢討）","Call-out（呼叫式溝通）"]
   },
   {
-    scenario: "醫師下令：「打 Epinephrine 1mg IV！」護理師立即回應：「好，我現在執行 Epinephrine 1mg IV push！」醫師確認：「對，執行。」",
-    answer: "Closed-loop communication（回饋式溝通）",
-    module: "C", moduleName: "溝通 Communication",
-    explain: "Closed-loop communication 指下達指令→接收者複誦確認→發令者再確認，確保訊息無誤傳遞。",
-    options: ["Closed-loop communication（回饋式溝通）","Call-out（呼叫式溝通）","DESC","Brief（任務前簡報）"]
-  },
-  {
-    scenario: "CPR 進行中，team leader 大聲說：「所有人注意！節律轉為 VF，準備電擊 200J，請暫停 CPR！」",
-    answer: "Call-out（呼叫式溝通）",
-    module: "C", moduleName: "溝通 Communication",
-    explain: "Call-out 是主動大聲宣告重要資訊，讓所有團隊成員同步掌握當前狀況與下一步行動。",
-    options: ["Call-out（呼叫式溝通）","Huddle（動態討論）","Two-challenge rule（二次挑戰）","SBAR"]
-  },
-  {
-    scenario: "急救開始前，team leader 說：「我是今天指揮，A 負責 CPR，B 給藥，C 記錄時間。目標是 ROSC，如有疑問請立即提出。」",
-    answer: "Brief（任務前簡報）",
-    module: "L", moduleName: "領導 Leadership",
-    explain: "Brief 在任務開始前明確角色分工、目標與溝通規則，建立團隊共同心智模型。",
-    options: ["Brief（任務前簡報）","Debrief（任務後檢討）","Huddle（動態討論）","Situation Monitoring（情境監測）"]
-  },
-  {
-    scenario: "急救進行 8 分鐘，team leader 說：「暫停 10 秒，目前三輪 CPR 無 ROSC，我們要考慮換策略——有人有意見嗎？」",
+    scenario: "急救進行 8 分鐘後，team leader 說：「暫停 10 秒。目前三輪 CPR 仍無 ROSC，有人對目前策略有意見嗎？我們是否該考慮 ECMO？」",
     answer: "Huddle（動態討論）",
     module: "L", moduleName: "領導 Leadership",
-    explain: "Huddle 是在任務進行中的即時短暫集結討論，用於調整計畫、處理突發狀況。",
-    options: ["Huddle（動態討論）","Brief（任務前簡報）","Call-out（呼叫式溝通）","CUS"]
+    explain: "Huddle 是在任務進行中因情況改變而即時召集的短暫集結討論，用於調整計畫、重新分工或處理突發問題。",
+    options: ["Huddle（動態討論）","Brief（任務前說明）","Debrief（任務後檢討）","Shared Mental Model（共同心智模型）"]
   },
   {
-    scenario: "護理師對醫師說：「我很擔心（Concerned）這個劑量，這讓我不舒服（Uncomfortable），我認為這是安全問題（Safety issue），請再確認一次。」",
-    answer: "CUS",
-    module: "S", moduleName: "互助 Support",
-    explain: "CUS 是互助技能中的安全暗號：C=Concerned、U=Uncomfortable、S=Safety issue，任何成員皆可使用，要求暫停確認。",
-    options: ["CUS","DESC","Two-challenge rule（二次挑戰）","Closed-loop communication（回饋式溝通）"]
+    scenario: "急救結束後，team leader 說：「我們花五分鐘回顧剛才的流程——哪些做得好、哪裡需要改進？請大家都說說看。」",
+    answer: "Debrief（任務後檢討）",
+    module: "L", moduleName: "領導 Leadership",
+    explain: "Debrief 是任務結束後的結構化反思，幫助團隊從每次急救中學習，是建立持續改善文化的核心工具。",
+    options: ["Debrief（任務後檢討）","Brief（任務前說明）","Huddle（動態討論）","Formative Feedback（形成性回饋）"]
   },
   {
-    scenario: "住院醫師第一次提醒主治醫師「這個藥物劑量似乎過高」，主治醫師未理會；住院醫師再次提出，若仍無回應，則向上級主任反映。",
-    answer: "Two-challenge rule（二次挑戰）",
-    module: "S", moduleName: "互助 Support",
-    explain: "Two-challenge rule：對安全疑慮至少提出兩次質疑，若仍未被處理，有責任升級至更高層級。",
-    options: ["Two-challenge rule（二次挑戰）","CUS","DESC","Huddle（動態討論）"]
+    scenario: "骨科主治醫師在刀房主導手術，但病人突然出現心律不整，心臟科醫師立即接手指揮急救，骨科醫師退至輔助角色，待病況穩定後再繼續手術。",
+    answer: "Situational Leader（情境領導）",
+    module: "L", moduleName: "領導 Leadership",
+    explain: "Situational Leader 指當情境需要時，由擁有最相關專業的成員暫時接掌領導，領導角色可因需求彈性轉移，不受職位限制。",
+    options: ["Situational Leader（情境領導）","Huddle（動態討論）","Advocacy and Assertion（倡導與主張）","Cross-Monitoring（相互監測）"]
+  },
+
+  // ════ 溝通 Communication ════
+  {
+    scenario: "醫師下令：「給 Epinephrine 1mg IV！」護理師回應：「收到，Epinephrine 1mg IV push，正在執行。」醫師確認：「對，執行。」",
+    answer: "Closed-loop communication（回饋式溝通）",
+    module: "C", moduleName: "溝通 Communication",
+    explain: "Closed-loop communication 三步驟：發令→接收者複誦→發令者確認，確保醫囑無誤傳遞，是急救中減少給藥錯誤的關鍵技能。",
+    options: ["Closed-loop communication（回饋式溝通）","Call-out（呼叫式溝通）","SBAR","Check-Back（確認回報）"]
   },
   {
-    scenario: "護理師說：「我發現病人血壓持續偏低（描述 D）。這讓我非常擔心（感受 E）。我建議先給 500cc 生理食鹽水補液（建議 S）。若不處理，病人可能進入休克（後果 C）。」",
-    answer: "DESC",
-    module: "S", moduleName: "互助 Support",
-    explain: "DESC 提供結構化溝通框架：Describe 描述事實→Express 表達感受→Suggest 提出建議→Consequences 說明後果。",
-    options: ["DESC","CUS","SBAR","Call-out（呼叫式溝通）"]
+    scenario: "CPR 進行中，team leader 大聲宣告：「所有人注意！節律已轉為 VF，準備電擊 200J！CPR 暫停，請所有人退後！」",
+    answer: "Call-out（主動呼叫）",
+    module: "C", moduleName: "溝通 Communication",
+    explain: "Call-out 是主動大聲宣告重要資訊，讓在場所有成員同步了解當前狀況與下一步行動，無需逐一告知。",
+    options: ["Call-out（主動呼叫）","Closed-loop communication（回饋式溝通）","Huddle（動態討論）","Brief（任務前說明）"]
   },
   {
-    scenario: "急救進行中，護理師同時觀察病人生命徵象、注意隊友疲勞程度、確認點滴是否順暢，並留意急救時間是否需要換手 CPR。",
-    answer: "Situation Monitoring（情境監測）",
-    module: "A", moduleName: "警覺 Awareness",
-    explain: "Situation Monitoring 是警覺模組的核心：持續掃描病人（S）、隊友（T）、環境（E）、進度（P）四個面向，即 STEP 原則。",
-    options: ["Situation Monitoring（情境監測）","Brief（任務前簡報）","Closed-loop communication（回饋式溝通）","DESC"]
-  },
-  {
-    scenario: "護理師向值班醫師電話報告：「303床，62歲男性（情況 S），血壓 80/50 心跳加速（背景 B），我評估可能是低血容量休克（評估 A），請立即評估並考慮補液（建議 R）。」",
+    scenario: "護理師向值班醫師電話報告：「303床，62歲男性（S），血壓 80/50 心跳 120（B），我評估可能是低血容量休克（A），請立即評估並考慮補液（R）。」",
     answer: "SBAR",
     module: "C", moduleName: "溝通 Communication",
-    explain: "SBAR 是結構化溝通工具：Situation→Background→Assessment→Recommendation，特別適用於交班、電話報告等場景。",
-    options: ["SBAR","Closed-loop communication（回饋式溝通）","Call-out（呼叫式溝通）","CUS"]
+    explain: "SBAR 是結構化溝通工具：Situation 情況→Background 背景→Assessment 評估→Recommendation 建議，特別適用於病情報告、交班與緊急升級。",
+    options: ["SBAR","Closed-loop communication（回饋式溝通）","I-PASS","Call-out（主動呼叫）"]
+  },
+  {
+    scenario: "早班護理師在交班結束後說：「請你用自己的話告訴我，這位病人今天有哪些待辦事項？」以確認接班者真正理解。",
+    answer: "Teach-Back（確認理解）",
+    module: "C", moduleName: "溝通 Communication",
+    explain: "Teach-Back 要求對方以自己的語言複述重點，確認真正理解而非僅表面點頭，適用於交班、衛教及訓練場合。",
+    options: ["Teach-Back（確認理解）","Closed-loop communication（回饋式溝通）","Handoff（交班）","Formative Feedback（形成性回饋）"]
+  },
+  {
+    scenario: "夜班結束，住院醫師向接班醫師進行結構化交班：先說明病況嚴重度，再摘要病人狀況，列出待辦事項，分析潛在風險，最後請對方複述重點。",
+    answer: "I-PASS（結構化交班）",
+    module: "C", moduleName: "溝通 Communication",
+    explain: "I-PASS 是結構化交班工具：Illness severity 病況嚴重度→Patient summary 病人摘要→Action list 待辦→Situation awareness 情境警覺→Synthesis by receiver 接班者複誦，可大幅降低交班資訊遺漏。",
+    options: ["I-PASS（結構化交班）","SBAR","Handoff（交班）","Brief（任務前說明）"]
+  },
+  {
+    scenario: "主治醫師在急救後對 R1 說：「你壓胸的位置和深度都很正確，很好。下次可以注意換手時機，讓自己保持體力，整體表現不錯。」",
+    answer: "Formative Feedback（形成性回饋）",
+    module: "C", moduleName: "溝通 Communication",
+    explain: "Formative Feedback 是即時、具體、有建設性的回饋，針對可觀察的行為給予指引，幫助學習者在下次改進，屬於溝通模組的重要技能。",
+    options: ["Formative Feedback（形成性回饋）","Debrief（任務後檢討）","Teach-Back（確認理解）","DESC"]
+  },
+
+  // ════ 警覺 Situation Monitoring ════
+  {
+    scenario: "急救過程中，護理師一邊執行任務，一邊系統性地掃描：病人血壓、心跳；隊友是否疲勞需要換手；急救車藥物是否備齊；距上次給 Epi 已過幾分鐘。",
+    answer: "STEP（情境監測框架）",
+    module: "A", moduleName: "警覺 Awareness",
+    explain: "STEP 是 Situation Monitoring 的操作框架：Status of patient 病人→Team members 隊友→Environment 環境→Progress 進度，幫助成員持續全面掌握現況。",
+    options: ["STEP（情境監測框架）","I'M SAFE","Cross-Monitoring（相互監測）","Shared Mental Model（共同心智模型）"]
+  },
+  {
+    scenario: "早班前，住院醫師發現自己昨夜幾乎沒睡、有輕微頭痛，主動向主治醫師說明自己的狀態，兩人討論是否需要調整工作量。",
+    answer: "I'M SAFE（自我評估清單）",
+    module: "A", moduleName: "警覺 Awareness",
+    explain: "I'M SAFE 是上班前的自我適任評估：Illness 疾病、Medication 藥物、Stress 壓力、Alcohol 酒精、Fatigue 疲勞、Eating 飲食，預防因個人狀態不佳影響病人安全。",
+    options: ["I'M SAFE（自我評估清單）","STEP（情境監測框架）","Cross-Monitoring（相互監測）","Task Assistance（任務支援）"]
+  },
+  {
+    scenario: "藥師在核對醫師開立的處方時，發現某藥物劑量與病人體重不符，主動標記並請醫師確認，在藥物到達病房前攔截了一個潛在錯誤。",
+    answer: "Cross-Monitoring（相互監測）",
+    module: "A", moduleName: "警覺 Awareness",
+    explain: "Cross-Monitoring 是主動互相監察隊友的行動，作為防止失誤的第二道防線，這種「相互看顧」是建立心理安全環境的重要展現。",
+    options: ["Cross-Monitoring（相互監測）","STEP（情境監測框架）","Two-challenge rule（二次挑戰）","Advocacy and Assertion（倡導與主張）"]
+  },
+  {
+    scenario: "護理師正在準備給藥時，突然被其他病人叫走，回來後她停下來，重新確認藥物名稱、劑量、給藥途徑與病人身分，再執行給藥。",
+    answer: "STAR（停看想做）",
+    module: "A", moduleName: "警覺 Awareness",
+    explain: "STAR（Stop-Think-Act-Review）是在高工作量或受到干擾後，主動暫停並有意識地重新確認，避免因分心造成的執行錯誤。",
+    options: ["STAR（停看想做）","I'M SAFE（自我評估清單）","Cross-Monitoring（相互監測）","Closed-loop communication（回饋式溝通）"]
+  },
+  {
+    scenario: "急診急救結束後，急救前所有成員都清楚地知道各自的角色、今日的目標、病人目前的狀況，以及若 ROSC 失敗的備案，不需要再逐一確認。",
+    answer: "Shared Mental Model（共同心智模型）",
+    module: "A", moduleName: "警覺 Awareness",
+    explain: "Shared Mental Model 是所有成員對目標、角色、現況與計畫有一致的共同理解，是 Brief 與 Huddle 的重要成果，也是高效能團隊的標誌。",
+    options: ["Shared Mental Model（共同心智模型）","Brief（任務前說明）","STEP（情境監測框架）","Huddle（動態討論）"]
+  },
+  {
+    scenario: "急診住院醫師面對一位胸痛病人，已初步診斷為 NSTEMI，但主治醫師提醒：「先想想還有什麼可能性？哪些資訊如果改變，會影響你的診斷？若診斷錯誤後果為何？」",
+    answer: "KAICS（五個 What 診斷反思）",
+    module: "A", moduleName: "警覺 Awareness",
+    explain: "KAICS（五個 What）是對抗診斷偏誤的工具：Know alternatives 知道替代診斷→Alternatives 還有什麼可能→Information 什麼資訊能改變診斷→Consequences 若錯誤後果→Steps 下一步，幫助避免過早收斂診斷。",
+    options: ["KAICS（五個 What 診斷反思）","Shared Mental Model（共同心智模型）","STEP（情境監測框架）","Debrief（任務後檢討）"]
+  },
+
+  // ════ 互助 Mutual Support ════
+  {
+    scenario: "護理師對醫師說：「我很擔心（Concerned）這個劑量，這讓我感到不安（Uncomfortable），我認為這是一個安全問題（Safety issue），請再確認一次。」",
+    answer: "CUS",
+    module: "S", moduleName: "互助 Support",
+    explain: "CUS 是三段式安全暗號：Concerned 擔心→Uncomfortable 不舒服→Safety issue 安全問題，任何成員皆可使用，提出後收到者必須暫停並回應。",
+    options: ["CUS","DESC","Two-challenge rule（二次挑戰）","Advocacy and Assertion（倡導與主張）"]
+  },
+  {
+    scenario: "住院醫師第一次提醒主治醫師「這個藥物劑量似乎過高」，主治醫師未理會；住院醫師再次明確提出疑慮，若仍無回應，決定向科主任反映。",
+    answer: "Two-challenge rule（二次挑戰）",
+    module: "S", moduleName: "互助 Support",
+    explain: "Two-challenge rule：對安全疑慮至少提出兩次，若兩次均被忽略，成員有責任進行更強力的升級行動，保護病人安全。",
+    options: ["Two-challenge rule（二次挑戰）","CUS","Advocacy and Assertion（倡導與主張）","DESC"]
+  },
+  {
+    scenario: "護理師說：「我觀察到病人血壓從早上開始持續下降（D）。這讓我非常擔心（E）。我建議先快速補液 500cc（S）。若未處理，可能在一小時內出現休克（C）。」",
+    answer: "DESC",
+    module: "S", moduleName: "互助 Support",
+    explain: "DESC 是結構化衝突解決工具：Describe 描述事實→Express 表達感受→Suggest 提出建議→Consequences 說明後果，用於需要正式溝通的安全疑慮。",
+    options: ["DESC","CUS","SBAR","Two-challenge rule（二次挑戰）"]
+  },
+  {
+    scenario: "資深護理師看見剛完成訓練的護理師一個人忙著照顧三位病情複雜的病人，主動過去說：「我來幫你處理 302 床的換藥，你先顧 301 床的急況。」",
+    answer: "Task Assistance（任務支援）",
+    module: "S", moduleName: "互助 Support",
+    explain: "Task Assistance 是主動提供或請求任務協助，當隊友工作量過載時，有效重新分配任務以維持團隊安全績效，是互助精神的直接展現。",
+    options: ["Task Assistance（任務支援）","Cross-Monitoring（相互監測）","Formative Feedback（形成性回饋）","Huddle（動態討論）"]
+  },
+  {
+    scenario: "護理師多次觀察到醫師在緊急插管時忘記先抽氣球確認套管位置，每次操作後都給予具體、即時的建議，而不是等到月底考核才提出。",
+    answer: "Formative Feedback（形成性回饋）",
+    module: "S", moduleName: "互助 Support",
+    explain: "Formative Feedback 是即時、具體、建設性的回饋，針對特定可觀察行為提供指引，目的是即時改善績效，而非評分或懲罰。",
+    options: ["Formative Feedback（形成性回饋）","Debrief（任務後檢討）","Task Assistance（任務支援）","Teach-Back（確認理解）"]
+  },
+  {
+    scenario: "護理師多次向急診醫師反映病人的呼吸狀況不佳，醫師每次都說「再觀察」。護理師說：「我必須再次提出，這位病人的 SpO₂ 持續下降，我非常擔心他的安全，需要請您現在來評估。」",
+    answer: "Advocacy and Assertion（倡導與主張）",
+    module: "S", moduleName: "互助 Support",
+    explain: "Advocacy and Assertion 是在病人安全受威脅時，持續、清晰、尊重地堅持提出關切的責任與技能，即使面對權威差距也不退縮。",
+    options: ["Advocacy and Assertion（倡導與主張）","Two-challenge rule（二次挑戰）","CUS","DESC"]
+  },
+
+  // ════ 額外補充情境（增加題庫多樣性）════
+  {
+    scenario: "手術前，外科主治醫師詢問麻醉科、護理師及刷手護士：「大家對今天的手術步驟、預期出血量、備血狀況有沒有問題？有沒有任何潛在風險需要提醒的？」",
+    answer: "Brief（任務前說明）",
+    module: "L", moduleName: "領導 Leadership",
+    explain: "Brief 讓所有跨職類成員在任務開始前分享資訊、提出潛在問題，是建立 Shared Mental Model 最有效的工具。",
+    options: ["Brief（任務前說明）","Huddle（動態討論）","SBAR","Teach-Back（確認理解）"]
+  },
+  {
+    scenario: "護理師在早班結束後交班時，依序告知接班者：「501床今天狀況穩定（I），昨夜有一次發燒已退（P），今天下午要抽血追蹤（A），若再次發燒超過 38.5 請通知主治（S）。你聽到的是什麼？（S）」",
+    answer: "I-PASS（結構化交班）",
+    module: "C", moduleName: "溝通 Communication",
+    explain: "I-PASS 五步驟確保交班完整：Illness severity→Patient summary→Action list→Situation awareness→Synthesis by receiver，最後的「接班者複誦」是確保理解的關鍵。",
+    options: ["I-PASS（結構化交班）","SBAR","Teach-Back（確認理解）","Handoff（交班）"]
+  },
+  {
+    scenario: "在忙碌的急診，一名主治醫師注意到資深住院醫師連續工作 14 小時，主動問：「你還好嗎？現在的工作量你能負荷嗎？需要我幫你接幾個病人嗎？」",
+    answer: "I'M SAFE（自我評估清單）",
+    module: "A", moduleName: "警覺 Awareness",
+    explain: "I'M SAFE 不只是自我評估，也包括隊友間互相關注彼此的身心狀態（如 Fatigue 疲勞），是情境監測在「隊友」面向（T）的具體應用。",
+    options: ["I'M SAFE（自我評估清單）","Task Assistance（任務支援）","Cross-Monitoring（相互監測）","Advocacy and Assertion（倡導與主張）"]
   }
 ];
 
@@ -2354,8 +2471,19 @@ let gameQuestions = [], currentQ = 0, score = 0, answers = [];
 
 function shuffle(arr) { return [...arr].sort(() => Math.random() - 0.5); }
 
+function pickBalancedQuestions() {
+  // 從每個模組各隨機抽 3 題，組成 12 題（每局不同）
+  const byModule = { L:[], C:[], A:[], S:[] };
+  GAME_DATA.forEach(q => byModule[q.module].push(q));
+  const picked = [];
+  Object.values(byModule).forEach(pool => {
+    shuffle(pool).slice(0, 3).forEach(q => picked.push(q));
+  });
+  return shuffle(picked);
+}
+
 function startGame() {
-  gameQuestions = shuffle(GAME_DATA);
+  gameQuestions = pickBalancedQuestions();
   currentQ = 0; score = 0; answers = [];
   document.getElementById('gameStart').style.display = 'none';
   document.getElementById('gameResult').style.display = 'none';
