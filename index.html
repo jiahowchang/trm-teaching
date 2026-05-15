@@ -689,28 +689,48 @@
 
   /* ── ACLS sub-tabs ── */
   .sub-tab-nav {
-    display: flex;
-    gap: 8px;
-    margin: 16px 0 12px;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    margin: 20px 0 0;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.10);
   }
   .sub-tab-btn {
-    padding: 8px 16px;
-    border-radius: 20px;
-    border: 2px solid var(--border);
-    background: white;
-    font-size: 0.82rem;
-    font-weight: 600;
+    padding: 16px 8px;
+    border: none;
+    border-right: 1px solid rgba(255,255,255,0.25);
+    background: #e2e8f0;
+    font-size: 0.95rem;
+    font-weight: 700;
     cursor: pointer;
     transition: all 0.2s;
-    color: var(--text-muted);
+    color: #475569;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    line-height: 1.2;
+    letter-spacing: 0.5px;
   }
-  .sub-tab-btn.active { border-color: var(--secondary); background: var(--secondary); color: white; }
-  .sub-tab-btn.a1.active { border-color: #1d4ed8; background: #1d4ed8; }
-  .sub-tab-btn.a2.active { border-color: #059669; background: #059669; }
-  .sub-tab-btn.a3.active { border-color: #7c3aed; background: #7c3aed; }
-  .sub-tab-btn.a4.active { border-color: #d97706; background: #d97706; }
-  .sub-panel { display: none; }
+  .sub-tab-btn:last-child { border-right: none; }
+  .sub-tab-btn .btn-icon { font-size: 1.5rem; }
+  .sub-tab-btn:hover { filter: brightness(0.95); }
+  .sub-tab-btn.active { color: white; box-shadow: inset 0 -3px 0 rgba(0,0,0,0.15); }
+  .sub-tab-btn.a1       { background: #dbeafe; color: #1e40af; }
+  .sub-tab-btn.a1.active{ background: #1d4ed8; color: white; }
+  .sub-tab-btn.a2       { background: #d1fae5; color: #065f46; }
+  .sub-tab-btn.a2.active{ background: #059669; color: white; }
+  .sub-tab-btn.a3       { background: #ede9fe; color: #5b21b6; }
+  .sub-tab-btn.a3.active{ background: #7c3aed; color: white; }
+  .sub-tab-btn.a4       { background: #fef3c7; color: #92400e; }
+  .sub-tab-btn.a4.active{ background: #d97706; color: white; }
+  @media(max-width:640px){
+    .sub-tab-btn { padding: 12px 4px; font-size: 0.8rem; }
+    .sub-tab-btn .btn-icon { font-size: 1.3rem; }
+  }
+  .sub-panel { display: none; padding-top: 8px; }
   .sub-panel.active { display: block; }
 
   /* ── Share Modal ── */
@@ -1522,10 +1542,18 @@
   </div>
 
   <div class="sub-tab-nav">
-    <button class="sub-tab-btn a1 active" onclick="switchSubTab('awareness', this)">👁 警覺</button>
-    <button class="sub-tab-btn a2" onclick="switchSubTab('communication', this)">📡 溝通</button>
-    <button class="sub-tab-btn a3" onclick="switchSubTab('leadership', this)">👑 領導</button>
-    <button class="sub-tab-btn a4" onclick="switchSubTab('support', this)">🤝 互助</button>
+    <button class="sub-tab-btn a1 active" onclick="switchSubTab('awareness', this)">
+      <span class="btn-icon">👁</span>警覺<small style="font-size:0.7em;opacity:0.8">Awareness</small>
+    </button>
+    <button class="sub-tab-btn a2" onclick="switchSubTab('communication', this)">
+      <span class="btn-icon">📡</span>溝通<small style="font-size:0.7em;opacity:0.8">Communication</small>
+    </button>
+    <button class="sub-tab-btn a3" onclick="switchSubTab('leadership', this)">
+      <span class="btn-icon">👑</span>領導<small style="font-size:0.7em;opacity:0.8">Leadership</small>
+    </button>
+    <button class="sub-tab-btn a4" onclick="switchSubTab('support', this)">
+      <span class="btn-icon">🤝</span>互助<small style="font-size:0.7em;opacity:0.8">Mutual Support</small>
+    </button>
   </div>
 
   <!-- 警覺 Awareness = Situation Monitoring -->
