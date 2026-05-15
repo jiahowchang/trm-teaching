@@ -540,7 +540,9 @@
     gap: 12px;
     margin: 16px 0;
   }
-  @media(max-width: 640px) { .trio { grid-template-columns: 1fr; } }
+  .trio-4 { grid-template-columns: repeat(4, 1fr); }
+  @media(max-width: 900px) { .trio-4 { grid-template-columns: repeat(2, 1fr); } }
+  @media(max-width: 640px) { .trio { grid-template-columns: 1fr; } .trio-4 { grid-template-columns: repeat(2, 1fr); } }
   .trio-card {
     background: white;
     border-radius: 12px;
@@ -1391,7 +1393,7 @@
     <strong>🎯 目標：</strong>將 TRM 四大技能——警覺、溝通、領導、互助——整合到急救實踐中，讓 ACLS 從知識和分工提升為真正的高效團隊救治。
   </div>
 
-  <div class="trio">
+  <div class="trio trio-4">
     <div class="trio-card">
       <div class="trio-header" style="background:#ca8a04">👁 Awareness<br><small>警覺</small></div>
       <div class="trio-body">
@@ -1428,16 +1430,17 @@
         </ul>
       </div>
     </div>
-  </div>
-
-  <div class="card" style="border-left-color:#ca8a04">
-    <div class="card-title">🤝 Support 互助</div>
-    <ul class="styled">
-      <li>主動提出換手 CPR（「我可以換了！」）</li>
-      <li>發現夥伴操作疑慮時，使用 Two-Challenge Rule</li>
-      <li>成員過勞時主動任務支援</li>
-      <li>急救後給予建設性回饋</li>
-    </ul>
+    <div class="trio-card">
+      <div class="trio-header" style="background:#d97706">🤝 Support<br><small>互助</small></div>
+      <div class="trio-body">
+        <ul>
+          <li>主動提出換手 CPR（「我可以換了！」）</li>
+          <li>發現夥伴操作疑慮時，使用 Two-Challenge Rule</li>
+          <li>成員過勞時主動任務支援</li>
+          <li>急救後給予建設性回饋</li>
+        </ul>
+      </div>
+    </div>
   </div>
 
   <!-- Debrief Checklist -->
