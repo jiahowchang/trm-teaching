@@ -3161,6 +3161,25 @@ function restartGame() {
   document.getElementById('gameStart').style.display = 'block';
   document.getElementById('nicknameInput').value = '';
 }
+
+// 支援以 URL hash 深連結到特定分頁，例如 #tab3
+(function() {
+  function applyHash() {
+    var h = (location.hash || '').replace('#', '');
+    if (!/^tab[1-6]$/.test(h)) return;
+    var btn = document.querySelector('.tab-btn[onclick*="\'' + h + '\'"]');
+    if (btn && typeof switchTab === 'function') {
+      switchTab(h, btn);
+      window.scrollTo({ top: 0, behavior: 'instant' in window ? 'instant' : 'auto' });
+    }
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', applyHash);
+  } else {
+    applyHash();
+  }
+  window.addEventListener('hashchange', applyHash);
+})();
 </script>
 
 </body>
