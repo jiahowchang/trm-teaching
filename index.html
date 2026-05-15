@@ -59,6 +59,13 @@
     image-rendering: -webkit-optimize-contrast;
     image-rendering: crisp-edges;
   }
+  .header-logo-trm {
+    height: 72px;
+    width: auto;
+    flex-shrink: 0;
+    border-radius: 50%;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+  }
   .header-logo-badge { display: none; }
   .header-divider {
     width: 1px;
@@ -220,6 +227,7 @@
   @media(max-width: 640px) {
     .grid-2, .grid-3 { grid-template-columns: 1fr; }
     .header-logo-hospital { height: 46px; padding: 4px 7px; }
+    .header-logo-trm { height: 48px; }
     .header-divider { height: 32px; }
     .trm-logo-section img { width: 55%; }
   }
@@ -906,6 +914,8 @@
     <div class="header-title">TRM 團隊資源管理</div>
     <div class="header-sub">Team Resource Management</div>
   </div>
+  <div class="header-divider"></div>
+  <img class="header-logo-trm" src="logo-trm.png" alt="TRM 團隊資源管理">
 </header>
 
 <!-- Tab Navigation -->
@@ -922,7 +932,7 @@
 <div id="tab1" class="tab-content active">
 
   <div class="trm-logo-section">
-    <img src="trm-diagram.png" alt="TRM 團隊資源管理">
+    <img src="logo-trm.png" alt="TRM 團隊資源管理">
   </div>
 
   <div class="intro-banner">
