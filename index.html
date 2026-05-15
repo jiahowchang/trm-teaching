@@ -1499,6 +1499,28 @@
     <p>警覺 Awareness・溝通 Communication・領導 Leadership・互助 Support</p>
   </div>
 
+  <div class="section-title">📖 術語速查</div>
+  <div class="card" style="overflow-x:auto;margin-bottom:20px">
+    <table class="styled-table" style="font-size:0.8rem;min-width:500px">
+      <tr><th>英文工具</th><th>繁中名稱</th><th>一句話說明</th></tr>
+      <tr><td>STEP</td><td>情境監控檢核</td><td>病人・成員・環境・目標進展</td></tr>
+      <tr><td>I'M SAFE</td><td>個人安全狀態檢核</td><td>疾病・藥物・壓力・酒精・疲勞・飲食</td></tr>
+      <tr><td>KAICS</td><td>診斷反思五問</td><td>知道什麼・可能性・缺資訊・後果・下一步</td></tr>
+      <tr><td>SBAR</td><td>結構化溝通框架</td><td>現況・背景・評估・建議/請求</td></tr>
+      <tr><td>Call-out</td><td>關鍵訊息即時宣告</td><td>把重要資訊清楚說給全隊聽</td></tr>
+      <tr><td>Check-back</td><td>回覆確認/複誦確認</td><td>接收者複述→發送者確認→閉環完成</td></tr>
+      <tr><td>CUS</td><td>安全警訊語句</td><td>我擔心・我不放心・這是安全問題</td></tr>
+      <tr><td>I-PASS</td><td>結構化交班法</td><td>嚴重度・摘要・待辦・情境・接收者整合</td></tr>
+      <tr><td>Teach-back</td><td>回教法</td><td>請病人/家屬用自己的話說明理解的內容</td></tr>
+      <tr><td>Brief</td><td>任務簡報</td><td>任務前確認角色・目標・計畫・風險</td></tr>
+      <tr><td>Huddle</td><td>即時協調會議</td><td>情況改變時快速重新整隊修正計畫</td></tr>
+      <tr><td>Debrief</td><td>事後檢討</td><td>事後回顧優缺點，轉化為行為改變</td></tr>
+      <tr><td>Two-Challenge Rule</td><td>二次挑戰法</td><td>疑慮未被處理時，第二次更明確提出</td></tr>
+      <tr><td>DESC</td><td>衝突處理腳本</td><td>描述・表達・建議・後果/共識</td></tr>
+      <tr><td>Cross-monitoring</td><td>交互監測</td><td>互相留意行動，錯誤發生前補位</td></tr>
+    </table>
+  </div>
+
   <div class="sub-tab-nav">
     <button class="sub-tab-btn a1 active" onclick="switchSubTab('awareness', this)">👁 警覺</button>
     <button class="sub-tab-btn a2" onclick="switchSubTab('communication', this)">📡 溝通</button>
@@ -1624,6 +1646,49 @@
         <li>確保錯誤或疏忽被快速且輕鬆地發現</li>
         <li>「互相照應」(Watching each other's back)</li>
       </ul>
+    </div>
+
+    <div class="section-title">🧠 KAICS 診斷反思五問</div>
+    <div class="card">
+      <p style="font-size:0.88rem;margin-bottom:12px">用於避免過早定論，特別適合診斷安全與複雜病程。持續問自己：</p>
+      <div class="acronym-row">
+        <div class="acronym-letter red">K</div>
+        <div class="acronym-content">
+          <div class="acronym-word">我知道什麼？（Know）</div>
+          <div class="acronym-desc">整理目前掌握的病史、症狀、檢查資訊</div>
+        </div>
+      </div>
+      <div class="acronym-row">
+        <div class="acronym-letter purple">A</div>
+        <div class="acronym-content">
+          <div class="acronym-word">還有哪些可能性？（Alternatives）</div>
+          <div class="acronym-desc">避免過早定論，考慮其他鑑別診斷</div>
+        </div>
+      </div>
+      <div class="acronym-row">
+        <div class="acronym-letter teal">I</div>
+        <div class="acronym-content">
+          <div class="acronym-word">還需要什麼資訊？（Information）</div>
+          <div class="acronym-desc">還缺哪些資料？向誰取得？</div>
+        </div>
+      </div>
+      <div class="acronym-row">
+        <div class="acronym-letter green">C</div>
+        <div class="acronym-content">
+          <div class="acronym-word">如果這樣做，可能後果是什麼？（Consequences）</div>
+          <div class="acronym-desc">評估決策風險與病人安全影響</div>
+        </div>
+      </div>
+      <div class="acronym-row">
+        <div class="acronym-letter yellow">S</div>
+        <div class="acronym-content">
+          <div class="acronym-word">下一步由誰、何時、如何執行？（Steps）</div>
+          <div class="acronym-desc">明確分配任務、時間與責任人</div>
+        </div>
+      </div>
+      <div class="alert-blue" style="margin-top:12px;font-size:0.82rem">
+        💡 臨床提示：適用於診斷疑慮、複雜病程、追蹤檢查未回報，以及交班前確認待辦事項。
+      </div>
     </div>
   </div>
 
@@ -1768,6 +1833,27 @@
         </div>
       </div>
     </div>
+
+    <div class="accordion">
+      <div class="accordion-header" onclick="toggleAccordion(this)">
+        🔁 Teach-back 回教法<span class="accordion-arrow">▼</span>
+      </div>
+      <div class="accordion-body">
+        <p style="margin-bottom:8px">請病人或家屬用自己的話說明所理解的資訊，確認溝通真正到位，而非只問「你懂嗎？」</p>
+        <ul style="padding-left:18px;font-size:0.88rem;margin-bottom:12px">
+          <li>不要只問「你聽懂了嗎？」（封閉式問題，病人常點頭）</li>
+          <li>改問：「為了確認我說清楚了，可以請你告訴我，回家後要怎麼吃這個藥？」</li>
+          <li>若說明不完整，用更清楚的方式重新教一次，再請對方說明</li>
+        </ul>
+        <div class="tag-group">
+          <span class="badge badge-blue">出院衛教</span>
+          <span class="badge badge-blue">慢性病管理</span>
+          <span class="badge badge-blue">低健康識能</span>
+          <span class="badge badge-blue">語言障礙</span>
+          <span class="badge badge-blue">需翻譯員</span>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- 領導 Leadership -->
@@ -1808,7 +1894,40 @@
     </div>
 
     <div class="section-title">📊 領導工具：Brief / Huddle / Debrief</div>
-    <div class="alert-blue">💡 詳見「⚡ 急救三部曲」頁籤，有完整說明和互動查核清單。</div>
+    <div class="grid-3">
+      <div class="card" style="border-top:4px solid #2563eb">
+        <div class="card-title" style="color:#2563eb">📋 Brief 任務簡報</div>
+        <p style="font-size:0.82rem;margin-bottom:8px"><strong>時機：</strong>班前、個案前、任務前、轉送前</p>
+        <ul style="padding-left:16px;font-size:0.82rem">
+          <li>確認團隊成員與角色</li>
+          <li>說明病人狀態、目標與計畫</li>
+          <li>辨識資源限制與潛在風險</li>
+          <li>讓成員提出疑慮與補充資訊</li>
+        </ul>
+      </div>
+      <div class="card" style="border-top:4px solid #d97706">
+        <div class="card-title" style="color:#d97706">🔄 Huddle 即時協調</div>
+        <p style="font-size:0.82rem;margin-bottom:8px"><strong>時機：</strong>病況、人力、設備或計畫改變時</p>
+        <ul style="padding-left:16px;font-size:0.82rem">
+          <li>快速重新整隊、修正計畫</li>
+          <li>由任何情境領導者發起</li>
+          <li>說明：現在變了什麼 → 誰做什麼 → 何時回報</li>
+        </ul>
+      </div>
+      <div class="card" style="border-top:4px solid #059669">
+        <div class="card-title" style="color:#059669">✅ Debrief 事後檢討</div>
+        <p style="font-size:0.82rem;margin-bottom:8px"><strong>時機：</strong>事件後、班後、模擬後</p>
+        <ul style="padding-left:16px;font-size:0.82rem">
+          <li>重建事件經過與關鍵決策</li>
+          <li>分析做得好 vs. 可改善之處</li>
+          <li>聚焦流程與行為，不責備個人</li>
+          <li>3 分鐘的 Debrief 也有價值</li>
+        </ul>
+      </div>
+    </div>
+    <div class="alert-blue" style="font-size:0.82rem">
+      💡 詳細互動查核清單請見「⚡ 急救三部曲」頁籤。
+    </div>
   </div>
 
   <!-- 互助 Mutual Support -->
@@ -1816,6 +1935,24 @@
     <div class="alert" style="background:#fef3c7;border-color:#fde68a;border-left-color:#d97706;color:#78350f;">
       <strong>🤝 互助 (Mutual Support)</strong><br>
       互助是團隊成員之間相互支持、分擔工作負荷、並在需要時提供協助的能力。這有助於減輕個體壓力，防止工作超載，並確保團隊在面對挑戰時能夠保持高效運作。
+    </div>
+
+    <div class="section-title">🙋‍♂️ 主張與堅定表達 Advocacy & Assertion</div>
+    <div class="card">
+      <p style="font-size:0.88rem;margin-bottom:10px">當個人觀察與決策者不同時，仍應以<strong>尊重、清楚、有證據</strong>的方式表達——病人安全優先於階層壓力。</p>
+      <div class="grid-2">
+        <div class="scenario-box">
+          <div class="scenario-label">✅ 有效表達</div>
+          <p style="font-size:0.82rem">「張醫師，我注意到病人血壓在過去 30 分鐘持續下降，目前 85/50，我擔心需要立即處置。」</p>
+        </div>
+        <div class="scenario-box" style="background:#fff7ed;border-color:#fed7aa">
+          <div class="scenario-label" style="color:#c2410c">❌ 無效表達</div>
+          <p style="font-size:0.82rem">「醫師，感覺血壓好像有點低？不知道有沒有問題……」</p>
+        </div>
+      </div>
+      <div class="alert-blue" style="margin-top:10px;font-size:0.82rem">
+        💡 適用情境：診斷疑慮、病況惡化、藥物安全、流程風險、需要翻譯員
+      </div>
     </div>
 
     <div class="section-title">⚔️ Two-Challenge Rule（重申關切）</div>
@@ -2051,6 +2188,113 @@
     <tr><td>急救後學習</td><td>Debrief, Formative Feedback</td><td>領導 + 互助</td></tr>
     <tr><td>自我狀態評估</td><td>I'M SAFE</td><td>警覺</td></tr>
   </table>
+
+
+  <div class="section-title">🏥 整合情境一：急診壅塞與敗血症警訊</div>
+  <div class="scenario-box">
+    <div class="scenario-label">📋 臨床情境</div>
+    <div class="scenario-title">檢傷護理師發現候診病人狀況惡化</div>
+    <p style="font-size:0.88rem;margin:8px 0">檢傷護理師注意到候診病人<strong>呼吸急促、發燒且意識改變</strong>；值班住院醫師正忙於另一位病人，急診區人滿為患。護理師必須在壅塞環境下即時啟動 TRM 四大技能。</p>
+  </div>
+  <div class="grid-2">
+    <div class="card" style="border-left:4px solid #f59e0b">
+      <div class="card-title" style="color:#d97706">👁 警覺 — STEP 掃描</div>
+      <ul style="padding-left:16px;font-size:0.83rem">
+        <li><strong>S：</strong>病人呼吸急促 28 次/分、T 39.2℃、意識混亂</li>
+        <li><strong>T：</strong>住院醫師正在急救另一病人，人力吃緊</li>
+        <li><strong>E：</strong>急診壅塞、床位已滿、擔架走廊排隊</li>
+        <li><strong>P：</strong>敗血症警訊未被優先處置</li>
+      </ul>
+    </div>
+    <div class="card" style="border-left:4px solid #10b981">
+      <div class="card-title" style="color:#059669">📡 溝通 — SBAR + Call-out</div>
+      <div class="dialog-box" style="font-size:0.8rem">
+        <strong>S：</strong>「陳醫師，候診病人意識改變，我很擔心敗血症。」<br>
+        <strong>B：</strong>「65歲男性，發燒39℃、意識混亂、呼吸急促，無慢性病史。」<br>
+        <strong>A：</strong>「生命徵象符合 qSOFA ≥2，需要立即評估。」<br>
+        <strong>R：</strong>「請立即過來評估，或授權我啟動敗血症流程。」
+      </div>
+    </div>
+    <div class="card" style="border-left:4px solid #8b5cf6">
+      <div class="card-title" style="color:#7c3aed">👑 領導 — Huddle</div>
+      <p style="font-size:0.83rem">值班主治召開 <strong>2 分鐘 Huddle</strong>：「現在我們有一個可能敗血症的病人需要優先處置，王護理師負責抽血和血液培養，李護理師建立第二條靜脈路徑，陳住院醫開始 Sepsis Bundle。我 5 分鐘後回來確認。」</p>
+    </div>
+    <div class="card" style="border-left:4px solid #ef4444">
+      <div class="card-title" style="color:#dc2626">🤝 互助 — CUS + 任務支援</div>
+      <p style="font-size:0.83rem">另一名護理師主動說：「我現在有空，我來協助抽血。」若醫師未回應 SBAR，護理師使用 <strong>CUS</strong>：「我很擔心這個病人，這是安全問題，我需要你現在評估。」</p>
+    </div>
+  </div>
+
+  <div class="section-title">🏥 整合情境二：診斷延遲與追蹤檢查未回報</div>
+  <div class="scenario-box">
+    <div class="scenario-label">📋 臨床情境</div>
+    <div class="scenario-title">門診病人肺部檢查結果三個月後仍未追蹤</div>
+    <p style="font-size:0.88rem;margin:8px 0">門診病人完成胸部 X 光後，<strong>報告未追蹤、病人未收到通知</strong>，三個月後因呼吸困難再度就診，發現疑似惡性病灶。這是一個典型「診斷延遲」與「交班失敗」的複合案例。</p>
+  </div>
+  <div class="grid-2">
+    <div class="card" style="border-left:4px solid #f59e0b">
+      <div class="card-title" style="color:#d97706">👁 警覺 — KAICS 反思</div>
+      <ul style="padding-left:16px;font-size:0.83rem">
+        <li><strong>K：</strong>病人 3 個月前做了胸部 X 光</li>
+        <li><strong>A：</strong>報告異常是否被看到了？還是掉入系統縫隙？</li>
+        <li><strong>I：</strong>調出當時報告，查核是否有追蹤紀錄</li>
+        <li><strong>C：</strong>延遲診斷可能影響預後，需立即處置</li>
+        <li><strong>S：</strong>今天由誰、何時完成追蹤通知？</li>
+      </ul>
+    </div>
+    <div class="card" style="border-left:4px solid #10b981">
+      <div class="card-title" style="color:#059669">📡 溝通 — I-PASS 交班</div>
+      <ul style="padding-left:16px;font-size:0.83rem">
+        <li><strong>I：</strong>病人目前穩定，但有重要未完成追蹤</li>
+        <li><strong>P：</strong>3個月前胸部 X 光報告疑似異常，未通知病人</li>
+        <li><strong>A：</strong>今日需電話通知病人並安排胸腔科轉介</li>
+        <li><strong>S：</strong>若聯絡不上，考慮掛號地址追蹤</li>
+        <li><strong>S：</strong>接班醫師確認：「我會在下班前完成追蹤電話。」</li>
+      </ul>
+    </div>
+    <div class="card" style="border-left:4px solid #8b5cf6">
+      <div class="card-title" style="color:#7c3aed">👑 領導 — 系統改善</div>
+      <p style="font-size:0.83rem">診所主管召開 <strong>Debrief</strong>：「這次事件讓我們看到檢查結果追蹤沒有明確責任人。從下週起，每天早上 Huddle 確認前一天未讀報告，並建立責任簽收制度。」</p>
+    </div>
+    <div class="card" style="border-left:4px solid #ef4444">
+      <div class="card-title" style="color:#dc2626">🤝 互助 — 交互監測</div>
+      <p style="font-size:0.83rem">行政人員、護理師、醫師<strong>彼此交互監測</strong>：發現昨天的報告今天仍未被簽閱，主動提醒負責醫師，避免結果掉入流程縫隙。</p>
+    </div>
+  </div>
+
+  <div class="section-title">🏥 整合情境三：插管前團隊準備</div>
+  <div class="scenario-box">
+    <div class="scenario-label">📋 臨床情境</div>
+    <div class="scenario-title">病人氧合快速下降，緊急插管與 ICU 轉入</div>
+    <p style="font-size:0.88rem;margin:8px 0">急診病人 SpO₂ 從 95% 在 10 分鐘內下降至 82%，團隊需<strong>立即啟動插管前 Brief、分配角色、確認設備</strong>，並在插管過程中維持閉環溝通。</p>
+  </div>
+  <div class="grid-2">
+    <div class="card" style="border-left:4px solid #f59e0b">
+      <div class="card-title" style="color:#d97706">👁 警覺 — I'M SAFE + STEP</div>
+      <ul style="padding-left:16px;font-size:0.83rem">
+        <li><strong>I'M SAFE：</strong>執行插管的住院醫師已連續值班 14 小時，主治確認：「這次由我執行氣道，你協助藥物。」</li>
+        <li><strong>STEP：</strong>確認喉鏡、管路、急救藥物、抽吸設備、監視器全部就位</li>
+      </ul>
+    </div>
+    <div class="card" style="border-left:4px solid #10b981">
+      <div class="card-title" style="color:#059669">📡 溝通 — Call-out + Check-back</div>
+      <div class="dialog-box" style="font-size:0.8rem">
+        醫師：「Etomidate 20mg IV，現在給！」<br>
+        護理師：「Etomidate 20mg IV，確認！」（給藥）<br>
+        醫師：「正確！Succinylcholine 100mg 接著給！」<br>
+        <br>
+        Call-out：「插管成功！SpO₂ 回升 96%，確認雙側呼吸音對稱！」
+      </div>
+    </div>
+    <div class="card" style="border-left:4px solid #8b5cf6">
+      <div class="card-title" style="color:#7c3aed">👑 領導 — Brief 角色分配</div>
+      <p style="font-size:0.83rem"><strong>插管前 30 秒 Brief：</strong>「我執行氣道，王護理師給藥並記錄時間，李護理師維持頸部固定，陳住院醫監測生命徵象並準備困難插管備案。有問題現在說。」</p>
+    </div>
+    <div class="card" style="border-left:4px solid #ef4444">
+      <div class="card-title" style="color:#dc2626">🤝 互助 — 二次挑戰法</div>
+      <p style="font-size:0.83rem">護理師發現藥物劑量疑慮：「醫師，Succinylcholine 的劑量，病人體重 50 公斤，我計算是 100mg，你確認嗎？」醫師未回應時，護理師再次說：「我需要確認這個劑量，這很重要。」</p>
+    </div>
+  </div>
 
 </div>
 
