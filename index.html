@@ -79,6 +79,7 @@
   }
   .header-text {
     flex: 1;
+    min-width: 0;
     text-align: center;
   }
   .header-inst {
@@ -219,11 +220,46 @@
   .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 14px; }
   @media(max-width: 640px) {
     .grid-2, .grid-3 { grid-template-columns: 1fr; }
-    .header-logo-hospital { height: 46px; padding: 4px 7px; }
-    .header-logo-trm { height: 40px; width: 40px; }
-    .header-right { top: 6px; right: 8px; }
-    .header-divider { height: 32px; }
-    .trm-logo-section img { width: 55%; }
+    /* Header compaction */
+    .site-header {
+      padding: 8px 10px 6px;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .header-logo-hospital { height: 38px; padding: 3px 6px; }
+    .header-logo-trm { height: 34px; width: 34px; }
+    .header-divider { height: 28px; }
+    .header-text { min-width: 0; flex: 1 1 auto; }
+    .header-inst {
+      font-size: 10px;
+      letter-spacing: 0;
+      margin-bottom: 2px;
+      white-space: normal;
+      line-height: 1.3;
+    }
+    .header-title { font-size: 1.25rem; letter-spacing: 1px; }
+    .header-sub { font-size: 0.72rem; margin-top: 2px; }
+    .trm-logo-section img { width: 78%; }
+    /* Header-right: hide on small screens, button moves to feedback area */
+    .header-right { top: 4px; right: 6px; gap: 2px; align-items: flex-end; }
+    .share-icon-btn { width: 32px; height: 32px; font-size: 0.85rem; border-width: 1.5px; }
+    .share-icon-btn svg { width: 14px; height: 14px; }
+    .author-label { font-size: 0.55rem; max-width: 130px; text-align: right; white-space: normal; line-height: 1.2; opacity: 0.7; }
+    .feedback-btn {
+      font-size: 0.6rem;
+      padding: 3px 7px;
+      margin-top: 2px;
+      border-radius: 10px;
+    }
+    .feedback-btn svg { width: 10px; height: 10px; margin-right: 2px; }
+    /* Top tab-nav: hide on mobile (bottom-nav serves as navigation) */
+    .tab-nav { display: none; }
+    /* Tab content extra bottom padding for chatbot + bottom-nav */
+    .tab-content { padding: 14px 12px 130px; }
+    /* Chatbot button lift higher to avoid bottom-nav */
+    #chat-fab { bottom: 70px !important; }
+    #chat-fab-label { bottom: 76px !important; }
+    #chat-window { bottom: 145px !important; }
   }
 
   /* ── Metric cards ── */
@@ -3427,10 +3463,45 @@ function restartGame() {
   .typing-dots span:nth-child(3) { animation-delay: 0.4s; }
   @keyframes blink { 0%,60%,100%{opacity:0.3} 30%{opacity:1} }
 
-  @media(max-width:500px){
-    #chat-window { width: calc(100vw - 24px); right: 12px; }
-    #chat-fab { width: 68px; height: 68px; right: 14px; }
-    #chat-fab-label { right: 90px; bottom: 86px; }
+  @media(max-width:640px){
+    #chat-window {
+      width: calc(100vw - 16px);
+      right: 8px;
+      max-height: calc(100vh - 220px);
+      border-radius: 16px;
+    }
+    #chat-fab { width: 64px; height: 64px; right: 12px; border-width: 2px; }
+    #chat-fab-label {
+      right: 84px;
+      bottom: 76px;
+      font-size: 0.7rem;
+      padding: 5px 10px;
+    }
+    .chat-header { padding: 12px 14px; gap: 10px; }
+    .chat-avatar { width: 46px; height: 46px; }
+    .chat-header-name { font-size: 0.95rem; }
+    .chat-header-status { font-size: 0.7rem; }
+    #chat-messages { padding: 12px 10px; gap: 9px; max-height: calc(100vh - 380px); }
+    .msg-bubble { font-size: 0.85rem; padding: 9px 12px; }
+    .msg-avatar { width: 30px; height: 30px; }
+    .chat-chips { padding: 6px 10px 8px; gap: 5px; }
+    .chip { font-size: 0.75rem; padding: 4px 10px; }
+    .chat-input-row { padding: 10px 10px 12px; gap: 8px; }
+    #chat-input { padding: 8px 14px; font-size: 0.88rem; }
+    #chat-send { width: 38px; height: 38px; font-size: 1rem; }
+  }
+  @media(max-width:380px){
+    .header-title { font-size: 1.1rem; }
+    .header-inst { font-size: 9px; }
+  }
+  /* Make tables horizontally scrollable on mobile to prevent overflow */
+  @media(max-width:640px){
+    table.styled-table { font-size: 0.78rem; min-width: unset; }
+    .card { overflow-x: auto; }
+    /* Body should never overflow horizontally */
+    body { overflow-x: hidden; }
+    /* iframe responsive */
+    .video-wrap { margin-left: -4px; margin-right: -4px; }
   }
 </style>
 
