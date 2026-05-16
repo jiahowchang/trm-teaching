@@ -3155,5 +3155,588 @@ function restartGame() {
 })();
 </script>
 
+<!-- ════════ TRM 智能問答機器人 ════════ -->
+<style>
+  /* Chatbot floating button */
+  #chat-fab {
+    position: fixed;
+    bottom: 80px;
+    right: 16px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #0f4c81, #1a7ab5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(15,76,129,0.45);
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  #chat-fab:hover { transform: scale(1.1); box-shadow: 0 6px 20px rgba(15,76,129,0.55); }
+  #chat-fab .fab-badge {
+    position: absolute;
+    top: -4px; right: -4px;
+    background: #ef4444;
+    color: white;
+    font-size: 0.6rem;
+    font-weight: 700;
+    border-radius: 10px;
+    padding: 2px 5px;
+    line-height: 1;
+  }
+
+  /* Chatbot window */
+  #chat-window {
+    position: fixed;
+    bottom: 148px;
+    right: 16px;
+    width: 340px;
+    max-height: 520px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+    display: flex;
+    flex-direction: column;
+    z-index: 998;
+    overflow: hidden;
+    transform: scale(0.85) translateY(20px);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.25s cubic-bezier(0.34,1.56,0.64,1);
+    transform-origin: bottom right;
+  }
+  #chat-window.open {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+    pointer-events: all;
+  }
+  .chat-header {
+    background: linear-gradient(135deg, #0f4c81, #1a7ab5);
+    color: white;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .chat-avatar {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+  .chat-header-info { flex: 1; }
+  .chat-header-name { font-weight: 700; font-size: 0.95rem; }
+  .chat-header-status { font-size: 0.72rem; opacity: 0.8; }
+  .chat-close-btn {
+    background: none; border: none; color: white;
+    font-size: 1.1rem; cursor: pointer; opacity: 0.7; padding: 4px;
+  }
+  .chat-close-btn:hover { opacity: 1; }
+
+  /* Messages area */
+  #chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 14px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: #f8fafc;
+    min-height: 0;
+    max-height: 360px;
+  }
+  .msg { display: flex; gap: 8px; align-items: flex-end; max-width: 100%; }
+  .msg.user { flex-direction: row-reverse; }
+  .msg-avatar {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: #e2e8f0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.85rem; flex-shrink: 0;
+  }
+  .msg.bot .msg-avatar { background: #dbeafe; }
+  .msg-bubble {
+    max-width: 78%;
+    padding: 9px 13px;
+    border-radius: 14px;
+    font-size: 0.84rem;
+    line-height: 1.5;
+  }
+  .msg.bot .msg-bubble {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-bottom-left-radius: 4px;
+    color: #1e293b;
+  }
+  .msg.user .msg-bubble {
+    background: #0f4c81;
+    color: white;
+    border-bottom-right-radius: 4px;
+  }
+
+  /* Quick chips */
+  .chat-chips {
+    padding: 6px 12px 8px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    background: #f8fafc;
+    border-top: 1px solid #f1f5f9;
+  }
+  .chip {
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    color: #1d4ed8;
+    border-radius: 20px;
+    padding: 4px 10px;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: background 0.15s;
+    white-space: nowrap;
+  }
+  .chip:hover { background: #dbeafe; }
+
+  /* Input area */
+  .chat-input-row {
+    display: flex;
+    gap: 8px;
+    padding: 10px 12px;
+    border-top: 1px solid #e2e8f0;
+    background: white;
+  }
+  #chat-input {
+    flex: 1;
+    border: 1px solid #e2e8f0;
+    border-radius: 20px;
+    padding: 8px 14px;
+    font-size: 0.84rem;
+    outline: none;
+    font-family: inherit;
+  }
+  #chat-input:focus { border-color: #93c5fd; }
+  #chat-send {
+    background: #0f4c81;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 36px; height: 36px;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    font-size: 1rem;
+  }
+  #chat-send:hover { background: #1a7ab5; }
+
+  /* Typing indicator */
+  .typing-dots { display: flex; gap: 4px; align-items: center; padding: 4px 2px; }
+  .typing-dots span {
+    width: 7px; height: 7px; background: #94a3b8;
+    border-radius: 50%; animation: blink 1.2s infinite;
+  }
+  .typing-dots span:nth-child(2) { animation-delay: 0.2s; }
+  .typing-dots span:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes blink { 0%,60%,100%{opacity:0.3} 30%{opacity:1} }
+
+  @media(max-width:400px){
+    #chat-window { width: calc(100vw - 20px); right: 10px; }
+  }
+</style>
+
+<!-- Floating button -->
+<button id="chat-fab" onclick="toggleChat()" title="TRM 問答機器人">
+  🤖
+  <span class="fab-badge">TRM</span>
+</button>
+
+<!-- Chat window -->
+<div id="chat-window">
+  <div class="chat-header">
+    <div class="chat-avatar">🤖</div>
+    <div class="chat-header-info">
+      <div class="chat-header-name">TRM 小幫手</div>
+      <div class="chat-header-status">⬤ 線上 · 隨時回答 TRM 問題</div>
+    </div>
+    <button class="chat-close-btn" onclick="toggleChat()">✕</button>
+  </div>
+  <div id="chat-messages"></div>
+  <div class="chat-chips" id="chat-chips">
+    <span class="chip" onclick="askChip('什麼是SBAR？')">SBAR</span>
+    <span class="chip" onclick="askChip('CUS怎麼用？')">CUS</span>
+    <span class="chip" onclick="askChip('什麼是Huddle？')">Huddle</span>
+    <span class="chip" onclick="askChip('DESC是什麼？')">DESC</span>
+    <span class="chip" onclick="askChip('STEP工具')">STEP</span>
+    <span class="chip" onclick="askChip('I-PASS交班')">I-PASS</span>
+    <span class="chip" onclick="askChip('二次挑戰法')">二次挑戰法</span>
+    <span class="chip" onclick="askChip('TRM四大模組')">四大模組</span>
+  </div>
+  <div class="chat-input-row">
+    <input id="chat-input" type="text" placeholder="輸入 TRM 相關問題…" onkeydown="if(event.key==='Enter')sendChat()">
+    <button id="chat-send" onclick="sendChat()">➤</button>
+  </div>
+</div>
+
+<script>
+// ─── TRM 知識庫 ───
+const TRM_KB = [
+  // 四大模組總覽
+  { keys:['四大模組','四大','ACLS模組','TRM模組','teamstepps','四個模組','警覺溝通領導互助'],
+    ans:`<b>TRM 四大核心模組</b><br>
+👁 <b>警覺 Awareness</b>：持續監控病人、團隊、環境與目標進展（STEP、I'M SAFE、KAICS）<br>
+📡 <b>溝通 Communication</b>：清楚、可確認的資訊交換（SBAR、Call-out、Check-back、I-PASS）<br>
+👑 <b>領導 Leadership</b>：建立目標、分派角色、維持心理安全（Brief、Huddle、Debrief）<br>
+🤝 <b>互助 Mutual Support</b>：交互監測、主動支援、提出安全疑慮（CUS、二次挑戰法、DESC）` },
+
+  // STEP
+  { keys:['step','情境監控','情境監測','step工具'],
+    ans:`<b>STEP 情境監控檢核</b><br>
+🔴 <b>S</b>tatus of Patient — 病人目前狀態與變化<br>
+🟣 <b>T</b>eam Members — 團隊成員的工作量、疲勞、技能<br>
+🔵 <b>E</b>nvironment — 設備、人力、壅塞、空間限制<br>
+🟢 <b>P</b>rogress toward goal — 照護目標與任務進度<br>
+💡 <i>適用：急診、加護、一般病房、門診；重點是持續掃描而不是等問題才補救。</i>` },
+
+  // I'M SAFE
+  { keys:["i'm safe","im safe","個人安全","自我查核","imsafe"],
+    ans:`<b>I'M SAFE 個人安全狀態檢核</b><br>
+I — <b>Illness</b>：我是否生病到影響工作？<br>
+M — <b>Medication</b>：藥物是否影響警覺或判斷？<br>
+S — <b>Stress</b>：壓力是否讓我無法專注？<br>
+A — <b>Alcohol/drugs</b>：酒精或藥物影響執勤？<br>
+F — <b>Fatigue</b>：疲勞是否讓我需要被多留意？<br>
+E — <b>Eating/elimination</b>：過久未進食、喝水或如廁？<br>
+💡 <i>目的是建立「可以說自己不安全」的團隊文化。</i>` },
+
+  // KAICS
+  { keys:['kaics','診斷反思','診斷五問','反思五問'],
+    ans:`<b>KAICS 診斷反思五問</b>（避免過早定論）<br>
+K — 我<b>知道</b>什麼？<br>
+A — 還有哪些<b>可能性</b>？<br>
+I — 還需要什麼<b>資訊</b>？向誰取得？<br>
+C — 如果這樣做，可能<b>後果</b>是什麼？<br>
+S — 下一<b>步</b>由誰、何時、如何執行？<br>
+💡 <i>適合診斷疑慮、複雜病程、追蹤檢查未回報。</i>` },
+
+  // STAR
+  { keys:['star','任務回顧'],
+    ans:`<b>STAR 任務回顧</b>（防止技能性錯誤）<br>
+S — <b>Stop</b>：暫停，專注當前任務<br>
+T — <b>Think</b>：有條理地思考，確認正確行動<br>
+A — <b>Act</b>：執行操作<br>
+R — <b>Review</b>：確認預期結果已達到<br>
+💡 <i>也可作為事件回顧框架：情境→任務→行動→結果。</i>` },
+
+  // 交互監測
+  { keys:['交互監測','cross-monitoring','cross monitoring','相互監測'],
+    ans:`<b>交互監測 Cross-monitoring</b><br>
+• 觀察同伴行動是否符合流程與病人安全<br>
+• 在錯誤造成傷害前提醒、補位或中斷<br>
+• 以「保護病人與團隊」的語氣回饋<br>
+💡 <i>好的交互監測會增加心理安全感，不是監視，而是互相當安全網。</i>` },
+
+  // SBAR
+  { keys:['sbar','結構化溝通','s-bar'],
+    ans:`<b>SBAR 結構化溝通框架</b><br>
+🔴 <b>S</b>ituation — 現在發生什麼事？<br>
+🟣 <b>B</b>ackground — 相關背景、病史、檢驗<br>
+🔵 <b>A</b>ssessment — 我判斷問題可能是什麼<br>
+🟢 <b>R</b>ecommendation — 我建議或請求什麼<br><br>
+📌 <b>台灣臨床句型：</b><br>「我是誰、我為哪位病人打電話、我擔心什麼、我需要你做什麼」` },
+
+  // Call-out
+  { keys:['call-out','callout','call out','大聲告知','主動呼叫','關鍵訊息宣告'],
+    ans:`<b>Call-out 關鍵訊息即時宣告</b><br>
+• 把生命徵象、危急值、病況變化清楚說給全隊聽<br>
+• 若需要特定成員回應，直接指名<br>
+• 避免只對空氣說話<br><br>
+範例：「<b>Call-out！</b> 病人血壓 70/40！王護理師，加快輸液！陳護理師，準備升壓藥！」` },
+
+  // Check-back
+  { keys:['check-back','checkback','check back','回覆確認','複誦確認','閉環溝通','closed-loop','closed loop'],
+    ans:`<b>Check-back 回覆確認（閉環溝通）</b><br>
+1️⃣ 發送者說出訊息或指令<br>
+2️⃣ 接收者複述重點<br>
+3️⃣ 發送者確認正確或立即修正<br><br>
+範例：<br>
+醫師：「Epinephrine 1mg IV push，現在！」<br>
+護理師：「Epinephrine 1mg IV push，確認！」<br>
+醫師：「正確！」` },
+
+  // CUS
+  { keys:['cus','安全警訊','我擔心','不放心','safety issue','安全問題'],
+    ans:`<b>CUS 安全警訊語句</b><br>
+🔴 <b>C</b> — 我<b>擔心</b>（I am Concerned）<br>
+🟠 <b>U</b> — 我<b>不放心 / 不舒服</b>（I am Uncomfortable）<br>
+🔴 <b>S</b> — 這是<b>安全問題</b>（This is a Safety issue）<br><br>
+💡 <i>當任何人說出 CUS，所有人必須立即停下正視問題。使用時要說明具體的安全疑慮是什麼。</i>` },
+
+  // I-PASS
+  { keys:['i-pass','ipass','i pass','交班','交接班','結構化交班'],
+    ans:`<b>I-PASS 結構化交班法</b><br>
+I — <b>Illness Severity</b>：穩定 / 需觀察 / 不穩定<br>
+P — <b>Patient Summary</b>：病人摘要、治療計畫<br>
+A — <b>Action List</b>：待辦清單、時間與負責人<br>
+S — <b>Situation Awareness</b>：可能發生什麼、應變計畫<br>
+S — <b>Synthesis by Receiver</b>：接收者重述、提問、確認<br><br>
+💡 <i>交班不只是資訊傳遞，也包含責任與權限移轉。</i>` },
+
+  // Teach-back
+  { keys:['teach-back','teachback','teach back','回教法','以自己的話'],
+    ans:`<b>Teach-back 回教法</b><br>
+❌ 不要只問「你聽懂了嗎？」<br>
+✅ 改問：「可以請你告訴我，回家後要怎麼吃這個藥？」<br><br>
+若說明不完整 → 用更清楚的方式重新教一次，再請對方說明<br>
+💡 <i>適合：出院衛教、慢性病管理、低健康識能、語言障礙、需翻譯員。</i>` },
+
+  // Handoff
+  { keys:['handoff','hand off','交班交接','照護移轉'],
+    ans:`<b>Handoff 交班 / 交接</b><br>
+照護資訊、責任與權限的標準化移轉。<br><br>
+關鍵原則：<br>
+• 轉移責任和義務<br>
+• 確保資訊清晰<br>
+• 口頭確認溝通（Check-back）<br>
+• 接收者予以確認<br>
+• 給予提問和回顧的機會<br>
+💡 <i>未確認前，原照護者仍負有責任。建議搭配 I-PASS 使用。</i>` },
+
+  // Brief
+  { keys:['brief','任務簡報','行前簡報','簡報'],
+    ans:`<b>Brief 任務簡報</b><br>
+📋 <b>時機：</b>班前、個案前、任務前、轉送前、急救前<br><br>
+內容包含：<br>
+• 確認團隊成員與角色<br>
+• 說明病人狀態、目標、計畫<br>
+• 辨識資源限制與潛在風險<br>
+• 讓成員提出疑慮與補充資訊<br>
+💡 <i>一個好的 Brief 通常不超過 2 分鐘，但能大幅減少執行中的混亂。</i>` },
+
+  // Huddle
+  { keys:['huddle','即時協調','即時會議'],
+    ans:`<b>Huddle 即時協調會議</b><br>
+🔄 <b>時機：</b>當病況、人力、設備、流程或優先順序改變時<br><br>
+• 由情境領導者（任何人）發起<br>
+• 快速重新整隊，修正計畫<br>
+• 說清楚：現在變了什麼 → 誰做什麼 → 何時回報<br>
+💡 <i>一個好的 Huddle 通常短而具體，通常在 1-3 分鐘內完成。</i>` },
+
+  // Debrief
+  { keys:['debrief','事後檢討','行動後回顧','後事反思'],
+    ans:`<b>Debrief 事後檢討</b><br>
+✅ <b>時機：</b>事件後、班後、模擬訓練後<br><br>
+• 重建事件經過與關鍵決策<br>
+• 分析做得好的地方 vs. 可改善之處<br>
+• 聚焦流程與行為，不把檢討變成責備<br>
+• 將學到的事轉成下一次的具體改變<br>
+💡 <i>短至 3 分鐘也有價值，特別在高風險事件後立即進行。</i>` },
+
+  // Two-Challenge Rule
+  { keys:['two-challenge','二次挑戰','twochallenge','二次質疑'],
+    ans:`<b>二次挑戰法 Two-Challenge Rule</b><br>
+當疑慮未被處理時：<br>
+1️⃣ <b>第一次：</b>清楚說明觀察與擔心<br>
+2️⃣ <b>第二次：</b>更明確提出可能傷害與需要回應<br>
+3️⃣ <b>若仍無回應：</b>啟動上級或替代路徑保護病人<br>
+💡 <i>適合高風險且需要即時處理的病人安全情境。第一次未被重視，有責任再提一次。</i>` },
+
+  // DESC
+  { keys:['desc','衝突處理','desc腳本'],
+    ans:`<b>DESC 衝突處理腳本</b><br>
+🔴 <b>D</b>escribe — 客觀描述具體事實或行為<br>
+🔵 <b>E</b>xpress — 用「我」句型表達感受或擔憂<br>
+🟢 <b>S</b>uggest — 提出可行的替代做法<br>
+🟣 <b>C</b>onsequences — 說明結果或取得共識<br><br>
+💡 <i>聚焦事實與病人安全，用「我擔心」而非「你錯了」；適合私下處理人際衝突。若病人立即受威脅，先用 CUS！</i>` },
+
+  // Task Assistance
+  { keys:['task assistance','任務支援','主動協助','換手','過勞','工作負荷'],
+    ans:`<b>Task Assistance 任務支援</b><br>
+• 需要時主動<b>請求協助</b><br>
+• 看到同伴負荷過重時主動<b>提供協助</b><br>
+• 說清楚誰做什麼，避免好意造成新混亂<br><br>
+範例：「我有 10 分鐘的空檔，我可以幫什麼忙？」<br>
+💡 <i>成熟團隊會把請求協助視為專業行為，而不是能力不足。</i>` },
+
+  // Advocacy & Assertion
+  { keys:['advocacy','assertion','主張','堅定表達','倡導'],
+    ans:`<b>主張與堅定表達 Advocacy & Assertion</b><br>
+當個人觀察與決策者不同時，仍應<b>尊重、清楚、有證據</b>地表達。<br><br>
+✅ 有效：「張醫師，我注意到病人血壓在過去 30 分鐘持續下降，目前 85/50，我擔心需要立即處置。」<br>
+❌ 無效：「感覺血壓好像有點低？不知道有沒有問題……」<br>
+💡 <i>病人安全優先於階層壓力。</i>` },
+
+  // Formative Feedback
+  { keys:['formative feedback','形成性回饋','回饋','feedback'],
+    ans:`<b>Formative Feedback 形成性回饋</b><br>
+良好的回饋特質：<br>
+🙏 <b>感謝性</b> — 表達感謝，指出做得好的行為<br>
+⏰ <b>及時性</b> — 在目標行為發生後盡快給予<br>
+🎯 <b>針對行為</b> — 針對行為而非個人特質<br>
+📌 <b>具體明確</b> — 與需改善的具體行為相關<br>
+🚀 <b>指向改善</b> — 提供未來改善的方向<br>
+❤️ <b>以病人為中心</b> — 闡述行為對病人的影響` },
+
+  // 心理安全感
+  { keys:['心理安全','psychological safety','心理安全感'],
+    ans:`<b>心理安全感 Psychological Safety</b><br>
+成員能自在地：<br>
+• 提出疑慮、承認不確定<br>
+• 請求協助、發表不同意見<br>
+• 而不擔心遭羞辱或處罰<br><br>
+💡 <i>心理安全感是 TRM 所有工具能真正發揮的基礎——工具可以教，但文化需要領導者示範。</i>` },
+
+  // 共享心智模式
+  { keys:['shared mental model','共享心智','心智模式','共同理解'],
+    ans:`<b>共享心智模式 Shared Mental Model</b><br>
+團隊對以下事項有<b>共同理解</b>：<br>
+• 病人狀態與計畫<br>
+• 各成員的角色與任務<br>
+• 潛在風險與應變計畫<br>
+• 下一步的行動<br>
+💡 <i>Brief 建立共享心智模式，Huddle 更新它，Debrief 反思它。</i>` },
+
+  // ANTICipate / SHARQ
+  { keys:['anticipate','sharq','快速交接'],
+    ans:`<b>快速交接縮寫工具</b><br>
+📋 <b>ANTICipate：</b><br>
+A-行政資訊、N-新臨床資訊、T-待執行任務、I-疾病嚴重度、C-情境變化應變計畫<br><br>
+📋 <b>SHARQ：</b><br>
+S-情境、H-病史、A-評估、R-建議/結果、Q-問題<br>
+💡 <i>可依單位習慣選用，但必須全員共識化。</i>` },
+
+  // 什麼是TRM
+  { keys:['什麼是trm','trm是什麼','trm定義','團隊資源管理是什麼','trm介紹'],
+    ans:`<b>TRM 團隊資源管理</b> (Team Resource Management)<br><br>
+TRM 是將航空業 CRM（組員資源管理）概念引進醫療的架構，核心目標是：<br>
+• 減少<b>人為失誤</b>（佔醫療事故主因）<br>
+• 改善<b>團隊溝通</b>不良問題<br>
+• 建立心理安全的<b>團隊文化</b><br><br>
+主要框架：<b>TeamSTEPPS</b>（Team Strategies and Tools to Enhance Performance and Patient Safety）` },
+
+  // CRM / 起源
+  { keys:['crm','航空','起源','歷史','特內里費','復興航空'],
+    ans:`<b>TRM 起源於航空業 CRM</b><br>
+CRM（Crew Resource Management）源自 1977 年<b>特內里費空難</b>（583人罹難），事故主因是溝通失誤與指揮層級僵化。<br><br>
+台灣案例：<b>復興航空 235 號班機</b>（2015年）因發動機誤關導致墜河，同樣凸顯 TRM 重要性。<br><br>
+醫療領域引入 CRM 後發展為 TRM，目標相同：透過<b>溝通、領導、警覺、互助</b>減少人為失誤。` },
+
+  // Brief/Huddle/Debrief 區別
+  { keys:['brief huddle debrief','三個工具','領導工具','bhd'],
+    ans:`<b>Brief / Huddle / Debrief 比較</b><br>
+📋 <b>Brief（任務前）</b> — 出發前對齊目標、角色、計畫<br>
+🔄 <b>Huddle（任務中）</b> — 情況改變時快速調整計畫<br>
+✅ <b>Debrief（任務後）</b> — 回顧學習，轉化為行為改變<br><br>
+💡 <i>三者合用形成完整的「計畫→執行→檢討」閉環。</i>` },
+
+  // 打招呼
+  { keys:['你好','哈囉','hello','hi','嗨','您好'],
+    ans:`你好！我是 <b>TRM 小幫手</b> 🤖<br>我可以回答關於 TRM 四大模組的問題：<br>
+👁 警覺（STEP、I'M SAFE、KAICS）<br>
+📡 溝通（SBAR、CUS、I-PASS、Check-back）<br>
+👑 領導（Brief、Huddle、Debrief）<br>
+🤝 互助（CUS、二次挑戰法、DESC）<br><br>
+請問你想了解哪個工具？` },
+
+  // 謝謝
+  { keys:['謝謝','感謝','thank','thanks'],
+    ans:`不客氣！有任何 TRM 問題隨時問我 😊<br>記得在臨床實際應用這些工具，病人安全有賴每一位團隊成員！` },
+];
+
+function findAnswer(q) {
+  const lq = q.toLowerCase().replace(/[？?！!\s]/g,'');
+  for (const item of TRM_KB) {
+    for (const k of item.keys) {
+      if (lq.includes(k.toLowerCase().replace(/\s/g,''))) return item.ans;
+    }
+  }
+  return null;
+}
+
+// ─── Chat UI logic ───
+let chatOpen = false;
+let firstOpen = true;
+
+function toggleChat() {
+  chatOpen = !chatOpen;
+  document.getElementById('chat-window').classList.toggle('open', chatOpen);
+  if (chatOpen && firstOpen) {
+    firstOpen = false;
+    setTimeout(() => addBotMsg(`你好！我是 <b>TRM 小幫手</b> 🤖<br>請輸入問題，或點選上方快捷鍵快速查詢 TRM 工具說明。`), 300);
+  }
+  if (chatOpen) document.getElementById('chat-input').focus();
+}
+
+function addBotMsg(html, typing=true) {
+  const msgs = document.getElementById('chat-messages');
+  if (typing) {
+    const t = document.createElement('div');
+    t.className = 'msg bot';
+    t.id = 'typing-indicator';
+    t.innerHTML = `<div class="msg-avatar">🤖</div><div class="msg-bubble"><div class="typing-dots"><span></span><span></span><span></span></div></div>`;
+    msgs.appendChild(t);
+    msgs.scrollTop = msgs.scrollHeight;
+    setTimeout(() => {
+      const el = document.getElementById('typing-indicator');
+      if (el) el.remove();
+      const m = document.createElement('div');
+      m.className = 'msg bot';
+      m.innerHTML = `<div class="msg-avatar">🤖</div><div class="msg-bubble">${html}</div>`;
+      msgs.appendChild(m);
+      msgs.scrollTop = msgs.scrollHeight;
+    }, 600);
+  } else {
+    const m = document.createElement('div');
+    m.className = 'msg bot';
+    m.innerHTML = `<div class="msg-avatar">🤖</div><div class="msg-bubble">${html}</div>`;
+    msgs.appendChild(m);
+    msgs.scrollTop = msgs.scrollHeight;
+  }
+}
+
+function addUserMsg(text) {
+  const msgs = document.getElementById('chat-messages');
+  const m = document.createElement('div');
+  m.className = 'msg user';
+  m.innerHTML = `<div class="msg-bubble">${text}</div><div class="msg-avatar">👤</div>`;
+  msgs.appendChild(m);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+
+function sendChat() {
+  const input = document.getElementById('chat-input');
+  const q = input.value.trim();
+  if (!q) return;
+  input.value = '';
+  addUserMsg(q);
+  const ans = findAnswer(q);
+  setTimeout(() => {
+    if (ans) {
+      addBotMsg(ans);
+    } else {
+      addBotMsg(`抱歉，我目前的知識庫還沒有「${q}」的相關資料。<br>你可以試著問：<br>• SBAR / CUS / STEP / I-PASS<br>• Brief / Huddle / Debrief<br>• 二次挑戰法 / DESC<br>• TRM 四大模組`);
+    }
+  }, 100);
+}
+
+function askChip(q) {
+  if (!chatOpen) {
+    chatOpen = true;
+    document.getElementById('chat-window').classList.add('open');
+    if (firstOpen) {
+      firstOpen = false;
+      addBotMsg(`你好！我是 <b>TRM 小幫手</b> 🤖<br>以下是您詢問的內容：`, false);
+    }
+  }
+  addUserMsg(q);
+  const ans = findAnswer(q);
+  setTimeout(() => addBotMsg(ans || '抱歉，找不到相關說明。'), 100);
+}
+</script>
+
 </body>
 </html>
