@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>TRM 小幫手 · 後台管理</title>
+<style>
+  :root { --primary:#0f4c81; --secondary:#1a7ab5; --bg:#f8fafc; --border:#e2e8f0; --text:#1e293b; --muted:#64748b; }
+  * { box-sizing: border-box; margin:0; padding:0; }
+  body { font-family: 'Noto Sans TC', -apple-system, sans-serif; background:var(--bg); color:var(--text); line-height:1.55; }
+  header { background: linear-gradient(135deg, #0f4c81, #1a7ab5); color:white; padding:14px 20px; display:flex; justify-content:space-between; align-items:center; box-shadow:0 2px 10px rgba(0,0,0,0.15); }
+  header h1 { font-size:1.1rem; font-weight:700; }
+  header .home { color:white; opacity:0.85; text-decoration:none; font-size:0.85rem; padding:6px 12px; border:1px solid rgba(255,255,255,0.3); border-radius:8px; }
+  header .home:hover { opacity:1; background:rgba(255,255,255,0.15); }
+
+  main { max-width: 1200px; margin: 20px auto; padding: 0 16px; }
+
+  /* Login screen */
+  .login-box { max-width:400px; margin:80px auto; background:white; padding:32px; border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,0.08); }
+  .login-box h2 { font-size:1.2rem; margin-bottom:16px; color:var(--primary); }
+  .login-box p { color:var(--muted); font-size:0.9rem; margin-bottom:20px; }
+  .login-box input { width:100%; padding:12px 14px; border:1.5px solid var(--border); border-radius:8px; font-size:1rem; font-family:monospace; outline:none; margin-bottom:12px; }
+  .login-box input:focus { border-color:var(--secondary); }
+  .login-box button { width:100%; padding:12px; background:var(--primary); color:white; border:none; border-radius:8px; font-size:1rem; font-weight:700; cursor:pointer; }
+  .login-box button:hover { background:var(--secondary); }
+  .login-error { color:#dc2626; font-size:0.85rem; margin-top:8px; display:none; }
+
+  /* Stats cards */
+  .stats { display:grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap:12px; margin-bottom:20px; }
+  .stat-card { background:white; padding:16px; border-radius:10px; border:1px solid var(--border); }
+  .stat-card .label { font-size:0.75rem; color:var(--muted); margin-bottom:4px; text-transform:uppercase; letter-spacing:0.5px; }
+  .stat-card .value { font-size:1.7rem; font-weight:800; color:var(--primary); }
+  .stat-card.kb .value { color:#059669; }
+  .stat-card.llm .value { color:#7c3aed; }
+  .stat-card .sub { font-size:0.72rem; color:var(--muted); margin-top:2px; }
+
+  /* Controls */
+  .controls { background:white; padding:14px; border-radius:10px; border:1px solid var(--border); margin-bottom:16px; display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+  .controls input[type=text] { flex:1; min-width:200px; padding:8px 12px; border:1px solid var(--border); border-radius:8px; font-size:0.9rem; }
+  .controls select, .controls button { padding:8px 14px; border:1px solid var(--border); border-radius:8px; font-size:0.88rem; background:white; cursor:pointer; }
+  .controls button.primary { background:var(--primary); color:white; border-color:var(--primary); }
+  .controls button.primary:hover { background:var(--secondary); }
+  .controls button.csv { background:#059669; color:white; border-color:#059669; }
+  .controls button.csv:hover { background:#047857; }
+  .controls button.logout { background:none; color:#dc2626; border:1px solid #fca5a5; margin-left:auto; }
+
+  /* Table */
+  .table-wrap { background:white; border:1px solid var(--border); border-radius:10px; overflow-x:auto; }
+  table { width:100%; border-collapse:collapse; font-size:0.85rem; min-width:800px; }
+  thead { background:#f1f5f9; }
+  th { padding:12px 10px; text-align:left; font-weight:700; color:var(--text); border-bottom:2px solid var(--border); white-space:nowrap; font-size:0.78rem; text-transform:uppercase; letter-spacing:0.3px; }
+  td { padding:10px; border-bottom:1px solid #f1f5f9; vertical-align:top; }
+  tr:hover { background:#fafbfc; }
+  .badge { display:inline-block; padding:2px 8px; border-radius:12px; font-size:0.7rem; font-weight:700; }
+  .badge.kb { background:#dcfce7; color:#065f46; }
+  .badge.llm { background:#ede9fe; color:#5b21b6; }
+  .q-cell { max-width:280px; font-weight:600; }
+  .a-cell { max-width:400px; color:var(--muted); font-size:0.82rem; line-height:1.5; }
+  .a-cell .expand { color:var(--secondary); cursor:pointer; text-decoration:underline; font-size:0.75rem; }
+  .ts-cell { font-family:monospace; font-size:0.75rem; color:var(--muted); white-space:nowrap; }
+  .sid { font-family:monospace; font-size:0.7rem; color:#94a3b8; }
+
+  .loading { text-align:center; padding:40px; color:var(--muted); }
+  .empty { text-align:center; padding:60px; color:var(--muted); }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🤖 TRM 小幫手 · 後台管理</h1>
+  <a href="index.html" class="home">← 回教學網站</a>
+</header>
+
+<main>
+
+<!-- Login Screen -->
+<div id="login-view" class="login-box">
+  <h2>🔒 管理員登入</h2>
+  <p>請輸入管理密碼以查看使用者提問記錄。</p>
+  <input type="password" id="admin-key-input" placeholder="管理密碼" autocomplete="current-password">
+  <button onclick="doLogin()">登入</button>
+  <div class="login-error" id="login-error">❌ 密碼錯誤，請重試</div>
+</div>
+
+<!-- Admin Dashboard -->
+<div id="dashboard-view" style="display:none">
+
+  <!-- Stats -->
+  <div class="stats" id="stats"></div>
+
+  <!-- Controls -->
+  <div class="controls">
+    <input type="text" id="search" placeholder="🔍 搜尋問題或答案關鍵字…" oninput="debouncedLoad()">
+    <select id="filter-source" onchange="loadLogs()">
+      <option value="">全部來源</option>
+      <option value="llm">🤖 AI 回答</option>
+      <option value="kb">📚 知識庫</option>
+    </select>
+    <select id="filter-limit" onchange="loadLogs()">
+      <option value="100">最新 100 筆</option>
+      <option value="200" selected>最新 200 筆</option>
+      <option value="500">最新 500 筆</option>
+      <option value="1000">最新 1000 筆</option>
+    </select>
+    <button class="primary" onclick="loadLogs()">🔄 重新載入</button>
+    <button class="csv" onclick="exportCsv()">📥 匯出 CSV</button>
+    <button class="logout" onclick="doLogout()">登出</button>
+  </div>
+
+  <!-- Records Table -->
+  <div class="table-wrap" id="table-wrap">
+    <div class="loading">📊 載入中…</div>
+  </div>
+
+</div>
+
+</main>
+
+<script>
+const TRM_LOGS_URL = 'https://us-central1-speech-to-text-2f776.cloudfunctions.net/trmLogs';
+let ADMIN_KEY = sessionStorage.getItem('trm_admin_key') || '';
+let currentLogs = [];
+
+// Check if already logged in
+if (ADMIN_KEY) {
+  showDashboard();
+} else {
+  document.getElementById('admin-key-input').focus();
+}
+document.getElementById('admin-key-input').addEventListener('keydown', e => {
+  if (e.key === 'Enter') doLogin();
+});
+
+async function doLogin() {
+  const key = document.getElementById('admin-key-input').value.trim();
+  if (!key) return;
+  const errBox = document.getElementById('login-error');
+  errBox.style.display = 'none';
+
+  try {
+    const res = await fetch(TRM_LOGS_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'X-Admin-Key': key },
+      body: JSON.stringify({ limit: 1 })
+    });
+    if (res.status === 401) throw new Error('unauthorized');
+    if (!res.ok) throw new Error('server');
+    ADMIN_KEY = key;
+    sessionStorage.setItem('trm_admin_key', key);
+    showDashboard();
+  } catch (e) {
+    errBox.style.display = 'block';
+    errBox.textContent = e.message === 'unauthorized' ? '❌ 密碼錯誤，請重試' : '❌ 連線失敗，請稍後再試';
+  }
+}
+
+function doLogout() {
+  if (!confirm('確定要登出嗎？')) return;
+  sessionStorage.removeItem('trm_admin_key');
+  ADMIN_KEY = '';
+  document.getElementById('login-view').style.display = 'block';
+  document.getElementById('dashboard-view').style.display = 'none';
+  document.getElementById('admin-key-input').value = '';
+  document.getElementById('admin-key-input').focus();
+}
+
+function showDashboard() {
+  document.getElementById('login-view').style.display = 'none';
+  document.getElementById('dashboard-view').style.display = 'block';
+  loadLogs();
+}
+
+async function loadLogs() {
+  const search = document.getElementById('search').value.trim();
+  const source = document.getElementById('filter-source').value;
+  const limit = parseInt(document.getElementById('filter-limit').value);
+
+  document.getElementById('table-wrap').innerHTML = '<div class="loading">📊 載入中…</div>';
+
+  try {
+    const res = await fetch(TRM_LOGS_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'X-Admin-Key': ADMIN_KEY },
+      body: JSON.stringify({ limit, source: source || undefined, search: search || undefined })
+    });
+    if (res.status === 401) { doLogout(); return; }
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const data = await res.json();
+    currentLogs = data.logs || [];
+    renderStats(data.stats || {});
+    renderTable(currentLogs);
+  } catch (e) {
+    document.getElementById('table-wrap').innerHTML =
+      '<div class="empty">❌ 載入失敗：' + e.message + '</div>';
+  }
+}
+
+// Debounce search input
+let searchTimer;
+function debouncedLoad() {
+  clearTimeout(searchTimer);
+  searchTimer = setTimeout(loadLogs, 400);
+}
+
+function renderStats(stats) {
+  const cost = (stats.total_input_tokens || 0) / 1e6 * 1 + (stats.total_output_tokens || 0) / 1e6 * 5; // USD estimate
+  document.getElementById('stats').innerHTML = `
+    <div class="stat-card">
+      <div class="label">總提問數</div>
+      <div class="value">${stats.total || 0}</div>
+    </div>
+    <div class="stat-card kb">
+      <div class="label">📚 KB 命中</div>
+      <div class="value">${stats.kb_hits || 0}</div>
+      <div class="sub">${stats.total ? ((stats.kb_hits / stats.total * 100).toFixed(0) + '%') : '0%'}</div>
+    </div>
+    <div class="stat-card llm">
+      <div class="label">🤖 AI 回答</div>
+      <div class="value">${stats.llm_calls || 0}</div>
+      <div class="sub">${stats.total ? ((stats.llm_calls / stats.total * 100).toFixed(0) + '%') : '0%'}</div>
+    </div>
+    <div class="stat-card">
+      <div class="label">唯一 session</div>
+      <div class="value">${stats.unique_sessions || 0}</div>
+      <div class="sub">獨立使用者</div>
+    </div>
+    <div class="stat-card">
+      <div class="label">Token 用量</div>
+      <div class="value" style="font-size:1.1rem">${((stats.total_input_tokens||0) + (stats.total_output_tokens||0)).toLocaleString()}</div>
+      <div class="sub">≈ $${cost.toFixed(3)} USD</div>
+    </div>
+  `;
+}
+
+function escHtml(s) {
+  return String(s || '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+function renderTable(logs) {
+  if (!logs.length) {
+    document.getElementById('table-wrap').innerHTML =
+      '<div class="empty">📭 目前沒有記錄</div>';
+    return;
+  }
+
+  const rows = logs.map((log, i) => {
+    const ts = log.ts ? new Date(log.ts).toLocaleString('zh-TW', { hour12: false }) : '-';
+    const sid = log.session_id ? log.session_id.slice(-6) : '-';
+    const answerText = escHtml(log.answer_preview).replace(/\n/g, ' ');
+    const truncated = answerText.length > 200;
+    const shortAns = truncated ? answerText.slice(0, 200) + '…' : answerText;
+    return `
+      <tr>
+        <td class="ts-cell">${ts}</td>
+        <td><span class="badge ${log.source}">${log.source === 'kb' ? '📚 KB' : '🤖 AI'}</span></td>
+        <td class="q-cell">${escHtml(log.question)}</td>
+        <td class="a-cell" id="a-${i}">
+          <span class="answer-short">${shortAns}</span>
+          ${truncated ? `<span class="expand" onclick="toggleAns(${i}, '${escHtml(answerText).replace(/'/g,'&#39;').replace(/"/g,'&quot;')}')">展開</span>` : ''}
+        </td>
+        <td class="sid">${sid}</td>
+        <td style="font-size:0.72rem; color:#94a3b8">${log.output_tokens ? log.output_tokens + 'o' : '-'}</td>
+      </tr>
+    `;
+  }).join('');
+
+  document.getElementById('table-wrap').innerHTML = `
+    <table>
+      <thead>
+        <tr>
+          <th>時間</th>
+          <th>來源</th>
+          <th>問題</th>
+          <th>回答預覽</th>
+          <th>SID</th>
+          <th>Tokens</th>
+        </tr>
+      </thead>
+      <tbody>${rows}</tbody>
+    </table>
+  `;
+}
+
+function toggleAns(i, fullText) {
+  const td = document.getElementById('a-' + i);
+  if (td.dataset.expanded === '1') {
+    const short = fullText.length > 200 ? fullText.slice(0, 200) + '…' : fullText;
+    td.innerHTML = `<span class="answer-short">${short}</span> <span class="expand" onclick="toggleAns(${i}, '${fullText.replace(/'/g,'&#39;').replace(/"/g,'&quot;')}')">展開</span>`;
+    td.dataset.expanded = '0';
+  } else {
+    td.innerHTML = `<span class="answer-full">${fullText}</span> <span class="expand" onclick="toggleAns(${i}, '${fullText.replace(/'/g,'&#39;').replace(/"/g,'&quot;')}')">收合</span>`;
+    td.dataset.expanded = '1';
+  }
+}
+
+function exportCsv() {
+  if (!currentLogs.length) { alert('沒有資料可匯出'); return; }
+  const header = ['時間', '來源', '問題', '完整回答', 'Session ID', 'Input Tokens', 'Output Tokens', 'Origin'];
+  const escCsv = s => '"' + String(s || '').replace(/"/g, '""').replace(/\r?\n/g, ' ') + '"';
+  const rows = currentLogs.map(l => [
+    l.ts ? new Date(l.ts).toLocaleString('zh-TW', { hour12: false }) : '',
+    l.source === 'kb' ? 'KB 命中' : 'AI 回答',
+    l.question,
+    l.answer_preview,
+    l.session_id || '',
+    l.input_tokens || 0,
+    l.output_tokens || 0,
+    l.origin
+  ].map(escCsv).join(','));
+
+  const csv = '﻿' + [header.map(escCsv).join(','), ...rows].join('\n'); // BOM for Excel Chinese
+  const blob = new Blob([csv], { type: 'text/csv;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'trm-chatbot-logs-' + new Date().toISOString().slice(0,10) + '.csv';
+  a.click();
+  URL.revokeObjectURL(url);
+}
+</script>
+</body>
+</html>

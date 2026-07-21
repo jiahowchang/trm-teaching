@@ -4157,7 +4157,34 @@ const TRM_ASK_URL = 'https://us-central1-speech-to-text-2f776.cloudfunctions.net
 let chatHistory = []; // [{role:'user'|'assistant', content:'...'}]
 const HIST_MAX_TURNS = 4; // 保留最近 4 則 (2 輪來回)
 
+// 匿名 session ID（用於後台分組同一使用者一次對話）
+const CHAT_SESSION_ID = (() => {
+  let id = localStorage.getItem('trm_chat_sid');
+  if (!id) {
+    id = 's_' + Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
+    try { localStorage.setItem('trm_chat_sid', id); } catch(e) {}
+  }
+  return id;
+})();
+
 function stripHtml(s) { return String(s).replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim(); }
+
+// KB 命中時發送 logOnly 記錄（fire-and-forget，不阻塞 UI）
+function logKbHit(question, kbAnswer) {
+  try {
+    fetch(TRM_ASK_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        logOnly: true,
+        question,
+        kbAnswer: stripHtml(kbAnswer).slice(0, 500),
+        session_id: CHAT_SESSION_ID
+      }),
+      keepalive: true
+    }).catch(() => {});
+  } catch(e) {}
+}
 
 async function askLLM(question) {
   try {
@@ -4166,7 +4193,8 @@ async function askLLM(question) {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         question,
-        history: chatHistory.slice(-HIST_MAX_TURNS)
+        history: chatHistory.slice(-HIST_MAX_TURNS),
+        session_id: CHAT_SESSION_ID
       })
     });
     if (!res.ok) throw new Error('HTTP ' + res.status);
@@ -4210,6 +4238,7 @@ async function sendChat() {
       chatHistory.push({ role: 'user', content: q });
       chatHistory.push({ role: 'assistant', content: stripHtml(kbAns).slice(0, 500) });
     }, 200);
+    logKbHit(q, kbAns); // 記錄到後台
     return;
   }
 
