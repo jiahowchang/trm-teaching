@@ -4152,28 +4152,89 @@ function addUserMsg(text) {
   msgs.scrollTop = msgs.scrollHeight;
 }
 
-function sendChat() {
+// ─── LLM 對話歷史（用於多輪上下文，例如「請詳細說明」）───
+const TRM_ASK_URL = 'https://us-central1-speech-to-text-2f776.cloudfunctions.net/trmAsk';
+let chatHistory = []; // [{role:'user'|'assistant', content:'...'}]
+const HIST_MAX_TURNS = 4; // 保留最近 4 則 (2 輪來回)
+
+function stripHtml(s) { return String(s).replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim(); }
+
+async function askLLM(question) {
+  try {
+    const res = await fetch(TRM_ASK_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        question,
+        history: chatHistory.slice(-HIST_MAX_TURNS)
+      })
+    });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const data = await res.json();
+    return data.answer || null;
+  } catch (e) {
+    console.error('LLM error:', e);
+    return null;
+  }
+}
+
+// ─── 持續性打字指示（等 LLM 回應時使用，不會自動消失）───
+function showTyping() {
+  const msgs = document.getElementById('chat-messages');
+  const existing = document.getElementById('typing-indicator');
+  if (existing) return;
+  const t = document.createElement('div');
+  t.className = 'msg bot';
+  t.id = 'typing-indicator';
+  t.innerHTML = `<div class="msg-avatar"><img src="bot-avatar.png" alt="bot" onerror="this.onerror=null;this.src='bot-avatar.svg'"></div><div class="msg-bubble"><div class="typing-dots"><span></span><span></span><span></span></div><div style="font-size:0.7rem;color:#94a3b8;margin-top:4px">小醫思考中…</div></div>`;
+  msgs.appendChild(t);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+function hideTyping() {
+  const el = document.getElementById('typing-indicator');
+  if (el) el.remove();
+}
+
+async function sendChat() {
   const input = document.getElementById('chat-input');
   const q = input.value.trim();
   if (!q) return;
   input.value = '';
   addUserMsg(q);
-  const ans = findAnswer(q);
-  setTimeout(() => {
-    if (ans) {
-      addBotMsg(ans);
-    } else {
-      addBotMsg(
-        `我目前的知識庫沒有直接對應「<b>${escapeHtml(q)}</b>」的答案 🤔<br><br>` +
-        `你可以試試看：<br>` +
-        `• 直接問工具名稱：<b>SBAR、CUS、STEP、I-PASS、Brief、Huddle、Debrief、DESC、KAICS</b><br>` +
-        `• 問情境：<b>「急救時該怎麼溝通」「衝突怎麼處理」「怎麼交班」</b><br>` +
-        `• 問概念：<b>「什麼是TRM」「為什麼要學TRM」「TRM四大模組」</b><br><br>` +
-        `💌 找不到需要的答案？可透過右上角「<b>建議與QA</b>」直接寫信給張醫師。` +
-        `<br><br>📚 <i>如需查詢 AHRQ TeamSTEPPS 官方原文，可造訪 <a href="https://www.ahrq.gov/teamstepps-program/index.html" target="_blank" rel="noopener" style="color:#1d4ed8">ahrq.gov/teamstepps-program</a></i>`
-      );
-    }
-  }, 100);
+
+  // 1️⃣ 先查本地 KB（極快、免費、準確）
+  const kbAns = findAnswer(q);
+  if (kbAns) {
+    setTimeout(() => {
+      addBotMsg(kbAns);
+      chatHistory.push({ role: 'user', content: q });
+      chatHistory.push({ role: 'assistant', content: stripHtml(kbAns).slice(0, 500) });
+    }, 200);
+    return;
+  }
+
+  // 2️⃣ KB 沒答案 → 呼叫 Claude AI
+  showTyping();
+  const llmAns = await askLLM(q);
+  hideTyping();
+
+  if (llmAns) {
+    const withCredit = llmAns + `<div style="margin-top:10px;padding-top:8px;border-top:1px dashed #cbd5e1;font-size:0.7rem;color:#64748b">🤖 <i>由 <b>Claude AI</b> 依 <a href="https://www.ahrq.gov/teamstepps-program/index.html" target="_blank" rel="noopener" style="color:#1d4ed8">AHRQ TeamSTEPPS</a> 框架回答</i></div>`;
+    addBotMsg(withCredit, false);
+    chatHistory.push({ role: 'user', content: q });
+    chatHistory.push({ role: 'assistant', content: stripHtml(llmAns).slice(0, 600) });
+  } else {
+    // 3️⃣ AI 也失敗（網路異常）→ 回到原本 fallback
+    addBotMsg(
+      `暫時無法連線到 AI 助理，可能是網路問題 📶<br><br>` +
+      `你可以先試試：<br>` +
+      `• 直接問工具名稱：<b>SBAR、CUS、STEP、I-PASS、Brief、Huddle、Debrief、DESC、KAICS</b><br>` +
+      `• 問情境：<b>「急救時該怎麼溝通」「衝突怎麼處理」「怎麼交班」</b><br>` +
+      `• 問概念：<b>「什麼是TRM」「為什麼要學TRM」「TRM四大模組」</b><br><br>` +
+      `💌 若持續無法連線，可透過右上角「<b>建議與QA</b>」直接寫信給張醫師。`,
+      false
+    );
+  }
 }
 
 function escapeHtml(s) {
