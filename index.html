@@ -2566,7 +2566,7 @@
   <div class="sz-head">
     <div>
       <div class="sz-h2">🌍 擬真現場 · SIMZINE 專題選文</div>
-      <div class="sz-sub">與國際擬真醫學界接軌——從電子雜誌 <b>SIMZINE</b>（simzine.news）精選本期最有意思的 8 篇。點卡片看<b>繁中重點整理與 5 點 Take Home Message</b>，想深入再開原文。本期選文：<span id="szMonth"></span>，每月 10 號換一期；往期選文收摺在下方，點月份即可展開重讀。</div>
+      <div class="sz-sub">與國際擬真醫學界接軌——從電子雜誌 <b>SIMZINE</b>（simzine.news）選 8 篇最有意思的。點卡片看<b>繁中重點整理與 5 點 Take Home Message</b>，想深入再開原文。<b><span id="szMonth"></span>精選</b>，每月 10 號換一期——SIMZINE 每期刊量有限，選文以主題實用性為準、<b>不限當月發表</b>；卡片上的日期是原文發佈日，較早的會標「回顧」。往期選文收摺在下方，點月份即可展開重讀。</div>
     </div>
   </div>
   <div class="sz-grid" id="szGrid"></div>
@@ -2591,25 +2591,40 @@
     var M = ['#95A78D','#8DA3B9','#C79E93','#A395B0','#BFAF97','#88A9A2','#B99A9E','#9A9E8E'];
     // FLAT：本期與所有往期的卡片攤平成一份索引，彈窗用 flat index 取用
     var FLAT = [];
-    var card = function(p, c, fi) {
+    // 「本期」＝這個月做的精選，不是這個月發表的文章（SIMZINE 每期刊量有限，必然會回頭選）。
+    // 發佈日比該期月份早三個月以上者標「回顧」，避免讀者誤以為是當月新文。
+    var edMonth = function(s) {
+      var m = /(\d{4})\s*年\s*(\d{1,2})\s*月/.exec(s||'');
+      return m ? new Date(+m[1], +m[2]-1, 1) : null;
+    };
+    var isOld = function(dateStr, ed) {
+      if (!dateStr || !ed) return false;
+      var d = new Date(dateStr);
+      if (isNaN(d.getTime())) return false;
+      return d < new Date(ed.getFullYear(), ed.getMonth()-3, 1);
+    };
+    var card = function(p, c, fi, old) {
       return '<div class="sz-card" style="--mc:'+c+'" onclick="szOpen('+fi+')">'
-        + '<div class="sz-meta"><span class="sz-tag">'+esc(p.tag)+'</span>'
-        + (p.date ? '<span class="sz-date">'+esc(p.date)+'</span>' : '') + '</div>'
+        + '<div class="sz-meta"><span class="sz-tag">'+esc(p.tag)+'</span><span class="sz-when">'
+        + (old ? '<span class="sz-old">回顧</span>' : '')
+        + (p.date ? '<span class="sz-date">'+esc(p.date)+'</span>' : '') + '</span></div>'
         + '<div class="sz-title">'+esc(p.title_zh)+'</div>'
         + '<div class="sz-digest">'+esc(p.digest_zh)+'</div>'
         + '<div class="sz-foot"><span class="sz-en">'+esc(p.title_en)+'</span><span class="sz-go">重點整理 →</span></div>'
         + '</div>';
     };
-    var push = function(p, i) {
+    var push = function(p, i, ed) {
       var c = M[i % M.length];
-      FLAT.push({ p: p, c: c });
-      return card(p, c, FLAT.length - 1);
+      var old = isOld(p.date, ed);
+      FLAT.push({ p: p, c: c, old: old });
+      return card(p, c, FLAT.length - 1, old);
     };
     window.szRender = function() {
       FLAT = [];
       document.getElementById('szMonth').textContent = window.SZ_MONTH || '';
+      var curEd = edMonth(window.SZ_MONTH);
       document.getElementById('szGrid').innerHTML =
-        (window.SZ_ITEMS||[]).map(function(p, i) { return push(p, i); }).join('');
+        (window.SZ_ITEMS||[]).map(function(p, i) { return push(p, i, curEd); }).join('');
       var box = document.getElementById('szArchive');
       if (!box) return;
       var eds = (window.SZ_ARCHIVE||[]).filter(function(ed) { return ed && (ed.items||[]).length; });
@@ -2617,7 +2632,8 @@
       var n = eds.reduce(function(t, ed) { return t + ed.items.length; }, 0);
       box.innerHTML = '<div class="sz-arch-h">🗄️ 往期選文 · 共 '+n+' 篇（點月份展開）</div>'
         + eds.map(function(ed) {
-            var inner = ed.items.map(function(p, i) { return push(p, i); }).join('');
+            var edStart = edMonth(ed.month);
+            var inner = ed.items.map(function(p, i) { return push(p, i, edStart); }).join('');
             return '<details class="sz-arch"><summary>'
               + '<span class="sz-arch-m">'+esc(ed.month)+'</span>'
               + '<span class="sz-arch-n">'+ed.items.length+' 篇</span></summary>'
@@ -2629,8 +2645,9 @@
       var p = f.p, c = f.c;
       var body = document.getElementById('szModalBody');
       body.innerHTML = '<div class="szm" style="--mc:'+c+'">'
-        + '<div class="sz-meta"><span class="sz-tag">'+esc(p.tag)+'</span>'
-        + (p.date ? '<span class="szm-date">'+esc(p.date)+'</span>' : '') + '</div>'
+        + '<div class="sz-meta"><span class="sz-tag">'+esc(p.tag)+'</span><span class="sz-when">'
+        + (f.old ? '<span class="sz-old">回顧</span>' : '')
+        + (p.date ? '<span class="szm-date">原文發佈 '+esc(p.date)+'</span>' : '') + '</span></div>'
         + '<h3 class="szm-title">'+esc(p.title_zh)+'</h3>'
         + '<div class="szm-en">'+esc(p.title_en)+'</div>'
         + (p.sections||[]).map(function(s) {
@@ -2674,6 +2691,8 @@
     .sz-meta { display:flex; justify-content:space-between; align-items:center; }
     .sz-tag { font-size:0.72rem; font-weight:700; color:#fff; background:var(--mc); border-radius:999px; padding:2px 11px; }
     .sz-date { font-size:0.7rem; color:color-mix(in srgb, var(--mc) 70%, #333); }
+    .sz-when { display:inline-flex; align-items:center; gap:6px; }
+    .sz-old { font-size:0.66rem; font-weight:700; color:#8a6d3b; background:#fdf3e0; border:1px solid #ecd9b0; border-radius:999px; padding:1px 7px; white-space:nowrap; }
     .sz-title { font-size:0.95rem; font-weight:800; color:#3a4145; line-height:1.5; }
     .sz-digest { font-size:0.83rem; color:#5a6268; line-height:1.7; flex:1; }
     .sz-foot { display:flex; justify-content:space-between; align-items:center; gap:8px; border-top:1px dashed color-mix(in srgb, var(--mc) 45%, white); padding-top:8px; }
