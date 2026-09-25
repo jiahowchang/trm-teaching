@@ -5,3 +5,6 @@
 # 編輯器暫存
 *.swp
 *~
+
+# 每月 SIMZINE 換期的暫存輸入（由 tools/sz-rotate.js 讀取後即可丟）
+new-picks.json
