@@ -1,0 +1,32 @@
+{
+  "section": "AboutSOCHISIM",
+  "tag": "大會預告",
+  "title_zh": "智利擬真年會把AI搬上主舞台",
+  "title_en": "VIII Congreso Chileno de Simulación Clínica SOCHISIM 2024",
+  "authors": "S. Armijo",
+  "page": 16,
+  "doi": "",
+  "lang": "es",
+  "digest_zh": "智利臨床擬真學會把第八屆年會辦在 Puerto Montt，主題直接押在人工智慧：AI 如何讓情境更精準、更能隨學員需求調整。Eppich、Dieckmann、Anderson 都在講者名單上。",
+  "sections": [
+    {
+      "h": "時間、地點與參加對象",
+      "b": "第八屆 SOCHISIM 大會於 2024 年 11 月 7、8 兩日在 Puerto Montt 的 Universidad San Sebastián 巴塔哥尼亞校區舉行，主題訂為「臨床擬真中的人工智慧：探索創新的地平線」。鎖定的對象不只教師，還包括技術人員、simulated patient、中心主管與研究者，主辦方把它定位為學習與協作的專屬場域。"
+    },
+    {
+      "h": "講者名單看得出方向",
+      "b": "受邀者包括都柏林 RCSI 擬真教育與研究中心主任、同時任教墨爾本醫學院的 Walter Eppich；中佛羅里達大學擬真與沉浸式學習副院長 Mindi Anderson 與副教授 Frank Guido-Sanz；Stavanger 大學教授、CAMES 資深研究員 Peter Dieckmann；以及 Universidad San Sebastián 擬真與創新總監 Andrés Díaz。"
+    },
+    {
+      "h": "為什麼今年押在 AI",
+      "b": "主辦方給的理由是 AI 不只提升擬真的精準度，更能做出高度個人化、可隨學員需求自適應的情境，對設計情境的人與相應的評量工具都是有力的工具。會程排了大會演講、學術與廠商工作坊、口頭與海報的科學論文場次，再加上拉美及國際廠商的商業展覽與交流時段。"
+    }
+  ],
+  "thm": [
+    "2024/11/7-8 在智利 Puerto Montt 舉行",
+    "主題：臨床擬真中的人工智慧",
+    "場地為 Universidad San Sebastián 校區",
+    "講者含 Eppich、Dieckmann、Anderson",
+    "含工作坊、口頭海報與廠商展覽"
+  ]
+}

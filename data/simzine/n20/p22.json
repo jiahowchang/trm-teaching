@@ -1,0 +1,36 @@
+{
+  "section": "DID you know...",
+  "tag": "國家政策",
+  "title_zh": "約旦把擬真教育推上國家議程的第一場對話",
+  "title_en": "Simulation-Based Medical Education in Jordan: A National Conversation Begins",
+  "authors": "J. Alsulaiman",
+  "page": 22,
+  "doi": "https://doi.org/10.69079/SIMZINE.E25.N20.00076",
+  "lang": "en",
+  "digest_zh": "約旦第一次把擬真教育搬上國家層級的桌面：五所公立與一所私立醫學院院長同台，既攤開器材老化、人力不足與經費短缺的家底，也說出各自正在推動的解法與下一步的野心。",
+  "sections": [
+    {
+      "h": "ICSME 2025 為何重要",
+      "b": "北約旦的 Yarmouk University 醫學院主辦國際擬真醫學教育會議（ICSME 2025），由參議院衛生委員會主席 Dr. Yaseen Al-Husban 擔任贊助人。與會者涵蓋衛生部、皇家醫療服務、國會與參議院衛生委員會成員，顯示擬真已被視為不只是教學方法，而是強化醫療體系的工具。"
+    },
+    {
+      "h": "院長們攤開的真實家底",
+      "b": "Jordan University of Science and Technology 的 Firas Qarqaz 分享二十年經驗，強調擬真在婦產與麻醉的價值，也坦言器材老化與人力有限，正規劃導入 AI 與 XR。Hashemite University 的 Mohammad Alqudah 指出經費、人力與空間擁擠的限制；Mutah University 的 Fadi Sawaqed 則澄清該校 2004 年就起步，正推動整建。"
+    },
+    {
+      "h": "從現況調查到共同承諾",
+      "b": "會中發表的機構準備度調查以 SCORS（Simulation Culture Organizational Readiness Survey）為工具，結果落在中等，顯示領導支持、策略與人力發展仍需補強。會前兩場工作坊，德國 LMU 的 Marc Lazarovici 帶擬真基礎，沙烏地 King Abdulaziz University 的 Abdulaziz Boker 與 Baraa Tayyib 合帶進階應用，回饋熱烈。"
+    },
+    {
+      "h": "編按：對台灣的參照價值",
+      "b": "編者延伸：原文並未討論台灣。值得借鏡的是他們的做法順序——先用一份共同量表把各機構的準備度量出來，再讓決策者與院長在同一場合對話，而不是各自申請各自的設備補助。這種先盤點、後結盟的節奏，對區域型擬真中心串連特別有參考性。"
+    }
+  ],
+  "thm": [
+    "擬真被當成強化醫療體系的政策工具",
+    "五公立一私立醫學院院長同台對話",
+    "SCORS 測出各校準備度僅為中等",
+    "共同難題：器材老化、人力不足、經費有限",
+    "下一步：國家標準、師資、跨界夥伴與經費"
+  ]
+}

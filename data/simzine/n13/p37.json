@@ -1,0 +1,36 @@
+{
+  "section": "SIMvoices",
+  "tag": "專業認同",
+  "title_zh": "sim tech 不只是技術員：邁向專業",
+  "title_en": "The SOTS section of SSH advocates for recognition as a profession",
+  "authors": "A. Ryals",
+  "page": 37,
+  "doi": "",
+  "lang": "en",
+  "digest_zh": "「profession」這個字背後有歷史、有尊重，也有合理的報酬。作者從醫師與護理的專業化講起，主張擬真技術人員早已不只是「技術員」——SSH 的 SOTS 就以 2024 年主題 #SimProfessional 表態。",
+  "sections": [
+    {
+      "h": "從手藝到專業的歷史對照",
+      "b": "作者先回顧職業如何從「手藝」變成「專業」：1600 年代以前，拿本厚書、看起來像懂行的人就能自稱醫師，直到 19 世紀前後醫師才形成執業標準；護理在 1850 年代前多在家中或由修女等宗教人士承擔，Florence Nightingale 於克里米亞戰爭改變了醫院照護的做法，被視為護理專業的奠基者。"
+    },
+    {
+      "h": "擬真正在經歷同樣的革命",
+      "b": "第一具醫療擬真 task trainer Resusci Annie 於 1960 年問世，1980 年代才出現最早的醫療擬真會議，當時擬真的價值與效力仍被激烈質疑。David Gaba 在 1992 年 4 月的 Anesthesiology 提出有力辯護：攸關人命的行業，沒有一個是等到擬真益處被完全證實才開始採用的。"
+    },
+    {
+      "h": "sim tech 何以是專業",
+      "b": "2000 年代初，專門做醫療擬真教學的中心大量成立，SSH 也在 2004 年誕生（當時名為 Society for Medical Simulation），但擬真多由醫療背景的人兼著做。要到 2010 年代，現代意義的 simulation technician 才成形。作者說 sim tech 從不只是 sim tech：背景橫跨醫療、工程、心理，既要懂技術，也要懂人。"
+    },
+    {
+      "h": "編按：台灣的職務定位",
+      "b": "（編者延伸，原文未談台灣。）國內擬真中心的技術人力常掛在行政或兼任職缺下，這篇提供的語言很好用：moulage、認證準備、寫計畫爭取經費、安撫緊張的學員與焦躁的 facilitator，都可以寫進職務說明與升遷條件裡。"
+    }
+  ],
+  "thm": [
+    "profession 意味著歷史、尊重與合理報酬",
+    "Resusci Annie 1960 年問世，擬真才起步",
+    "Gaba 1992 年在 Anesthesiology 力挺擬真",
+    "2010 年代 simulation technician 才成形",
+    "SOTS 2024 年主題 #SimProfessional"
+  ]
+}

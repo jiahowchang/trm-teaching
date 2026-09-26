@@ -1,0 +1,32 @@
+{
+  "section": "SIMface",
+  "tag": "人物專訪",
+  "title_zh": "Gaba：把 CRM 帶進醫療現場",
+  "title_en": "Saint of Circumstance: David Gaba on simulation in healthcare",
+  "authors": "Willem van Meurs",
+  "page": 13,
+  "doi": "",
+  "lang": "en",
+  "digest_zh": "工程師出身、後來成為麻醉科醫師的 David Gaba，被選為 2024 年的 SIM Face。這一頁是紙本導言，濃縮他發明現代全身 patient simulator、把航空 CRM 移植到醫療的關鍵貢獻。",
+  "sections": [
+    {
+      "h": "先是工程師，後是麻醉科醫師",
+      "b": "SIMZINE 把 David Gaba 列入 2024 年的 SIM Face，理由是他在健康照護擬真發展上的關鍵角色，訪談由助理編輯 Willem van Meurs 進行。他的路徑相當特別：先受工程訓練，之後才成為麻醉科醫師，並以發明現代全身 patient simulator，對麻醉與重症照護產生深遠影響。"
+    },
+    {
+      "h": "把航空的 CRM 移植到醫療",
+      "b": "原文指出，Gaba 具想像力地把航空業的 Crew Resource Management 轉用到健康照護，也在 cognitive aids 與 Emergency Manuals 的發展上扮演推動者。作為受肯定的作者與教育者，他因對醫學教育與病人安全的貢獻獲得多項獎項。"
+    },
+    {
+      "h": "紙本只有導言，全文在官網",
+      "b": "這一頁本身只是人物介紹：工作之外，他喜歡閱讀、物理、戶外活動與各種運動，原文說這反映了他廣泛的興趣；副標另外提到要認識他對 Grateful Dead 樂團的喜愛。文末明白寫著完整訪談請到 simzine.news 閱讀，因此紙本可引用的內容有限，細節建議直接看線上版。"
+    }
+  ],
+  "thm": [
+    "2024 SIM Face 之一，由 Willem van Meurs 訪談",
+    "先工程、後麻醉，跨領域背景是他的起點",
+    "發明現代全身 patient simulator",
+    "把航空 CRM 移到醫療，推動 Emergency Manuals",
+    "紙本僅導言，完整訪談在 simzine.news"
+  ]
+}

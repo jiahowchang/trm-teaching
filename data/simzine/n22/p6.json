@@ -1,0 +1,36 @@
+{
+  "section": "SIM garage",
+  "tag": "影像敘事",
+  "title_zh": "把電影的手藝搬進數位模擬",
+  "title_en": "How Filmmaking Improves Digital Simulation Design",
+  "authors": "Claire Inglis",
+  "page": 6,
+  "doi": "https://doi.org/10.69079/SIMZINE.A26.N22.00097",
+  "lang": "en",
+  "digest_zh": "敘事、鏡位、打光、音景、場景設計——電影人習以為常的手藝，正一項項被搬進數位模擬環境。這篇整理了五種可借用的電影技法與六條給開發者的建議，也提醒：再漂亮的沉浸感，都取代不了紮實的 instructional design。",
+  "sections": [
+    {
+      "h": "電影人帶來的五種手藝",
+      "b": "作者把電影專業拆成五塊：narrative development 讓故事把學習者帶進情境、cinematography 用鏡位打光構圖引導注意力（Brown, 2016）、visual effects 補上細節與真實感、sound design 操作緊張與情緒、production design 管質感色盤與燈光的一致性（LoBrutto, 2018）。"
+    },
+    {
+      "h": "沉浸感怎麼被推更遠",
+      "b": "除了畫面，電影人也在改變模擬與使用者互動的方式。借用互動敘事與遊戲的手法，adaptive lighting、視角切換與會回應的環境讓場景更動態、更個人化，使用者感覺自己在場景裡而不是旁觀（Ryan, 2015）。VR 與 AR 再加上 head-tracking、深度知覺與 haptic feedback，把虛擬與實體物理的界線推得更模糊（Milgram & Kishino, 1994）。"
+    },
+    {
+      "h": "給開發團隊的六條建議",
+      "b": "文末列出六項建議：投資電影專業人才或與業界合作、把敘事放在前面、導入進階 VFX 工具與人力、與 sound designer 合作把音景做細、探索 VR／AR 帶來的互動可能、持續跟進新技術並不斷實驗。作者同時提醒，設計良好的沉浸式模擬有機會提升理解、記憶與學習動機，但不會取代紮實的 instructional design 與領域專業。"
+    },
+    {
+      "h": "編按：先從聲音開始練手",
+      "b": "編者延伸：原文列的五項專業裡，sound design 是擬真中心最容易自己動手的一項——同一個腳本，加上救護車鳴笛、監視器警報聲或家屬在門外的哭聲，壓力感就完全不同，成本卻遠低於再買一台 high-fidelity manikin。可以先錄幾組環境音，放進既有情境試跑再說。"
+    }
+  ],
+  "thm": [
+    "電影五術：敘事、鏡位、特效、聲音、場景設計",
+    "鏡位與打光決定注意力落在哪裡",
+    "adaptive lighting 與回應式環境提升個人化",
+    "VR／AR 加 head-tracking 與 haptic feedback",
+    "沉浸感取代不了 instructional design"
+  ]
+}

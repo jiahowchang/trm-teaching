@@ -1,0 +1,36 @@
+{
+  "section": "Sim BOOKS",
+  "tag": "書評",
+  "title_zh": "教育宇宙是一場模擬：擬真作為教育文化",
+  "title_en": "EL UNIVERSO (EDUCATIVO) ES UNA SIMULACIÓN. Una antología sobre enseñar, simular y aprender en salud",
+  "authors": "Editorial Team",
+  "page": 14,
+  "doi": "https://doi.org/10.69079/simzine.D26.n23.00108",
+  "lang": "en",
+  "digest_zh": "擬真不只是技術，而是一整套教育文化。Federico Ferrero Etchegoyen 這本選集從復甦 manikin 的起源寫到病人安全，也逼教師回頭檢視自己的教學。書評說，它真正想談的其實是怎麼把課教得更好。",
+  "sections": [
+    {
+      "h": "把擬真放回教育史裡",
+      "b": "開篇章節把臨床擬真的發展從最早的復甦 manikin，一路寫到專責擬真中心的成形，以及它與病人安全的連結。作者 Ferrero Etchegoyen 穿插史料軼事（例如 Resusci Anne 的由來）與流行文化引用，從 The Office 到 Matrix，同時批判傳統健康照護教育模式的侷限，讓資深教師與剛入門者都讀得下去。"
+    },
+    {
+      "h": "被改變的其實是教師",
+      "b": "書評認為全書最有價值的一點，是指出擬真同時改造了教師。教師不該被歸類成操作機器人 manikin 的講師或情境設計者，而該成為反思歷程的 facilitator、psychological safety 的管理者與有意義學習的推動者。Ferrero 直言，模擬練的不只是技術，更是對自己教學實踐的批判性檢視。"
+    },
+    {
+      "h": "六個部分，理論與失敗並陳",
+      "b": "全書分成六個部分，每一章都能獨立閱讀，但共享同一條線索：擬真是當代健康照護訓練不可迴避的倫理與教學策略。內容在 fidelity、realism、fiction commitment 等概念之間穿梭，也毫不遮掩地示範情境規劃失當如何毀掉一場學習，這份坦白是本書少見的長處。"
+    },
+    {
+      "h": "編按：台灣中心可以怎麼讀",
+      "b": "以下為編者延伸，非原文內容。本書寫的是拉丁美洲正在成形的學術社群，但「被改變的是教師」這句話在台灣同樣成立。與其先添購設備，不如先盤點自己的 debriefing 品質，並替教學團隊留一個能誠實承認哪一場情境設計失敗的位置。"
+    }
+  ],
+  "thm": [
+    "擬真是教育文化，不只是一種教學技術",
+    "從復甦 manikin 寫到中心成形與病人安全",
+    "教師的角色是反思歷程的 facilitator",
+    "六個部分、每章可獨立閱讀，課程與自學皆可用",
+    "坦承示範情境規劃失當如何毀掉學習"
+  ]
+}

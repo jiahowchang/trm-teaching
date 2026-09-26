@@ -1,0 +1,36 @@
+{
+  "section": "EDITORIAL",
+  "tag": "主編短評",
+  "title_zh": "一月回顧：擬真對話走向全球",
+  "title_en": "January, time for reflection",
+  "authors": "P.L. Ingrassia",
+  "page": 5,
+  "doi": "",
+  "lang": "en",
+  "digest_zh": "一年 155 篇文章、90 多位作者、22 個國家，主編用數字盤點 SIMZINE 的 2023，也預告新一年的法語 podcast 與幾位重量級受訪者。想知道國際擬真教育圈長什麼樣，這篇是最快的鳥瞰圖。",
+  "sections": [
+    {
+      "h": "2023 的數字盤點",
+      "b": "主編回顧這一年共出版 155 篇數位與印刷文章，作者超過 90 人、來自 22 個國家、橫跨 5 大洲；同時擔任 CEU（佛羅倫斯）、SESSEP23（瓦倫西亞）、FLASIC-RENASIM（坎昆）、SESAM23（里斯本）、SIMMED23（熱那亞）、SOCHISIM23（聖地牙哥）與 ASPiH23（布萊頓）等 7 場國際學術會議的官方媒體夥伴。"
+    },
+    {
+      "h": "從雜誌走向出版社",
+      "b": "刊物語言除義大利文、英文、西班牙文外，又加上法文與葡萄牙文；有 18 家企業選擇以 SIMZINE 作為對擬真社群發聲的平台，社群追蹤數一年成長三倍。SIMZINE 並自許為第一家完全專注於醫療擬真的出版社，成立 SIMZINE Library，推出 SIMpeople 系列首作 The Dolls' Engineer，以模擬器發明者 Willem van Meurs 的自傳串起近 30 年擬真史。"
+    },
+    {
+      "h": "2024 這期先看什麼",
+      "b": "新一年的焦點是繼續擴大全球觸及，本期就是示範：M. Sudhir（阿拉伯聯合大公國）談如何建立與經營 simulated patient 計畫、N. Sujee（南非）提出把擬真放進健康照護教育核心的四個理由、Bwelle 與 Guembou 帶讀者走訪喀麥隆的 Masso Pierre 擬真中心與 ASCOVIME 協會，M. Isla 則介紹 MSF 如何用進階擬真技術做醫療訓練與危機應變。"
+    },
+    {
+      "h": "三位特別嘉賓與新 podcast",
+      "b": "本期同時邀到三位重量級人物：醫療擬真的先驅 David Gaba、醫學擬真產業的泰斗 Lou Oberndorf，以及 International Journal of Simulation in Healthcare（IJoHS）總編輯 Debra Nestel。此外還新開了法語 podcast「SIM Moove」，加入原有的數位內容陣容，主編說更多新點子與新服務還在醞釀中。"
+    }
+  ],
+  "thm": [
+    "2023 年出版 155 篇文章，作者逾 90 人、來自 22 國",
+    "擔任 7 場國際擬真會議的官方媒體夥伴",
+    "刊登語言擴充到義、英、西、法、葡五種",
+    "成立 SIMZINE Library，推出 SIMpeople 書系",
+    "2024 年新增法語 podcast「SIM Moove」"
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "section": "SIMvoices",
+  "tag": "世代對話",
+  "title_zh": "班機誤點，模擬器發明人遇上工程系學生",
+  "title_en": "Nice to meet you! A Sim Inventor Meets A Biomedical Engineering Student",
+  "authors": "I. Garcia - W. van Meurs",
+  "page": 17,
+  "doi": "https://doi.org/10.69079/SIMZINE.L24.N15.00030",
+  "lang": "en",
+  "digest_zh": "從佛羅倫斯飛巴黎的班機誤點，模擬器發明人 Willem van Meurs 在候機室遇上一位捧著厚書的生醫工程大學生。一場跨世代閒聊，讓她第一次聽說擬真訓練，也讓他找到新書可能的校閱者。",
+  "sections": [
+    {
+      "h": "一場誤點換來的對話",
+      "b": "van Meurs 剛在佛羅倫斯開完兩天會，討論即將完稿的 Learning physiology in context，也初步談了新書 Textbook of medical simulator technology。返程班機誤點，他注意到鄰座一位讀紙本厚書的年輕女生，問她有沒有要轉機——她要經底特律回俄亥俄州哥倫布，主修生醫工程大學部。"
+    },
+    {
+      "h": "第一次聽見擬真訓練",
+      "b": "他先聊自己的孩子破冰：唸心理學卻成為特技演員的兒子、想去哈薩克教書的翻譯女兒。話題轉到醫學擬真時，Isabel 才第一次聽到 simulation-based training，卻立刻抓住重點——醫學生不必再拿狗和羊練習，住院醫師也不必拿真病人練手。他心想，這正是該寫那本教科書的理由。"
+    },
+    {
+      "h": "從陌生人到校閱者",
+      "b": "他拿出自傳 The dolls' engineer 的工作稿，因為上面滿是電子書註記而沒能送出，只留了 email。幾天後收到一封主旨寫著「Nice to meet you!」的來信，他寄了書，Isabel 和身為機械工程師的母親一起讀起來。轉機途中他想到：她會是新書近乎完美的校閱者。"
+    },
+    {
+      "h": "她的那一半故事",
+      "b": "Isabel 的版本從高三寫起：最愛生物卻不想只念生物，數學一路吃力，本以為自己走不了工程，當時心思還放在大學運動隊上——紙本到這裡就中斷，後文留在官網。導言則預告：她被 van Meurs 的職涯與四處奔走的經歷打動，如今更想爭取國際機會。"
+    }
+  ],
+  "thm": [
+    "誤點班機促成模擬器發明人與學生對談",
+    "他正籌備一本醫學模擬器技術教科書",
+    "Isabel 首次聽說 simulation-based training",
+    "她最有感的是不再用動物與真病人練習",
+    "自傳 The dolls' engineer 讓這對母女一起讀"
+  ]
+}

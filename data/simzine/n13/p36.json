@@ -1,0 +1,36 @@
+{
+  "section": "SIMlove",
+  "tag": "沉浸教學",
+  "title_zh": "從急診現場到VR頭盔：擬真教師的轉身",
+  "title_en": "Beyond the Classroom: the Transformational Journey of a Simulation Educator",
+  "authors": "H. Gupte",
+  "page": 36,
+  "doi": "",
+  "lang": "en",
+  "digest_zh": "在英國急診現場看見 in-situ simulation 的威力後，作者開始想把那份真實搬進教室。COVID 讓場地與 faculty 都吃緊，於是轉向 360 度實拍與 VR，也重新學習 debriefing 該怎麼調整。",
+  "sections": [
+    {
+      "h": "從急診 in-situ 開始的啟蒙",
+      "b": "作者在 Leeds、Manchester、London 當了 20 年急症護理師，2018 年接下 Leeds Teaching Hospitals 醫學教育的臨床技能與擬真負責人。兩間大型急診部（@LeedsEDsim）早已把 in-situ simulation 做進日常，作者在高張力的現場看見真實學習發生，決定把這份沉浸感複製到課室裡。"
+    },
+    {
+      "h": "COVID 之後的容量與人力難題",
+      "b": "疫情期間與後疫情時期，傳統擬真的侷限浮現：教室容許的人數變少、faculty 也越來越難調到，而傳統做法偏偏需要很高的 faculty 對學員比。作者因此開始尋找能延續沉浸式學習效益的新技術，剛好那時 VR 頭盔的經費到位。"
+    },
+    {
+      "h": "360 實拍與 VR 的新課題",
+      "b": "投入較深的是 360 度實拍，把真實場域連同 standardised patients 一起錄下來；這不只解決場地問題，更能讓學員接觸更多樣的情境。電腦生成的虛擬世界也愈來愈可近。真正的挑戰在於如何讓不同載體的課程內容抓住學員，以及把 debriefing 技巧調整到適合這種經驗學習。"
+    },
+    {
+      "h": "編按：台灣可以怎麼接",
+      "b": "（以下為編者延伸，非原文內容。）台灣急診想複製 in-situ 的真實感，常受限於空間與師資，而 360 度實拍的門檻相對低：一次高品質的情境錄成素材後可反覆用於不同梯次，把省下的 faculty 人力集中投在 debriefing 上。"
+    }
+  ],
+  "thm": [
+    "in-situ 的真實感是投入擬真的起點",
+    "COVID 後教室容量與 faculty 都吃緊",
+    "傳統擬真需要很高的 faculty 對學員比",
+    "360 度實拍能錄下真實場域與 SP",
+    "換了載體，debriefing 也要跟著改"
+  ]
+}

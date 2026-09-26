@@ -1,0 +1,36 @@
+{
+  "section": "SIMcorner",
+  "tag": "AI評量",
+  "title_zh": "AI 幫醫學生打病史詢問的分數",
+  "title_en": "The Artificial Intelligence to train medical history taking",
+  "authors": "Kyle McLemore, Allyson Molzahn, Allan Hamilton",
+  "page": 26,
+  "doi": "https://doi.org/10.69079/SIMZINE.A25.N18.00047",
+  "lang": "en",
+  "digest_zh": "亞利桑那大學把病史詢問的評分交給 AI：AIMHEI 讀 SP 訪談逐字稿，依 96 項標準評分，先出老師版報告，幾秒內再轉成學生版。師資不夠、回饋標準不一的老問題，這篇給了一個看得見做法的解方。",
+  "sections": [
+    {
+      "h": "問題在回饋不夠也不一致",
+      "b": "溝通與臨床推理是 AAMC 於 2014 年列為住院醫師核心 EPA 的能力，但原文引述指出，不少訓練計畫主管擔心學生進 intern 年之前溝通能力與醫學知識還沒長好。原因在於師資時間有限又要顧臨床，結構化回饋做不密；主治或 preceptor 給的評語又主觀、各科不一，還相當耗時。"
+    },
+    {
+      "h": "AIMHEI 怎麼評分",
+      "b": "程式由 Python 腳本與自然語言處理（NLP）方法組成，分成兩大塊。information 段是檢核表式 rubric，端點取自 Bates' Guide to Physical Examination and History Taking，細項可依教師的學習目標調整；skills 段則評 Medical Terminology、Politeness 與 Empathy 三項，對訪談的不同面向給教練式回饋。"
+    },
+    {
+      "h": "老師版與學生版兩份報告",
+      "b": "系統分析 SP 訪談錄音轉出的逐字稿，依 96 項標準評分後產生兩份報告。老師版逐條說明評了什麼標準、為何給這個分數，並引用逐字稿原句當證據、標明所屬段落，方便回頭追溯。學生版在幾秒內轉出，訪談結束後不久交給學生，保留各段與子段落分數，末段依得分較低的部分給個人化建議。"
+    },
+    {
+      "h": "編按：國內若要試的前提",
+      "b": "編者延伸，非原文所述：最值得借的是把評分表拆成「檢核表」與「溝通品質」兩段，以及老師版留下逐字稿證據以便追溯與申訴——這兩點不靠 AI 也做得到，是人工評分表就能改的設計。國內若要試辦 AI 評分，SP 訪談的錄音同意與逐字稿去識別流程要先談清楚，再談模型。"
+    }
+  ],
+  "thm": [
+    "AIMHEI 出自亞利桑那大學健康科學擬真教育 AI 部門",
+    "溝通與臨床推理是 AAMC 2014 列的核心 EPA",
+    "逐字稿依 96 項標準評分，出兩份報告",
+    "skills 段評用語、禮貌與 empathy 三面向",
+    "已完成試辦研究，正以 RCT 檢驗成效"
+  ]
+}

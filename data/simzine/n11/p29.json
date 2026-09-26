@@ -1,0 +1,36 @@
+{
+  "section": "SIMnurse",
+  "tag": "護理擬真",
+  "title_zh": "十項擬真準則，該從哪一條讀起",
+  "title_en": "Utilizing the Healthcare Simulation Standards of Best Practice™: The Beginning.",
+  "authors": "D. A. Diaz - A. Franklin - L. Gonzalez",
+  "page": 29,
+  "doi": "",
+  "lang": "en",
+  "digest_zh": "INACSL 十項擬真準則涵蓋撰寫學習成果、prebriefing、facilitation、debriefing 到專業誠信與成效評量；作者說 Professional Integrity 是合理的入門起點。",
+  "sections": [
+    {
+      "h": "一份活的文件，跨場域也跨模式",
+      "b": "這套準則的目標是讓全球的擬真學習經驗有一致的品質基準，內容由跨專業與跨國觀點形成，並被定位為持續更新的活文件。不論在學術或實務場域，也不論採用 manikin、Standardized Patient 或遠距形式，都同樣適用；目前已譯成法文、韓文、日文、西班牙文、中文、波蘭文等多種語言。"
+    },
+    {
+      "h": "十個主題與它的更新機制",
+      "b": "十項準則涵蓋撰寫學習成果與目標、prebriefing、facilitation、debriefing、情境設計、營運、專業發展、專業誠信、擬真強化的跨專業教育，以及學習與表現評量。更新採週期制，會諮詢醫療圖書館員，並依需求評估、環境掃描與完整文獻回顧進行；另設顧問小組代表各國專家與機構，提出評估與改善建議。"
+    },
+    {
+      "h": "先讀專業誠信這一條",
+      "b": "作者把 Professional Integrity 視為合理的入門起點，它與 SSH 於 2018 年發布的 Healthcare Simulationist Code of Ethics 相呼應，協助 facilitator 反思、凝聚共識並實際執行透明、相互尊重、專業、課責與品質改善等核心價值，以建立並維持安全的擬真學習環境；也強調 facilitator 須以身作則帶出正向的擬真文化。"
+    },
+    {
+      "h": "引導與課前說明的重點",
+      "b": "Facilitation 準則提供一步步引導情境的方法，起點是先界定 facilitator 需要哪些能力，並依學員既有經驗調整提示與 simulation lifesaver 的強度，策略橫跨 prebriefing、情境執行到 debriefing。Prebriefing 準則則處理準備材料與開場，平衡認知負荷、建立共享心智模型，讓學員預先看見障礙、目標與安全顧慮。"
+    }
+  ],
+  "thm": [
+    "準則要讓全球擬真學習有一致品質基準",
+    "活文件：跨學術／實務、manikin／SP／遠距",
+    "十項主題從撰寫目標到學習與表現評量",
+    "入門建議先讀 Professional Integrity",
+    "Prebriefing 要建立共享心智模型與安全顧慮"
+  ]
+}

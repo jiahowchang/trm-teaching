@@ -1,0 +1,36 @@
+{
+  "section": "SIMsurgery",
+  "tag": "外科擬真",
+  "title_zh": "腹腔鏡擬真認證，刀房省下 14 分鐘",
+  "title_en": "Enhancing Operating Theatre Efficiency with Laparoscopic Simulators",
+  "authors": "B. Lowe",
+  "page": 16,
+  "doi": "",
+  "lang": "en",
+  "digest_zh": "買了虛擬實境腹腔鏡模擬器，刀房就會變快嗎？澳洲 Gold Coast 大學醫院把 credentialing 當成起點而非終點，換來平均手術時間縮短 14 分鐘的實際結果。",
+  "sections": [
+    {
+      "h": "不是買了模擬器就有效",
+      "b": "昆士蘭 Gold Coast University Hospital 以提升刀房效率為目標，購入 LapSim 360（Surgical Science，瑞典）虛擬實境腹腔鏡模擬器。作者指出模擬器能提升受訓者技術，卻常無法轉化成臨床結果，所以重點放在技術如何移轉到真實手術，而非設備本身。"
+    },
+    {
+      "h": "整套配套，不只一台機器",
+      "b": "器材經地區醫療創新補助取得，另發可帶回家的腹腔鏡 box trainer；師資是一位專責 simulation technician 與一位主導的婦科醫師。教學設計以 mastery learning 為主軸，搭配線上課程模組、每週與每月的固定訓練時段，並用 mentoring、遊戲化與測驗促進學習維持參與。"
+    },
+    {
+      "h": "把能力當起點而非終點",
+      "b": "計畫核心是 credentialing：受訓者必須先達到預設的能力標準，才能在真實手術中取得 primary operator 資格，假設是這樣能讓手術更安全更快，也給受訓者明確目標與指標。作者直接挑戰常見做法，把 competence 視為「the initial step and primary goal」。"
+    },
+    {
+      "h": "成效怎麼衡量",
+      "b": "評估改用 outcome logic model，同時看有效性、可行性、效率與對整個醫療體系的影響，作者認為比追求線性因果的傳統評估更完整。結果是 2020 至 2021 年間，該院單純腹腔鏡輸卵管切除的平均手術時間顯著縮短 14 分鐘；未解的難題是指導醫師對模擬認證的信任，仍待更多研究。全文刊於 International Journal of Healthcare Simulation。"
+    }
+  ],
+  "thm": [
+    "LapSim 360 虛擬實境模擬器＋認證制度並行",
+    "credentialing 是起點，過關才能當主刀者",
+    "配套：線上模組、可帶回家的 box trainer",
+    "單純腹腔鏡輸卵管切除平均時間少 14 分鐘",
+    "難題：指導醫師對模擬認證的信任仍待研究"
+  ]
+}

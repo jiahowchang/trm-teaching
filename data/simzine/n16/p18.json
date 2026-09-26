@@ -1,0 +1,36 @@
+{
+  "section": "AboutSIMMED",
+  "tag": "工作坊",
+  "title_zh": "SIMMED 年會五場不容錯過的工作坊",
+  "title_en": "I 5 workshop da non perdere al SIMMED2024",
+  "authors": "Redazione",
+  "page": 18,
+  "doi": "",
+  "lang": "it",
+  "digest_zh": "SIMMED 2024 年會 11 月落在米蘭 Humanitas University，SIMZINE 挑了五場工作坊：in-situ 擬真怎麼接上臨床治理、XR 沉浸科技、風險評估工具、非學術寫作，以及 SimZones 分區教學。",
+  "sections": [
+    {
+      "h": "in-situ 擬真接上臨床治理",
+      "b": "Luca Carenzo 與 Humanitas University 等單位的 facilitator 帶第一場，主題是把 in-situ 擬真放進臨床治理的流程裡：與稽核、異常事件通報、風險管理串在一起，並直接拿事件報告當情境素材，讓演練對準真實發生過的問題；後半段談結果要怎麼記錄與對外溝通，撐起安全與透明的文化。"
+    },
+    {
+      "h": "從風險工具到 XR 裝置",
+      "b": "Giovanni Rabito 團隊那場主張風險評估與 in-situ 擬真併用，會教 HAZOP 找出流程偏差，也會用 Vincent C.（2004）的倫敦議定書拆解照護問題。Mara Coduri 與熱那亞 JETS 團隊則帶 VR、AR、MR：談 XR 的臨場感如何提升投入度、對技術與 soft skills 的幫助，也談它的限制。"
+    },
+    {
+      "h": "寫作與 SimZones 分區",
+      "b": "Pier Luigi Ingrassia 那場教非學術寫作，從選定敘事口吻、文章結構到拆解一篇範例文，目標是讓擬真的好做法傳到學術圈以外的同行手上。Federico Barra 介紹 SimZones：Zone 0 自學、Zone 1 基本臨床技術、Zone 2 情境應用、Zone 3 團隊危機、Zone 4 回到真實場域，並帶到 Debriefing with Good Judgment。"
+    },
+    {
+      "h": "編按：分區觀念最值得帶回",
+      "b": "以下為編者延伸。五場裡最容易直接套用的是 SimZones：它不是新教法，而是一把尺，用來說清楚某個活動該放哪一區、需要哪些人力與器材，很適合拿來盤點自家中心現有課程的分布，並找出從基本技術到團隊危機之間缺掉的那一層。"
+    }
+  ],
+  "thm": [
+    "2024/11/14-15 米蘭 Humanitas University",
+    "in-situ 擬真串接稽核與事件通報",
+    "HAZOP 與倫敦議定書拆解照護風險",
+    "XR 臨場感提升技術與 soft skills",
+    "SimZones 五區加 Good Judgment debriefing"
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "section": "SIMPills",
+  "tag": "會議指南",
+  "title_zh": "2024 擬真會議行事曆：十二場一次看",
+  "title_en": "The top conferences you must attend in 2024",
+  "authors": "Redazione",
+  "page": 45,
+  "doi": "",
+  "lang": "en",
+  "digest_zh": "時間與預算有限，該把票投給哪些擬真會議？編輯部一次列出十二場：從一月 San Diego 的 IMSH、六月布拉格滿三十年的 SESAM，到十一月智利 SOCHISIM 直接鎖定 AI 主題。",
+  "sections": [
+    {
+      "h": "年初三場：現場、線上與非洲連線",
+      "b": "一月 San Diego 的 IMSH 2024 慶祝滿 24 年，主題 IDEA（Innovate, Disseminate, Educate, Advocate），現場互動與線上學習並行。二月由 SESAM 策劃的 SAVE 是純線上協作活動，聯合 AFriSim Network、SHARE 與 PediSTARS，刻意邀請長期代表性不足的地區參與；同月摩洛哥 Fez 的 HTIC 2024 是第三屆 Morocco SIM 大會。"
+    },
+    {
+      "h": "春季：外科教育與西班牙首例",
+      "b": "三月的 ASiT 2024 外科會議在 Bournemouth 舉行，涵蓋十多個外科次專科與訓練進展。四月西班牙 Oviedo 的 SESSEP 已是第 11 屆，主題為用擬真教學改善並創新醫療，並首度在西班牙的醫療機構 Hospital Universitario Central de Asturias 舉辦。同月美國 Orlando 的 ASE 年會是 Surgical Education Week 的重頭戲。"
+    },
+    {
+      "h": "下半年：技術端、教育端與 AI",
+      "b": "六月有 Raleigh 的 INACSL24，以及布拉格慶祝擬真三十年的 SESAM 2024。八月 Indianapolis 的 SimGHOSTS USA 專為擬真操作專員設計；瑞士 Basel 的 AMEE 2024 則談教育者職涯。十一月愛丁堡 ASPiH 十五週年主打 Transformative Simulation，智利 Puerto Montt 的 SOCHISIM 探討 AI 在臨床擬真的角色。"
+    },
+    {
+      "h": "編按：這份清單怎麼用",
+      "b": "以下為編者延伸，非原文內容。這是 2024 年初整理的名單，日期、地點與主題每年都會換，建議當成年度規劃的地圖而不是時刻表：想補擬真操作與設備管理就看 SimGHOSTS，想看護理擬真研究看 INACSL，想掌握整體醫學教育趨勢看 AMEE 或 IMSH，區域性大會則適合帶團隊初次亮相。實際報名前務必回官網確認最新資訊。"
+    }
+  ],
+  "thm": [
+    "IMSH 慶祝滿 24 年，主題 IDEA，現場加線上",
+    "SAVE 線上舉行，力邀代表性不足的地區",
+    "SESSEP 首度辦在西班牙的醫療機構內",
+    "SESAM 2024 布拉格場慶擬真三十週年",
+    "SOCHISIM 整場聚焦 AI 在臨床擬真的角色"
+  ]
+}

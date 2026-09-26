@@ -1,0 +1,36 @@
+{
+  "section": "SIMvoices",
+  "tag": "護理擬真",
+  "title_zh": "護理擬真的未來：更真實、更個人化",
+  "title_en": "The Future of Simulation in Nursing Education",
+  "authors": "M. Al Hassan",
+  "page": 38,
+  "doi": "",
+  "lang": "en",
+  "digest_zh": "一篇短評式的展望：作者把護理擬真的未來收成五條線——更沉浸的 high-fidelity 情境、跨專業共同演練、AI 即時回饋的個人化學習、VR/AR/MR 與穿戴裝置，以及用研究把最佳實務寫進標準。",
+  "sections": [
+    {
+      "h": "更真實、更沉浸",
+      "b": "文章預期 high-fidelity simulator 會愈來愈逼真：互動式 manikin 可模擬 vital signs 與生理反應，virtual reality 則重建複雜的臨床場域。作者認為真實感提高，護生便能在安全可控的環境裡養成 clinical judgment 與決策能力，銜接真實臨床。"
+    },
+    {
+      "h": "跨專業一起練",
+      "b": "醫療愈來愈以團隊為單位運作，作者主張未來的情境會刻意設計成護生、醫學生、藥師與其他專業共同參與，藉此訓練溝通、team working 與共同決策，讓照護更連貫、更以病人為中心。這也是護理教育必須及早銜接的方向。"
+    },
+    {
+      "h": "個人化回饋與新技術",
+      "b": "作者預期會出現 adaptive 的擬真平台，依學習者的需求與速度安排內容，並用人工智慧提供即時 feedback 與 debriefing，指出待加強處也強化優勢。技術面則包含 virtual、augmented 與 mixed reality，加上穿戴裝置與行動應用，讓學生在情境中即時取得資訊、縮短理論與實務的差距。"
+    },
+    {
+      "h": "把成效變成證據",
+      "b": "最後一段落在 evidence-based practice：作者預期評估擬真教學成效、盤點最佳實務與探索新方法的研究會增加，而這些證據將回頭指引標準化課程的設計、推動持續品質改善，並成為認證標準的依據。結語重申擬真已是培養有能力、有自信護理人員不可或缺的一環。"
+    }
+  ],
+  "thm": [
+    "high-fidelity manikin 與 VR 讓情境更逼真",
+    "跨專業共同演練，訓練溝通與共同決策",
+    "adaptive 平台＋AI 即時 feedback 個人化",
+    "VR/AR/MR、穿戴裝置與行動應用入場",
+    "研究證據回頭寫進課綱與認證標準"
+  ]
+}

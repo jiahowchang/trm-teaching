@@ -1,0 +1,36 @@
+{
+  "section": "SIM geek",
+  "tag": "擬真技師",
+  "title_zh": "擬真技術專員：職稱各異，職能已有框架",
+  "title_en": "Simulation Technology Specialist: Role and Skills",
+  "authors": "Patrick Crocco",
+  "page": 8,
+  "doi": "https://doi.org/10.69079/SIMZINE.A26.N22.00098",
+  "lang": "it",
+  "digest_zh": "擬真課程順不順，常取決於那個沒站在台前的人。這篇回顧 2014–2024 年九份文獻與國家文件，整理擬真技術專員的職稱亂象、八大職能範疇與 CHSOS 證照，並指出義大利與歐洲仍缺乏完整的培訓與規範。",
+  "sections": [
+    {
+      "h": "同一個人，五種叫法",
+      "b": "作者以 narrative review 檢視 2014 至 2024 年文獻，初篩 57 篇，最後留下 7 篇論文、1 本參考書與 1 份國家文件共 9 份來源。主要問題之一是名稱不一：Simulation Technicians、Simulation Technology Specialists、Healthcare Simulation Technicians 等叫法並行，反映從護理、醫師、工程、資訊到教育科學的多元出身。"
+    },
+    {
+      "h": "八個職能範疇",
+      "b": "SimGHOSTS 與 SSH-SOTS 都在 2013 年用 Delphi 法建立框架，SSH 列五個範疇，SimGHOSTS 列八個：影音技術、資訊技術、教學、醫療術語與實務、管理、研究與評估、模擬、劇場技術。最後一項補完整套技能——道具、音景、燈光與 moulage 都要靠創意，才能把感官真實感做出來。"
+    },
+    {
+      "h": "證照、實證與義大利做法",
+      "b": "國際上最被認可的是 SSH 的 CHSOS 證照；Crawford 等人（2019）分析 67 則職缺，其中 15% 要求此證照，另有進階版 CHSOS-Advanced。Hughes 等人（2020）以兩輪 Delphi 發展 E-TeCHS。效益方面，Sibbald 等人（2019）指出 STS 能顯著降低教師的 cognitive load。義大利衛生部也在 2022 年首度以指引定義此角色。"
+    },
+    {
+      "h": "編按：先把這個角色寫進編制",
+      "b": "原文的八大範疇正好可以當成台灣擬真中心的自評清單——影音、資訊、模擬器維護、moulage、教學支援、研究與策略規劃，逐項問「這件事現在是誰在做、有沒有人能接手」。若同一個人身兼多職，至少讓職務說明書寫清楚，別讓關鍵技術知識只存在某一個人腦裡。"
+    }
+  ],
+  "thm": [
+    "narrative review 收 2014–2024 年 9 份來源",
+    "職稱從 technician 到 specialist 各家不一",
+    "SimGHOSTS 八大職能，含劇場技術與 moulage",
+    "CHSOS 為主要證照，67 則職缺中 15% 要求",
+    "STS 可降低教師 cognitive load"
+  ]
+}

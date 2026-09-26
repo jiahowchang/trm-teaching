@@ -1,0 +1,36 @@
+{
+  "section": "DID you know...",
+  "tag": "人道擬真",
+  "title_zh": "無國界醫生把擬真帶進人道現場",
+  "title_en": "Simulation In And For Medical Humanitarian Action",
+  "authors": "Marta Iscla Aragones",
+  "page": 16,
+  "doi": "",
+  "lang": "en",
+  "digest_zh": "在資源有限、甚至有安全威脅的人道現場，擬真能做什麼？MSF 自 2019 年起把 simulation 納入醫療人道行動，本文攤開三大支柱與實際用法，從能力維持、系統導向 in-situ 到危機與安全事件演練。",
+  "sections": [
+    {
+      "h": "MSF 面對的是什麼樣的環境",
+      "b": "Médecins Sans Frontières（MSF，無國界醫生）是獨立的國際醫療人道組織，服務對象是受衝突、疫情、災難影響或被排除在醫療體系外的人。作者強調這些工作情境脆弱、複雜，有時因地緣政治而處於高度不安全狀態，因此團隊必須具備高度彈性、適應力，以及對不同緊急事件與危機需求的反應速度。"
+    },
+    {
+      "h": "擬真計畫的三大支柱",
+      "b": "自 2019 年起 MSF 擴大使用 simulation，並成立 MSF Field Simulation program，設定三個支柱：在組織內發展擬真能力、把 simulation 整合進醫療人道行動、持續在擬真上創新。訓練對象涵蓋前線工作者、支援專案的機動團隊，以及負責協調與訂定準則策略的人；也透過 mobile simulation implementers 培訓當地的 facilitator 與 simulationist。"
+    },
+    {
+      "h": "擬真在現場的多種用途",
+      "b": "作者列出的應用相當廣：發展與維持關鍵能力（團隊常得處理從未做過的事）、以 system-focused on-site simulation 分析真實的 latent safety threats、設計與測試緊急與危機的準備與應變、安全事件的應對、從直接管理轉為遠端管理時如何維持品質與安全、團隊發展與溝通協調、低成本虛擬擬真，以及用擬真設計與測試流程、空間與動線。"
+    },
+    {
+      "h": "編按：台灣現場可以借的兩件事",
+      "b": "以下是編者的延伸，非原文內容。原文兩個概念在台灣急診同樣好用：一是 system-focused on-site simulation，在夜班或壅塞時段就地找出動線與設備的 latent safety threats；二是那句「沒有時間訓練，但總有時間學習」的事件後 debriefing，讓真實事件本身成為教材。"
+    }
+  ],
+  "thm": [
+    "MSF 自 2019 年起擴大 simulation 使用",
+    "三支柱：組織能力、整合入行動、持續創新",
+    "訓練前線、機動團隊與制定策略的協調者",
+    "on-site 擬真找真實 latent safety threats",
+    "沒時間訓練，但總有時間學習：事件後 debriefing 是關鍵"
+  ]
+}

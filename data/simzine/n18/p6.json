@@ -1,0 +1,36 @@
+{
+  "section": "DID you know...",
+  "tag": "國際會議",
+  "title_zh": "Utstein 會議替 XR 訂研究議程",
+  "title_en": "Utstein Meeting on Extended Reality in Medical Education",
+  "authors": "Redazione",
+  "page": 6,
+  "doi": "https://doi.org/10.69079/SIMZINE.A25.N18.00046",
+  "lang": "en",
+  "digest_zh": "26 位跨國專家在哥本哈根連開了兩天會，主題只有一個：XR 到底該怎麼進醫學教育。結論不是再添設備，而是先把研究問題問對——成本、師資、可近性，一項都不能跳過。",
+  "sections": [
+    {
+      "h": "一場會議，四個任務",
+      "b": "11 月 23 至 24 日，26 位來自不同國家與專業的專家聚在哥本哈根 Bella Sky Hotel，由 Laerdal Foundation 贊助。任務是替 VR、AR、MR 等 XR 技術訂出研究議程：找出導入 XR 課程的關鍵要素、盤點推行的阻力與助力、提出 faculty development 方案，並整理出足以指引研究者與 simulationist 的問題清單。"
+    },
+    {
+      "h": "Utstein 會議是什麼",
+      "b": "這種會議通常採輪轉工作坊形式，讓與會者在既有研究基礎上反覆修訂定義、概念與成效指標，最後形成共識與後續行動計畫。早期多在挪威 Mosterøy 島上的 Utstein 修道院舉行，會議名稱亦由此而來，該處建築可追溯到 1264 年；1990 年 Laerdal Foundation 在此召集歐美復甦專家，統一心跳停止研究的定義與資料格式，催生了日後成為全球標準的 Utstein Style。"
+    },
+    {
+      "h": "要評的不是新鮮感，是證據",
+      "b": "籌辦人之一、哥本哈根大學醫學教育與擬真教授 Doris Østergaard 直言，焦點必須從新奇轉向證據。與會者點出的難題包括成本、基礎建設、師資準備度，以及課程必須依需求量身設計。SESAM 主席、盧加諾擬真中心主任 Pier Luigi Ingrassia 則強調，XR 不只要提升學習，也要讓資源不足地區的醫療人員同樣用得到。"
+    },
+    {
+      "h": "編按：採購前的自我提問",
+      "b": "編者延伸：原文並未談到台灣。不過會中反覆出現的三個問題——成本、師資準備度、可近性——正好可以當成國內擬真中心評估 XR 採購時的自問：這套設備解決的是現有 manikin 做不到的目標，還是同樣目標做得更省時有效？"
+    }
+  ],
+  "thm": [
+    "26 位跨國專家在哥本哈根開兩天會",
+    "由 Laerdal Foundation 贊助，聚焦 XR",
+    "Østergaard：焦點要從新奇轉向證據",
+    "阻力：成本、基礎建設、師資準備度",
+    "Utstein Style 源自 1990 年復甦研究共識"
+  ]
+}

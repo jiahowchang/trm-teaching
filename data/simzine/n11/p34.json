@@ -1,0 +1,36 @@
+{
+  "section": "DID you know...",
+  "tag": "回饋工具",
+  "title_zh": "大家都說很好，卻沒人滿意",
+  "title_en": "Emergency Team Competencies Tool, per il debriefer dell'emergenza",
+  "authors": "Gabriele Lorenzini - Alberto Zamboni",
+  "page": 34,
+  "doi": "",
+  "lang": "it",
+  "digest_zh": "咖啡時間前的最後一個腳本：二度 Mobitz II 合併 ST 段上升，護理師想貼電擊片卻被醫師擋下。debriefing 說了「要更果決」「決策要外顯」，三人卻都帶著問號走向咖啡機，作者因此引介 ETC tool。",
+  "sections": [
+    {
+      "h": "一個看似順利的腳本",
+      "b": "場景在急重症區，起初只有一位急診醫師（MED A）與一位護理師（INF）。救護車送來全身無力、腹部瀰漫疼痛的 Marcello 先生，到院分級時只有輕度心跳過慢，ECG 卻是二度 Mobitz II 房室傳導阻滯，部分導程還有 ST 段上升。兩人分工「打包」病人並聯絡心導管室；護理師要接上去顫器電擊片，醫師說只要血氧飽和儀、五分鐘後就上樓，直到 MED B 進來問「電擊片貼了嗎」才貼上。"
+    },
+    {
+      "h": "苦味的咖啡",
+      "b": "debriefing 裡醫師覺得「都做完了，我們是個團隊吧」；debriefer 把快速回應臨床需求寫進 PLUS，把護理師的 assertiveness 與醫師的決策外顯度寫進 DELTA，接著提議去喝咖啡。結果醫師不懂什麼叫「外顯且結構化的決策」，護理師不知道怎樣才算「更好的果決」，debriefer 也懷疑訊息有沒有真的傳到。作者結論：事情都做完了，但沒有人滿意。"
+    },
+    {
+      "h": "ETC tool 想解決什麼",
+      "b": "作者指出，文獻談了很多 debriefing 的階段、討論做了與沒做的事，卻少有工具能結構化這段既重要又敏感的收尾。他們提出 Emergency Team Competencies Tool（ETCt），專為急診情境設計，把 Technical skills 與 Non-Technical skills 放進同一套分類，跨過已過時的二分法，整合為「專業能力」，目的是讓 debriefer 在對的時機用對的字，促成自我分析與同儕對照。"
+    },
+    {
+      "h": "編按：把評語換成行為句",
+      "b": "以下是編者延伸，非原文內容。這篇最值得台灣急診借用的不是工具本身，而是它點出的問題：評語如果停在「要更果決」，學員回到臨床仍然不知道要改什麼。帶 debriefing 時可以要求自己把每一句 DELTA 換成具體、可複述的行為句，例如「下次請直接說出你看到的節律，以及你要做的處置」。"
+    }
+  ],
+  "thm": [
+    "腳本：二度 Mobitz II 合併 ST 段上升",
+    "護理師想貼電擊片，醫師嫌多餘",
+    "PLUS／DELTA 寫完，三人各自帶著疑問",
+    "ETCt 把技術與非技術能力併為同一套",
+    "重點是在對的時機說出對的字"
+  ]
+}

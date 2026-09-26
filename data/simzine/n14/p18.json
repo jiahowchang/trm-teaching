@@ -1,0 +1,36 @@
+{
+  "section": "SIMvoices",
+  "tag": "引導技巧",
+  "title_zh": "當個好 debriefer 的七個關鍵",
+  "title_en": "7 astuces pour devenir un bon debriefer",
+  "authors": "F. Marhar",
+  "page": 18,
+  "doi": "https://doi.org/10.69079/simzine.H24.n14.0008",
+  "lang": "fr",
+  "digest_zh": "debriefing 被說成擬真的心與靈魂，一場模擬的成敗常就落在這一段。這篇法文專欄列出七個要素，紙本只完整刊出前三項：psychological safety、對學習者的基本假設，以及 debriefing 規則；第四到第七點僅印出標題與省略號。",
+  "sections": [
+    {
+      "h": "心理安全感先於一切",
+      "b": "文章引 Marcus Rall 的說法，二十多年來 debriefing 一直被認為能「成就或毀掉一場擬真」。要讓擬真與 debriefing 的學習效果最大化，psychological safety 是前提：它指的是人能行動與發言，而不必擔心自我形象、社會地位或職涯受到負面影響。做法是由 facilitator 在擬真前先做一段說明性的 briefing，把安全的學習環境建立起來。"
+    },
+    {
+      "h": "對學習者的基本假設",
+      "b": "第二點是 facilitator 與學習者都要對團隊的動機與能力抱持一個起始假設。文中引用波士頓 CMS 團隊的版本：假定所有參與者都聰明、有能力、想把事情做好，也願意進步。抱著這個假設，當結果不如預期時，引導者會轉為好奇，去探究導致這些行為的心智模式，而不是停在猜測；advocacy and inquiry 這套提問技巧正用在這裡，協助學習者修正錯誤的心智模式，對日後行為的槓桿也更大。"
+    },
+    {
+      "h": "先說好 debriefing 規則",
+      "b": "第三點是給參與者一組 debriefing 基本規則：所有成員都要主動參與討論、討論內容保密、焦點放在改善表現而不是批評個人。這組規則可以在 pre-briefing 說明，也可以放在訓練當天第一場 debriefing 的開場，並由 facilitator 視需要反覆重申，讓整段擬真訓練都維持適合所有學習者的氣氛。"
+    },
+    {
+      "h": "剩下四點紙本只有標題",
+      "b": "第四到第七點在紙本上只印出標題與省略號：建立共享心智模式、處理學習目標、使用開放式問題、讓沉默發揮作用，內文並未刊在雜誌頁面上。作者在開場強調這七個要素值得記住，因為它們正說明了 debriefing 的結構，以及 debriefing 各階段與其前置階段各自的用處。"
+    }
+  ],
+  "thm": [
+    "debriefing 決定一場擬真的成敗（Marcus Rall）",
+    "psychological safety 是學習最大化的前提",
+    "起始假設：學員都聰明、有能力、想做好",
+    "以 advocacy and inquiry 探究學員的心智模式",
+    "規則：全員參與、內容保密、對事不對人"
+  ]
+}

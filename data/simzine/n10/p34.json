@@ -1,0 +1,36 @@
+{
+  "section": "DID you know...",
+  "tag": "專業認同",
+  "title_zh": "醫師的專業身分，能用擬真練出來嗎？",
+  "title_en": "Simulare l'identità professionale: si può?",
+  "authors": "F. Consorti - L. Montagna",
+  "page": 34,
+  "doi": "",
+  "lang": "it",
+  "digest_zh": "文章從一部小說裡的急診值班夜開場，把 medical professionalism 從『我告訴你該守哪些規範』，一路談到專業身分的建構，並追問一個實務問題：這種內在的東西，擬真真的練得出來嗎？",
+  "sections": [
+    {
+      "h": "從一部小說開始的追問",
+      "b": "開篇引 Daniel Pennac 的短小說《La lunga notte del dottor Galvan》，寫一個年輕醫師既想當『好醫師』、又渴望看到自己名字印在名片上。作者藉此提出一串問題：談這個職業時還能談美德嗎？我們期待醫師做出什麼行動？行動的目的是什麼？他對別人、對自己又有什麼義務？"
+    },
+    {
+      "h": "從規範到身分建構",
+      "b": "作者定義 medical professionalism 是構成『成為醫師』的知識、語言、行為規範與倫理價值，屬於醫學倫理的一部分，核心在於專業人員如何把價值內化並據以行動，也就是 integrity。這條路從 1995 年的 Project Professionalism 起步，2002 年被 National Board of Medical Examiners 納入執照認證，近十年則從指令式教學轉向專業身分的建構。"
+    },
+    {
+      "h": "根基是病人安全",
+      "b": "根基是 patient safety：安全文化要求最高的專業水準，醫師的 commitment 與病人感受到的照護品質相關，專業度低則與醫師、學生 burn out 上升有關。擬真的角色是提供直接觀察行為後果的場域，培養自覺與回應能力——刻意設計的腳本讓平時難以系統記錄的行為攤開來，處理醫病關係也處理 team working，simulated patient 還能給出『病人』視角的 feedback。"
+    },
+    {
+      "h": "編按：台灣可以怎麼用",
+      "b": "編按：以下是編者延伸。原文強調這是一套設計上的複雜工程，關鍵在教師、病房 tutor 與所有參與教學的人都得先受訓，否則專業素養教學只會變成『蛋糕上的裝飾糖霜』。台灣的急診與擬真中心若想起步，或許可先在 debriefing 固定加一個問題：這個決定，像你想成為的那種醫師嗎？"
+    }
+  ],
+  "thm": [
+    "medical professionalism＝知識、語言、規範與倫理價值的總和",
+    "2002 年進入美國醫師執照認證流程",
+    "近十年由指令式教學轉向專業身分的建構",
+    "擬真＋simulated patient 讓隱形行為可被觀察",
+    "師資訓練沒到位，教學就只是裝飾糖霜"
+  ]
+}

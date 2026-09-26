@@ -1,0 +1,37 @@
+{
+  "section": "SIM nurse",
+  "tag": "AI趨勢",
+  "title_zh": "AI 幾秒生出教案，關鍵在 prompt",
+  "title_en": "Healthcare Simulation in the Era of AI",
+  "authors": "L. Gonzalez - D. Diaz",
+  "page": 34,
+  "doi": "",
+  "url": "https://simzine.news/focus-en/healthcare-simulation-in-the-era-of-ai/",
+  "lang": "en",
+  "digest_zh": "AI 讓原本費時費工的教案撰寫數秒成形，還能嵌入 GOLD 等實證指引、建議該用 SP 還是 mannequin。但作者提醒：產出好壞完全取決於 prompt 寫得多細，潛藏偏誤與引用出入仍得靠人把關。",
+  "sections": [
+    {
+      "h": "AI 已進課堂，卻沒人教怎麼用",
+      "b": "作者引 Patel 等人（2024）把 AI 界定為電腦科學的一支，讓機器模擬並調適人類的認知與行為；ChatGPT 即 OpenAI 以 GPT-4.0 架構、在大量文本上訓練而成。學習者往往在沒有完整訓練與明確界線的情況下就開始使用，容易依賴未經查證或不正確的內容；AI 的品質終究取決於餵進去的資料。用得謹慎時，它能提供個人化學習路徑、adaptive questioning、案例發展與概念澄清（Gonzalez, 2024）。"
+    },
+    {
+      "h": "prompt 寫多細，教案就有多好",
+      "b": "過去教案不是向廠商購買，就是由專家逐字撰寫，還要符合 Healthcare Simulation Standards of Best Practice（Watts et al., 2021），既費時又費人力。作者認為 AI 改寫了這件事：只要 prompt 明確交代對象、學員層級、學習目標、時間限制、決策點與預期成果，數秒內就能生出新情境，甚至建議該搭配 SP、mannequin 教案還是 task trainer。"
+    },
+    {
+      "h": "對接實證、順便做品質把關",
+      "b": "例如請 AI 依 Global Initiative for Chronic Obstructive Lung Disease（2024）的 COPD 建議寫一個呼吸惡化情境，產出既寫實又貼合現行臨床標準。上傳擬真回顧摘要，也能請 AI 依標準化 rubric 評閱（Harder, 2023）。但它生成的參考文獻偶有出入，務必逐筆查核；作者建議可要求 AI 自述信心水準，改編時也要留意潛藏偏誤（Gupta et al., 2022）。"
+    },
+    {
+      "h": "編按：台灣中心可以怎麼用",
+      "b": "以下為編者延伸，原文並未談台灣情境。若要在院內試行，可把文中那六個 prompt 要素（對象、層級、目標、時限、決策點、預期成果）做成固定表單，讓所有教案產出走同一套格式；再由資深 facilitator 逐案核對指引依據與引用真偽，確認無誤才放進正式課程。"
+    }
+  ],
+  "thm": [
+    "AI 數秒生教案，品質全看 prompt",
+    "prompt 要寫明對象、層級、目標、時限、決策點",
+    "AI 可建議該用 SP、mannequin 或 task trainer",
+    "能嵌入 GOLD 等實證指引，引用須逐筆查核",
+    "改編 AI 教案要留意潛藏偏誤（Gupta, 2022）"
+  ]
+}

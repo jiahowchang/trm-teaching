@@ -1,0 +1,36 @@
+{
+  "section": "SIM talks",
+  "tag": "人物訪談",
+  "title_zh": "擬真技術師這一行，缺的是訓練標準",
+  "title_en": "SimGHOSTS: insightful interview with Erica Hinojosa",
+  "authors": "Redazione",
+  "page": 6,
+  "doi": "",
+  "lang": "en",
+  "digest_zh": "誰在架設、操作、維護你的擬真環境？SimGHOSTS 主席 Erica Hinojosa 從自己兩年半的技術師經歷講起，談這個職類的八大領域、職稱混亂，以及她認為最嚴重的一件事——上任之後沒人教你怎麼做。",
+  "sections": [
+    {
+      "h": "從技術師到協會主席",
+      "b": "Erica Hinojosa 現任 University of Texas at Arlington 護理與健康創新學院 Smart Hospital 的 Simulation Technology Manager，此前在同一單位當了兩年半 Simulation Technician。她學士讀運動科學，碩士是 Healthcare Simulation，2018 年取得 SSH 的 CHSOS，2021 年再取得進階的 CHSOS-A。"
+    },
+    {
+      "h": "SimGHOSTS 與八個實務領域",
+      "b": "SimGHOSTS 是國際性非營利組織，以實作訓練、線上資源與專業發展支持使用擬真技術的個人和機構，社群成員以 HSTS、simulation technician、simulation operation specialist 為主。它把實務切成八個領域：視聽、教育、醫療、資訊科技、管理與營運、研究、擬真技術，以及劇場效果（theatrics），因此能容納相當多元的背景。"
+    },
+    {
+      "h": "職稱混亂與訓練標準缺口",
+      "b": "HSTS 負責擬真環境的架設、操作與維護，但各機構的實際職務差異極大，很難一句話定義。SimGHOSTS 先前已由工作小組訂出 Capability Framework，釐清角色定義、進階路徑與職稱一致性，文件公開在協會網站。受訪者仍直言真正的缺口在「上任之後怎麼被訓練」，產業至今沒有標準化訓練架構，她打算任內組工作小組來補。"
+    },
+    {
+      "h": "編按：台灣的擬真技術人力",
+      "b": "以下是編者延伸觀點。台灣不少擬真中心的器材維護、影音錄播與情境佈置，是由護理師或教學助理兼著做，職稱與升遷路徑都不明確。文中的八大領域與 Capability Framework，剛好可以拿來盤點自家中心「誰在做哪一塊、哪一塊根本沒人顧」，也適合當成向上爭取編制的依據。"
+    }
+  ],
+  "thm": [
+    "SimGHOSTS 是支持擬真技術人員的國際非營利組織",
+    "實務分八領域，含視聽、研究與 theatrics",
+    "HSTS 負責擬真環境的架設、操作與維護",
+    "Capability Framework 釐清角色、路徑與職稱",
+    "最大缺口：上任後沒有標準化訓練路徑"
+  ]
+}

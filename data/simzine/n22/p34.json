@@ -1,0 +1,36 @@
+{
+  "section": "DID you know...",
+  "tag": "研究培力",
+  "title_zh": "六個月，把擬真研究從想法帶到投稿",
+  "title_en": "Simulation Research in Action: Inside the Development of the HSR Course",
+  "authors": "A. Morton",
+  "page": 34,
+  "doi": "",
+  "lang": "en",
+  "digest_zh": "很多 simulationist 想做研究，卻缺一條從構想走到刊登的路。MGH Institute of Health Professions 的 HSR Course 把方法學指導、真實研究參與與寫作工作坊綁在一起，讓學員結業時帶走的不只是知識，而是稿件。",
+  "sections": [
+    {
+      "h": "源自一篇 umbrella 回顧",
+      "b": "課程設計直接呼應 Palaganas 等人（2023）刊於 Simulation in Healthcare 的 umbrella review。該回顧指出擬真研究普遍存在方法學限制與報告不一致，急需更嚴謹的研究設計、研究問題與結果之間更清楚的對齊，以及更扎實的理論基礎。HSR Course 就是針對這些缺口設計的。"
+    },
+    {
+      "h": "學員同時是研究者與受試者",
+      "b": "課程最特別的設計是採用 Participatory Action Research：參與者不只是學員，也是一項進行中研究的貢獻者，實際投入行為編碼、debriefing 分析與反思性資料收集，同時扮演研究者與研究對象兩種角色。理論與實作因此在同一個場域裡發生，而不是先上課再各自回去做。"
+    },
+    {
+      "h": "以投稿為終點的課程",
+      "b": "六個月的課程透過專家 mentorship、同儕回饋與結構化寫作支持，讓學員共同掛名研究；結業前安排兩天線上寫作工作坊，並可在波士頓的 Annual HSR Conference 發表。2024 年試辦梯次共完成五項研究（一項量化、兩項質性、兩項混合方法），其中一項已投稿，其餘準備中。"
+    },
+    {
+      "h": "編按：台灣團隊的參考點",
+      "b": "此段為編者延伸，原文未談台灣。值得借鏡的是課程把寫作工作坊與年會發表直接綁進課程本身——國內擬真研究常在收完資料後就停住，若從課程設計階段就預留投稿節點、指定對應的 mentor，並把發表場合先訂下來，完稿率會很不一樣。"
+    }
+  ],
+  "thm": [
+    "HSR Course 出自 MGH IHP 的 REBEL Lab",
+    "源於 Palaganas 等人 2023 年的 umbrella review",
+    "用 PAR 讓學員同時是研究者與研究對象",
+    "六個月課程以產出可投稿的稿件為目標",
+    "2024 試辦梯次產出五項研究，一項已投稿"
+  ]
+}

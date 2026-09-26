@@ -1,0 +1,36 @@
+{
+  "section": "ABOUTSESAM",
+  "tag": "技術社群",
+  "title_zh": "SESAM 新社群：技術人員不再孤單",
+  "title_en": "The new SESAM Technology and Innovation Community of Practice",
+  "authors": "Serena Ricci - Willem van Meurs",
+  "page": 6,
+  "doi": "https://doi.org/10.69079/simzine.H24.n14.0001",
+  "lang": "en",
+  "digest_zh": "沒有工程師與技術人員，healthcare simulation 走不到今天；但他們在學會裡長期沒有聲音。SESAM 重新啟動技術與創新社群，首場全體會議就排在布拉格年會期間，順道把四位委員介紹給你認識。",
+  "sections": [
+    {
+      "h": "被看不見的那群人",
+      "b": "文章開門就點出一件事：沒有創新者與技術人員，healthcare simulation 不可能累積到今天的影響力。新技術在擬真社群裡用得愈來愈多，醫學訓練隨之提升，但這群人在學會內部一直缺乏清楚的聲音與能見度。Serena Ricci 因此主動出手，重新啟動 SESAM 的 Technology and Innovation Community of Practice。"
+    },
+    {
+      "h": "一句話講出集體處境",
+      "b": "Ricci 回憶自己剛以生醫工程師身分投入 healthcare simulation 時，「覺得有點孤單」——會議與會者幾乎都是臨床人員，她找不到和自己工作相關的內容，也找不到能交流的同行。她後來才意識到，創新者與技術人員那些不可或缺的工作，往往都發生在幕後，外界根本看不到。"
+    },
+    {
+      "h": "數千個專案卻互不相識",
+      "b": "全球的擬真中心、廠商與大學裡，同時有成百上千個專案在跑，外界卻幾乎不會知道彼此在做什麼。文章認為這不是專案品質的問題，而是交流與網絡機會太少。CoP 的目的因此講得很直白：盡可能把散落各地的創新者與技術人員找出來，並且真的聚在一起。"
+    },
+    {
+      "h": "首場會議與委員陣容",
+      "b": "第一次 plenary meeting 訂在 2024 年 6 月 20 日 12:45–13:45，於布拉格 SESAM 年會期間舉行，歡迎產業展商參加。委員會共四人，印刷版列出三位：熱那亞大學助理教授 Serena Ricci、SIMNOVA 技術員 Antonio Scalogna，以及納瓦拉大學藥師 Maria Pilar Alzuguren Maza，她正在做聲帶手術與超音波導引靜脈穿刺兩款模擬器。"
+    }
+  ],
+  "thm": [
+    "SESAM 重啟技術與創新 Community of Practice",
+    "發起人 Ricci 坦言工程師在擬真界很孤單",
+    "問題不在專案品質，在缺少交流網絡",
+    "首場會議：2024/6/20 布拉格 SESAM 年會",
+    "委員橫跨熱那亞、SIMNOVA 與納瓦拉"
+  ]
+}

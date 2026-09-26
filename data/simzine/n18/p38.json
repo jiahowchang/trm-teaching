@@ -1,0 +1,36 @@
+{
+  "section": "SIMnurse",
+  "tag": "倫理規範",
+  "title_zh": "擬真的倫理骨架：從行為準則到專業誠信",
+  "title_en": "Code of Ethics, Professional Integrity, and Simulation",
+  "authors": "Fara Bowler - Bette Mariani",
+  "page": 38,
+  "doi": "https://doi.org/10.69079/SIMZINE.A25.N18.00052",
+  "lang": "en",
+  "digest_zh": "倫理不是擬真的附加條款，而是從設計到執行的骨架。SSH 的 Healthcare Simulationist Code of Ethics 與 INACSL 主筆的專業誠信標準，兩份文件如何互相接榫，撐起一個安全又專業的學習環境？",
+  "sections": [
+    {
+      "h": "倫理貫穿擬真的每個階段",
+      "b": "文章的起點是一個立場：倫理行為本來就內建在醫療專業的核心，從床邊照護一路延伸到把擬真當成教學方法的場合。因此專業誠信不該只掛在某個環節，而要貫穿 prebriefing、facilitation、debriefing 與評量，讓倫理的知識、技能與態度整場都在；終點不是把課上完，而是更安全、更有能力的臨床照護。"
+    },
+    {
+      "h": "2018 年的倫理準則",
+      "b": "Healthcare Simulationist Code of Ethics 由 Society of Simulation in Healthcare（SSH）召集的國際擬真工作小組於 2018 年提出，目標是在全球擬真社群支持倫理文化。其理想價值包括 integrity、transparency、mutual respect、professionalism、accountability 與 results orientation。"
+    },
+    {
+      "h": "INACSL 標準把倫理納為判準",
+      "b": "HSSOBP™: Professional Integrity 由 INACSL 主筆，將 professional integrity 定義為「所有參與者在擬真經驗中被期待的倫理行為」。2021 年版更把 Code of Ethics 直接納入，當成 best practice 的判準之一；作者視此為 SSH 與 INACSL 值得注意的接軌，該標準也引導教職員與學員尊重 equity、diversity 與 inclusivity。"
+    },
+    {
+      "h": "編按：可以先寫下自己的版本",
+      "b": "編按：以下為編者延伸，原文並未提及台灣。國內擬真中心多半備有 debriefing 指引，卻少見成文的倫理守則；這兩份文件可當成撰寫中心版本的骨架，把 psychological safety、錄影使用範圍與保密界線一併寫清楚，新進 facilitator 也比較有依據。"
+    }
+  ],
+  "thm": [
+    "倫理貫穿 prebriefing 到評量的每一步",
+    "Code of Ethics 由 SSH 於 2018 年召集國際小組制訂",
+    "六項價值：誠信、透明、互敬、專業、當責、成果導向",
+    "professional integrity＝參與者被期待的倫理行為",
+    "2021 年 HSSOBP 把準則納為 best practice 判準"
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "section": "SIMspace",
+  "tag": "中心巡禮",
+  "title_zh": "病人安全為軸：馬德里的護理擬真中心",
+  "title_en": "La Seguridad del Paciente, eje de la Simulación en Universidad CEU San Pablo-Madrid",
+  "authors": "Álvaro Trampal Ramos",
+  "page": 15,
+  "doi": "",
+  "lang": "es",
+  "digest_zh": "馬德里 CEU San Pablo 大學的護理擬真單位（USCE）有四間擬真實驗室，按 Roussin 的 SimZones 從自學區一路帶到完整情境。他們把病人安全——SBAR、CRM、Team STEPPS——織進每一個 scenario 裡。",
+  "sections": [
+    {
+      "h": "四間實驗室、從早產兒到老人",
+      "b": "USCE 設在 CEU San Pablo 大學醫學院裡，有四間臨床擬真實驗室與四間多功能工作室。空間包含完整配置的病房單位、成人加護病房，以及兒科加護單位——保溫箱、從早產兒到老年病人的高科技模擬人一應俱全，另外也用標準化病人與演員參與情境。"
+    },
+    {
+      "h": "沿著 SimZones 分層走",
+      "b": "教學骨幹是 Roussin 的 SimZones。學生先在 zone 0 自學，按自己的步調摸熟核心概念與技術；zone 1 是小組實作，每兩人一台 task trainer，搭配技能檢核表把 best practices 做成可重複的順序；zone 2 才是用高科技模擬人或標準化病人跑完整情境，作者稱它是整個學習歷程的高點。"
+    },
+    {
+      "h": "病人安全織進每個情境",
+      "b": "情境跑完後一定 debriefing，主角是學生自己做分析，facilitator 只負責幫他「裝進背包」帶回日常工作的改善工具。病人安全則橫向貫穿所有 scenario：主動式身分辨識、用 SBAR 交接、團隊有效溝通、CRM 工具與 Team STEPPS，再加上他們同樣視為基石的「人性化照護」。"
+    },
+    {
+      "h": "編按：老師的年度訓練不能省",
+      "b": "編者延伸：原文特別提到 USCE 的教師每年都要接受擬真教學、創新與教具使用的年度訓練。這一環最容易被台灣的中心跳過——設備買了，師資培訓卻只辦一次就結束。若要照做，可以把 facilitator 回訓固定成每年一次的行政項目。原文未提時數與課程細節。"
+    }
+  ],
+  "thm": [
+    "四間擬真實驗室＋四間多功能工作室",
+    "教學按 Roussin SimZones 分層",
+    "zone 1 每兩名學生一台 task trainer",
+    "debriefing 由學生主述，facilitator 輔助",
+    "SBAR、CRM、Team STEPPS 融入情境"
+  ]
+}

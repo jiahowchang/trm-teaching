@@ -1,0 +1,32 @@
+{
+  "section": "DID you know...",
+  "tag": "擬真播客",
+  "title_zh": "SimMoove：法語擬真播客上線",
+  "title_en": "Un nouveau podcast de simulation en français",
+  "authors": "Fouad Marhar",
+  "page": 19,
+  "doi": "",
+  "lang": "fr",
+  "digest_zh": "擬真圈的 podcast 幾乎都說英文。SIMZINE 找來一群法語專家，2024 年 1 月在 Spotify 推出法語擬真播客 SimMoove；文章順道談了 podcast 為何特別適合把新知塞進通勤與日常的零碎時間。",
+  "sections": [
+    {
+      "h": "podcast 為何適合擬真社群",
+      "b": "文章從 2004 年 The Guardian 首次使用「podcast」一詞談起，指出這類定期上線的數位音訊節目二十年來在各領域快速成長，從個人成長到理財都有，如今也進入健康照護擬真。作者認為它最大的好處是不需要視覺專注：通勤、開車，甚至手動輸入資料時都能聽，很容易把實用想法放進日常。"
+    },
+    {
+      "h": "開放取用，知識不再擋在付費牆後",
+      "b": "作者引用 2021 年發表於 Trends in Cognitive Sciences 談 podcast 如何有益科學社群的論文，指出 podcast 多為免費取用，能讓科學資訊的取得民主化；相對地，傳統學術溝通常被付費入口擋住，或只在需要註冊費與交通費的會議上分享。他也提到自己整理過 2023 年擬真 podcast 的推薦，並聲明沒有偏好，每個節目都有獨特貢獻。"
+    },
+    {
+      "h": "為什麼需要一個法語節目",
+      "b": "作者指出擬真 podcast 幾乎由英語主導。他不想爭論「科學單語主義」的對錯，但法語擬真社群近年在法國、瑞士、比利時與非洲部分地區（特別是北部）成長迅速，他認為換一種語言的時機已到。SIMZINE 因此與一批法語專家合作，SimMoove 預計 2024 年 1 月在 Spotify 上線。"
+    }
+  ],
+  "thm": [
+    "SimMoove 是 SIMZINE 製作的法語擬真 podcast",
+    "2024 年 1 月於 Spotify 上線",
+    "podcast 不需視覺專注，適合通勤時吸收",
+    "免費取用讓科學資訊取得更民主化",
+    "法國、瑞士、比利時與非洲北部法語社群成長快"
+  ]
+}

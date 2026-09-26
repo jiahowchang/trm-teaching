@@ -1,0 +1,36 @@
+{
+  "section": "DID you know...",
+  "tag": "教學技巧",
+  "title_zh": "困難 debriefing 怎麼帶下去",
+  "title_en": "Debriefing difícil en simulación clínica",
+  "authors": "H. E. Olvera Cortés - N. Serrat Antolí",
+  "page": 20,
+  "doi": "https://doi.org/10.69079/SIMZINE.A25.N18.00051",
+  "lang": "es",
+  "digest_zh": "情境結束，有人為失誤自責、有人不悅、兩位隊員之間氣氛緊繃——這篇西文文章談「困難 debriefing」的成因，以及 facilitator 可以先準備好的幾件事。",
+  "sections": [
+    {
+      "h": "什麼算「困難 debriefing」",
+      "b": "文獻對這個詞的共識是：情境後的反思過程中出現各種阻礙，使學習目標難以達成（der Sahakian et al., 2015）。阻礙來源很多元——教案設計、科技與學員的互動、情境與教案的擬真度，也可能出在 facilitator 或學員本身（Díaz-Guío 與 Cimadevilla-Calvo, 2019）。"
+    },
+    {
+      "h": "情緒、衝突與隱形的階級",
+      "b": "更具體的因素包括學員的強烈情緒，可能來自情境本身的性質、挫敗感，或被迫面對自己犯的錯（Rudolph et al., 2006；Eppich & Cheng, 2015）。學員之間對處置或決策的意見不合，同樣會讓 debriefing 難以推進（Roze des Ordons 等, 2021）；真實團隊裡還常疊上階級與權力差異，讓人不敢開誠布公。"
+    },
+    {
+      "h": "facilitator 該備好的事",
+      "b": "解方指向溝通與複雜對話的能力，多數策略取自困難對話常見的領域（Stone et al., 1999；Edmonson et al., 2006；Gallagher, 2009）：先建立 psychological safety；運用正常化、確認、一般化、換句話說與「說出正在發生什麼」等技巧，並保留真誠好奇的提問；在處理情緒與拉回學習目標之間取得平衡；方法學訓練要紮實，並在 pre-briefing 就把原則講清楚。"
+    },
+    {
+      "h": "編按：做成一張課前檢查表",
+      "b": "編者延伸：原文那幾項建議其實可以整理成 debriefing 前的自我檢查表。台灣不少擬真是同科室的真實團隊一起上，文中特別點出的階級與權力差異值得先想過；把方法原則放在 pre-briefing 講明，通常比事後救火省力。"
+    }
+  ],
+  "thm": [
+    "困難 debriefing＝反思受阻、學習目標難達成",
+    "成因：教案、科技、擬真度、facilitator、學員",
+    "強烈情緒常來自挫敗感與面對自己的錯",
+    "真實團隊的階級差異會壓抑誠實發言",
+    "先建立 psychological safety 再談技巧"
+  ]
+}

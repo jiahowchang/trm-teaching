@@ -1,0 +1,32 @@
+{
+  "section": "DID you know...",
+  "tag": "師資培育",
+  "title_zh": "巴基斯坦如何把資深臨床教師變成擬真推手",
+  "title_en": "Simulation in Pakistan: Turning Healthcare Educators into Simulation Champions",
+  "authors": "F. Ismail",
+  "page": 32,
+  "doi": "https://doi.org/10.69079/SIMZINE.R25.N20.00084",
+  "lang": "en",
+  "digest_zh": "要推擬真，難的往往不是設備，而是資深臨床教師願不願意跨出舒適圈。Aga Khan 大學的四天師資課程已經辦到第二十期，從 pre-briefing、情境設計、設備操作一路帶到 debriefing，把教師本身變成擬真的推手。",
+  "sections": [
+    {
+      "h": "為什麼 LMIC 更需要擬真",
+      "b": "文章指出，傳統教學仍有其位置，但在高風險的臨床環境裡，真實感、重複練習與零風險犯錯已經不是加分項而是必需品。低中收入國家（LMICs）常見臨床暴露不足、訓練資源匱乏、醫療體系負荷過重與資深教師短缺，擬真正好能補上這些缺口，讓學員先在安全情境裡練好技術與非技術能力。作者也提到，年輕專業人員躍躍欲試，不少資深臨床醫師則傾向固守熟悉做法，科技恐懼是其中一項原因。"
+    },
+    {
+      "h": "四天課程的四個模組",
+      "b": "Aga Khan 大學醫學教育創新中心（AKU-CIME）的 Clinical Simulation Educators Programme 已辦到第二十期。四天課程分四塊：pre-briefing 鋪陳場景、談 psychological safety 與共同期待；情境設計對準學習目標，還請演員扮演焦躁家屬闖入；設備操作含高擬真 manikin 與 task trainer；debriefing 是最受好評的模組之一。"
+    },
+    {
+      "h": "多元學員本身就是教材",
+      "b": "作者特別看重這一期學員的組成：來自阿富汗、英國與巴基斯坦各地，身分橫跨資淺研修醫師、資深主治、大學主管、護理師、相關醫事人員，甚至有醫療行銷專業者。他們認為醫療從來不是一體適用，混合不同年齡、學科與社經背景的學員才能促成跨文化對話。課後還提供數位資源、摘要與線上社群，並以課後評值作為下一期改版依據。"
+    }
+  ],
+  "thm": [
+    "AKU-CIME 師資課程已辦到第二十期",
+    "四天課程從 pre-briefing 帶到 debriefing",
+    "學員來自阿富汗、英國與巴基斯坦各地",
+    "科技恐懼是不少資深醫師卻步的原因之一",
+    "debriefing 是最受歡迎的模組之一"
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "section": "SIM geek",
+  "tag": "創新平台",
+  "title_zh": "學界與產業之間：巴基斯坦的擬真創新平台",
+  "title_en": "SIMVENTION Builds Simulation Innovation in Pakistan",
+  "authors": "G. Ali - U. Mughal",
+  "page": 22,
+  "doi": "",
+  "lang": "en",
+  "digest_zh": "巴基斯坦 Aga Khan University 的 CIME 在 SIMPACT 2025 辦起 SIMVENTION，用兩階段篩選把 56 件作品收斂成 12 組決賽，交給產業評審評分。一次把工程師、臨床人與開發者放進同一個空間的嘗試。",
+  "sections": [
+    {
+      "h": "為什麼需要這個平台",
+      "b": "作者指出，當地的擬真教育雖然穩定成長，卻長期缺少一個能系統性孕育創新的環境：沒有專門用來實驗的空間，學術研究與產業應用之間沒有有效的橋，也沒有把擬真構想推進成可用技術的結構化路徑。SIMVENTION 的構想，就是把擬真、工程、人工智慧與 extended reality 收進同一個協作框架。"
+    },
+    {
+      "h": "兩階段篩選怎麼跑",
+      "b": "徵件分成三類：healthcare simulation technology、artificial intelligence，以及 extended reality（AR/VR/MR）。來自全國工程學院、臨床創新者、獨立開發者與學生團隊的 56 件作品投入。第一階段由 CIME 技術團隊內部審查主題契合度與技術水準，收斂到 21 件；第二階段評估開發成熟度與可用性，選出 12 組決賽。"
+    },
+    {
+      "h": "產業評審與得獎作品",
+      "b": "決賽由獨立的產業評審團評分，成員橫跨人工智慧、生物醫學工程、醫療擬真與科技創新，確保評比只看科學價值、創新性與技術紮實度，不看機構背景；對許多團隊而言，這是第一次向產業級專家報告自己的作品。前三名依序為 Oral Recommendation Assistant、給藥計算系統 Smart Dose，以及 AI 輔助口腔癌早期偵測。"
+    },
+    {
+      "h": "編按：值得借鏡的骨架",
+      "b": "以下是編者延伸觀點。原文描述的「公開徵件—內部技術初審—產業評審決選」三段式流程，對想把臨床現場的點子推到可用原型的擬真中心來說，是一副可以直接參考的骨架；真正的關鍵不在獎金或名次，而在把工程、臨床與教育三方放上同一張評審桌，讓構想在很早期就被不同專業檢驗過一輪。"
+    }
+  ],
+  "thm": [
+    "AKU-CIME 在 SIMPACT 2025 推出 SIMVENTION",
+    "徵件三類：擬真技術、AI、extended reality",
+    "56 件投稿篩到 21 件，再選出 12 組決賽",
+    "12 組決賽隊伍各得 5,000 美元 AWS AI credits",
+    "冠軍：Oral Recommendation Assistant"
+  ]
+}

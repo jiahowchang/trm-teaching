@@ -1,0 +1,36 @@
+{
+  "section": "SIM talks",
+  "tag": "創業專訪",
+  "title_zh": "戰火中創業：烏克蘭擬真平台的誕生",
+  "title_en": "Innovation comes from Ukraine: interview with Nataliia Lopina",
+  "authors": "Redazione",
+  "page": 20,
+  "doi": "https://doi.org/10.69079/SIMZINE.R24.N16.00046",
+  "lang": "en",
+  "digest_zh": "心臟科醫師 Nataliia Lopina 從學界走向創業，創辦線上臨床擬真平台 ClinCaseQuest。她把醫療錯誤嚴重度分級的數學模型接上 defragmented debriefing，也談戰時在烏克蘭經營公司的機會與難處。",
+  "sections": [
+    {
+      "h": "從哈爾科夫的醫學院到創業",
+      "b": "Lopina 在 Kharkiv National Medical University 取得碩士學位與內科博士，以急診心臟科醫師、內科部助理教授的身分同時投入臨床與醫學教育。她說在那段期間就看見傳統訓練系統與臨床需求之間的落差；真正的轉折點是 COVID-19，它凸顯出高品質的擬真訓練必須不受講師個人水準左右，並能在不同場域把學習經驗標準化。"
+    },
+    {
+      "h": "差異化：把錯誤分級當教材",
+      "b": "她說擬真產業競爭激烈，ClinCaseQuest 的不同在於認知分支（cognitive branching）：把一套將醫療錯誤嚴重度分級的數學模型與 defragmented debriefing 結合，為學習者打造適性化的個人經驗。她認為這讓人獲得近似真實臨床工作的經驗，也讓使用者批判性地分析醫療錯誤、強化發展能力所需的認知連結。SESAM 在 2024 年把 defragmented debriefing 列為該年度的擬真進展。"
+    },
+    {
+      "h": "戰時創業：限制與機會並存",
+      "b": "她坦言戰爭讓原本支撐烏克蘭醫學教育的外籍醫學生大量離開，但也讓醫療與教育機構的實務與臨床經驗變得更厚實。目前與高等教育機構的合作是非商業性的，以科學協作與實務支援為主，用意是幫助傳統教育體系撐過這段動盪。她也提到烏克蘭創業者有不少補助可申請，高度數位化讓許多營運流程變得簡單。"
+    },
+    {
+      "h": "編按：不依賴講師功力的訓練",
+      "b": "編者延伸：文中「訓練品質不受講師水準左右」的問題意識，對台灣多數靠少數資深 facilitator 撐場的擬真中心格外貼切。值得思考的是把案例邏輯與 debriefing 架構寫進教案本身，而不是只留在個別講師的腦袋裡，換人帶課也能維持一定水準。"
+    }
+  ],
+  "thm": [
+    "創辦人為烏克蘭急診心臟科醫師兼內科部助理教授",
+    "COVID-19 凸顯線上臨床擬真需求，催生 ClinCaseQuest",
+    "核心概念：cognitive branching 認知分支",
+    "SESAM 2024 年肯認 defragmented debriefing",
+    "與高教機構合作目前為非商業的學術協作"
+  ]
+}

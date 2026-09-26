@@ -1,0 +1,36 @@
+{
+  "section": "EDITORIAL",
+  "tag": "主編短評",
+  "title_zh": "分享,才是擬真教育最好的養分",
+  "title_en": "Sharing is caring, especially in simulation",
+  "authors": "P.L. Ingrassia",
+  "page": 5,
+  "doi": "",
+  "lang": "en",
+  "digest_zh": "主編 Ingrassia 用一頁帶你逛完 n.11 全刊:氣候變遷入題的 SIM Debate、ASPiH 理事長專訪、Victoria Brazil 的擬真未來觀、INACSL 最佳實務標準、虛擬解剖室,最後還留下一道 ChatGPT 猜謎題。",
+  "sections": [
+    {
+      "h": "永續擬真被拉到封面位置",
+      "b": "編輯部把氣候變遷視為 21 世紀最嚴重的全球健康威脅之一,認為自己有道德義務推動更永續的擬真,因此把本期 SIM Debate 定調在減少生態衝擊。他們也發現不少學會同步在做這件事:ASPiH 理事長 Colette Laws-Chapman 甚至把永續擬真訂為年會主題,封面便獻給這個主題與那場年會。"
+    },
+    {
+      "h": "一整排願意說話的人",
+      "b": "本期訪談橫跨三地。澳洲的 Victoria Brazil 被主編列為擬真界最具啟發性的聲音之一,話題從科技裝置、社群媒體到體驗式學習,也談她眼中的擬真未來;智利的 Tamara Andrea Bustamante Gómez 說明臨床擬真演員這份工作的實際感受;土耳其醫學生 Busranur Berrak 則代表新一代醫療人員,說出擬真對他們的意義。"
+    },
+    {
+      "h": "可以直接帶回中心用的工具",
+      "b": "實務面則有 INACSL 的 Healthcare Simulation Standards of Best Practice 概覽,提供讓全球擬真學習經驗趨於一致的指引;來自阿拉伯聯合大公國的 Youness Zidoun 分享把教育機構做強的關鍵建議;另有一套依「可訓練的基本技能」把 simulator 對應到訓練課程的評分法。Stefan Mönk 則強調生理模型的角色,讓 instructor 不必一直盯著數值,能多與學員互動。"
+    },
+    {
+      "h": "編按:這頁可當本期選讀地圖",
+      "b": "以下是編者延伸,原文並未這樣分類。台灣的擬真中心若要決定這期先讀哪幾篇,可照角色分工:器材與採購負責人先看 simulator 對應課程的評分法,以及 Eduardo Alcaraz Mateos 談他滿十年的細針抽吸模擬器;課程主責者讀 INACSL 標準;想談 AI 與寫作倫理的人,直接跳到那道猜謎文章。"
+    }
+  ],
+  "thm": [
+    "本期 SIM Debate 主打永續擬真與減少生態衝擊",
+    "封面獻給 ASPiH 年會及其永續主題",
+    "訪談跨澳洲、智利、土耳其三地視角",
+    "INACSL 最佳實務標準概覽,對齊全球做法",
+    "ChatGPT 假摘要僅 63% 被審稿者識破"
+  ]
+}

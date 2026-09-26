@@ -1,0 +1,36 @@
+{
+  "section": "SIMgeek",
+  "tag": "AI教案",
+  "title_zh": "ChatGPT 寫擬真教案：實戰指南",
+  "title_en": "ChatGPT e Simulazione clinica: una guida pratica",
+  "authors": "F. L. Barra, A. Costa, G. Rodella, L. Carenzo",
+  "page": 22,
+  "doi": "https://doi.org/10.69079/SIMZINE.A25.N18.00054",
+  "lang": "it",
+  "digest_zh": "義大利 SIMNOVA 與 Humanitas 的作者群把 ChatGPT 當成寫教案的助手：從 prompt 怎麼下、GPT-4o 客製模型怎麼用，到為什麼人工審稿一步都不能省。想省時間又怕 AI 亂編劑量的人，先看這篇。",
+  "sections": [
+    {
+      "h": "AI 進入擬真教學的機會",
+      "b": "作者把 AI 引進醫療教育、尤其是擬真教學，視為複雜但機會很多的挑戰。ChatGPT 能流暢理解並生成自然語言，適合模擬醫病之間或不同職類之間的複雜互動；加上介面友善、支援生態成熟，作者認為它比 Gemini、Claude、Grok 更容易接進既有平台與系統，只有基礎資訊能力的醫療人員也用得上。"
+    },
+    {
+      "h": "拿它寫教案的三個好處",
+      "b": "一是結構化輸出：能依已驗證或自訂的 template 產出文字骨架，讓 facilitator 把力氣花在修改與內容精緻化，而不是從零寫起。二是客製化：可指定學員類型（醫學生、護理師等）、操作情境（SimZone、病房）與複雜度、學習目標。三是效率：省下的時間還給演練規劃與 debriefing。"
+    },
+    {
+      "h": "prompt 怎麼下，誰負責把關",
+      "b": "有效的 prompt 清楚、簡潔且細節足夠：明講要什麼樣的情境、學習目標、對象與細節程度；多用開放式問題，少用封閉題限制模型發揮；臨床場域、參與者角色與可用資源都要交代。作者請讀者試打一句空泛的「Crea uno scenario di insufficienza respiratoria」，自己感受輸出有多籠統。原文也強調 ChatGPT 是工具，不是 facilitator 的替代品。"
+    },
+    {
+      "h": "編按：接上台灣現場",
+      "b": "編者延伸，非原文內容：原文示範的四個要素（情境、學習目標、對象、細節程度）可以直接拿來寫國內 TRM 或急救教案的初稿，但原文點出的人工複核在中文情境更關鍵——藥名、劑量與本地流程，最後仍要由教案作者自己查核。"
+    }
+  ],
+  "thm": [
+    "ChatGPT 強在自然語言，適合模擬醫病互動",
+    "作者認為它比 Gemini、Claude、Grok 好接既有平台",
+    "GPT-4o 可建客製 GPT 與 Advanced Voice Mode",
+    "好的 prompt 要指明情境、目標、對象與細節",
+    "它是工具不是 facilitator，人工審稿必做"
+  ]
+}

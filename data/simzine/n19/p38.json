@@ -1,0 +1,37 @@
+{
+  "section": "SIM nurse",
+  "tag": "心理安全",
+  "title_zh": "同儕壓制正在擋住新手研究者",
+  "title_en": "Overcoming Peer Intimidation in Research Culture",
+  "authors": "J. Roye, S. Spears",
+  "page": 38,
+  "doi": "",
+  "url": "https://simzine.news/focus-en/overcoming-peer-intimidation-in-research-culture/",
+  "lang": "en",
+  "digest_zh": "學術發表是科學進展的座標，卻也可能傷人。作者點名學術圈裡的 peer intimidation——從輕蔑態度、過度嚴苛的批評，到逼人服膺主流典範的隱微壓力——正在扼殺創新，也讓新手研究者難以嶄露頭角。",
+  "sections": [
+    {
+      "h": "從嚴厲審稿到無聲的服從壓力",
+      "b": "學術發表是科學進展的座標，對 healthcare simulation 而言更是推動 evidence-based practice 的引擎。但作者指出，peer intimidation 已成為同行關注的問題：它可能以輕蔑態度、過度嚴苛的批評出現，也可能是要人服膺主流典範的隱微壓力。這些行為會壓抑創新、阻斷開放討論，最終拖慢科學本身，也威脅發表過程的誠信。"
+    },
+    {
+      "h": "缺乏心理安全，研究品質就下滑",
+      "b": "作者強調學術與教育組織中 psychological safety 的重要性。當研究場域缺乏安全感，合作大幅減少、自我審查出現，研究品質也隨之下降（Fiske, 2015）；反之，當研究者能不擔心被嘲笑或報復地表達想法與發現，投入度與創造性成果都會提高。研究也顯示微管理與不信任會讓團隊承受高壓、心理福祉受損（Edmondson & Lei, 2014）。"
+    },
+    {
+      "h": "mentorship 與尊重式審稿",
+      "b": "作者指出，要處理同儕壓制、養出心理安全，靠的是協作而非單點改善。組織面要讓多元觀點受到重視，並主動放下個人猜疑、微管理與過度控制這些會打擊士氣、抑制創造力的習慣；制度面則可導入結構化的 mentorship 方案與專業發展（INACSL, 2021），並開設尊重式同儕審查的訓練，讓人學會寫出平衡而客觀、能推進而非阻擋研究的意見。"
+    },
+    {
+      "h": "mentor 與 coach 分工",
+      "b": "mentor 的作用在於提供建設性批評的視角，協助被指導者客觀解讀回饋，把批評看成學習材料而非人身攻擊（Smith et al., 2019）；coaching 則偏向培養因應策略，讓研究者以自信與適度堅定面對審查意見，藉此削弱來自審稿者的壓迫感（Wiley et al., 2017）。支持性的 mentorship 同時營造互相尊重的文化，稀釋階層權力。"
+    }
+  ],
+  "thm": [
+    "peer intimidation 從輕蔑態度到逼人服膺典範",
+    "缺乏心理安全會減少合作、引發自我審查",
+    "微管理與不信任使團隊壓力升高（Edmondson & Lei）",
+    "對策：結構化 mentorship 與專業發展",
+    "coaching 培養因應策略，降低審稿壓迫感"
+  ]
+}

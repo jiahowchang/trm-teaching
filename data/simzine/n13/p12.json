@@ -1,0 +1,36 @@
+{
+  "section": "SIMvoices",
+  "tag": "急診擬真",
+  "title_zh": "泳池浮條做 CT：西班牙急診擬真起家",
+  "title_en": "MEGAECODE: Nacimiento y desarrollo eficiente de un proyecto de simulación",
+  "authors": "Juanjo Zafra",
+  "page": 12,
+  "doi": "",
+  "lang": "es",
+  "digest_zh": "三位急診醫師、一台共用超音波機，加上軟木和泳池浮條做成的「CT」，就在會議室開課。西班牙 MEGAECODE 計畫示範了擬真專案怎麼從零開始，又為什麼非得自己先去受訓。",
+  "sections": [
+    {
+      "h": "三個人，一個計畫",
+      "b": "Juanjo Zafra 與同科的 Ana Lourdes Iglesias、Elena Gregorio 在西班牙北部 Osakidetza 體系的 San Eloy 醫院（OSI Barakaldo-Sestao）發起 MEGAECODE。該院急診約有 21 位主治醫師與 12 位家庭及社區醫學住院醫師，計畫把超音波整合進日常 RCP 流程，主治與住院醫師一起訓練。"
+    },
+    {
+      "h": "會議室布置成加護病房",
+      "b": "起步是拿醫院會議室布置成 ICU，搬來原本做 CPR 訓練的 manikin、急診的超音波機，以及 iSimulate 器材呈現心律、檢驗數據與目標式超音波影像。最有趣的是那台 CT——用軟木和泳池浮條自製，全程以自己的手機和平板錄影；病歷畫面則複製 Osabide 系統，會診影片一併嵌進 PowerPoint。"
+    },
+    {
+      "h": "先把資源用到盡",
+      "b": "他們婉拒供貨給自家醫療體系那些廠商的高解析攝影機，改到 Amazon 等平台買可轉向的網路攝影機，音訊再靠藍牙麥克風補強；插管器材、呼吸器多來自過期或淘汰品，另添一具可插管的軀幹 manikin。他們也向管理層提出 Gesell 單向鏡與貼膜布景等需求，並獲得輪班放行專心投入，作者強調重點是一步一步，而不是一次砸大錢。"
+    },
+    {
+      "h": "當過學生才當得起老師",
+      "b": "他們發現要把話講得有底氣就得受訓，於是到馬德里 Francisco Vitoria 大學上 instructor 課程，回來才看見自己漏掉的細節，也發現原先過度強調的概念該放輕。現在第二輪對主治與住院醫師開課，添了白板做更好的 debriefing，問卷評價良好，接著要擴及 PAC 人員。"
+    }
+  ],
+  "thm": [
+    "MEGAECODE：三位急診醫師把超音波帶進 RCP",
+    "場地從醫院會議室起步，再接手防疫用的組合屋",
+    "CT 用軟木與泳池浮條自製，錄影靠手機平板",
+    "攝影機改買電商平台可轉向款，藍牙麥克風補音訊",
+    "受完 instructor 訓練，才知道哪些重點該放輕"
+  ]
+}

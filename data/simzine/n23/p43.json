@@ -1,0 +1,36 @@
+{
+  "section": "SIM nurse",
+  "tag": "護理擬真",
+  "title_zh": "跨專業擬真教育怎麼才不會半途而廢",
+  "title_en": "Keeping Momentum with Simulation-Based Interprofessional Education",
+  "authors": "V. Howard - K. L. Rossler",
+  "page": 43,
+  "doi": "https://doi.org/10.69079/SIMZINE.H26.N23.00117",
+  "lang": "en",
+  "digest_zh": "跨專業擬真教育要走得久，光靠熱情不夠。兩位作者從 2013 年的會長的話，一路講到 2021 年的 Sim-IPE 標準，再談 INACSL 怎麼靠委員會、興趣小組與遍布全球的區域小組，把動能一棒棒接下去。",
+  "sections": [
+    {
+      "h": "2013 到 2021 的標準演進",
+      "b": "2013 年，INACSL 前會長 Valerie Howard 在會長的話中發表改版的 INACSL Standards of Best Practice: Simulation，同時呼籲繼續彙整證據，引導跨領域社群形塑擬真的未來方向。2016 年第一版 Sim-IPE 標準問世，把擬真教學法與 IPE 核心價值接起來，核心要件包括理論架構或模型、最佳設計實務、辨識潛在障礙與評估計畫。"
+    },
+    {
+      "h": "2021 新標準強調的兩件事",
+      "b": "2021 年推出的 Sim-IPE Healthcare Simulation Standards of Best Practice 延續「建立協作關係是核心」的立場，並呼籲跨領域團隊在做實證專案與研究時，採用具效度與信度的測量工具，把 Sim-IPE 連到病人安全與照護品質。文章同時提醒：沒有行政主管承諾固定投入人力與資源，這類訓練撐不下去。"
+    },
+    {
+      "h": "社群才是續航力來源",
+      "b": "光有標準不夠，教學實務若缺乏分享與發表就改變得很慢。INACSL 因此靠委員會、SIG 與全球 12 個 RIG 維持動能：想爭取行政支持可找 Deans, Directors, and Program Manager SIG；新手研究者可申請 Research Fellowship，取得長期的 mentoring 與人脈。目前焦點是用擬真評量學習者能力，以及把 virtual simulation 用於 IPE。"
+    },
+    {
+      "h": "編按：台灣可對照的三個著力點",
+      "b": "以下為編者延伸。原文有三個重點，台灣的擬真中心同樣適用：第一，Sim-IPE 需要行政層級持續投入人力與資源，而不是靠幾位教師的熱情；第二，經驗若不對外分享與發表，教學實務改變得極慢；第三，必須用具效度與信度的工具，把訓練成果連回病人安全。學會層級的委員會與興趣小組，是維持動能的現成做法。"
+    }
+  ],
+  "thm": [
+    "Sim-IPE 是培養有效團隊與確保病人安全的關鍵訓練",
+    "2016 年第一版 Sim-IPE 標準連結擬真教學法與 IPE 價值",
+    "2021 新標準要求用有效度信度工具連結病人安全",
+    "缺少行政主管承諾人力與資源，訓練難以長期維持",
+    "INACSL 靠委員會、SIG 與全球 12 個 RIG 維持動能"
+  ]
+}

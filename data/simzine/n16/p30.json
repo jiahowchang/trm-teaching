@@ -1,0 +1,36 @@
+{
+  "section": "DID you know...",
+  "tag": "品質治理",
+  "title_zh": "擬真不只是教學：接進醫院風險管理",
+  "title_en": "Clinical Governance: hard wiring quality and simulation",
+  "authors": "L. Carenzo - E. Costantini",
+  "page": 30,
+  "doi": "https://doi.org/10.69079/SIMZINE.R24.N16.00049",
+  "lang": "en",
+  "digest_zh": "多數醫院把擬真留在教育訓練那一格，很少真正接進病人安全體系。作者主張讓擬真計畫與風險管理、稽核團隊雙向串接、共享資料，並示範 IRCCS Humanitas 研究醫院的加護病房從 2022 年起怎麼做。",
+  "sections": [
+    {
+      "h": "臨床治理的神廟結構",
+      "b": "clinical governance 是醫院為持續改善服務品質、提供安全有效且有同理的照護而負責的機制。文中以神廟比喻：地基是系統意識、團隊合作、溝通、當責與領導五項文化要素；支柱包括臨床效能、臨床稽核、風險管理、病人與民眾參與、人員管理、教育訓練（含擬真）與公開透明，共同撐起病人與專業人員的夥伴關係。"
+    },
+    {
+      "h": "in-situ 擬真挖出潛在威脅",
+      "b": "在院內用真實設備、常在日常臨床活動中進行的 in-situ 擬真，能讓學員在熟悉環境裡操作，同時磨技術與非技術能力，也容易照出離院訓練看不到的本地系統錯誤與 latent safety threat，例如設備故障、人因工學風險與資源不足。作者建議情境、場地與團隊組合盡量取自醫院自己的通報系統，沒有通報系統時就取自院內真實發生過的案例。"
+    },
+    {
+      "h": "通報、debriefing 與擴散",
+      "b": "incident reporting 的價值不只在收集事件，更在提供反思與預防的資料；要讓員工願意通報，就得處理怕被究責的心理並給及時回饋。debriefing 則是把經驗轉成學習的關鍵，文中提到 PEARLS for Systems Integration（PSI）這類聚焦系統而非個人表現的工具。結果應完整記錄並以海報、摘要等形式讓管理層與同業看見。"
+    },
+    {
+      "h": "Humanitas 加護病房怎麼做",
+      "b": "IRCCS Humanitas Research Hospital 的 14 床成人加護病房自 2022 年起推整合式計畫：護理技能站、突襲式演練測試緊急醫療小組，以及針對單位內通報的安全疑慮與近失事件設計的 in-situ 多專業擬真。風險管理團隊負責挑事件轉成腳本，教育訓練部門把演練變成正式院內課程並取得 CME，每個情境在兩到三週內重跑三次、換不同團隊，不預告、在真實臨床空間進行，約 30 分鐘並在最後給集體回饋。"
+    }
+  ],
+  "thm": [
+    "clinical governance 以神廟比喻五地基七支柱",
+    "擬真應與風險管理、稽核雙向串接並共享資料",
+    "in-situ 擬真可揭露 latent safety threat",
+    "情境取材自院內 incident reporting",
+    "Humanitas 14 床 ICU 自 2022 年整合推動"
+  ]
+}

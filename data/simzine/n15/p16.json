@@ -1,0 +1,36 @@
+{
+  "section": "SIMvoices",
+  "tag": "國際共學",
+  "title_zh": "少即是多：AI 時代別忘擬真根本",
+  "title_en": "Menos es más: ¡Enjoy Simulation Please!",
+  "authors": "G. Fenzi - V. Martínez Ruíz",
+  "page": 16,
+  "doi": "https://doi.org/10.69079/simzine.L24.n15.00024",
+  "lang": "es",
+  "digest_zh": "AI 與 VR 把新玩具一件件送進擬真教室，但西班牙 UCAM 與厄瓜多 PUCE 合辦的五天國際師訓給了另一種答案：先把方法學、facilitator 與手上現有的資源用好。少即是多，別忘擬真的起點。",
+  "sections": [
+    {
+      "h": "兩洲合辦的跨專業師訓",
+      "b": "西班牙 UCAM（Universidad Católica de Murcia）與厄瓜多 PUCE 聖多明哥校區合辦國際跨專業擬真師訓，2024 年 4 月 1 至 5 日在 PUCE 新設的擬真中心舉行。25 位講師來自護理、醫學、物理治療與營養等學程，分屬 Santo Domingo、Quito、Ibarra、Esmeralda、Manabí、Amazonas 與 Ambato 等校區。"
+    },
+    {
+      "h": "先體驗，才決定投資",
+      "b": "合作從 2022 年開始：幾位 PUCE 教師到 UCAM 護理學程的擬真課，不是旁觀，而是進場當參與者與案例裡的角色，親手把一場 simulation 跑完。回國後，投資擬真的念頭成形；隔年 PUCE 聖多明哥便動工興建校內第一座擬真中心。"
+    },
+    {
+      "h": "設備到位，師資才是關鍵",
+      "b": "新中心蓋好反而凸顯一件事：沒有會用的人，資源等於閒置。五天密集課程從擬真發展史一路走到方法學，也涵蓋不同學習方式、虛擬實境操作與技術面細節。紙本最後只留下三個小標——方法學與 facilitator 的角色、器材與視聽資源加上 simulation technician、以及「少即是多，別忘根本」——正文要到官網續讀。"
+    },
+    {
+      "h": "編按：最缺的常常不是機器",
+      "b": "以下為編者延伸，非原文內容：這篇文章的順序值得台灣參考——先讓未來的講師親身跑過一輪課程，再談蓋中心與採購清單；中心落成後，把師訓與 simulation technician 的養成一起排進預算，才不會讓 high-fidelity manikin 躺在庫房裡。"
+    }
+  ],
+  "thm": [
+    "UCAM 與 PUCE 合辦五天國際擬真師訓",
+    "2024 年 4 月，25 位跨專業講師受訓",
+    "合作起點是 2022 年教師親身參與擬真課",
+    "課程涵蓋擬真史、方法學、VR 與技術面",
+    "核心訊息：少即是多，別忘擬真基本功"
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "section": "DID you know...",
+  "tag": "風險管理",
+  "title_zh": "擬真如何從訓練工具變成風險管理引擎",
+  "title_en": "La simulazione al servizio del Rischio Clinico",
+  "authors": "G. Rabito - P.L. Ingrassia",
+  "page": 20,
+  "doi": "https://doi.org/10.69079/SIMZINE.E25.N20.00080",
+  "lang": "it",
+  "digest_zh": "瑞士 Bellinzona 一家區域醫院把 in-situ 擬真從訓練活動升級成風險管理工具：用院內真實不良事件與 near miss 當劇本，在病人受傷之前先把系統破口找出來。",
+  "sections": [
+    {
+      "h": "從人為疏失到系統韌性",
+      "b": "James Reason 認為人為疏失普遍且無法根除，只能設法降低；Hollnagel 的 Safety-II 則主張，系統韌性靠的是適應力，而非一味要求照章行事。in-situ 擬真讓團隊在自己每天工作的臨床空間裡磨練技術與非技術能力，也讓醫院能主動測試流程、在事故真的發生前找出脆弱點。"
+    },
+    {
+      "h": "SIMPASS 跨職類病安小組",
+      "b": "2021 年起，Bellinzona e Valli 區域醫院與 Centro cantonale di simulazione 合作，由品質與病人安全服務處主導成立 SIMPASS（Simulation for Patient Safety），成員橫跨醫師、護理師與成人教育專家。腳本刻意取材自院內真實發生的不良事件與 near miss，讓每場演練都是針對已知弱點的系統壓力測試。"
+    },
+    {
+      "h": "把風險分析工具搬進劇本設計",
+      "b": "團隊發現只做臨床訓練不夠，於是把結構化風險分析放進設計流程：先用 SIPOC 表與泳道流程圖畫出臨床步驟與交界，再導入 HAZOP、BowTie 與故障樹分析。每場演練後做結構化 debriefing 並趁熱蒐集現場觀察，因為隱藏的系統落差往往就在那一刻浮現。如今年度擬真計畫涵蓋全院各科、超過 400 位人員，in-situ 擬真也正式寫入醫院年度品質與病安計畫。"
+    },
+    {
+      "h": "編按：台灣現場的接法",
+      "b": "編者延伸：本文未涉及台灣經驗。以此案例對照，國內醫院若已有病安通報系統，可考慮把通報中的 near miss 轉寫成 in-situ 腳本，讓演練與品質管理同一條線；重點不在買更貴的 manikin，而在讓 debriefing 的發現能回到流程修正。"
+    }
+  ],
+  "thm": [
+    "人為疏失不可能歸零，但系統韌性可以練",
+    "Safety-II：適應力才是系統韌性的關鍵",
+    "真實不良事件與 near miss 是最好的腳本來源",
+    "SIPOC、泳道圖、HAZOP、BowTie 可併入劇本設計",
+    "debriefing 趁熱做，隱藏的系統落差才會浮現"
+  ]
+}

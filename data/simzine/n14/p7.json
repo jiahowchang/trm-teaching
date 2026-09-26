@@ -1,0 +1,36 @@
+{
+  "section": "ABOUTSESAM",
+  "tag": "麻醉擬真",
+  "title_zh": "兩大學會聯手，寫出歐洲麻醉擬真課綱",
+  "title_en": "A collaborative ESAIC and SESAM success story",
+  "authors": "Crina Burlacu - Marc Lazarovici",
+  "page": 7,
+  "doi": "https://doi.org/10.69079/simzine.H24.n14.0002",
+  "lang": "en",
+  "digest_zh": "全歐洲只有五個國家把麻醉擬真列為住院醫師必修，其他地方能不能練差距懸殊。ESAIC 與 SESAM 合作不到三年，就把一份跨 22 國專家訂出的麻醉 SBE 課綱送上期刊，這篇講它怎麼長出來。",
+  "sections": [
+    {
+      "h": "2021 年簽下的那份合作",
+      "b": "2021 年 9 月，ESAIC 與 SESAM 簽署合作協議，明白寫出要在全歐洲建立並擴大麻醉擬真社群，讓 simulation 方法真正嵌進各層級的醫療改善。雙方承諾共同開發教育方案、合作進行問卷與研究、並聯名發表成果。不到三年，已交出兩項成果：麻醉擬真課綱的出版，以及 NAST 國家級麻醉擬真訓練方案的開發與實施。"
+    },
+    {
+      "h": "歐洲的落差有多大",
+      "b": "ESAIC 擬真委員會早先的調查就顯示，歐洲各國麻醉住院醫師能接觸 SBE 的機會差距懸殊。Savoldelli 與 Østergaard 在 2022 年發表的調查中，只有丹麥、冰島、愛爾蘭、馬爾他與荷蘭五國把 SBE 列為必修；有些國家僅大型中心做得到，其他地區則相當有限。ESAIC 住院醫師委員會的另一份調查（Abramovich 等，2023）再次確認北歐與西歐機會較多，其餘地區參差不齊。"
+    },
+    {
+      "h": "Utstein 會議怎麼開的",
+      "b": "2022 年 9 月，在 Doris Østergaard 教授主持、ESAIC 與 SESAM 核心成員參與、Laerdal Foundation 出資的支持下，一場 Utstein 形式的會議在丹麥哥本哈根召開。Utstein Simulation Study Group 由 23 位國際擬真專家與 2 位麻醉住院醫師組成，成員來自歐洲、南北美洲與北非共 22 國，任務是訂出課綱該有的骨架。"
+    },
+    {
+      "h": "十個訓練領域",
+      "b": "工作組最後定出十個領域：bootcamp／入門訓練、airway management、regional anaesthesia、point of care ultrasound、產科麻醉、小兒麻醉、trauma、重症照護、本科的危急事件，以及專業素養與困難對話。作者把讀者導向 2024 年 1 月的 European Journal of Anaesthesiology，完整課綱刊在那一期。"
+    }
+  ],
+  "thm": [
+    "ESAIC 與 SESAM 於 2021 年 9 月簽署合作協議",
+    "三年內產出麻醉課綱與 NAST 訓練方案",
+    "僅 5 個歐洲國家把 SBE 列為麻醉必修",
+    "Utstein 工作組：22 國、23 位專家＋2 位住院醫師",
+    "課綱定出 10 個領域，刊於 EJA 2024 年 1 月號"
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "section": "EDITORIAL",
+  "tag": "主編短評",
+  "title_zh": "女性、擬真，與不曾動搖的承諾",
+  "title_en": "Collaboration, advocacy, and unwavering commitment",
+  "authors": "P.L. Ingrassia",
+  "page": 5,
+  "doi": "",
+  "lang": "en",
+  "digest_zh": "三八婦女節這一期，主編從十七世紀的畫家談到十八世紀用真人大小 mannequin 教學的助產士，再帶出本期女性擬真工作者的研究與辯論，最後拋出一個問題：擬真能不能也練出包容的心態？",
+  "sections": [
+    {
+      "h": "從畫家到助產士的兩段歷史",
+      "b": "封面向十七世紀畫家 Artemisia Gentileschi 致敬：她在男性主導的畫壇裡撐出自己的位置，被視為女性力量的象徵。主編接著說起十八世紀助產士 Angélique du Coudray，用真人大小的 mannequin 訓練助產士而救下無數性命，被當成今日 simulation-based learning 的先聲；本期 Raffaela Ferrara 談產科 simulator，強調它同時撐起技術與同理的準備。"
+    },
+    {
+      "h": "本期人物與研究現場的難題",
+      "b": "SIM Face 訪的是麻醉科教授 Doris Østergaard，她在哥本哈根 CAMES 的帶領影響了各國的病人安全政策。研究面則有兩篇對照：Giulia Mormando 寫擬真研究如何一路寫進國際指引；Syretta Spears 與 Jennifer Roye 談研究文化中的 peer intimidation 會壓抑創新，要靠 mentorship、建設性回饋與明確的申訴管道才解得開。"
+    },
+    {
+      "h": "SIM Debate 與跨領域延伸",
+      "b": "SIM Debate 這期重新登場，請來威爾斯的 Cristina Diaz-Navarro 與比利時的 Méryl Paquay，對談 clinical debriefing，點出病人安全在文化與後勤上的難處，以及怎麼把結構化 debriefing 放進日常臨床。另有 Ewlyn Figueroa 談獸醫的虛擬平台，說明擬真跨學科的延展空間。主編最後把問題留給讀者：擬真除了練技術，能不能也鬆動偏見？"
+    }
+  ],
+  "thm": [
+    "三八婦女節專題，聚焦擬真領域的女性",
+    "封面致敬十七世紀畫家 Artemisia Gentileschi",
+    "十八世紀助產士 du Coudray 已用 mannequin 教學",
+    "SIM Debate 回歸，主題是 clinical debriefing",
+    "主編提問：擬真能否同時養出包容心態"
+  ]
+}

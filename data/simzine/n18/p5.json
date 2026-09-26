@@ -1,0 +1,32 @@
+{
+  "section": "EDITORIAL",
+  "tag": "主編短評",
+  "title_zh": "AI 當紅，主編仍把結語留給人",
+  "title_en": "Welcome to the future of healthcare simulation!",
+  "authors": "P.L. Ingrassia",
+  "page": 5,
+  "doi": "https://doi.org/10.69079/SIMZINE.A25.N18.00057",
+  "lang": "en",
+  "digest_zh": "整本 SIMZINE 18 期幾乎被 AI 佔滿：ChatGPT 產生情境、AIMHEI 自動給回饋，另有專文盤點外科、護理與急診的 AI 模擬案例。但主編把最後的篇幅留給 debriefing 與人——科技再強，仍需要懂得引導的人。",
+  "sections": [
+    {
+      "h": "AI 成為這期的主軸",
+      "b": "主編直言，現在到處都在談 AI，於是這期乾脆讓它當主角。封面刻意避開常見的數字人臉與晶片主機板，改用 Alan Turing 機器的兩個細節，再配上他一句意味深長的話。內文從 ChatGPT 快速生成客製化情境，到 SIM Geek 一步步示範如何依學習目標設計複雜個案，都在談 AI 如何把訓練變得更能隨學習者調整。"
+    },
+    {
+      "h": "AIMHEI 幫老師分擔回饋",
+      "b": "SIM Corner 介紹 AIMHEI（Artificially Intelligent Medical History Evaluation Instrument）。學生與模擬病人互動後，系統立即就臨床推理、醫學用語與同理表現給出細緻回饋。主編認為，這種自動化評量不只加快學習循環，也減輕教師負擔，讓不同訓練場域都能拿到一致品質的回饋。"
+    },
+    {
+      "h": "人味仍在 debriefing",
+      "b": "這期 SIM Face 訪問 Jenny Rudolph，談有效 debriefing 背後的人為因素與情緒韌性；另一篇〈Debriefing Difficult Scenarios〉則主張，debriefer 不只是 facilitator，而是把情緒張力高的片刻轉成深度學習的引路人，關鍵在於維持 psychological safety。主編也專訪歐洲病人安全基金會主席 Penilla Gunther，談擬真與病人安全。"
+    }
+  ],
+  "thm": [
+    "整期以 AI 為主軸，封面向 Alan Turing 致敬",
+    "ChatGPT 可依學習目標快速生成客製化情境",
+    "AIMHEI 就臨床推理、用語與同理即時給回饋",
+    "SIM Face 專訪 Jenny Rudolph 談 debriefing",
+    "主編強調：科技再進步，人仍是擬真核心"
+  ]
+}

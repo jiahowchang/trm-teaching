@@ -1,0 +1,36 @@
+{
+  "section": "EDITORIAL",
+  "tag": "主編短評",
+  "title_zh": "夏末開學季：新書、新專欄與新語言",
+  "title_en": "As summer ends, fresh starts abound",
+  "authors": "P.L. Ingrassia",
+  "page": 5,
+  "doi": "",
+  "lang": "en",
+  "digest_zh": "SIMZINE 主編用一頁交代了整個秋天：雜誌出了第一本書、SESAM2023 破千人到場、兩個新專欄同時開張，還首度刊出葡萄牙文文章。想知道這期該先讀哪幾篇，看這裡最快。",
+  "sections": [
+    {
+      "h": "第一本書，也是出版計畫的起點",
+      "b": "本期最大的消息是 SIMZINE 出版了第一本書《The Doll's Engineer》，記錄模擬器發明者 Willem van Meurs 的職業與個人歷程，同時正式開啟 SIMZINE Library 這個出版計畫：之後會持續介紹對臨床擬真影響最大的人、模擬器與技術。主編說，想了解醫療擬真近三十年的歷史，這本值得一讀。"
+    },
+    {
+      "h": "SESAM2023 破千人到場",
+      "b": "六月底的 SESAM2023 聚集超過一千名專業人員、新創與企業代表，SIMZINE 以官方媒體夥伴身分到場。主編形容那是學生、教育者、創業者與創新者難得能一次見面、建立有意義的連結、習得具體技能、掌握最新技術趨勢並親手試用新教學工具與方法的場合；2024 年場次將在布拉格舉行，編輯部說也很想到場。"
+    },
+    {
+      "h": "兩個新專欄與首度葡萄牙文",
+      "b": "這期同時開了兩個新專欄：一是「擬真期刊主編的一天」，首位受訪者是 Revista Latinoamericana de Simulación Clínica 主編 Marcia Corvetto；二是「給擬真中心主任的六個建議」，由 Olivera Cortés 與 Hernández Gutiérrez 談經營。並首度以葡萄牙文刊出文章，作者是巴西創業者 Ana Paula Corrêa 與葡萄牙生醫工程師 Celia Cruz。"
+    },
+    {
+      "h": "本期還想讓你認識這幾個人",
+      "b": "延續介紹擬真領域關鍵人物的做法，本期 SIM Face 是智利擬真學會首任理事長、FLASIC 創辦人 Eliana Escudero Zúñiga，同時介紹西班牙學會 SESSEP 理事長 Aida Camps。呼應即將在熱那亞擬真中心舉行的 SIMMED 年會，該中心博士生 Mara Coduri 也現身談那裡正在進行的創新嘗試。另有 TJ Matthews 撰文談醫療元宇宙。"
+    }
+  ],
+  "thm": [
+    "首本書《The Doll's Engineer》記錄 van Meurs",
+    "SIMZINE Library 出版計畫正式啟動",
+    "SESAM2023 逾千人，SIMZINE 任官方媒體夥伴",
+    "新專欄：擬真期刊主編的一天",
+    "首度刊出葡萄牙文文章，作者來自巴西與葡萄牙"
+  ]
+}

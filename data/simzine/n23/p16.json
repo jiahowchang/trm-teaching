@@ -1,0 +1,36 @@
+{
+  "section": "DID you know...",
+  "tag": "傷妝教學",
+  "title_zh": "傷口化妝不是特效，是教學設計",
+  "title_en": "Clinical Moulage: Pedagogy or Special Effects?",
+  "authors": "M. I. Morales",
+  "page": 16,
+  "doi": "https://doi.org/10.69079/SIMZINE.D26.N23.00105",
+  "lang": "en",
+  "digest_zh": "在 manikin 前臂做出撕裂傷，旁邊那句「很像萬聖節妝」幾乎每次都會出現。這篇敘事性回顧主張 moulage 是有理論基礎的教學工具：realism 由病理生理一致性把關，多流的血只會變成教學雜訊。",
+  "sections": [
+    {
+      "h": "與影劇 SFX 的分野在哪",
+      "b": "文章承認 clinical moulage 與 SFX 共用技術基礎，包括層次、質地、義肢材料與色彩學原理，兩者都在追求知覺上的可信度。但驗證 realism 的標準完全不同：SFX 由美學與戲劇效果判定，可以刻意誇張以服務角色塑造；clinical moulage 則由病理生理一致性與是否幫助臨床決策來判定。差別不在技術，在對 realism 的教學與臨床控制。"
+    },
+    {
+      "h": "四根支柱：經驗與認知",
+      "b": "experiential 支柱把 moulage 放進具體經驗階段——關鍵訊息不必用想像的，它就在那裡等著被檢查，再於 briefing／debriefing 中被命名、組織、類推。cognitive 支柱引 Sweller（1988）的認知負荷理論：清楚且臨床相關的 moulage 可降低 extraneous load，把注意力導向型態、邊緣、顏色、分布等診斷訊號。"
+    },
+    {
+      "h": "四根支柱：情緒與規範",
+      "b": "affective-emotional 支柱引 Seligman（2011）的 PERMA 與 Fredrickson（2001）的 broaden-and-build，說明興趣與好奇如何擴展注意力；Salovey 與 Mayer（1990）定義情緒智能，Goleman（1995）的自我調節與同理讓它可被觀察。normative 支柱呼應 INACSL（2021）與 Gaba（2004）：能改變行為與表現的 fidelity 才算數。"
+    },
+    {
+      "h": "三個要破除的迷思",
+      "b": "一、「血愈多愈真實」——realism 取決於病史、病理生理與事件本身的發展，堆疊過頭反而變成 extraneous cognitive load。二、「moulage 只是化妝，重點在演算法」——演算法要等眼睛認出線索才會啟動，逼真的 moulage 教的正是怎麼看。三、「情緒衝擊一定有助學習」——高焦慮會窄化注意力並損害決策。凡不支持學習目標、或與病例時間軸矛盾的妝效，都是教學雜訊。"
+    }
+  ],
+  "thm": [
+    "moulage 是應用教學，不是舞台特效",
+    "realism 由病理生理一致性與目標把關",
+    "四支柱：經驗、認知、情緒、規範",
+    "妝效要能被觀察、觸診、介入與決策",
+    "不支持目標或違反時間軸的細節該拿掉"
+  ]
+}

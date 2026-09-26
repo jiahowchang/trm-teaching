@@ -1,0 +1,36 @@
+{
+  "section": "DID you know...",
+  "tag": "回饋技巧",
+  "title_zh": "debriefing 也需要會說故事",
+  "title_en": "Unlocking the power of storytelling in Debriefing",
+  "authors": "Adam Cheng, Vincent Grant",
+  "page": 6,
+  "doi": "",
+  "lang": "en",
+  "digest_zh": "Cheng 與 Grant 談 debriefing 裡怎麼說故事：個人、臨床、教學三類素材，搭配 engage、emphasize、normalize、resolve 四種用法，讓例行的回饋對話變成學員記得住的學習經驗。",
+  "sections": [
+    {
+      "h": "為什麼故事有效",
+      "b": "作者給的理由是：故事流傳數百年，因為它替經驗賦予結構，幫人理解身處的世界，又能在情緒層次連結聽者。這使它有鞏固知識、形成記憶並串起個人與團隊的作用。放進 debriefing，一段敘事就可能把例行的回饋對話，變成學員日後還記得的學習經驗。"
+    },
+    {
+      "h": "三類可以刻意運用的故事",
+      "b": "作者把故事分成三類：個人故事，分享自身經歷，讓抽象概念具體化，也拉近 facilitator 與學員的距離；臨床故事，來自第一線照護、涉及病人、家屬與團隊，能放大關鍵訊息、還原真實情境的複雜；教學故事，取材自教學互動、擬真課或過往 debriefing，用來傳達心得並引發對未來學習的反思。"
+    },
+    {
+      "h": "對應 PEARLS 各階段的四種用法",
+      "b": "故事可嵌進 PEARLS 等混合式 debriefing 架構的各個階段：reactions 階段用來引導投入或回應情緒，analysis 階段四種用途都派得上場，summary 階段則收攏未竟議題、強化重點。四種用法分別是 engage（抓住注意）、emphasize（強化學習重點）、normalize（正常化行為或結果）、resolve（化解分歧與衝突）。"
+    },
+    {
+      "h": "normalize 與心理安全",
+      "b": "文中特別點出 normalize 的力量：facilitator 主動說出自己失敗或挫折的經驗，等於展現脆弱、把階層壓平，藉此建立 psychological safety。當學員因漏掉關鍵發現而低落時，帶領者講一段類似疏失的故事，能讓他們知道自己並不孤單，也更願意談自己遇到的困難。"
+    }
+  ],
+  "thm": [
+    "故事能鞏固知識、形成記憶並連結團隊",
+    "三類：個人故事、臨床故事、教學故事",
+    "四用法：engage、emphasize、normalize、resolve",
+    "可嵌入 PEARLS 的 reactions 至 summary",
+    "說自己的失敗，能壓平階層建立心理安全"
+  ]
+}

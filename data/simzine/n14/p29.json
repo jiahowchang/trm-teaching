@@ -1,0 +1,36 @@
+{
+  "section": "SIMexperience",
+  "tag": "師資培育",
+  "title_zh": "英國 NHS 的全國擬真師資培育計畫",
+  "title_en": "Becoming Simulation Faculty: The national programme for those who design and deliver simulation and immersive learning",
+  "authors": "C. Gay et al.",
+  "page": 29,
+  "doi": "https://doi.org/10.69079/simzine.H24.n14.00014",
+  "lang": "en",
+  "digest_zh": "擬真課程做得好不好，關鍵在師資。英國 NHS England 的 Becoming Simulation Faculty 用 eLearning 加工作坊的混成模式，把 educator、technician 與 manager 都納進培育對象，還開放報名。",
+  "sections": [
+    {
+      "h": "為什麼要做全國性計畫",
+      "b": "NHS England 底下的 Technology Enhanced Learning 計畫（NHSE TEL）長期在推動健康與照護教育的新興做法。其擬真與 immersive learning 策略願景指出，擬真要真能支撐人力發展與臨床安全改善，前提是有一支具備相應能力、且被正式認可的跨專業師資群——而這個範圍愈來愈涵蓋 educator、practitioner、technician 與 manager。"
+    },
+    {
+      "h": "借鏡澳洲的 NHETSim",
+      "b": "NHSE TEL 注意到澳洲 NHETSim 計畫的成功經驗，初步接觸英國各地擬真社群後，發現大家對 NHS 健康照護體系推出類似計畫抱持歡迎態度。Becoming Simulation Faculty（BSF）就是為了回應 NHSE TEL 與擬真社群共同指認出的一系列挑戰而啟動的。"
+    },
+    {
+      "h": "三個明講出來的目標",
+      "b": "BSF 列出三項目標：建立並執行一個由專家主導、可持續的全國性計畫，支持來自教育與照護提供機構的擬真 educator、practitioner、technician 與 manager 的專業發展；確保跨專業、跨地域、跨機構都能公平取得；並提升健康與照護場域中擬真與 immersive learning 方法在設計、實施與評值上的品質。原文另以一張圖概覽 Core Course、一張表列出進階主題，報名方式見 e-lfh 網站。"
+    },
+    {
+      "h": "編按：台灣可以借的點",
+      "b": "這是編者延伸，並非原文內容：台灣若要參考 BSF，最值得注意的是它把 technician 與 manager 和教師並列為培育對象——這恰好是本地擬真中心最常缺人、也最少被正式培訓的一塊；其次是課程放在全國共用的線上平台，小型醫院的師資不必等單一中心開班才受訓。"
+    }
+  ],
+  "thm": [
+    "NHS England 推動的全國擬真師資培育",
+    "對象含 educator、technician 與 manager",
+    "eLearning 加工作坊的混成學習設計",
+    "借鏡澳洲 NHETSim 計畫的成功經驗",
+    "強調跨專業、跨地域、跨機構公平取得"
+  ]
+}

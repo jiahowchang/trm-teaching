@@ -1,0 +1,36 @@
+{
+  "section": "SIMstrip",
+  "tag": "語言趣談",
+  "title_zh": "單語症有解？擬真界的翻譯笑話",
+  "title_en": "A cure for monoglottism?",
+  "authors": "W. van Meurs",
+  "page": 11,
+  "doi": "",
+  "lang": "en",
+  "digest_zh": "SIMZINE 用五種語言對抗「單語症」。從 baby boom 被譯成「嬰兒爆炸」，到差點付印的 Titanic stimulation，作者提醒擬真教學者：翻譯出錯不只好笑，有時真的危險。",
+  "sections": [
+    {
+      "h": "單語症，一種可治之症",
+      "b": "作者把只會一種語言稱為 monoglottism——罕見但嚴重，所幸可治。SIMZINE 以義大利文、西班牙文、英文三種主要語言發行，偶爾加上法文與葡萄牙文；編輯與工作人員多半會三到四種語言，作者則幽默地補上「……的一半」。"
+    },
+    {
+      "h": "那些差點付印的誤譯",
+      "b": "編輯台曾攔下把 baby boom 譯成葡萄牙文 explosão de bébes 的版本；而用來評估深度神經肌肉阻斷的「Titanic stimulation」差一步就登上紙本。作者也提到自己新書 The Dolls' Engineer 裡有一章故意取名 Biomagical engineering。"
+    },
+    {
+      "h": "manikin 的字源與假朋友",
+      "b": "從法蘭德斯—荷蘭語 manneken、法文 mannequin 到英語圈的 manikin，最後由 manikin 勝出，作者開玩笑說主要是免得布魯塞爾最有名的地標得改名叫 Manikin Pis。他也提醒開發者別搞混法文的 pain（麵包）與英文的 pain，或葡萄牙文 constipação（其實是感冒）。"
+    },
+    {
+      "h": "編按：中英夾雜的擬真教室",
+      "b": "以下為編者延伸：台灣的擬真教室本來就中英夾雜，debriefing、facilitator、psychological safety 幾乎不翻。這篇提醒的其實是同一件事——翻不翻都要想清楚對方聽到的是哪個意思，尤其教材與病歷字眼跨語言使用時。"
+    }
+  ],
+  "thm": [
+    "monoglottism 只會一種語言，作者稱之可治之症",
+    "SIMZINE 主發義、西、英文，偶用法文與葡萄牙文",
+    "baby boom 誤譯成 explosão de bébes 被攔下",
+    "manikin 勝出，免得地標要改叫 Manikin Pis",
+    "留意假朋友：法文 pain、葡文 constipação"
+  ]
+}

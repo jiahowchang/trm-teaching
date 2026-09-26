@@ -1,0 +1,36 @@
+{
+  "section": "SIM talks",
+  "tag": "技師專訪",
+  "title_zh": "他從汽車業轉行，成了擬真中心的特效師",
+  "title_en": "El rol del Técnico de Simulación en España: entrevista a Javier Mora",
+  "authors": "Verónica Méndez López",
+  "page": 36,
+  "doi": "",
+  "lang": "es",
+  "digest_zh": "從設備工程到汽車產業，再一頭撞進臨床擬真——Javier Mora 談他在巴塞隆納近郊 SAVI 中心當 técnico de simulación 的日常：傷口特效、手作 task trainer，還有依當天活動把教室與病房一間間佈置起來。",
+  "sections": [
+    {
+      "h": "繞了一圈才遇見擬真",
+      "b": "Javier Mora Repullo 來自阿斯圖里亞斯，學的是設備安裝專案規劃，先在巴斯克地區做過一年的汽車與型材產業設備開發。因私人原因移居加泰隆尼亞後，他原本想轉做營養，卻因此進入醫療圈，意外撞見臨床擬真；後來到馬德里參加 SESSEP 全國年會，看到全西班牙的擬真技師開課，就此決定以此為業。他在 SAVI 剛滿三年。"
+    },
+    {
+      "h": "他的專長是做傷口",
+      "b": "擬真技師底下分很多領域，Javier 最著迷的是 moulage：像做電影特效那樣化妝、造傷口，並親手製作 task trainer——縫合、傷口照護、抽血等技術練習用的教具，目的是把 fidelity 拉高。為此他跑去電影學校學特效。"
+    },
+    {
+      "h": "中心樣貌與兩人團隊",
+      "b": "SAVI 在巴塞隆納南邊 Sant Boi de Llobregat，屬 Campus Docente de Sant Joan de Déu，為巴塞隆納大學附屬中心。約 1300 名學生每學年多次進中心，依 SimZones 模式分區演練。多數中心倚重 manikin，這裡的強項是合作逾十年的專業演員群，並與巴塞隆納戲劇學校簽約。近年引進源自企業界的 BRIDGE 溝通模式。撐起這一切的只有 Javier 與同事 Isaac 兩人。"
+    },
+    {
+      "h": "編按：技師這個角色",
+      "b": "編按：以下是編者延伸。這篇訪談最值得台灣參考的，是它把 técnico de simulación 當成一個有專業內容的職位在談——不只是器材管理，而是兼具工程、特效與現場調度的角色。若我們也希望擬真中心的技術支援走向專業化，職涯路徑與專門訓練恐怕得先被看見，而不是誰有空誰來。"
+    }
+  ],
+  "thm": [
+    "Javier Mora 從汽車設備業轉進臨床擬真",
+    "SAVI 屬 Sant Joan de Déu 教學園區，附屬巴塞隆納大學",
+    "約 1300 名學生，依 SimZones 模式輪訓",
+    "強項是合作十年以上的專業演員群",
+    "moulage 與自製 task trainer 是他的專業核心"
+  ]
+}

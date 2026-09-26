@@ -1,0 +1,36 @@
+{
+  "section": "SIM voices",
+  "tag": "擬真模型",
+  "title_zh": "擬真鑽石：七個面撐起一場好模擬",
+  "title_en": "El Diamante de la Simulación: Propuesta de un Modelo Integral",
+  "authors": "Julher Rivera Prato",
+  "page": 10,
+  "doi": "https://doi.org/10.69079/SIMZINE.R25.N20.00085",
+  "lang": "es",
+  "digest_zh": "場地備好、monitor 亮著、manikin 在呼吸，課卻還是散掉：角色相互重疊、學習被稀釋。Prato 提出「擬真鑽石」，把情境、facilitator、觀察者、觀察區、briefing 區、技術師與 moulage 備置區整合成一個模型。",
+  "sections": [
+    {
+      "h": "鑽石的七個面",
+      "b": "模型核心是模擬情境本身：需要精準建構臨床案例、依教學目標決定情境擬真度高低，並緊扣學習成果。圍繞它的還有 facilitator／評核者、觀察者、觀察區、briefing 與 debriefing 區、simulation technician，以及 moulage 與準備空間。七者彼此映照、協同運作；作者強調人、技術、方法與空間四個面向只要缺一，學習成效就會被削弱。"
+    },
+    {
+      "h": "最常被低估的兩塊",
+      "b": "作者特別點名技術師與實體空間。simulation technician 被稱為模型中「看不見的支柱」：確保 simulator 正常運作、編寫生理反應、操作軟體與影音、以 moulage 製造真實效果，是達成 high-fidelity 與流程順暢的關鍵。觀察者也不只是旁觀，需受訓才能辨識團隊動力、看出 latent error。"
+    },
+    {
+      "h": "這個模型怎麼做出來",
+      "b": "方法是敘事性文獻回顧，檢索 PubMed、Scopus 與 CINAHL，使用 Clinical Simulation、Medical Education、Simulation Training、Simulation Design 等 MeSH 詞；同時分析 INACSL Standards of Best Practice 與 SSH Accreditation Standards，並訪談國際擬真專家，再據此設計出鑽石模型。"
+    },
+    {
+      "h": "限制與作者的定位",
+      "b": "模型需要進階的物質資源、受訓人力與足夠的科技基礎建設，在低資源環境的適用性因此受限；也需要有效的跨專業協調與機構承諾。作者明言仍待多中心研究進行實證驗證。結論則把價值放在讓常被低估的元素被看見，並提供規劃、評核與持續改善的實用架構。"
+    }
+  ],
+  "thm": [
+    "七個面：情境為核心，六要素環繞",
+    "technician 是模型中看不見的支柱",
+    "觀察者需受訓，才能看出 latent error",
+    "方法：三資料庫敘事回顧加專家訪談",
+    "限制：資源門檻高，尚待多中心驗證"
+  ]
+}

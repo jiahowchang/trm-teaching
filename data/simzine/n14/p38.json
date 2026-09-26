@@ -1,0 +1,36 @@
+{
+  "section": "SIMnurse",
+  "tag": "護理擬真",
+  "title_zh": "INACSL 認證：小中心也能證明品質",
+  "title_en": "The Road to Quality Simulation: Endorsement by INACSL",
+  "authors": "",
+  "page": 38,
+  "doi": "https://doi.org/10.69079/simzine.H24.n14.00016",
+  "lang": "en",
+  "digest_zh": "資源多寡不該決定擬真品質。INACSL 的 Healthcare Simulation Standards Endorsement™ 把 prebriefing、facilitation、專業誠信與 debriefing 當柱子，讓小型課程也能被看見。",
+  "sections": [
+    {
+      "h": "INACSL 想解決什麼問題",
+      "b": "INACSL（International Nursing Association for Clinical Simulation and Learning）長期推動護理教育中創新臨床擬真方法與科技的研究與實作，目標是以高品質擬真改善病人結果、提升病人安全。其近期作為是 Healthcare Simulation Standards Endorsement™ 認證計畫，出發點是承認各擬真單位資源差距大，希望不論機構規模都能讓好做法被看見。"
+    },
+    {
+      "h": "四塊基石怎麼定出來",
+      "b": "2021 年 INACSL 組成一個涵蓋多元實務社群的工作小組，著手定義什麼叫「品質擬真」，並整理出認證計畫的基礎：prebriefing（準備與 briefing）、facilitation、專業誠信（professional integrity）與 debriefing。文章強調這套設計刻意走包容路線，讓擬真的卓越表現能被公平地承認，而不是只有大型中心才拿得到入場券。"
+    },
+    {
+      "h": "認證讓誰受益",
+      "b": "對學員而言，是在每一場擬真都套用標準的課程裡學習；對教師，是一套支持有效教學與專業成長的結構化框架；對整個擬真社群，則建立了品質基準並推動以證據為基礎的做法與新科技被採用。標準適用於所有擬真活動，因此全球任何醫療擬真課程都可申請，從資源充裕的大型中心到經費不足的小單位皆然，目前全球已有超過 36 個課程通過認證。"
+    },
+    {
+      "h": "編按：對台灣單位的用法",
+      "b": "以下是編者的延伸看法，原文並未提及台灣。文中也指出認證認可 high fidelity、simulated participant 與虛擬擬真等不同形式，並看重跨專業協作對團隊與溝通能力的作用；換句話說，四塊基石談的是流程而非設備。對本地護理科系或中小型擬真室，把它先當成自我檢核清單，比先添購器材更接近文章的原意。"
+    }
+  ],
+  "thm": [
+    "INACSL 推出擬真標準認證（Standards Endorsement™）",
+    "2021 年組工作小組，先定義什麼算品質擬真",
+    "基石：prebriefing、facilitation、debriefing",
+    "第四塊基石是專業誠信；全球任何課程皆可申請",
+    "至今全球已有超過 36 個課程取得認證"
+  ]
+}

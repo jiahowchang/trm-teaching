@@ -1,0 +1,36 @@
+{
+  "section": "DID you know...",
+  "tag": "工程跨界",
+  "title_zh": "生醫工程師如何跨進產房擬真",
+  "title_en": "Bioingegneria + simulazione = Dottorato al JETS",
+  "authors": "Mara Coduri",
+  "page": 20,
+  "doi": "",
+  "lang": "it",
+  "digest_zh": "生醫工程畢業、做過穿戴裝置，Mara Coduri 在 2021 年 10 月結識熱那亞大學 JETS 實驗室的兩位指導者，2022 年起把博士題目訂在產房。她做的是混合實境多人模擬器，讓 VR 的沉浸感和新生兒 manikin 的觸覺回饋同時到位。",
+  "sections": [
+    {
+      "h": "從穿戴裝置轉進擬真研究",
+      "b": "Mara Coduri 在熱那亞大學（Università di Genova）取得生醫工程學位，先以研究助理身分投入穿戴裝置與電子領域。2021 年 10 月她遇見副教授 Maura Casadio 與研究員 Serena Ricci——後者主持 Joint lab for Emerging Technologies in Simulation（JETS），兩人成為她的博士指導者。"
+    },
+    {
+      "h": "JETS 在做什麼",
+      "b": "JETS 是 SimAv（Centro di Simulazione e Formazione Avanzata）與 DIBRIS 的聯合實驗室，目標是開發並檢驗醫學訓練模擬器的可用性，工具包括虛擬實境、觸覺回饋機器人與低成本感測器。在外科擬真方面，團隊正試著用觸覺機器人訓練切開與縫合等基本技術。"
+    },
+    {
+      "h": "產房裡的混合實境模擬器",
+      "b": "她的博士自 2022 年 1 月啟動，主題是產房的母嬰照護，正在開發混合實境的多人模擬器原型：一邊留下 VR 沉浸逼真的環境，一邊保住 manikin 提供的觸覺回饋——那是練頭部擺位或通氣面罩這類手感動作不可或缺的。她也自行設計低成本感測器貼在新生兒 manikin 上，即時回饋學員表現。"
+    },
+    {
+      "h": "工程師太少、標準也太少",
+      "b": "她坦言研究路上的難處：投入擬真的工程師與技師人數仍少，找到背景相近的人交換想法並不容易；可依循的指引與標準也不多，讓設計階段與驗證流程的定義格外吃力。自己的醫學知識有限同樣是障礙，靠的是團隊——實驗室裡有熱心的醫師，博士計畫本身就源於與新生兒科醫師暨小兒科學博士生 Andrea Calandrino 的合作。"
+    }
+  ],
+  "thm": [
+    "JETS 是 SimAv 與 DIBRIS 的聯合實驗室",
+    "研究工具：VR、觸覺機器人、低成本感測器",
+    "博士題目鎖定產房的母嬰照護",
+    "混合實境＋manikin 兼顧沉浸與手感",
+    "擬真領域缺工程人力，也缺設計標準"
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "section": "SIMgeek",
+  "tag": "器材評分",
+  "title_zh": "買模擬人前，先算一個配對分數",
+  "title_en": "Toward an objective score for matching simulators to programs",
+  "authors": "H. Azevedo - W. van Meurs",
+  "page": 16,
+  "doi": "",
+  "lang": "en",
+  "digest_zh": "同一個訓練課程，市面上一堆設備都說自己做得到。作者提出一個能算出來的配對分數：把課程拆成基本技能，再看某台 simulator 練得到幾項，除總數就是分數。文中以 AHA 成人 BLS 與 Nasco 三台設備示範。",
+  "sections": [
+    {
+      "h": "問題：選項太多，標準太少",
+      "b": "課程要配哪一台 simulator 其實很難決定，越通用的課程可選的方案越多。作者把範圍限定在適合用 patient simulator 或 part-task trainer 訓練的課程（不含 simulated patient），而且只談訓練目標，不談價格與偏好廠商。"
+    },
+    {
+      "h": "算法：基本技能數過去就好",
+      "b": "方法建立在作者先前〈System theory for simulationists〉一文的四類基本技能：physical exam、manual interventions、monitoring、device-based interventions。把課程指引拆成基本技能清單，某項技能該設備練得到就記 1，加總後除以該類技能總數，就是這台機器在該類的配對分數。"
+    },
+    {
+      "h": "示範：三台 Nasco 設備差多少",
+      "b": "文中以 2015 年 AHA 成人 BLS 的 manual interventions 類為例（此部分工作完成於 2017 年），列出一般民眾施救者需要的八項基本技能。Brad Adult 練得到 50%、ALS trainer 88%、Smart STAT 八項全包拿到 1.00；四類都算完後得到 0 到 1 的總分。"
+    },
+    {
+      "h": "限制：二元計分、少了整合能力",
+      "b": "作者自己把限制寫清楚：從課程指引裡抽出基本技能需要夠格的專業人員；設備的「可訓練性」應該客觀獨立地評定，最好不是廠商自己來；目前技能只有 0 或 1，像 BLS 的 chest compressions 其實該加權，也可以改成多級量表。此外，思考臨床數值之間關聯、與團隊溝通病人狀況這類 integrative skills 目前完全沒納入分數。"
+    }
+  ],
+  "thm": [
+    "把訓練課程拆成基本技能清單",
+    "分四類技能計分，總分 0 到 1",
+    "AHA 成人 BLS 手動技能共八項",
+    "Brad Adult 0.50、ALS trainer 0.88",
+    "integrative skills 與加權尚未納入"
+  ]
+}

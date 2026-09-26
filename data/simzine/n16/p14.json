@@ -1,0 +1,36 @@
+{
+  "section": "DID you know...",
+  "tag": "生理擬真",
+  "title_zh": "一堂課帶800人玩虛擬病人學血壓",
+  "title_en": "Virtual patients to teach large classes: the University of Bristol experience",
+  "authors": "R. Helyer - E. Lloyd - K. Harrison - W. van Meurs",
+  "page": 14,
+  "doi": "https://doi.org/10.69079/SIMZINE.R24.N16.00044",
+  "lang": "en",
+  "digest_zh": "生理學大堂課最怕變成單向講述。Bristol 用 model-driven 虛擬病人，讓數百名學生同步追蹤一位車禍失血者的 MAP、CVP 與 CO，從形成假說、預測走到驗證，最後還能談 permissive hypovolemia。",
+  "sections": [
+    {
+      "h": "大班也能做互動擬真",
+      "b": "文中這堂課在 Bristol 開給約 800 名生科與醫護大一生，分成大組進行，一次最多 250 人同時上。學習目標只有一個：搞懂 baroreceptor reflex 如何調節 mean arterial pressure，尤其是急性出血造成 hypovolaemia 時的反應。同一套課也拿去給外科住院醫師複習病理生理，以及改用犬類生理數值教獸醫系學生。"
+    },
+    {
+      "h": "生理模型驅動的病人",
+      "b": "使用 Maestro Evolve（Elevate Healthcare, Sarasota, FL, USA）。臨床徵象與監視器數值由生理模型依失血量自動產生，作者依 80 公斤男性把 baroreceptor reflex gain 微調過，validity 參考人體與動物外推的文獻（Lloyd et al., 2006）。非模型驅動的模擬器也能用，但反應需事先寫成腳本，無法回應學生臨場提出的處置。"
+    },
+    {
+      "h": "四個階段推著學生預測",
+      "b": "Phase 0 先把時鐘轉回車禍前的健康 baseline 並建立假說；Phase 1 失血 600 ml（全血量 10%）但生命徵象穩定；Phase 2 惡化到累計 3 公升（50%），警報響起、病人失去意識、SpO2 數值消失；Phase 3 分兩次補液但不補回原值，順勢談 permissive hypovolemia。全程用線上投票與結構化表格收資料。"
+    },
+    {
+      "h": "編按：搬回台灣的兩個提醒",
+      "b": "以下是編者延伸，非原文內容。台灣同類大班課常受限於人力，而本文模式其實是 facilitator 一人主講、技術員負責推進場景與投影片，人力門檻比想像中低；另一個可借的點是把課後資料分析（例如畫 CVP 對 SV 的圖）當成作業，把反思時間從課堂挪到課後。"
+    }
+  ],
+  "thm": [
+    "約 800 名大一生分大組，一次最多 250 人",
+    "目標：baroreceptor reflex 如何撐住 MAP",
+    "用 Maestro Evolve，生理模型自動產生徵象",
+    "失血 600 ml 到 3 L，再分兩階段補液",
+    "課後畫 CVP 對 SV 圖，接 Frank-Starling"
+  ]
+}

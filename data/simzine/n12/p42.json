@@ -1,0 +1,36 @@
+{
+  "section": "SIMvoices",
+  "tag": "VR擬真",
+  "title_zh": "VR 不是未來式：密西根護理學院怎麼做",
+  "title_en": "Virtual Reality in Healthcare Education: future or present?",
+  "authors": "M. Aebersold",
+  "page": 42,
+  "doi": "",
+  "lang": "en",
+  "digest_zh": "VR 已經不是「以後再說」。密西根大學護理學院用 360 度影片練聽障溝通與退伍軍人照護，用「Under the Skin」讓學員看見化療藥外滲對細胞的傷害，還有多病人 VR 場景在三所護理學程試跑。",
+  "sections": [
+    {
+      "h": "先把 XR 的名詞分清楚",
+      "b": "XR Safety Initiative 近期整理了一套名詞分類：Extended Reality（XR）是所有替代實境的總稱，涵蓋 VR、AR 與 MR。VR simulation 透過 head-mounted display 提供完全數位的沉浸環境；360 度影片則記錄各方向視角，用電腦或類似裝置就能觀看。作者也提醒，這類技術仍在快速變動，今天的認識明天就會被推進。"
+    },
+    {
+      "h": "為什麼要用 VR 教臨床",
+      "b": "VR 能把學員放進帶有真實世界複雜度的臨床情境，而且是可控的環境。不同於多數擬真設置，學員可以在這裡練習優先順序判斷、決策與工作分配，真正以照護者的角色投入貼近真實的任務，卻不必讓任何真實病人承擔風險。"
+    },
+    {
+      "h": "360 度影片：手語與退伍軍人",
+      "b": "團隊用 360 度影片改善對聽障者與退伍軍人的照護。其中一支是車禍後的外傷區，護理師與使用美國手語（ASL）的家屬溝通卡住，直到 Video Remote Interpreting 服務介入才順利；另一組影片呈現護理師與退伍軍人的正向互動與獨特照護需求。作者認為退伍軍人的需求具普遍性，影片可透過 YouTube VR 免費看，手機、平板或頭戴式裝置都行。"
+    },
+    {
+      "h": "從腫瘤急症到多病人場景",
+      "b": "「Under the Skin」以體驗式取向處理腫瘤急症：兩位化療病人可能因藥物滲出血管造成組織傷害，學員練習防護裝備與外滲處置，也看見藥物在細胞層的作用，可於 Meta App Lab 免費下載。進行中的 Big Ten Practice Ready Nursing Initiative 由明尼蘇達大學 Cynthia Bradley 主持，與 Oxford Medical Simulation 合作開發單人操作的多病人情境。"
+    }
+  ],
+  "thm": [
+    "XR 是總稱，涵蓋 VR、AR 與 MR 三類",
+    "VR 讓學員練優先順序與決策而不傷病人",
+    "360 度影片教手語溝通與遠距口譯介入時機",
+    "Under the Skin 練化療外滲，可免費下載",
+    "多病人 VR 場景在三所護理學程試用受好評"
+  ]
+}

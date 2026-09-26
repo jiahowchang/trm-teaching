@@ -1,0 +1,36 @@
+{
+  "section": "DID you know...",
+  "tag": "VR擬真",
+  "title_zh": "360度VR影片：溝通訓練不必再搶場地",
+  "title_en": "Virtual Reality Revolutionizing Healthcare Education: Project ViCoSim",
+  "authors": "Dieter Vyt",
+  "page": 32,
+  "doi": "https://doi.org/10.69079/SIMZINE.L24.N15.00036",
+  "lang": "en",
+  "digest_zh": "找不到演員、排不出場地、預算又有限？比利時 Artevelde 大學用 360 度影片拍出 35 個以上的 VR 情境，七個醫護學程陸續導入，還把南非的場景直接搬進比利時的教室裡。",
+  "sections": [
+    {
+      "h": "SP 很真，但排課與成本很痛",
+      "b": "文章先盤點現況：high-tech 全身 manikin 與 task trainer 擅長技術操作，卻不見得適合訓練人際互動；simulated actors 提供的溝通經驗較真實，可執行的技術動作卻受倫理考量限制。更現實的是後勤——排班、找到合適場地、湊齊受過訓練的演員，成本與時間都高，要把演員擬真納入大班常規課程並不容易。"
+    },
+    {
+      "h": "ViCoSim：360 度分支情境",
+      "b": "Artevelde 應用科技大學健康照護學系由歐盟與東法蘭德斯（East Flanders）補助，組成溝通與擬真專家加上一位技術人員的團隊，已產出 35 個以上的 360 度影片情境。情境採分支設計，會依學員或教師的選擇走向不同結果；debriefing 採實證的 PEARLS 方法，可由 facilitator 帶領或同儕監督，不受地點限制。"
+    },
+    {
+      "h": "SimZone 第二區，銜接真人演員",
+      "b": "平台正在導入護理、助產、職能治療、足部醫學、聽力、語言治療與口腔衛生七個學程。定位是 SimZone 架構下適合大班的 Zone 2 擬真，作為小組 Zone 3 的前置，既壓低成本，也讓學員日後面對 simulated actors 時準備更足。文中列出三項效益：更貼近真實情境、知識保留與臨床推理提升、學習體驗更吸引人。"
+    },
+    {
+      "h": "跨國共用：南非場景搬進教室",
+      "b": "ViCoSim 也與南非 Stellenbosch University 合作 COIL（Collaborative Online International Learning）計畫，題為「Person-Centered Communication in an International Context」。以 360 度攝影機在南非場景拍攝，比利時學生不出國就能練跨文化與國際能力，Stellenbosch 的學生也能進入同一個情境。"
+    }
+  ],
+  "thm": [
+    "manikin 擅長技術，弱於人際溝通訓練",
+    "SP 教學受限於排班、場地與成本",
+    "已產出 35 個以上 360 度影片情境",
+    "分支劇情搭配 PEARLS debriefing",
+    "定位 SimZone Zone 2，銜接 Zone 3"
+  ]
+}

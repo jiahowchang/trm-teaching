@@ -1,0 +1,36 @@
+{
+  "section": "DID you know...",
+  "tag": "師資培育",
+  "title_zh": "SPIRIT：打造歐洲跨專業擬真師資",
+  "title_en": "The SPIRIT Project: Building Europe's Simulation Educators",
+  "authors": "C. Contron",
+  "page": 14,
+  "doi": "https://doi.org/10.69079/SIMZINE.R25.N21.00094",
+  "lang": "en",
+  "digest_zh": "歐洲有不少大學蓋了擬真中心，卻少有系統化的跨專業師資養成路徑。由 RCSI 領軍、義大利奧地利波蘭三國參與的 SPIRIT 計畫，想用 Erasmus+ 的資源，把 IPE 擬真教師該具備的能力做成可複製的框架。",
+  "sections": [
+    {
+      "h": "四國聯手，補上師資這一塊",
+      "b": "SPIRIT 由 Erasmus+ KA220 Cooperation Partnerships 方案補助，主導者是愛爾蘭的 RCSI，夥伴包括義大利 Humanitas University、奧地利 Medical University of Vienna 與波蘭 Wrocław Medical University。四校都有意加入 EUGLOH（歐洲全球健康大學聯盟），各自帶進不同的醫療體系與教育傳統。"
+    },
+    {
+      "h": "為什麼是跨專業擬真",
+      "b": "臨床照護本來就是跨專業協作，教育卻仍以各職類分開訓練為主，學生很晚才學到協作技能。擬真能把不同專業的學習者放進同一個情境，一起練 teamwork、溝通與共同決策，再用 debriefing 收斂。問題在於：這種課極度依賴教師功力，需要教學專業、對語言與階層的敏感度，以及建立 psychological safety 的能力。"
+    },
+    {
+      "h": "五個工作包與第一批需求調查",
+      "b": "計畫拆成管理、需求分析、課程設計、試行與推廣五個 work package，每個夥伴各領一包。WP1 由 RCSI 負責進度控管，每月開一次 steering meeting。WP2 由義大利團隊主導全歐需求分析，設計並試行一份 20 題、含 Likert 量表與開放填答的問卷，讓教師自評 IPE 擬真的能力信心，目前已回收 80 份完整答覆。"
+    },
+    {
+      "h": "編按：台灣跨專業擬真的對照",
+      "b": "編者延伸，非原文內容。台灣的跨專業團隊訓練多以單場工作坊形式進行，SPIRIT 則把師資培育做成有工作包、有需求調查、有共同框架的長期計畫。這種先盤點教師缺什麼、再回頭設計課程的順序，對想把跨專業擬真變成常態課程的單位相當有參考價值。"
+    }
+  ],
+  "thm": [
+    "Erasmus+ KA220 補助的泛歐師資培育計畫",
+    "RCSI 主導，義大利、奧地利、波蘭三校共同參與",
+    "2024 年 12 月於都柏林舉行 kick-off 會議",
+    "問題在於：有擬真中心，卻缺結構化師資培育",
+    "WP2 的 20 題問卷已回收 80 份歐洲教師答覆"
+  ]
+}

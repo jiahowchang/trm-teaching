@@ -1,0 +1,37 @@
+{
+  "section": "SIM love",
+  "tag": "擬真研究",
+  "title_zh": "我以為擬真只是遊戲，直到它影響國際指引",
+  "title_en": "Pensavo che la simulazione fosse solo un gioco, finché non ha influenzato le linee guida internazionali",
+  "authors": "G. Mormando",
+  "page": 14,
+  "doi": "",
+  "url": "https://simzine.news/it/experience/pensavo-che-la-simulazione-fosse-solo-un-gioco-finche-non-ha-influenzato-le-linee-guida-internazionali/",
+  "lang": "it",
+  "digest_zh": "2018 年，一位急診住院醫師在消防隊演練場邊冒出一個疑問：穿著全套防護裝備，還能好好壓胸嗎？她把疑問變成一項隨機對照的擬真研究，36 位受試者、用感測器取數據，成果在疫情期間發表，後來被 ILCOR 國際指引引用。",
+  "sections": [
+    {
+      "h": "從演練場邊的一個疑問開始",
+      "b": "2018 年，作者在急診醫學專科訓練的最後階段輪訓於 Venezia Mestre 的救護指揮中心，窗外是消防隊 NBCR 與 USAR 單位演練用的瓦礫場；她也參加過穿脫防護裝與搬運擔架的操作，深知有多吃力。疑問一個接一個浮現：遇到心跳停止的病人，救難人員有時間先脫掉裝備再急救嗎？還是穿著直接開始壓胸比較好？會有多累、又有多有效？"
+    },
+    {
+      "h": "把模擬人的感測器拿來做研究",
+      "b": "有同事把這些問題當玩笑，也有人認真看待，於是一起規劃研究。難題是怎麼量化：胸外按壓的成效、靜脈與骨內通路、引流管或止血帶的置放時間，各要用什麼指標？身為熱情的 facilitator，作者提議善用中心既有的 simulator——它們的感測器能記錄按壓深度與速度，也能判讀止血帶是否完全阻斷動脈。模擬人終於不只是訓練工具，也能拿來做研究。"
+    },
+    {
+      "h": "照研究規範走：36 人隨機分組",
+      "b": "團隊接著研讀擬真隨機對照試驗的報告規範（Simulation-based Research Extensions for the CONSORT Statement），撰寫計畫書，把每一場模擬日的細節都事先推演過，於 2019 年 8 至 9 月收案 36 位參與者，隨機分入穿戴 PPE 與不穿戴的介入組與對照組。文中表一列出各項處置所採用的模擬方式與模型。"
+    },
+    {
+      "h": "成果獲 ILCOR 指引引用",
+      "b": "依本文導言，這項研究證實救命處置在穿戴個人防護裝備的情況下仍然有效；成果在疫情最緊繃時發表，並獲 ILCOR 國際指引引用，進而影響心肺復甦的實務建議。作者以此說明：擬真不只是訓練場，也可以是提升病人安全的研究實驗室。文末寫到論文撰稿期間 COVID-19 疫情爆發、那批 PPE 真的用上了，紙本便在此中斷。"
+    }
+  ],
+  "thm": [
+    "疑問起點：穿戴 PPE 還能有效壓胸嗎",
+    "模擬人感測器可測按壓深度與速度",
+    "依 CONSORT 擬真研究延伸規範撰寫計畫書",
+    "2019 年 8 至 9 月收案 36 人隨機分兩組",
+    "成果被 ILCOR 指引引用，擬真也能做研究"
+  ]
+}
