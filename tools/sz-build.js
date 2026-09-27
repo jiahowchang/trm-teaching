@@ -104,10 +104,15 @@ const ms = START_RE.exec(html);
 const me = END_RE.exec(html);
 if (!ms || !me || me.index < ms.index) die('index.html 找不到 SZ-LIB-START / SZ-LIB-END（或舊的 SZ-PICKS）標記');
 
+// 期刊庫資料寫成外部 JSON，點進分頁才載（首頁不必背這包）；檔名帶內容雜湊避免舊快取
+const json = JSON.stringify(out);
+const hash = require('crypto').createHash('sha1').update(json).digest('hex').slice(0, 8);
+const JSON_PATH = path.join(ROOT, 'data', 'simzine.json');
+
 const block =
-  '<!-- SZ-LIB-START (由 node tools/sz-build.js 從 data/simzine/ 產生，勿手動編輯) -->\n' +
+  '<!-- SZ-LIB-START (由 node tools/sz-build.js 產生；資料在 data/simzine.json，勿手動編輯) -->\n' +
   '  <script>\n' +
-  '  window.SZ_ISSUES = ' + JSON.stringify(out) + ';\n' +
+  '  window.SZ_DATA_URL = "data/simzine.json?v=' + hash + '";\n' +
   '  </script>\n  ';
 
 const total = out.reduce((n, ed) => n + ed.items.length, 0);
@@ -115,6 +120,9 @@ console.log(`期別 ${out.length} 期、文章 ${total} 篇`);
 out.forEach(ed => console.log(`  ${ed.issue}  ${ed.label}  ${ed.items.length} 篇`));
 if (warn.length) console.warn(`⚠ ${warn.length} 則提醒（不影響寫入）：\n  ` + warn.join('\n  '));
 
+console.log(`資料檔 data/simzine.json ${(Buffer.byteLength(json, 'utf8') / 1024).toFixed(0)} KB（版本 ${hash}）`);
+
 if (dryRun) { console.log('（--dry-run：未寫入檔案）'); process.exit(0); }
+fs.writeFileSync(JSON_PATH, json, 'utf8');
 fs.writeFileSync(HTML, html.slice(0, ms.index) + block + html.slice(me.index), 'utf8');
-console.log('✓ 已更新 index.html');
+console.log('✓ 已更新 data/simzine.json 與 index.html');
