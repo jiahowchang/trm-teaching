@@ -1,0 +1,122 @@
+{
+ "slug": "ferrero-2025",
+ "title_zh": "教育的宇宙是一場模擬",
+ "title_es": "El Universo Educativo es una Simulación — Una antología sobre enseñar, simular y aprender en salud",
+ "author": "Federico Ferrero Etchegoyen",
+ "publisher": "Vuelta a Casa（阿根廷拉普拉塔）",
+ "year": 2025,
+ "lang": "es",
+ "blurb": "阿根廷教育學者、FLASIC 拉丁美洲臨床擬真與病人安全聯盟 2023–2025 理事長 Federico Ferrero 的文集，集結二十餘年教學現場的紀實、講稿、課後筆記與失敗經驗。全書六個部分十六章，不把臨床擬真當技術手冊，而當成「教育實踐的活實驗室」：情境設計、虛構契約、心理安全、壞消息告知、CRM、feedback 與 debriefing，一路談到教師自己要先「不學」什麼。SIMZINE n.23 p.14 有本書書評。",
+ "credit": "《El Universo Educativo es una Simulación》（Federico Ferrero Etchegoyen，Vuelta a Casa，2025）",
+ "url": "",
+ "chapters": [
+  {
+   "file": "p00.json",
+   "section": "作者序",
+   "pages": "14–17",
+   "part": "Prólogo"
+  },
+  {
+   "file": "c01.json",
+   "section": "第 1 章",
+   "pages": "19–30",
+   "part": "Parte I 概念基礎"
+  },
+  {
+   "file": "c02.json",
+   "section": "第 2 章",
+   "pages": "32–39",
+   "part": "Parte II 原則、實作與設計"
+  },
+  {
+   "file": "c03.json",
+   "section": "第 3 章",
+   "pages": "40–48",
+   "part": "Parte II 原則、實作與設計"
+  },
+  {
+   "file": "c04.json",
+   "section": "第 4 章",
+   "pages": "49–54",
+   "part": "Parte II 原則、實作與設計"
+  },
+  {
+   "file": "c05.json",
+   "section": "第 5 章",
+   "pages": "55–62",
+   "part": "Parte II 原則、實作與設計"
+  },
+  {
+   "file": "c06.json",
+   "section": "第 6 章",
+   "pages": "64–73",
+   "part": "Parte III 非技術技能"
+  },
+  {
+   "file": "c07.json",
+   "section": "第 7 章",
+   "pages": "74–78",
+   "part": "Parte III 非技術技能"
+  },
+  {
+   "file": "c08.json",
+   "section": "第 8 章",
+   "pages": "79–89",
+   "part": "Parte III 非技術技能"
+  },
+  {
+   "file": "c09.json",
+   "section": "第 9 章",
+   "pages": "91–99",
+   "part": "Parte IV 以擬真評量"
+  },
+  {
+   "file": "c10.json",
+   "section": "第 10 章",
+   "pages": "100–109",
+   "part": "Parte IV 以擬真評量"
+  },
+  {
+   "file": "c11.json",
+   "section": "第 11 章",
+   "pages": "110–116",
+   "part": "Parte IV 以擬真評量"
+  },
+  {
+   "file": "c12.json",
+   "section": "第 12 章",
+   "pages": "118–126",
+   "part": "Parte V 為了教學而不學"
+  },
+  {
+   "file": "c13.json",
+   "section": "第 13 章",
+   "pages": "127–136",
+   "part": "Parte V 為了教學而不學"
+  },
+  {
+   "file": "c14.json",
+   "section": "第 14 章",
+   "pages": "137–146",
+   "part": "Parte VI 後疫情的鏡中隨筆"
+  },
+  {
+   "file": "c15.json",
+   "section": "第 15 章",
+   "pages": "147–155",
+   "part": "Parte VI 後疫情的鏡中隨筆"
+  },
+  {
+   "file": "c16.json",
+   "section": "第 16 章",
+   "pages": "156–162",
+   "part": "Parte VI 後疫情的鏡中隨筆"
+  },
+  {
+   "file": "p99.json",
+   "section": "結語",
+   "pages": "163–165",
+   "part": "Epílogo"
+  }
+ ]
+}

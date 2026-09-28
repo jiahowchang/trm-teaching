@@ -1,0 +1,31 @@
+{
+  "tag": "回饋評量",
+  "title_zh": "別讓 feedback 當灰姑娘",
+  "title_es": "Ni feedback ni debriefing: el fin de la grieta evaluativa en simulación clínica",
+  "digest_zh": "情境跑完，到底該做 feedback 還是 debriefing？作者說這是一道假選擇題。他把形成性評量攤成一條反思深淺的光譜，並提醒：那個長期被我們看輕的 feedback，其實也問得出很深的問題。",
+  "sections": [
+    {
+      "h": "feedback 為什麼成了灰姑娘",
+      "b": "做技術訓練的老師多半給 feedback，帶沉浸式情境的老師則做 debriefing。作者觀察到前者常有一種說不出口的失落：論文、課程、研討會幾乎都在談 debriefing，談教育 feedback 的少之又少。於是 feedback 成了擬真教學裡的灰姑娘，被冷落在陰影中。"
+    },
+    {
+      "h": "這道裂痕沒有文獻撐腰",
+      "b": "傳統說法把 feedback 定位為單環學習的糾錯，老師主導、快速而表淺；把 debriefing 視為雙環學習、深度反思、以學員為中心。作者說教育文獻裡找不到支持這種硬切分的依據，那只是行為主義遺留下來的簡化想像，一旦跳出那個窄框，兩者的界線就糊掉了。"
+    },
+    {
+      "h": "一條反思深淺的連續光譜",
+      "b": "他提出一份自製的暫行分類，依反思深度排成一線：指導式 feedback、PLUS/DELTA debriefing、反思式 feedback、澳洲版 PLUS/DELTA（VAST）、深度 debriefing，逐項標出老師角色、單環或雙環學習、是否觸及心智模式。有些 feedback 反而比淺層 debriefing 更能翻動思考；關鍵不在名稱，而在我們是否也替 feedback 準備結構。"
+    },
+    {
+      "h": "編按：短回饋也能有反思",
+      "b": "以下是編者延伸，不是書中內容。急診教學常只有三五分鐘的技術指導，排不進一場完整的 debriefing；與其草草帶過，不如照書中的光譜先想清楚自己要走到哪一格——先問學員當下的判斷依據，再給具體建議，讓短回饋同樣保有反思的厚度。"
+    }
+  ],
+  "thm": [
+    "feedback 與 debriefing 不是二選一",
+    "硬切單環／雙環，缺乏教育文獻根據",
+    "形成性評量是一條反思深淺的連續光譜",
+    "有些 feedback 比淺層 debriefing 更深刻",
+    "多數人的 feedback 都還缺一套結構"
+  ]
+}

@@ -2573,9 +2573,9 @@
     <input id="szQ" type="search" placeholder="搜尋整個期刊庫：標題、分區、作者、關鍵字（debriefing、AI、護理、中心設計…）" oninput="szFilter()" autocomplete="off" disabled>
     <span class="sz-qn" id="szQn"></span>
   </div>
-  <!-- SZ-LIB-START (由 node tools/sz-build.js 產生；資料在 data/simzine.json，勿手動編輯) -->
+  <!-- SZ-LIB-START (由 node tools/sz-build.js 產生；資料在 data/library.json，勿手動編輯) -->
   <script>
-  window.SZ_DATA_URL = "data/simzine.json?v=10106c2d";
+  window.SZ_DATA_URL = "data/library.json?v=ee4272e8";
   </script>
   <!-- SZ-PICKS-END -->
   <div id="szLib"></div>
@@ -2592,10 +2592,13 @@
     var M = ['#95A78D','#8DA3B9','#C79E93','#A395B0','#BFAF97','#88A9A2','#B99A9E','#9A9E8E'];
     // FLAT：所有期數的文章攤平成一份索引，彈窗用 flat index 取用；不受搜尋篩選影響，索引才穩定
     var FLAT = [];
+    // 期刊用單一頁碼、專書章節用頁碼區間
+    var pageLabel = function(p) { return p.pages ? 'p.'+p.pages : (p.page ? 'p.'+p.page : ''); };
     var card = function(p, c, fi, ed) {
+      var pl = pageLabel(p);
       return '<div class="sz-card" style="--mc:'+c+'" onclick="szOpen('+fi+')">'
         + '<div class="sz-meta"><span class="sz-tag">'+esc(p.tag)+'</span>'
-        + '<span class="sz-src">'+esc(p.section||'')+(p.page?' · p.'+p.page:'')+'</span></div>'
+        + '<span class="sz-src">'+esc(p.section||'')+(pl?' · '+pl:'')+'</span></div>'
         + '<div class="sz-title">'+esc(p.title_zh)+'</div>'
         + '<div class="sz-digest">'+esc(p.digest_zh)+'</div>'
         + '<div class="sz-foot"><span class="sz-en">'+esc(p.title_en)+'</span><span class="sz-go">重點整理 →</span></div>'
@@ -2623,7 +2626,9 @@
       fetch(window.SZ_DATA_URL || 'data/simzine.json')
         .then(function(r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
         .then(function(d) {
-          window.SZ_ISSUES = d;
+          // 新格式 {issues, books}；舊格式是純陣列
+          window.SZ_ISSUES = Array.isArray(d) ? d : (d.issues || []);
+          window.SZ_BOOKS = Array.isArray(d) ? [] : (d.books || []);
           LOADED = true; LOADING = false;
           if (qi) qi.disabled = false;
           szRender(qi ? qi.value : '');
@@ -2641,9 +2646,11 @@
       if (!box) return;
       if (!LOADED) return;   // 尚未載入完成時，保留載入中／失敗的訊息
       var issues = window.SZ_ISSUES || [];
+      var books = window.SZ_BOOKS || [];
       var query = (q||'').trim().toLowerCase();
       var shown = 0, total = 0;
-      var html = issues.map(function(ed, ei) {
+      // 期刊與專書共用同一套卡片／彈窗，只差在收摺標題與出處寫法
+      var block = function(ed, ei, kind) {
         var items = ed.items || [];
         var cards = items.map(function(p, i) {
           total++;
@@ -2655,14 +2662,26 @@
         if (query && !cards.length) return '';
         var open = (query || ei === 0) ? ' open' : '';
         return '<details class="sz-arch"'+open+'><summary>'
-          + '<span class="sz-arch-m">'+esc(ed.issue)+'</span>'
-          + '<span class="sz-arch-d">'+esc(ed.label||ed.date||'')+'</span>'
+          + '<span class="sz-arch-m">'+esc(kind === 'book' ? ed.title_zh : ed.issue)+'</span>'
+          + '<span class="sz-arch-d">'+esc(kind === 'book' ? (ed.author||'') : (ed.label||ed.date||''))+'</span>'
           + '<span class="sz-arch-n">'+cards.length+' 篇</span></summary>'
+          + (kind === 'book' && ed.blurb ? '<div class="sz-bookinfo">'+esc(ed.blurb)+'</div>' : '')
           + '<div class="sz-grid">'+cards.join('')+'</div></details>';
-      }).join('');
-      box.innerHTML = html || '<div class="sz-empty">找不到符合的文章，換個關鍵字試試。</div>';
+      };
+      books.forEach(function(b) { b.kind = 'book'; });
+      box.innerHTML = issues.map(function(ed, ei) { return block(ed, ei, 'issue'); }).join('')
+        || '<div class="sz-empty">找不到符合的文章，換個關鍵字試試。</div>';
+      var bbox = document.getElementById('szBooks');
+      if (bbox) {
+        var bh = books.map(function(ed, ei) { return block(ed, ei, 'book'); }).join('');
+        bbox.innerHTML = bh || (query ? '<div class="sz-empty">專書中找不到符合的章節。</div>' : '');
+      }
       var stat = document.getElementById('szStat');
-      if (stat) stat.textContent = issues.length + ' 期 · ' + total + ' 篇';
+      if (stat) {
+        var bn = books.reduce(function(n, b) { return n + (b.items||[]).length; }, 0);
+        stat.textContent = issues.length + ' 期 · ' + (total - bn) + ' 篇'
+          + (books.length ? '，另收專書 ' + books.length + ' 本 ' + bn + ' 章' : '');
+      }
       var qn = document.getElementById('szQn');
       if (qn) qn.textContent = query ? ('找到 ' + shown + ' 篇') : '';
     };
@@ -2674,7 +2693,11 @@
       var f = FLAT[fi]; if (!f) return;
       var p = f.p, c = f.c, ed = f.ed || {};
       var body = document.getElementById('szModalBody');
-      var src = 'SIMZINE ' + (ed.issue||'') + (ed.label ? '（'+ed.label+'）' : '') + (p.page ? ' · p.'+p.page : '');
+      var pl = pageLabel(p);
+      var src = ed.kind === 'book'
+        ? '《' + (ed.title_zh||'') + '》' + (p.section ? ' · '+p.section : '') + (pl ? ' · '+pl : '')
+        : 'SIMZINE ' + (ed.issue||'') + (ed.label ? '（'+ed.label+'）' : '') + (pl ? ' · '+pl : '');
+      var credit = ed.kind === 'book' ? (ed.credit || src) : src;
       body.innerHTML = '<div class="szm" style="--mc:'+c+'">'
         + '<div class="sz-meta"><span class="sz-tag">'+esc(p.tag)+'</span>'
         + '<span class="szm-date">'+esc(src)+'</span></div>'
@@ -2690,8 +2713,10 @@
         + (p.thm||[]).map(function(t) { return '<li>'+esc(t)+'</li>'; }).join('')
         + '</ol></div>'
         + '<div class="szm-foot">'
-        + '<span class="szm-src">重點整理編譯自 '+esc(src)+'，著作權屬原作者</span>'
-        + (p.doi
+        + '<span class="szm-src">重點整理編譯自 '+esc(credit)+'，著作權屬原作者</span>'
+        + (ed.kind === 'book'
+            ? (ed.url ? '<a class="szm-go" href="'+esc(ed.url)+'" target="_blank" rel="noopener">本書資訊 ↗</a>' : '')
+            : p.doi
             ? '<a class="szm-go" href="https://doi.org/'+esc(p.doi)+'" target="_blank" rel="noopener">閱讀原文（DOI）↗</a>'
             : p.url
               ? '<a class="szm-go" href="'+esc(p.url)+'" target="_blank" rel="noopener">閱讀原文 ↗</a>'
@@ -2711,6 +2736,16 @@
     }
   })();
   </script>
+  <div class="sz-divider"></div>
+
+  <div class="sz-head">
+    <div>
+      <div class="sz-h2">📕 專書導讀</div>
+      <div class="sz-sub">整本讀完、逐章整理。點書名展開章節，每章一樣有<b>繁中重點整理與 5 點 Take Home Message</b>；上方的搜尋框同時會搜專書章節。</div>
+    </div>
+  </div>
+  <div id="szBooks"></div>
+
   <div class="sz-divider"></div>
 
   <div class="sz-h2" style="margin:6px 0 2px;">📖 主題導讀</div>
@@ -2741,6 +2776,8 @@
       border:1.5px solid var(--border); border-radius:8px; padding:4px 12px; margin-left:8px; cursor:pointer; }
     .sz-retry:hover { background:#f2f5f8; }
     .sz-arch-d { font-size:0.78rem; font-weight:600; color:var(--text-muted); }
+    .sz-bookinfo { font-size:0.82rem; line-height:1.85; color:#5a6268; background:#fafbfc;
+      border-bottom:1px dashed var(--border); padding:11px 15px; }
     .sz-title { font-size:0.95rem; font-weight:800; color:#3a4145; line-height:1.5; }
     .sz-digest { font-size:0.83rem; color:#5a6268; line-height:1.7; flex:1; }
     .sz-foot { display:flex; justify-content:space-between; align-items:center; gap:8px; border-top:1px dashed color-mix(in srgb, var(--mc) 45%, white); padding-top:8px; }
