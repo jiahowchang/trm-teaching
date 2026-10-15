@@ -1,0 +1,32 @@
+{
+ "slug": "husebo-2019",
+ "title_zh": "醫療照護中的跨專業擬真",
+ "title_en": "Interprofessional Simulation in Health Care（Professional and Practice-based Learning, vol. 26）",
+ "author": "Madeleine Abrandt Dahlgren 等 編",
+ "publisher": "Springer Nature Switzerland",
+ "year": 2019,
+ "lang": "en",
+ "blurb": "瑞典、挪威、丹麥團隊的跨專業擬真研究專書。本館目前只收第 7 章〈Reflecting on Interprofessional Simulation〉（pp. 139–171）。該章由三段獨立撰寫的內容組成，因此在這裡拆成三篇：7.2 以實作理論分析 debriefing 實際長成什麼樣子，7.3 討論影片在 debriefing 裡怎麼用，7.4 是 Peter Dieckmann 的評註。三段都建立在實際錄影資料上——18 場學生與 10 場專業人員的 debriefing，以及 8 梯次共 40 場擬真的錄影——而不是經驗談。",
+ "credit": "Husebø SE, Abrandt Dahlgren M, Edelbring S, Nordenström E, Nordahl Amorøe T, Rystedt H, Dieckmann P.《Reflecting on Interprofessional Simulation》。收於 Abrandt Dahlgren M 等編，《Interprofessional Simulation in Health Care》，Professional and Practice-based Learning 26，Springer，2019，頁 139–171",
+ "url": "https://doi.org/10.1007/978-3-030-19542-7_7",
+ "chapters": [
+  {
+   "file": "c07a.json",
+   "section": "第 7 章 ‧ 7.2",
+   "pages": "141–154",
+   "part": "Chapter 7 Reflecting on Interprofessional Simulation"
+  },
+  {
+   "file": "c07b.json",
+   "section": "第 7 章 ‧ 7.3",
+   "pages": "154–169",
+   "part": "Chapter 7 Reflecting on Interprofessional Simulation"
+  },
+  {
+   "file": "c07c.json",
+   "section": "第 7 章 ‧ 7.4",
+   "pages": "170–171",
+   "part": "Chapter 7 Reflecting on Interprofessional Simulation"
+  }
+ ]
+}

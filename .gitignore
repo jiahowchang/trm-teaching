@@ -8,3 +8,6 @@
 
 # 每月 SIMZINE 換期的暫存輸入（由 tools/sz-rotate.js 讀取後即可丟）
 new-picks.json
+
+# Claude Code 本機 session 設定（不要推進公開 repo）
+.claude/

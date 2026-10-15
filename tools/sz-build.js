@@ -141,7 +141,8 @@ if (fs.existsSync(BOOKS_DIR)) {
     });
 
     books.push({
-      kind: 'book', slug, title_zh: meta.title_zh, title_orig: meta.title_es || '',
+      // title_orig：原文書名。西文書用 title_es，英文書用 title_en
+      kind: 'book', slug, title_zh: meta.title_zh, title_orig: meta.title_es || meta.title_en || '',
       author: meta.author || '', publisher: meta.publisher || '', year: meta.year || '',
       blurb: meta.blurb || '', credit: meta.credit || '', url: meta.url || '', items,
     });
